@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="tabs"
+>
+  <button
+    className="tabs__tab-label tabs__tab-label--active"
+    name="general"
+    onClick={[Function]}
+    type="button"
+  >
+    General
+  </button>
+  <button
+    className="tabs__tab-label"
+    name="system"
+    onClick={[Function]}
+    type="button"
+  >
+    System
+  </button>
+  <button
+    className="tabs__tab-label"
+    name="plugins"
+    onClick={[Function]}
+    type="button"
+  >
+    Plugins
+  </button>
+</div>
+`;

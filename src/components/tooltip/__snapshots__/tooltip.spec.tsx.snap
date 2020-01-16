@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="tooltip tooltip--position--bottom"
+>
+  <div
+    onBlur={[Function]}
+    onMouseOut={[Function]}
+    onMouseOverCapture={[Function]}
+  >
+    <div>
+      Tooltip
+    </div>
+  </div>
+</div>
+`;

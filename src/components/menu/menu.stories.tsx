@@ -13,7 +13,7 @@ storiesOf('menu', module).add('menu', () => (
           {
             label: 'Rename',
             icon: 'Edit',
-            onClick: () => alert('gg'),
+            onClick: () => alert('Hello world'),
           },
         ]}
       />

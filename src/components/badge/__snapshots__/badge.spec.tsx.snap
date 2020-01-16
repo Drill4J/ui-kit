@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<span
+  className="badge"
+>
+  simple
+</span>
+`;
+
+exports[`renders correctly 2`] = `
+<span
+  className="badge badge--bold"
+>
+  simple
+</span>
+`;
+
+exports[`renders correctly with bold 1`] = `
+<span
+  className="badge badge--bold"
+>
+  simple
+</span>
+`;

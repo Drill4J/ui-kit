@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useElementSize should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "display": "inline-block",
+    }
+  }
+>
+  <textarea
+    placeholder="width: 0 and height: 0"
+  />
+</div>
+`;

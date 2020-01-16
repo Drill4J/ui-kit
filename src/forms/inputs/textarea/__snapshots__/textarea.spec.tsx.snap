@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea should match snapshot 1`] = `
+<textarea
+  className="textarea"
+  data-modifiers=""
+  onChange={[Function]}
+  value="Textarea component"
+/>
+`;

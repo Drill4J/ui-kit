@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggler Should render a toggler 1`] = `
+<label
+  className="toggler"
+>
+  <div
+    className="input-wrapper toggler__input toggler__input--checked"
+  >
+    <input
+      checked={true}
+      className="input-wrapper__input-element"
+      onChange={[Function]}
+      type="checkbox"
+      value={true}
+    />
+  </div>
+  <span
+    className="toggler__slider"
+    data-modifiers=""
+  />
+  <div
+    checked={true}
+    className="toggler__label toggler__label--checked"
+    data-modifiers="checked"
+  >
+    toggler
+  </div>
+</label>
+`;

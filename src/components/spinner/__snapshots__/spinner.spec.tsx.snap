@@ -18,3 +18,22 @@ exports[`should match snapshot 1`] = `
   <div />
 </div>
 `;
+
+exports[`should match snapshot 1`] = `
+<div
+  className="spinner"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;

@@ -12,3 +12,16 @@ exports[`should match snapshot 1`] = `
   Primary large
 </button>
 `;
+
+exports[`should match snapshot 1`] = `
+<button
+  className="button button--type--primary button--size--large"
+  data-test=""
+  disabled={false}
+  onClick={[Function]}
+  size="large"
+  type="primary"
+>
+  Primary large
+</button>
+`;

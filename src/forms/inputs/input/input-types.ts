@@ -9,5 +9,7 @@ export interface InputProps {
   value?: any;
   onChange?: () => void;
   error?: boolean;
+  success?: boolean;
   ref?: React.Ref<HTMLInputElement>;
+  prefix?: boolean;
 }

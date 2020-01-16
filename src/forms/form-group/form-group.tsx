@@ -20,9 +20,13 @@ export const FormGroup = formGroup(({
 }: Props) => (
   <div className={className}>
     <Panel align="space-between">
-      <Label>{label || null}</Label>
-      {optional && <OptionalLabel>Optional</OptionalLabel>}
-      {actions}
+      <Label>{label}</Label>
+      <div>
+        <Panel>
+          {optional && <OptionalLabel>Optional</OptionalLabel>}
+          {actions && <Actions>{actions}</Actions>}
+        </Panel>
+      </div>
     </Panel>
     <Input>{children}</Input>
   </div>
@@ -30,4 +34,5 @@ export const FormGroup = formGroup(({
 
 const Label = formGroup.label('label');
 const OptionalLabel = formGroup.optionalLabel('span');
+const Actions = formGroup.actions('div');
 const Input = formGroup.input('div');

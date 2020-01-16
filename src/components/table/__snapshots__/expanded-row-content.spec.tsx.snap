@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpandedRowContent should match snapshot 1`] = `
+Array [
+  <tr
+    className="table__row"
+  />,
+  <tr
+    className="table__row"
+  />,
+  <tr
+    className="table__row"
+  />,
+]
+`;

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should match snapshot 1`] = `
+<table
+  className="table"
+>
+  <thead
+    className="table__header"
+  >
+    <tr>
+      <th
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        Name
+      </th>
+      <th
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        Added
+      </th>
+      <th
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <div>
+          Total Methods
+        </div>
+      </th>
+      <th
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <div>
+          New
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="table__row"
+    >
+      <td>
+        <div
+          onClick={[Function]}
+        >
+          1658090997
+        </div>
+      </td>
+      <td>
+        <span>
+          1580285098638
+        </span>
+      </td>
+      <td>
+        97
+      </td>
+      <td>
+        40
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

@@ -14,20 +14,19 @@ exports[`should match snapshot 1`] = `
     >
       Form
     </label>
-    <span
-      className="form-group__optional-label"
-      data-modifiers=""
-    >
-      Optional
-    </span>
-    <select>
-      <option>
-        Action 1
-      </option>
-      <option>
-        Action 2
-      </option>
-    </select>
+    <div>
+      <div
+        className="panel"
+        onClick={[Function]}
+      >
+        <span
+          className="form-group__optional-label"
+          data-modifiers=""
+        >
+          Optional
+        </span>
+      </div>
+    </div>
   </div>
   <div
     className="form-group__input"

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Panel should match snapshot 1`] = `
+<div
+  className="panel"
+  onClick={[Function]}
+>
+  <span>
+    Panel
+  </span>
+  <span>
+    element
+  </span>
+</div>
+`;

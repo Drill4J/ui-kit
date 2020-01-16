@@ -9,12 +9,6 @@ it('should match snapshot', () => {
       <FormGroup
         label="Form"
         optional
-        actions={(
-          <select>
-            <option>Action 1</option>
-            <option>Action 2</option>
-          </select>
-        )}
       >
         <input />
       </FormGroup>,

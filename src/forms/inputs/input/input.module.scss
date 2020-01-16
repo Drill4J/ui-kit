@@ -4,14 +4,15 @@
   position: relative;
 
   &__input-element {
+    box-sizing: border-box;
     width: 100%;
     height: $common-element-height;
+    padding: 0 16px;
     line-height: 22px;
     border: 1px solid $loblolly-color;
     border-radius: 4px;
     background-color: map-get($color-palette, white);
     outline: none;
-    padding: 0 17px;
     font-family: $regular-font;
     font-size: 14px;
     color: map-get($color-palette, dark-blue);
@@ -21,7 +22,6 @@
     }
 
     &--rounded {
-      padding: 0 48px;
       border-radius: 20px;
     }
 
@@ -32,8 +32,16 @@
       opacity: 0.5;
     }
 
+    &--success {
+      border: 1px solid map-get($color-palette, green100);
+    }
+
     &--error {
       border: 1px solid map-get($color-palette, red100);
+    }
+
+    &--prefix {
+      padding: 0 40px;
     }
   }
 

@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match snapshot 1`] = `
-<span
-  className="badge"
->
-  simple
-</span>
-`;
-
-exports[`should match snapshot with bold 1`] = `
+exports[`Badge should match snapshot with bold text 1`] = `
 <span
   className="badge badge--bold"
 >
   bold
+</span>
+`;
+
+exports[`Badge should match snapshot with simple text 1`] = `
+<span
+  className="badge"
+>
+  simple
 </span>
 `;

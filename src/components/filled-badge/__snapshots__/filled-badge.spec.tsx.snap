@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match snapshot 1`] = `
+exports[`FilledBadge should match snapshot 1`] = `
 <span
   className="filled-badge"
 >

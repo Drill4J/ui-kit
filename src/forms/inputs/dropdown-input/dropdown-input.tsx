@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BEM, div } from '@redneckz/react-bem-helper';
 
-import { Icons } from 'components';
-import { useClickOutside } from 'hooks';
+import { Icons } from '../../../components';
+import { useClickOutside } from '../../../hooks';
 import { DropdownItem } from './dropdown-item';
 
 import { DropdownInputProps } from './dropdown-input-types';

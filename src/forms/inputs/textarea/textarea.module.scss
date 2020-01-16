@@ -1,6 +1,7 @@
 @import '../../../style-guide/index';
 
 .textarea {
+  box-sizing: border-box;
   width: 100%;
   height: 80px;
   border-radius: 4px;

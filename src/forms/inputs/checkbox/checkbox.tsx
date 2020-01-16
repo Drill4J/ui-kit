@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BEM, input } from '@redneckz/react-bem-helper';
 
-import { Icons } from 'components';
+import { Icons } from '../../../components';
 import { CheckboxProps } from './checkbox-types';
 
 import styles from './checkbox.module.scss';

@@ -1,12 +1,7 @@
 @import '../../style-guide/index';
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
   &__label {
-    height: auto;
     font-family: $semibold-font;
     font-size: 14px;
     line-height: 40px;
@@ -15,14 +10,15 @@
 
   &__optional-label {
     font-size: 12px;
-    line-height: 24px;
-    text-align: right;
     color: $slate-gray;
   }
 
+  &__actions {
+    display: flex;
+    margin-left: 8px;
+  }
+
   &__input {
-    flex-grow: 1;
     width: 100%;
-    margin-left: 0;
   }
 }

@@ -4,5 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { Badge } from './badge';
 
 storiesOf('Badge', module)
-  .add('with text', () => <Badge text="simple" />)
-  .add('bold', () => <Badge text="simple" bold />);
+  .add('with simple and bold text', () => (
+    <div style={{ display: 'flex' }}>
+      <Badge text="simple" />
+      <Badge text="bold" bold />
+    </div>
+  ));

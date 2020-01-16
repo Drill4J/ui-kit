@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagePanel should match snapshot with the default text 1`] = `
+<div
+  className="message-panel"
+>
+  <div
+    className="message-panel__content message-panel__content--type--success"
+    data-modifiers="type--SUCCESS"
+    type="SUCCESS"
+  >
+    <div
+      className="panel panel--align--space-between"
+      onClick={[Function]}
+    >
+      <div
+        className="panel"
+        onClick={[Function]}
+      >
+        <div
+          className="message-panel__message-icon-wrapper message-panel__message-icon-wrapper--type--success"
+          data-modifiers="type--SUCCESS"
+          type="SUCCESS"
+        >
+          <svg
+            className="generic-icon"
+            data-modifiers=""
+            fillRule="evenodd"
+            height={16}
+            style={
+              Object {
+                "WebkitTransform": "rotate(0deg)",
+              }
+            }
+            transform="rotate(0)"
+            viewBox="0 0 20 20"
+            width={16}
+          >
+            <path
+              d="M 10 1 C 5.029 1 1 5.029 1 10 C 1 14.971 5.029 19 10 19 C 14.971 19 19 14.971 19 10 C 19 5.029 14.971 1 10 1 Z  M 10 0 C 15.523 0 20 4.477 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 Z  M 4.697 9.944 L 4.803 9.834 C 5.189 9.433 5.812 9.434 6.196 9.833 L 7.804 11.501 C 8.19 11.901 8.808 11.903 9.188 11.508 L 13.812 6.714 C 14.194 6.317 14.812 6.324 15.197 6.723 L 15.303 6.832 C 15.689 7.233 15.69 7.877 15.308 8.273 L 9.192 14.616 C 8.813 15.009 8.19 15.011 7.807 14.614 L 4.693 11.386 C 4.309 10.987 4.312 10.343 4.697 9.944 Z "
+            />
+          </svg>
+        </div>
+        <div
+          className="message-panel__message-text"
+          data-modifiers=""
+        >
+          Succes! Congratz!
+        </div>
+      </div>
+      <svg
+        className="generic-icon message-panel__close-icon"
+        data-modifiers=""
+        fillRule="evenodd"
+        height={16}
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitTransform": "rotate(0deg)",
+          }
+        }
+        transform="rotate(0)"
+        viewBox="0 0 16 16"
+        width={16}
+      >
+        <path
+          d="M 8 7.242 L 15.205 0.073 C 15.462 -0.081 15.787 0.016 15.931 0.291 C 16.076 0.566 15.985 0.915 15.728 1.07 L 9.325 7.429 L 8.789 7.998 L 9.325 8.572 L 15.728 14.931 C 15.985 15.085 16.076 15.434 15.931 15.709 C 15.787 15.984 15.462 16.081 15.205 15.927 L 8 8.758 L 0.795 15.927 C 0.538 16.081 0.213 15.984 0.069 15.709 C -0.076 15.434 0.015 15.085 0.272 14.931 L 6.675 8.572 L 7.211 8.003 L 6.675 7.429 L 0.272 1.07 C 0.015 0.915 -0.076 0.566 0.069 0.291 C 0.213 0.016 0.538 -0.081 0.795 0.073 L 8 7.242 Z "
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

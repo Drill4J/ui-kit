@@ -6,4 +6,5 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
     '.+\\.(css|scss)$': 'jest-css-modules-transform',
   },
+  setupFilesAfterEnv: [require.resolve('./jest-setup.js')],
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
-import { Panel } from '../panel';
+import { Panel } from '../../layouts';
 import { Portal } from '../portal';
 import { Icons } from '../icon';
 

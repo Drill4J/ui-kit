@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<button
+  className="button button--size--large cancel-button"
+  data-test=""
+  disabled={false}
+  onClick={[Function]}
+  size="large"
+  type="primary"
+>
+  Cancel button
+</button>
+`;

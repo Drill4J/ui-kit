@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div
+  className="form-group"
+>
+  <div
+    className="panel panel--align--space-between"
+    onClick={[Function]}
+  >
+    <label
+      className="form-group__label"
+      data-modifiers=""
+    >
+      Form
+    </label>
+    <span
+      className="form-group__optional-label"
+      data-modifiers=""
+    >
+      Optional
+    </span>
+    <select>
+      <option>
+        Action 1
+      </option>
+      <option>
+        Action 2
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group__input"
+    data-modifiers=""
+  >
+    <input />
+  </div>
+</div>
+`;

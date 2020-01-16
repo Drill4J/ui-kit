@@ -3,14 +3,13 @@ import renderer from 'react-test-renderer';
 
 import { Badge } from './badge';
 
-it('renders correctly', () => {
+it('should match snapshot', () => {
   const tree = renderer.create(<Badge text="simple" />).toJSON();
-
   expect(tree).toMatchSnapshot();
 });
 
-it('renders correctly with bold', () => {
-  const tree = renderer.create(<Badge text="simple" bold />).toJSON();
+it('should match snapshot with bold', () => {
+  const tree = renderer.create(<Badge text="bold" bold />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

@@ -3,16 +3,16 @@ import renderer from 'react-test-renderer';
 
 import { Menu } from './menu';
 
-it('renders correctly', () => {
+it('should match snapshot', () => {
   const tree = renderer.create(<Menu
     items={[
       {
         label: 'Rename',
         icon: 'Edit',
-        onClick: () => alert('Hello world'),
+        onClick: () => {},
       },
     ]}
   />).toJSON();
-  
+
   expect(tree).toMatchSnapshot();
 });

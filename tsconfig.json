@@ -11,8 +11,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": true,
+    "allowJs": true,
     "jsx": "react",
     "declaration": true
   },
-  "include": ["src", "declaration.d.ts"]
+  "include": ["src", "declaration.d.ts"],
+  "exclude": [
+    "node_modules",
+    "**/*.stories.tsx"
+  ]
 }

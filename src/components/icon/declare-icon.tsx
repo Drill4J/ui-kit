@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { GenericIcon } from './generic-icon';
+import { IconProps } from './generic-icon-types';
 
 interface Settings {
   viewBox?: string;
@@ -8,19 +10,11 @@ interface Settings {
   fillRule?: 'inherit' | 'nonzero' | 'evenodd';
 }
 
-export interface Props {
-  width?: number;
-  height?: number;
-  onClick?: () => void;
-  viewBox?: string;
-  rotate?: number;
-}
-
-export type DeclareIcon = (path: string, settings: Settings) => JSX.Element;
-
 export function declareIcon(path: string, settings: Settings = {}) {
-  const { defaultWidth = 16, defaultHeight = 16, fillRule = 'evenodd', viewBox } = settings;
-  return ({ width = defaultWidth, height = defaultHeight, ...rest }: Props) => (
+  const {
+    defaultWidth = 16, defaultHeight = 16, fillRule = 'evenodd', viewBox,
+  } = settings;
+  return ({ width = defaultWidth, height = defaultHeight, ...rest }: IconProps) => (
     <GenericIcon
       path={path}
       width={width}

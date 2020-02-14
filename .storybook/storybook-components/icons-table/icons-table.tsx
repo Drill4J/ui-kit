@@ -49,7 +49,7 @@ export const IconsTable = iconsTable(({ className }: Props) => {
           const Icon = Icons[key as keyof typeof Icons];
           return (
             <IconWrapper>
-              <div><Icon height={16} width={16} /></div>
+              <div><Icon height={18} width={18} /></div>
               <IconLabel>{key}</IconLabel>
               <IconStorySource>{`code: <Icons.${key} />`}</IconStorySource>
             </IconWrapper>

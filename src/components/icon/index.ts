@@ -48,6 +48,10 @@ import { path as moreOptionsWithBorderPath } from './path/more-options-with-bord
 import { path as agentPath } from './path/agent.path';
 import { path as serviceGroupPath } from './path/service-group.path';
 import { path as buildListPath } from './path/build-list.path';
+import { path as planetPath } from './path/planet.path';
+import { path as mousePath } from './path/mouse.path';
+import { path as stopwatchPath } from './path/stopwatch.path';
+import { path as logoPath } from './path/logo.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -109,4 +113,8 @@ export const Icons = {
   Agent: declareIcon(agentPath, { defaultWidth: 18, defaultHeight: 20 }),
   ServiceGroup: declareIcon(serviceGroupPath, { defaultWidth: 18, defaultHeight: 20 }),
   BuildList: declareIcon(buildListPath, { defaultWidth: 18, defaultHeight: 16 }),
+  Planet: declareIcon(planetPath),
+  Mouse: declareIcon(mousePath, { defaultWidth: 20, defaultHeight: 32 }),
+  Stopwatch: declareIcon(stopwatchPath, { defaultWidth: 42, defaultHeight: 48 }),
+  Logo: declareIcon(logoPath, { defaultHeight: 80, defaultWidth: 64 }),
 };

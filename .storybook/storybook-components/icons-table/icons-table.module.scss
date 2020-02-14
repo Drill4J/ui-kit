@@ -1,7 +1,6 @@
 @import '../../../src/style-guide/index';
 
 .icons-table {
-  width: 80vw;
   &__icon-info {
     margin-top: 8px;
     font-size: 18px;
@@ -25,8 +24,8 @@
 
   &__icons-table-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    grid-gap: 3em;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 1em;
     margin-top: 40px;
   }
 
@@ -42,16 +41,16 @@
   }
 
   &__icon-label {
-    font-size: 12px;
+    font-size: 14px;
     font-family: $light-font;
     color: $gravel-color;
   }
 
   &__icon-story-source {
-    max-width: 200px;
+    max-width: 220px;
     font-family: $light-font;
     font-size: 0.7em;
-    color: map-get($color-palette, green100);
+    color: map-get($color-palette, blue100);
     cursor: pointer;
   }
 }

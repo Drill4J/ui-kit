@@ -1,5 +1,5 @@
 import './style-guide/fonts/fonts.scss';
-import './style-guide/common.scss';
+import './style-guide/_index.scss';
 
 export {
   Badge, Icons, OverflowText, Popup, FilledBadge, Spinner, Tooltip, TabsPanel,

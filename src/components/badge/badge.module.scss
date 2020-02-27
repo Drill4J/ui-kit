@@ -1,13 +1,35 @@
 @import '../../style-guide/index';
 
 .badge {
+  height: 13px;
+  padding: 1px 8px;
   border: 1px solid currentColor;
-  border-radius: 14px;
-  font-size: 11px;
-  line-height: 12px;
-  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
 
   &--bold {
     font-family: $semibold-font;
+  }
+
+  &--color {
+    &--green {
+      border: 1px solid map-get($color-palette, green100);
+      color: map-get($color-palette, green100);
+    }
+
+    &--yellow {
+      border: 1px solid map-get($color-palette, yellow50);
+      color: map-get($color-palette, yellow50);
+    }
+
+    &--gray {
+      border: 1px solid map-get($color-palette, gray100);
+      color: $slate-gray;
+    }
+
+    &--red {
+      border: 1px solid map-get($color-palette, red100);
+      color: map-get($color-palette, red100);
+    }
   }
 }

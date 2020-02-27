@@ -5,12 +5,13 @@ import styles from './badge.module.scss';
 
 interface Props {
   className?: string;
-  text?: string;
+  children?: React.ReactNode;
   bold?: boolean;
+  color?: 'green' | 'yellow' | 'gray' | 'red';
 }
 
 const badge = BEM(styles);
 
-export const Badge = badge(({ className, text }: Props) => (
-  <span className={className}>{text}</span>
+export const Badge = badge(({ className, children }: Props) => (
+  <span className={className}>{children}</span>
 ));

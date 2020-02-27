@@ -5,8 +5,11 @@ import { Badge } from './badge';
 
 storiesOf('Badge', module)
   .add('with simple and bold text', () => (
-    <div style={{ display: 'flex' }}>
-      <Badge text="simple" />
-      <Badge text="bold" bold />
+    <div>
+      <Badge>simple</Badge>
+      <Badge bold>bold</Badge>
+      <Badge color="green">Online</Badge>
+      <Badge color="yellow">Busy</Badge>
+      <Badge color="gray">Offline</Badge>
     </div>
   ));

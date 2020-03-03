@@ -2,118 +2,156 @@
 
 exports[`ExpandableTable should match snapshot 1`] = `
 <table
-  className="table table--columns-size--medium expandable-table"
+  className="table expandable-table"
 >
   <thead
     className="table__header"
   >
     <tr>
       <th
+        rowSpan={2}
         style={
           Object {
-            "width": undefined,
-          }
-        }
-      />
-      <th
-        style={
-          Object {
+            "verticalAlign": "top",
             "width": undefined,
           }
         }
       >
-        First column
+        <div
+          className="panel"
+          onClick={[Function]}
+        />
       </th>
       <th
+        rowSpan={2}
         style={
           Object {
+            "verticalAlign": "top",
             "width": undefined,
           }
         }
       >
-        Second column
+        <div
+          className="panel"
+          onClick={[Function]}
+        >
+          First column
+          <div
+            className="sort-arrows"
+            onClick={[Function]}
+          >
+            <div
+              className="sort-arrows__sort-arrow-wrapper"
+              data-modifiers=""
+            >
+              <svg
+                active={false}
+                className="generic-icon sort-arrows__sort-arrow"
+                data-modifiers=""
+                fillRule="evenodd"
+                height={10}
+                style={
+                  Object {
+                    "WebkitTransform": "rotate(180deg)",
+                  }
+                }
+                transform="rotate(180)"
+                viewBox="0 0 7 10"
+                width={7}
+              >
+                <path
+                  d="M3.5 10l.01-.001h.033l.03-.006.017-.001.015-.003-.062.01a.5.5 0 0 0 .31-.145l2.95-2.95a.5.5 0 0 0-.707-.707L4 8.295 4 .5a.5.5 0 0 0-1 0l-.001 7.843L.854 6.197a.5.5 0 0 0-.708.707l2.95 2.95a.498.498 0 0 0 .311.144L3.49 10a.51.51 0 0 0 .011 0z"
+                />
+              </svg>
+              <svg
+                active={false}
+                className="generic-icon sort-arrows__sort-arrow"
+                data-modifiers=""
+                fillRule="evenodd"
+                height={10}
+                style={
+                  Object {
+                    "WebkitTransform": "rotate(0deg)",
+                  }
+                }
+                transform="rotate(0)"
+                viewBox="0 0 7 10"
+                width={7}
+              >
+                <path
+                  d="M3.5 10l.01-.001h.033l.03-.006.017-.001.015-.003-.062.01a.5.5 0 0 0 .31-.145l2.95-2.95a.5.5 0 0 0-.707-.707L4 8.295 4 .5a.5.5 0 0 0-1 0l-.001 7.843L.854 6.197a.5.5 0 0 0-.708.707l2.95 2.95a.498.498 0 0 0 .311.144L3.49 10a.51.51 0 0 0 .011 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </th>
+      <th
+        rowSpan={2}
+        style={
+          Object {
+            "verticalAlign": "top",
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="panel"
+          onClick={[Function]}
+        >
+          Second column
+          <div
+            className="sort-arrows"
+            onClick={[Function]}
+          >
+            <div
+              className="sort-arrows__sort-arrow-wrapper"
+              data-modifiers=""
+            >
+              <svg
+                active={false}
+                className="generic-icon sort-arrows__sort-arrow"
+                data-modifiers=""
+                fillRule="evenodd"
+                height={10}
+                style={
+                  Object {
+                    "WebkitTransform": "rotate(180deg)",
+                  }
+                }
+                transform="rotate(180)"
+                viewBox="0 0 7 10"
+                width={7}
+              >
+                <path
+                  d="M3.5 10l.01-.001h.033l.03-.006.017-.001.015-.003-.062.01a.5.5 0 0 0 .31-.145l2.95-2.95a.5.5 0 0 0-.707-.707L4 8.295 4 .5a.5.5 0 0 0-1 0l-.001 7.843L.854 6.197a.5.5 0 0 0-.708.707l2.95 2.95a.498.498 0 0 0 .311.144L3.49 10a.51.51 0 0 0 .011 0z"
+                />
+              </svg>
+              <svg
+                active={false}
+                className="generic-icon sort-arrows__sort-arrow"
+                data-modifiers=""
+                fillRule="evenodd"
+                height={10}
+                style={
+                  Object {
+                    "WebkitTransform": "rotate(0deg)",
+                  }
+                }
+                transform="rotate(0)"
+                viewBox="0 0 7 10"
+                width={7}
+              >
+                <path
+                  d="M3.5 10l.01-.001h.033l.03-.006.017-.001.015-.003-.062.01a.5.5 0 0 0 .31-.145l2.95-2.95a.5.5 0 0 0-.707-.707L4 8.295 4 .5a.5.5 0 0 0-1 0l-.001 7.843L.854 6.197a.5.5 0 0 0-.708.707l2.95 2.95a.498.498 0 0 0 .311.144L3.49 10a.51.51 0 0 0 .011 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
       </th>
     </tr>
   </thead>
-  <tbody>
-    <tr
-      className="table__row"
-    >
-      <td>
-        <div
-          className="row-expander"
-          onClick={[Function]}
-        >
-          <div
-            className="row-expander__icon"
-          >
-            <svg
-              className="generic-icon"
-              data-modifiers=""
-              fillRule="evenodd"
-              height={13}
-              style={
-                Object {
-                  "WebkitTransform": "rotate(0deg)",
-                }
-              }
-              transform="rotate(0)"
-              viewBox="0 0 8 13"
-              width={8}
-            >
-              <path
-                d="M 0.976 1.505 C 0.687 1.215 0.687 0.747 0.976 0.457 C 1.266 0.168 1.734 0.168 2.024 0.457 L 7.543 5.976 C 7.832 6.266 7.832 6.734 7.543 7.024 L 2.024 12.543 C 1.734 12.832 1.266 12.832 0.976 12.543 C 0.687 12.253 0.687 11.785 0.976 11.495 L 5.972 6.5 L 0.976 1.505 Z"
-              />
-            </svg>
-          </div>
-        </div>
-      </td>
-      <td>
-        First column
-      </td>
-      <td>
-        Second column
-      </td>
-    </tr>
-    <tr
-      className="table__row"
-    >
-      <td>
-        <div
-          className="row-expander"
-          onClick={[Function]}
-        >
-          <div
-            className="row-expander__icon"
-          >
-            <svg
-              className="generic-icon"
-              data-modifiers=""
-              fillRule="evenodd"
-              height={13}
-              style={
-                Object {
-                  "WebkitTransform": "rotate(0deg)",
-                }
-              }
-              transform="rotate(0)"
-              viewBox="0 0 8 13"
-              width={8}
-            >
-              <path
-                d="M 0.976 1.505 C 0.687 1.215 0.687 0.747 0.976 0.457 C 1.266 0.168 1.734 0.168 2.024 0.457 L 7.543 5.976 C 7.832 6.266 7.832 6.734 7.543 7.024 L 2.024 12.543 C 1.734 12.832 1.266 12.832 0.976 12.543 C 0.687 12.253 0.687 11.785 0.976 11.495 L 5.972 6.5 L 0.976 1.505 Z"
-              />
-            </svg>
-          </div>
-        </div>
-      </td>
-      <td>
-        First column
-      </td>
-      <td>
-        Second column
-      </td>
-    </tr>
-  </tbody>
+  <tbody />
 </table>
 `;

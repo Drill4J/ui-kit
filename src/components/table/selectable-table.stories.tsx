@@ -19,6 +19,7 @@ storiesOf('SelectableTable', module).add('SelectableTable', () => (
       ['lambdaFunction']
     }
     onSelect={() => {}}
+    defaultSortField="lambdaFunction"
   >
     <Column
       name="lambdaFunction"

@@ -11,12 +11,12 @@ interface Props {
   data: object[];
   idKey: string;
   children: React.ReactNode;
-  columnsSize?: 'wide' | 'medium';
   expandedColumns?: any[];
   expandedContentKey: string;
   secondLevelExpand?: any[];
   className?: string;
   hasSecondLevelExpand?: boolean;
+  defaultSortField?: string;
 }
 
 const expandableTable = BEM(styles);
@@ -29,6 +29,7 @@ export const ExpandableTable = expandableTable(
     expandedColumns,
     className,
     hasSecondLevelExpand,
+    defaultSortField,
     ...restProps
   }: Props) => {
     const [expandedRows, setExpandedRows] = React.useState<string[]>([]);
@@ -54,6 +55,7 @@ export const ExpandableTable = expandableTable(
             : undefined
         }
         secondLevelExpand={expandedColumns}
+        defaultSortField={defaultSortField}
         {...restProps}
       >
         {[

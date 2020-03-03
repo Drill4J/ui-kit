@@ -45,7 +45,6 @@ describe('ExpandableTable', () => {
         <ExpandableTable
           data={data}
           idKey="name"
-          columnsSize="medium"
           expandedColumns={[
             <Column name="firstColumn" Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>} />,
             <Column name="secondColumn" />,

@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Drill4J",
   "license": "Apache-2.0",
   "description": "Drill4J UI components library",
@@ -80,7 +80,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint ./src --ext .ts,.tsx --fix",
+      "eslint --fix",
       "git add"
     ],
     "*.{scss,md}": [

@@ -53,6 +53,7 @@ import { path as mousePath } from './path/mouse.path';
 import { path as stopwatchPath } from './path/stopwatch.path';
 import { path as logoPath } from './path/logo.path';
 import { path as unicornPath } from './path/unicorn.path';
+import { path as unicornWithCirclePath } from './path/unicorn-with-circle.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -119,4 +120,5 @@ export const Icons = {
   Stopwatch: declareIcon(stopwatchPath, { defaultWidth: 42, defaultHeight: 48 }),
   Logo: declareIcon(logoPath, { defaultHeight: 80, defaultWidth: 64 }),
   Unicorn: declareIcon(unicornPath, { defaultHeight: 26, defaultWidth: 26 }),
+  UnicornWithCircle: declareIcon(unicornWithCirclePath, { defaultHeight: 26, defaultWidth: 26 }),
 };

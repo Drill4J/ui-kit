@@ -3,7 +3,7 @@
 .checkbox {
   display: flex;
   align-items: center;
-  color: map-get($color-palette, light-blue);
+  color: map-get($monochrome, medium-tint);
   cursor: pointer;
 
   &__input {
@@ -19,11 +19,11 @@
   &__label {
     font-size: 14px;
     line-height: 24px;
-    color: map-get($color-palette, dark-blue);
+    color: map-get($monochrome, black);
   }
 
   &--checked {
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
   }
 
   &--disabled {

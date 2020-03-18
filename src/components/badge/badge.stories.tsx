@@ -9,7 +9,7 @@ storiesOf('Badge', module)
       <Badge>simple</Badge>
       <Badge bold>bold</Badge>
       <Badge color="green">Online</Badge>
-      <Badge color="yellow">Busy</Badge>
-      <Badge color="gray">Offline</Badge>
+      <Badge color="orange">Busy</Badge>
+      <Badge color="red">Offline</Badge>
     </div>
   ));

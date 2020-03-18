@@ -10,10 +10,10 @@
     width: auto;
     min-height: 64px;
     padding: 0 24px;
-    border-bottom: 1px solid map-get($color-palette, light-blue);
+    border-bottom: 1px solid map-get($monochrome, medium-tint);
     font-size: 18px;
     line-height: 24px;
-    color: map-get($color-palette, black100);
+    color: map-get($monochrome, black);
   }
 
   &__close-button {
@@ -25,14 +25,14 @@
     top: 50%;
     left: 50%;
     z-index: 100;
-    background-color: map-get($color-palette, white);
+    background-color: map-get($monochrome, white);
     transform: translate(-50%, -50%);
     &--type {
       &--info {
-        box-shadow: 0 -4px 0 0 map-get($color-palette, blue100), 0 0 24px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 -4px 0 0 map-get($primary-blue, default), 0 0 24px 0 rgba(0, 0, 0, 0.15);
       }
       &--error {
-        box-shadow: 0 -4px 0 0 map-get($color-palette, red100), 0 0 24px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 -4px 0 0 map-get($red, default), 0 0 24px 0 rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -44,7 +44,7 @@
     top: 0;
     left: 0;
     opacity: 0.75;
-    background-color: map-get($color-palette, white);
+    background-color: map-get($monochrome, white);
     z-index: 90;
   }
 }

@@ -1,10 +1,10 @@
 @import '../../style-guide/index';
 
 .badge {
-  max-height: 21px;
+  max-height: 22px;
   padding: 1px 8px;
   border: 1px solid currentColor;
-  border-radius: 10px;
+  border-radius: 11px;
   font-size: 12px;
 
   &--bold {
@@ -13,23 +13,23 @@
 
   &--color {
     &--green {
-      border: 1px solid map-get($color-palette, green100);
-      color: map-get($color-palette, green100);
+      border: 1px solid map-get($green, default);
+      color: map-get($green, default);
     }
 
-    &--yellow {
-      border: 1px solid map-get($color-palette, yellow50);
-      color: map-get($color-palette, yellow50);
+    &--orange {
+      border: 1px solid map-get($orange, default);
+      color: map-get($orange, default);
     }
 
     &--gray {
-      border: 1px solid map-get($color-palette, gray100);
-      color: $slate-gray;
+      border: 1px solid map-get($monochrome, default);
+      color: map-get($monochrome, default);
     }
 
     &--red {
-      border: 1px solid map-get($color-palette, red100);
-      color: map-get($color-palette, red100);
+      border: 1px solid map-get($red, default);
+      color: map-get($red, default);
     }
   }
 }

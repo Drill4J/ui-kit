@@ -1,18 +1,18 @@
 @import '../../../../style-guide/index';
 
 .cancel-button {
-  border: 1px solid $loblolly-color;
-  background-color: map-get($color-palette, white);
-  color: $slate-gray;
+  border: 1px solid map-get($red, default);
+  background-color: map-get($monochrome, white);
+  color: map-get($red, default);
   font-family: $semibold-font;
 
   &:hover {
-    border: 1px solid map-get($color-palette, black10);
-    color: $shade-gray;
+    border: 1px solid map-get($red, medium-tint);
+    color: map-get($red, medium-tint);
   }
 
   &:active {
-    border: 1px solid $shade-gray;
-    color: $shade-gray;
+    border: 1px solid map-get($red, shade);
+    color: map-get($red, shade);
   }
 }

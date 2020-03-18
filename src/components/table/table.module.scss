@@ -4,13 +4,13 @@
   border-collapse: collapse;
   width: 100%;
   font-size: 14px;
-  color: $slate-gray;
+  color: map-get($monochrome, default);
   white-space: nowrap;
 
   tbody {
     tr {
       td {
-        border-bottom: 1px solid map-get($color-palette, light-blue);
+        border-bottom: 1px solid map-get($primary-blue, light-blue);
         height: 48px;
       }
     }
@@ -19,11 +19,11 @@
   &__header {
     th {
       line-height: 20px;
-      color: map-get($color-palette, dark-blue);
+      color: map-get($monochrome, black);
       text-align: left;
       font-family: $semibold-font;
-      border-bottom: 1px solid map-get($color-palette, dark-blue);
-      border-top: 1px solid map-get($color-palette, dark-blue);
+      border-bottom: 1px solid map-get($monochrome, black);
+      border-top: 1px solid map-get($monochrome, black);
       height: 48px;
     }
   }

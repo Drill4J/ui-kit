@@ -5,7 +5,7 @@
     margin-top: 8px;
     font-size: 18px;
     font-family: $light-font;
-    color: $gravel-color;
+    color: map-get($monochrome, shade);
   }
 
   &__icon-props {
@@ -14,11 +14,11 @@
     width: 230px;
     font-family: $condbold-font;
     font-size: 0.9em;
-    border: 1px solid map-get($color-palette, light-blue);
+    border: 1px solid map-get($monochrome, shade);
     & > * {
       padding: 5px 5px;
-      border-bottom: 1px solid map-get($color-palette, light-blue);
-      border-left: 1px solid map-get($color-palette, light-blue);
+      border-bottom: 1px solid map-get($monochrome, shade);
+      border-left: 1px solid map-get($monochrome, shade);
     }
   }
 
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     padding: 8px 8px;
-    border: 1px solid map-get($color-palette, light-blue);
+    border: 1px solid map-get($monochrome, dark-tint);
     align-items: center;
     & > *:not(:first-child) {
       margin-top: 8px;
@@ -43,14 +43,14 @@
   &__icon-label {
     font-size: 14px;
     font-family: $light-font;
-    color: $gravel-color;
+    color: map-get($monochrome, default);
   }
 
   &__icon-story-source {
     max-width: 220px;
     font-family: $light-font;
     font-size: 0.7em;
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
     cursor: pointer;
   }
 }

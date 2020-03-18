@@ -19,7 +19,11 @@
     }
 
     &--checked ~ .toggler__slider {
-      background-color: map-get($color-palette, green100);
+      background-color: map-get($green, default);
+
+      &:hover {
+        background-color: map-get($green, medium-tint);
+      }
     }
 
     &--checked ~ .toggler__slider:before {
@@ -34,7 +38,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: map-get($color-palette, middle-blue);
+    background-color: map-get($monochrome, default);
     transition: 0.4s;
     border-radius: 6px;
 
@@ -45,7 +49,7 @@
       width: 10px;
       left: 1px;
       bottom: 1px;
-      background-color: map-get($color-palette, white);
+      background-color: map-get($monochrome, white);
       transition: 0.4s;
       border-radius: 50%;
     }
@@ -56,11 +60,11 @@
     left: 28px;
     top: -4px;
     font-size: 14px;
-    color: map-get($color-palette, middle-blue);
+    color: map-get($monochrome, default);
     white-space: nowrap;
 
     &--checked {
-      color: map-get($color-palette, green100);
+      color: map-get($green, default);
     }
   }
 

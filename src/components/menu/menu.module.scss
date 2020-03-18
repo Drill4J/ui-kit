@@ -1,7 +1,7 @@
 @import '../../style-guide/index';
 
 .menu {
-  color: map-get($color-palette, black100);
+  color: map-get($monochrome, black);
 
   &__menu-icon {
     position: relative;
@@ -9,7 +9,7 @@
     align-items: center;
     max-height: 32px;
     max-width: 32px;
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
     cursor: pointer;
   }
 
@@ -21,8 +21,8 @@
     padding: 8px 0;
     filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.15));
     border-radius: 8px;
-    background-color: map-get($color-palette, white);
-    color: map-get($color-palette, black100);
+    background-color: map-get($monochrome, white);
+    color: map-get($monochrome, black);
     z-index: 50;
 
     &--position {
@@ -45,7 +45,7 @@
     &::before {
       content: '';
       position: absolute;
-      background-color: map-get($color-palette, white);
+      background-color: map-get($monochrome, white);
       left: calc(100% - 30px);
       height: 15px;
       width: 15px;
@@ -61,7 +61,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(248, 231, 28, 0.1);
+      background-color: map-get($monochrome, light-tint);
     }
   }
 

@@ -13,11 +13,11 @@
     font-size: 14px;
     font-family: $semibold-font;
     line-height: 24px;
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
   }
 
   &__icon {
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
     margin-left: 8px;
     transform: rotate(90deg);
   }
@@ -35,7 +35,7 @@
     width: 274px;
     max-height: 345px;
     overflow-y: auto;
-    background-color: map-get($color-palette, white);
+    background-color: map-get($monochrome, white);
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);
   }
 
@@ -45,7 +45,7 @@
     align-items: center;
     font-size: 14px;
     line-height: 32px;
-    color: map-get($color-palette, black100);
+    color: map-get($monochrome, black);
     cursor: pointer;
 
     &:hover {
@@ -55,6 +55,6 @@
 
   &__selected-icon {
     width: 20px;
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
   }
 }

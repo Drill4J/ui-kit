@@ -13,7 +13,7 @@
     flex-grow: 1;
     height: 100%;
     width: 100%;
-    color: map-get($color-palette, black100);
+    color: map-get($monochrome, black);
     font-size: 14px;
     font-family: $semibold-font;
     line-height: 20px;
@@ -21,20 +21,20 @@
 
     &--type {
       &--success {
-        background-color: map-get($color-palette, green10);
+        background-color: map-get($green, light-tint);
       }
 
       &--error {
-        color: map-get($color-palette, white);
-        background-color: map-get($color-palette, red100);
+        color: map-get($monochrome, white);
+        background-color: map-get($red, default);
       }
 
       &--warning {
-        background-color: map-get($color-palette, yellow25);
+        background-color: map-get($orange, light-tint);
       }
 
       &--info {
-        background-color: map-get($color-palette, ultra-light-blue);
+        background-color: map-get($monochrome, light-tint);
       }
     }
   }
@@ -46,19 +46,19 @@
 
     &--type {
       &--success {
-        color: map-get($color-palette, green100);
+        color: map-get($green, default);
       }
 
       &--error {
-        color: map-get($color-palette, white);
+        color: map-get($monochrome, white);
       }
 
       &--warning {
-        color: map-get($color-palette, yellow50);
+        color: map-get($orange, default);
       }
 
       &--info {
-        color: map-get($color-palette, middle-blue);
+        color: map-get($monochrome, default);
       }
     }
   }

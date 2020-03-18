@@ -7,7 +7,7 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
   bold?: boolean;
-  color?: 'green' | 'yellow' | 'gray' | 'red';
+  color?: 'green' | 'orange' | 'gray' | 'red';
 }
 
 const badge = BEM(styles);

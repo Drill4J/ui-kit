@@ -14,8 +14,8 @@
     width: 400px;
     height: 100%;
     z-index: 100;
-    box-shadow: -4px 0 0 0 map-get($color-palette, blue100), -20px 0 40px 0 rgba(15, 36, 52, 0.15);
-    background-color: map-get($color-palette, ultra-light-blue);
+    box-shadow: -4px 0 0 0 map-get($primary-blue, default), -20px 0 40px 0 rgba(15, 36, 52, 0.15);
+    background-color: map-get($primary-blue, ultra-light-blue);
   }
 
   &__close-button {
@@ -24,8 +24,8 @@
     height: 48px;
     width: 48px;
     border-radius: 24px 0 0 24px;
-    background-color: map-get($color-palette, blue100);
-    color: map-get($color-palette, white);
+    background-color: map-get($primary-blue, default);
+    color: map-get($monochrome, white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
     top: 0;
     left: 0;
     opacity: 0.75;
-    background-color: map-get($color-palette, white);
+    background-color: map-get($monochrome, white);
     z-index: 90;
   }
 }

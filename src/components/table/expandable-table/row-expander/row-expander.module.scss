@@ -10,7 +10,7 @@
   &__icon {
     display: flex;
     align-items: center;
-    color: map-get($color-palette, blue100);
+    color: map-get($primary-blue, default);
     margin-right: 5px;
 
     &--expanded {

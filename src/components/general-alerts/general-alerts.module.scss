@@ -16,19 +16,19 @@
 
     &--type {
       &--success {
-        background-color: map-get($color-palette, green10);
+        background-color: map-get($green, light-tint);
       }
 
       &--error {
-        background-color: rgba(255, 2, 2, 0.1);
+        background-color: map-get($red, ultralight-tint);
       }
 
       &--warning {
-        background-color: map-get($color-palette, yellow25);
+        background-color: map-get($orange, light-tint);
       }
 
       &--info {
-        background-color: map-get($color-palette, ultra-light-blue);
+        background-color: map-get($monochrome, light-tint);
       }
     }
   }
@@ -39,19 +39,19 @@
 
     &--type {
       &--success {
-        color: map-get($color-palette, green100);
+        color: map-get($green, default);
       }
 
       &--error {
-        color: map-get($color-palette, red100);
+        color: map-get($red, default);
       }
 
       &--warning {
-        color: map-get($color-palette, yellow50);
+        color: map-get($orange, default);
       }
 
       &--info {
-        color: map-get($color-palette, middle-blue);
+        color: map-get($monochrome, default);
       }
     }
   }

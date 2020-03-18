@@ -11,33 +11,33 @@
 
   &--type {
     &--primary {
-      border: 1px solid map-get($color-palette, blue100);
-      background-color: map-get($color-palette, blue100);
-      color: map-get($color-palette, white);
+      border: 1px solid map-get($primary-blue, default);
+      background-color: map-get($primary-blue, default);
+      color: map-get($monochrome, white);
       font-family: $semibold-font;
 
       &:hover {
-        border: 1px solid map-get($color-palette, blue75);
-        background-color: map-get($color-palette, blue75);
+        border: 1px solid map-get($primary-blue, medium-tint);
+        background-color: map-get($primary-blue, medium-tint);
       }
 
       &:active {
-        border: 1px solid map-get($color-palette, blue125);
-        background-color: map-get($color-palette, blue125);
+        border: 1px solid map-get($primary-blue, shade);
+        background-color: map-get($primary-blue, shade);
       }
     }
     &--secondary {
-      border: 1px solid map-get($color-palette, blue100);
-      background-color: map-get($color-palette, white);
-      color: map-get($color-palette, blue100);
+      border: 1px solid map-get($primary-blue, default);
+      background-color: map-get($monochrome, white);
+      color: map-get($primary-blue, default);
       font-family: $semibold-font;
 
       &:hover {
-        border: 1px solid map-get($color-palette, blue75);
+        border: 1px solid map-get($primary-blue, medium-tint);
       }
 
       &:active {
-        border: 1px solid map-get($color-palette, blue125);
+        border: 1px solid map-get($primary-blue, shade);
       }
     }
   }

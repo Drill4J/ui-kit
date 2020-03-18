@@ -5,12 +5,12 @@
     font-family: $semibold-font;
     font-size: 14px;
     line-height: 40px;
-    color: map-get($color-palette, dark-blue);
+    color: map-get($monochrome, black);
   }
 
   &__optional-label {
     font-size: 12px;
-    color: $slate-gray;
+    color: map-get($monochrome, default);
   }
 
   &__actions {

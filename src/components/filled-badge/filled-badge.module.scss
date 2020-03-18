@@ -1,10 +1,10 @@
 @import '../../style-guide/index';
 
 .filled-badge {
-  border: 1px solid map-get($color-palette, green100);
-  border-radius: 10px;
-  background-color: map-get($color-palette, green100);
-  color: map-get($color-palette, white);
+  border: 1px solid map-get($green, default);
+  border-radius: 13px;
+  background-color: map-get($green, default);
+  color: map-get($monochrome, white);
   font-size: 12px;
   font-family: $semibold-font;
   line-height: 12px;

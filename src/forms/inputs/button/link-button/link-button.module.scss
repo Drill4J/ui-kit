@@ -4,14 +4,14 @@
   padding: 0;
   border: none;
   background-color: transparent;
-  color: map-get($color-palette, blue100);
+  color: map-get($primary-blue, default);
   font-family: $semibold-font;
 
   &:hover {
-    color: map-get($color-palette, blue75);
+    color: map-get($primary-blue, medium-tint);
   }
 
   &:active {
-    color: map-get($color-palette, blue125);
+    color: map-get($primary-blue, shade);
   }
 }

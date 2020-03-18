@@ -9,13 +9,17 @@
     height: $common-element-height;
     padding: 0 16px;
     line-height: 22px;
-    border: 1px solid $loblolly-color;
+    border: 1px solid map-get($monochrome, medium-tint);
     border-radius: 4px;
-    background-color: map-get($color-palette, white);
+    background-color: map-get($monochrome, white);
     outline: none;
     font-family: $regular-font;
     font-size: 14px;
-    color: map-get($color-palette, dark-blue);
+    color: map-get($monochrome, black);
+
+    &:focus {
+      border: 1px solid map-get($monochrome, black);
+    }
 
     &::placeholder {
       opacity: 0.5;
@@ -26,18 +30,18 @@
     }
 
     &--disabled {
-      border: 1px solid map-get($color-palette, light-blue);
-      background-color: $athens-gray;
-      color: map-get($color-palette, dark-blue);
+      border: 1px solid map-get($monochrome, medium-tint);
+      background-color: map-get($monochrome, light-tint);
+      color: map-get($monochrome, black);
       opacity: 0.5;
     }
 
     &--success {
-      border: 1px solid map-get($color-palette, green100);
+      border: 1px solid map-get($green, default);
     }
 
     &--error {
-      border: 1px solid map-get($color-palette, red100);
+      border: 1px solid map-get($red, default);
     }
 
     &--prefix {
@@ -51,7 +55,7 @@
     height: 20px;
     width: 20px;
     position: absolute;
-    color: $slate-gray;
+    color: map-get($monochrome, default);
     left: 12px;
     top: 10px;
   }

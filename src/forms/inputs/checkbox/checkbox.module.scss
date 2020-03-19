@@ -3,27 +3,44 @@
 .checkbox {
   display: flex;
   align-items: center;
-  color: map-get($monochrome, medium-tint);
   cursor: pointer;
+  color: map-get($monochrome, white);
 
-  &__input {
+  &__checkbox-input {
     display: none;
+
+    &--checked + .checkbox__checkbox-icon-wrapper {
+      background-color: map-get($primary-blue, default);
+
+      &:hover {
+        background-color: map-get($primary-blue, medium-tint);
+      }
+    }
   }
 
-  &__icon-wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: 16px;
+  &__checkbox-icon-wrapper {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 1px solid map-get($primary-blue, default);
+    border-radius: 3px;
+
+    &:hover {
+      border: 1px solid map-get($primary-blue, medium-tint);
+    }
+  }
+
+  &__check-mark-icon {
+    position: absolute;
+    top: 20%;
+    left: 11%;
   }
 
   &__label {
+    margin-left: 8px;
     font-size: 14px;
     line-height: 24px;
     color: map-get($monochrome, black);
-  }
-
-  &--checked {
-    color: map-get($primary-blue, default);
   }
 
   &--disabled {

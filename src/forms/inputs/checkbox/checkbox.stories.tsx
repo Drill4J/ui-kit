@@ -4,12 +4,27 @@ import { storiesOf } from '@storybook/react';
 import { Checkbox } from './checkbox';
 
 storiesOf('Checkbox', module).add('Checkbox', () => {
-  const [checked, setChecked] = useState(false);
+  const [checkedFirst, setCheckedFirst] = useState(false);
+  const [checkedSecond, setCheckedSecond] = useState(false);
+  const [checkedThre, setCheckedThre] = useState(false);
   return (
-    <Checkbox
-      checked={checked}
-      label="checkbox"
-      onChange={() => (checked ? setChecked(false) : setChecked(true))}
-    />
+    <>
+      <Checkbox
+        checked={checkedFirst}
+        label={checkedFirst ? 'checked' : 'not checked'}
+        onChange={() => (checkedFirst ? setCheckedFirst(false) : setCheckedFirst(true))}
+      />
+      <Checkbox
+        checked={checkedSecond}
+        label={checkedSecond ? 'checked' : 'not checked'}
+        onChange={() => (checkedSecond ? setCheckedSecond(false) : setCheckedSecond(true))}
+      />
+      <Checkbox
+        checked={checkedThre}
+        label="disable"
+        onChange={() => (checkedThre ? setCheckedThre(false) : setCheckedThre(true))}
+        disabled
+      />
+    </>
   );
 });

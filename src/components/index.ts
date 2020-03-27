@@ -10,3 +10,4 @@ export { Menu } from './menu';
 export { MessagePanel } from './message-panel';
 export { Modal } from './modal';
 export { Table, ExpandableTable } from './table';
+export { TableFilter } from './table-filter';

@@ -1,0 +1,49 @@
+@import '../../style-guide/index';
+
+.table-filter {
+  position: relative;
+  cursor: pointer;
+
+  &__selected-items {
+    font-family: $semibold-font;
+    font-size: 12px;
+    color: map-get($primary-blue, default);
+
+    &:not(:last-child)::after {
+      content: ', ';
+    }
+  }
+
+  &__item-list-wrapper {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(65%, 10%);
+    z-index: 150;
+  }
+
+  &__items-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    max-height: 230px;
+    overflow-y: auto;
+    background-color: map-get($monochrome, white);
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 32px;
+    padding: 0px 8px;
+    font-size: 12px;
+    color: map-get($monochrome, black);
+    cursor: pointer;
+
+    &:hover {
+      background-color: map-get($monochrome, light-tint);
+    }
+  }
+}

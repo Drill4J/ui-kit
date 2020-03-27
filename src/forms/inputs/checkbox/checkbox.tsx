@@ -24,8 +24,8 @@ export const Checkbox = checkbox(
     return (
       <div className={className} onClick={handleOnChange}>
         <CheckboxInput name={value} checked={checked} />
-        <CheckboxIconWrapper>
-          <CheckMarkIcon width={10} height={7} />
+        <CheckboxIconWrapper type={!checked ? label : undefined}>
+          {checked && <CheckMarkIcon width={10} height={7} />}
         </CheckboxIconWrapper>
         {label && <Label>{label}</Label>}
       </div>

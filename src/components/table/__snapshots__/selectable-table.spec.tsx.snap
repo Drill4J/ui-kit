@@ -29,8 +29,8 @@ exports[`SelectableTable should match snapshot 1`] = `
             value=""
           />
           <div
-            className="checkbox__checkbox-icon-wrapper"
-            data-modifiers=""
+            className="checkbox__checkbox-icon-wrapper checkbox__checkbox-icon-wrapper--color--blue"
+            color="blue"
           >
             <svg
               className="generic-icon checkbox__check-mark-icon"
@@ -114,8 +114,8 @@ exports[`SelectableTable should match snapshot 1`] = `
             value=""
           />
           <div
-            className="checkbox__checkbox-icon-wrapper"
-            data-modifiers=""
+            className="checkbox__checkbox-icon-wrapper checkbox__checkbox-icon-wrapper--color--blue"
+            color="blue"
           >
             <svg
               className="generic-icon checkbox__check-mark-icon"

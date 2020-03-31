@@ -20,16 +20,16 @@ export const reducer = ({ filterItems, isExpanded }: FilterState, action: Action
   switch (action.type) {
     case TOGGLE_FILTER:
       return {
-        filterItems: filterItems.map(checkbox => {
-          if (checkbox.name === action.payload) {
-            return ({ ...checkbox, checked: !checkbox.checked });
+        filterItems: filterItems.map(filterItem => {
+          if (filterItem.name === action.payload) {
+            return ({ ...filterItem, checked: !filterItem.checked });
           }
-          return checkbox;
+          return filterItem;
         }),
         isExpanded,
       };
     case TOGGLE_ALL:
-      return { filterItems: filterItems.map((checkbox) => ({ ...checkbox, checked: action.payload })), isExpanded };
+      return { filterItems: filterItems.map((filterItem) => ({ ...filterItem, checked: action.payload })), isExpanded };
     case SET_IS_EXPANDED:
       return { filterItems, isExpanded: action.payload };
     default:
@@ -45,7 +45,7 @@ export const useFilter = (filters: string[]) => {
   const selectedFilterItems = filterItems.filter((selectedFilterItem) => selectedFilterItem.checked);
 
   useEffect(() => {
-    filterItems.every(checkbox => checkbox.checked === false) && dispatch(toggleAll(true));
+    filterItems.every(filterItem => filterItem.checked === false) && dispatch(toggleAll(true));
   }, [isExpanded]);
 
   return {

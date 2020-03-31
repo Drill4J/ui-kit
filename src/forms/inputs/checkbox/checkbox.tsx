@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BEM, input } from '@redneckz/react-bem-helper';
+import { BEM, input, div } from '@redneckz/react-bem-helper';
 
 import { Icons } from '../../../components/icon';
 import { CheckboxProps } from './checkbox-types';
@@ -10,7 +10,7 @@ const checkbox = BEM(styles);
 
 export const Checkbox = checkbox(
   ({
-    className, onChange, checked, label, value,
+    className, onChange, checked, label, value, color,
   }: CheckboxProps) => {
     const handleOnChange = () => {
       onChange &&
@@ -24,7 +24,7 @@ export const Checkbox = checkbox(
     return (
       <div className={className} onClick={handleOnChange}>
         <CheckboxInput name={value} checked={checked} />
-        <CheckboxIconWrapper type={!checked ? label : undefined}>
+        <CheckboxIconWrapper type={!checked ? label : undefined} color={color || 'blue'}>
           {checked && <CheckMarkIcon width={10} height={7} />}
         </CheckboxIconWrapper>
         {label && <Label>{label}</Label>}
@@ -40,6 +40,8 @@ const CheckboxInput = checkbox.checkboxInput(
     name?: string;
   }),
 );
-const CheckboxIconWrapper = checkbox.checkboxIconWrapper('div');
+const CheckboxIconWrapper = checkbox.checkboxIconWrapper(div(
+  { color: 'blue' } as {color?: 'blue' | 'green' | 'red' | 'yellow' | 'orange'},
+));
 const CheckMarkIcon = checkbox.checkMarkIcon(Icons.Check);
 const Label = checkbox.label('div');

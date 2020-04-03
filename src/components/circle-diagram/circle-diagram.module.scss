@@ -1,0 +1,26 @@
+@import '../../style-guide/index';
+
+.circle-diagram {
+  position: relative;
+  display: inline-block;
+
+  circle {
+    fill: none;
+    stroke: map-get($monochrome, medium-tint);
+  }
+
+  circle[type='coverage'] {
+    fill: none;
+    stroke: map-get($green, default);
+    transition: stroke-dashoffset 1000ms ease-in-out;
+    opacity: 40%;
+  }
+
+  &__children-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+  }
+}

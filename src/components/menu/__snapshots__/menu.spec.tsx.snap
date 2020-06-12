@@ -6,6 +6,7 @@ exports[`Menu should match snapshot 1`] = `
 >
   <div
     className="menu__menu-icon"
+    data-test="menu:icon:undefined"
     onClick={[Function]}
   >
     <svg

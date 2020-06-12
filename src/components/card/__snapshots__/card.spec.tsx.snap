@@ -6,6 +6,7 @@ exports[`Card should match snapshot card 1`] = `
 >
   <div
     className="panel"
+    data-test=""
     onClick={[Function]}
   >
     Icon
@@ -24,6 +25,7 @@ exports[`Card should match snapshot card 1`] = `
   </div>
   <div
     className="panel panel--align--space-between card__info-panel"
+    data-test=""
     onClick={[Function]}
   >
     <span>
@@ -78,6 +80,7 @@ exports[`Card should match snapshot card 1`] = `
   </div>
   <div
     className="panel panel--align--space-between"
+    data-test=""
     onClick={[Function]}
   >
     <span>

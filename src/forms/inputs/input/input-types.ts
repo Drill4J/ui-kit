@@ -7,9 +7,12 @@ export interface InputProps {
   type?: string;
   checked?: boolean;
   value?: any;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: boolean;
   success?: boolean;
   ref?: React.Ref<HTMLInputElement>;
   prefix?: boolean;
+  textAlign?: 'right';
+  pattern?: string;
+  paneField?: boolean;
 }

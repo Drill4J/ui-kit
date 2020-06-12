@@ -11,10 +11,12 @@ exports[`MessagePanel should match snapshot with the default text 1`] = `
   >
     <div
       className="panel panel--align--space-between"
+      data-test=""
       onClick={[Function]}
     >
       <div
         className="panel"
+        data-test=""
         onClick={[Function]}
       >
         <div

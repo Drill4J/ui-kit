@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BEM, div } from '@redneckz/react-bem-helper';
+
 import styles from './panel.module.scss';
 
 interface Attrs {

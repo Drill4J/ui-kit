@@ -6,7 +6,8 @@
   &__input-element {
     box-sizing: border-box;
     width: 100%;
-    height: $common-element-height;
+    min-height: 32px;
+    max-height: $common-element-height;
     padding: 0 16px;
     line-height: 22px;
     border: 1px solid map-get($monochrome, medium-tint);
@@ -29,6 +30,12 @@
       border-radius: 20px;
     }
 
+    &--pane-field {
+      width: 60px;
+      height: 32px;
+      padding: 0 8px;
+    }
+
     &--disabled {
       border: 1px solid map-get($monochrome, medium-tint);
       background-color: map-get($monochrome, light-tint);
@@ -46,6 +53,12 @@
 
     &--prefix {
       padding: 0 40px;
+    }
+
+    &--text-align {
+      &--right {
+        text-align: right;
+      }
     }
   }
 

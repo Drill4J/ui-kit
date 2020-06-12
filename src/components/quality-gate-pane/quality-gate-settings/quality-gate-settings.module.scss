@@ -1,0 +1,51 @@
+@import '../../../style-guide/index';
+
+.quality-gate-settings {
+  &__pass-conditions {
+    height: 192px;
+    padding: 0 24px;
+
+    & > * {
+      margin-top: 24px;
+    }
+  }
+
+  &__grid-wrapper {
+    display: grid;
+    grid-template-columns: 32px 244px 60px 16px;
+    grid-template-rows: 32px;
+  }
+
+  &__condtion {
+    color: map-get($monochrome, black);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &__condtion-status {
+    color: map-get($monochrome, default);
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  &__error-message {
+    color: map-get($red, default);
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  &__percentage {
+    align-self: center;
+    justify-self: end;
+    color: map-get($monochrome, default);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &__risks-info-icon {
+    height: 14px;
+    margin-left: 8px;
+    color: map-get($monochrome, default);
+    cursor: pointer;
+  }
+}

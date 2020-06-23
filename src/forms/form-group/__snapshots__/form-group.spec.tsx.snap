@@ -6,6 +6,7 @@ exports[`should match snapshot 1`] = `
 >
   <div
     className="panel panel--align--space-between"
+    data-test=""
     onClick={[Function]}
   >
     <label
@@ -17,6 +18,7 @@ exports[`should match snapshot 1`] = `
     <div>
       <div
         className="panel"
+        data-test=""
         onClick={[Function]}
       >
         <span

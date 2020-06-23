@@ -3,6 +3,7 @@
 exports[`Panel should match snapshot 1`] = `
 <div
   className="panel"
+  data-test=""
   onClick={[Function]}
 >
   <span>

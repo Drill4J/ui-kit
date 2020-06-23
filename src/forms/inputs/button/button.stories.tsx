@@ -9,10 +9,10 @@ storiesOf('Button', module)
   .add('types of buttons', () => (
     <div style={{ display: 'inline-grid', gridGap: '20px' }}>
       <Button type="primary" size="large">
-      Primary large
+        Primary large
       </Button>
       <Button type="secondary" size="small">
-      Secondary small
+        Secondary small
       </Button>
       <CancelButton size="large">Cancel button large</CancelButton>
       <CancelButton size="small">Cancel button small</CancelButton>

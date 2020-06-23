@@ -3,8 +3,8 @@ import { BEM, div } from '@redneckz/react-bem-helper';
 import VisibilitySensor from 'react-visibility-sensor';
 import nanoid from 'nanoid';
 
-import { Icons } from 'components';
-import { useClickOutside } from 'hooks';
+import { Icons } from '../icon';
+import { useClickOutside } from '../../hooks';
 import { spacesToDashes } from './spaces-to-dashes';
 
 import styles from './menu.module.scss';
@@ -25,7 +25,7 @@ interface Props {
 const menu = BEM(styles);
 
 export const Menu = menu(({
-  className, items, bordered, testContext,
+  className, items, bordered, testContext = '',
 }: Props) => {
   const [isListOpened, setIsListOpened] = React.useState(false);
   const [position, setPosition] = React.useState<'bottom' | 'top'>('bottom');

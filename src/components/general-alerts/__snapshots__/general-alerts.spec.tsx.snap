@@ -6,6 +6,7 @@ exports[`GeneralAlerts should match snapshot with the default text 1`] = `
 >
   <div
     className="panel general-alerts__content general-alerts__content--type--success"
+    data-test=""
     onClick={[Function]}
   >
     <div

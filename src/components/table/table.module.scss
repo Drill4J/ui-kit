@@ -10,7 +10,7 @@
   tbody {
     tr {
       td {
-        border-bottom: 1px solid map-get($primary-blue, light-blue);
+        border-bottom: 1px solid map-get($monochrome, medium-tint);
         height: 48px;
       }
     }
@@ -33,12 +33,23 @@
       background-color: rgba(104, 116, 129, 0.05);
     }
 
+    &--nested {
+      border-left: 2px solid map-get($primary-blue, light-tint);
+      border-right: 2px solid map-get($primary-blue, light-tint);
+    }
+
+    &--nested-last {
+      border-bottom: 2px solid map-get($primary-blue, light-tint);
+    }
+
     &--color {
       &--blue {
-        background-color: rgba(0, 127, 255, 0.15);
+        border-left: 2px solid map-get($primary-blue, light-tint);
+        border-right: 2px solid map-get($primary-blue, light-tint);
+        background-color: map-get($primary-blue, light-tint);
 
         &:hover {
-          background-color: darken(rgba(0, 127, 255, 0.15), 5%);
+          background-color: map-get($primary-blue, light-tint);
         }
       }
       &--gray {

@@ -3,13 +3,13 @@
 exports[`ExpandedRowContent should match snapshot 1`] = `
 Array [
   <tr
-    className="table__row"
+    className="table__row table__row--nested"
   />,
   <tr
-    className="table__row"
+    className="table__row table__row--nested"
   />,
   <tr
-    className="table__row"
+    className="table__row table__row--nested table__row--nested-last"
   />,
 ]
 `;

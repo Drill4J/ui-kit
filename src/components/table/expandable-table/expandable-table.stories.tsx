@@ -4,55 +4,89 @@ import { storiesOf } from '@storybook/react';
 import { ExpandableTable } from './expandable-table';
 import { Column } from '../column';
 
+const data = [{
+  id: 'test-pet-mcr',
+  name: 'test-pet-mcr',
+  description: '',
+  environment: '',
+  agents: [{
+    id: 'admin-server',
+    serviceGroup: 'test-pet-mcr',
+    name: 'admin-server',
+    description: 'admin-server',
+    agentType: 'Java',
+  }, {
+    id: 'api-gateway',
+    serviceGroup: 'test-pet-mcr',
+    name: 'api-gateway',
+    description: 'api-gateway',
+    agentType: 'Java',
+  }, {
+    id: 'customers-service',
+    serviceGroup: 'test-pet-mcr',
+    name: 'customers-service',
+    description: 'customers-service',
+    agentType: 'Java',
+  }, {
+    id: 'discovery-server',
+    serviceGroup: 'test-pet-mcr',
+    name: 'discovery-server',
+    description: 'discovery-server',
+    agentType: 'Java',
+  }, {
+    id: 'hystrix-dashboard',
+    serviceGroup: 'test-pet-mcr',
+    name: 'hystrix-dashboard',
+    description: 'hystrix-dashboard',
+    agentType: 'Java',
+  }, {
+    id: 'vets-service',
+    serviceGroup: 'test-pet-mcr',
+    name: 'vets-service',
+    description: 'vets-service',
+    agentType: 'Java',
+  }, {
+    id: 'visits-service',
+    serviceGroup: 'test-pet-mcr',
+    name: 'visits-service',
+    description: 'visits-service',
+    agentType: 'Java',
+  }],
+  agentType: 'ServiceGroup',
+}, {
+  id: 'test-pet-standalone',
+  serviceGroup: '',
+  name: 'test-pet-standalone',
+  description: 'test-pet-standalone',
+  agentType: 'Java',
+  agentVersion: '0.6.0-10',
+}];
+
 storiesOf('ExpandableTable', module).add('ExpandableTable', () => (
   <ExpandableTable
-    data={[{
-      id: '1',
-      firstColumn: 'First column',
-      secondColumn: 'Second column',
-      name: 'first',
-      firstLevelexpand: [{
-        id: '1',
-        firstColumn: 'First column',
-        secondColumn: 'Second column',
-        secondLevelExpand: [{
-          id: '1',
-          firstColumn: 'First column',
-          secondColumn: 'Second column',
-          name: 'first',
-        }],
-      }],
-    }, {
-      id: '2',
-      firstColumn: 'First column',
-      secondColumn: 'Second column',
-      name: 'second',
-      firstLevelexpand: [{
-        id: '2',
-        firstColumn: 'First column',
-        secondColumn: 'Second column',
-        secondLevelExpand: [{
-          id: '2',
-          firstColumn: 'First column',
-          secondColumn: 'Second column',
-          name: 'second',
-        }],
-      }],
-    }]}
-    idKey="name"
-    columnsSize="medium"
+    data={data}
+    idKey="id"
     expandedColumns={[
-      <Column name="firstColumn" Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>} />,
-      <Column name="secondColumn" />,
+      <Column name="expander" Cell={() => null} />,
+      <Column
+        name="name"
+        label="Name"
+        Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>}
+      />,
+      <Column
+        name="description"
+        label="Description"
+        Cell={({ value }) => <span>{value.substr(0, 150)}</span>}
+      />,
+      <Column name="agentType" label="Type" />,
     ]}
-    secondLevelExpand={[
-      <Column name="firstColumn" Cell={(props) => <span style={{ marginLeft: '30px' }}>{...props}</span>} />,
-      <Column name="secondColumn" />,
-    ]}
-    expandedContentKey="firstLevelexpand"
-    hasSecondLevelExpand
+    expandedContentKey="agents"
   >
-    <Column name="firstColumn" label="First column" />
-    <Column name="secondColumn" label="Second column" />
+    <Column name="name" label="Name" />
+    <Column
+      name="description"
+      label="Description"
+    />
+    <Column name="agentType" label="Type" />
   </ExpandableTable>
 ));

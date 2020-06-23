@@ -3,7 +3,7 @@ import './style-guide/_index.scss';
 
 export {
   Badge, Icons, OverflowText, Popup, FilledBadge, Spinner, Tooltip, TabsPanel,
-  Tab, Menu, MessagePanel, Modal, Table, ExpandableTable,
+  Tab, Menu, MessagePanel, Modal, Table, ExpandableTable, GeneralAlerts, Portal, TableFilter,
 } from './components';
 export {
   FormGroup, Inputs, Button, LinkButton, CancelButton, DropdownInput, DropdownItem,

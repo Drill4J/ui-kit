@@ -15,7 +15,7 @@
     height: 100%;
     z-index: 100;
     box-shadow: -4px 0 0 0 map-get($primary-blue, default), -20px 0 40px 0 rgba(15, 36, 52, 0.15);
-    background-color: map-get($primary-blue, ultra-light-blue);
+    background-color: map-get($monochrome, white);
   }
 
   &__close-button {

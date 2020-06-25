@@ -9,7 +9,7 @@ export { TabsPanel, Tab } from './tabs';
 export { Menu } from './menu';
 export { MessagePanel } from './message-panel';
 export { Modal } from './modal';
-export { Table, ExpandableTable } from './table';
+export { Table, ExpandableTable, Column } from './table';
 export { TableFilter } from './table-filter';
 export { GeneralAlerts } from './general-alerts';
 export { Portal } from './portal';

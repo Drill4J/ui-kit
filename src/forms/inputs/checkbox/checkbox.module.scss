@@ -55,9 +55,10 @@
   }
 
   &__checkbox-icon-wrapper {
+    box-sizing: border-box;
     position: relative;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 3px;
 
     &--type {

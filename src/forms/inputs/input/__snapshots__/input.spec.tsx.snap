@@ -12,29 +12,11 @@ Array [
     />
   </div>,
   <div
-    className="input-wrapper input-wrapper--rounded"
-  >
-    <input
-      className="input-wrapper__input-element input-wrapper__input-element--rounded"
-      placeholder="enter text..."
-      value=""
-    />
-  </div>,
-  <div
     className="input-wrapper input-wrapper--disabled"
   >
     <input
       className="input-wrapper__input-element input-wrapper__input-element--disabled"
       disabled={true}
-      placeholder="enter text..."
-      value=""
-    />
-  </div>,
-  <div
-    className="input-wrapper input-wrapper--success"
-  >
-    <input
-      className="input-wrapper__input-element input-wrapper__input-element--success"
       placeholder="enter text..."
       value=""
     />

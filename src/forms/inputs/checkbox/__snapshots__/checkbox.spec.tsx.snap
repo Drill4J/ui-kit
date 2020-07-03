@@ -29,7 +29,7 @@ exports[`Checkbox should match snapshot 1`] = `
         }
       }
       transform="rotate(0)"
-      viewBox="0 0 13 9"
+      viewBox="0 0 14 10"
       width={10}
     >
       <path

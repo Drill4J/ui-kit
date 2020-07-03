@@ -127,19 +127,19 @@
 
   &__check-mark-icon {
     position: absolute;
-    top: 23%;
-    left: 13%;
+    top: 25%;
+    left: 15%;
   }
 
   &__label {
     margin-left: 8px;
-    font-size: 12px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     color: map-get($monochrome, black);
   }
 
   &--disabled {
-    opacity: 0.5;
+    opacity: 0.3;
     pointer-events: none;
   }
 }

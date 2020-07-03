@@ -6,7 +6,7 @@ export {
   Tab, Menu, MessagePanel, Modal, Table, ExpandableTable, Column, GeneralAlerts, Portal, TableFilter,
 } from './components';
 export {
-  FormGroup, Inputs, Button, LinkButton, CancelButton, DropdownInput, DropdownItem,
+  FormGroup, Inputs, Button, LinkButton, CancelButton, NegativeActionButton, DropdownInput, DropdownItem,
 } from './forms';
 export {
   Panel, PanelSpread, PanelItem, Section,

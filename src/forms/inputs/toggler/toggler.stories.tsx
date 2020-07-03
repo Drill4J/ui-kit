@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Toggler } from './toggler';
+import { Spinner } from '../../../components/spinner';
 
 storiesOf('Toggler', module).add('Toggler', () => {
   const [value, setValue] = React.useState(true);
@@ -14,6 +15,17 @@ storiesOf('Toggler', module).add('Toggler', () => {
       />
       <Toggler
         label="toggler"
+        value={value}
+        onChange={() => (value ? setValue(false) : setValue(true))}
+        disabled
+      />
+      <Toggler
+        label={<Spinner />}
+        value={value}
+        onChange={() => (value ? setValue(false) : setValue(true))}
+      />
+      <Toggler
+        label={<Spinner />}
         value={value}
         onChange={() => (value ? setValue(false) : setValue(true))}
         disabled

@@ -2,14 +2,16 @@ import * as React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
 import { Button } from '../button';
-import { ButtonType } from '../button-type';
 
 import styles from './link-button.module.scss';
 
-interface Props extends ButtonType {
+interface Props {
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
+  size?: 'large' | 'small';
+  disabled?: boolean;
+  'data-test'?: string;
 }
 
 const linkButton = BEM(styles);

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberInput Should render a NumberInput 1`] = `
+Array [
+  <div
+    className="number-input-wrapper"
+  >
+    <div
+      className="input-wrapper number-input-wrapper__input-element"
+    >
+      <input
+        className="input-wrapper__input-element"
+        placeholder="enter text..."
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    className="number-input-wrapper"
+  >
+    <div
+      className="input-wrapper input-wrapper--disabled number-input-wrapper__input-element"
+    >
+      <input
+        className="input-wrapper__input-element input-wrapper__input-element--disabled"
+        disabled={true}
+        placeholder="enter text..."
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    className="number-input-wrapper"
+  >
+    <div
+      className="input-wrapper input-wrapper--error number-input-wrapper__input-element"
+    >
+      <input
+        className="input-wrapper__input-element input-wrapper__input-element--error"
+        placeholder="enter text..."
+        value=""
+      />
+    </div>
+  </div>,
+]
+`;

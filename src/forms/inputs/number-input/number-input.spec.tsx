@@ -2,9 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import { Input } from './input';
+import { NumberInput } from './number-input';
 
-describe('Input', () => {
+describe('NumberInput', () => {
   const mockFn = jest.fn();
   const props = {
     onChange: mockFn,
@@ -16,18 +16,18 @@ describe('Input', () => {
     type: 'text',
   };
 
-  it('Should render a Input', () => {
+  it('Should render a NumberInput', () => {
     const tree = renderer
       .create(
         <>
-          <Input
+          <NumberInput
             placeholder="enter text..."
           />
-          <Input
+          <NumberInput
             placeholder="enter text..."
             disabled
           />
-          <Input
+          <NumberInput
             placeholder="enter text..."
             error
           />
@@ -40,7 +40,7 @@ describe('Input', () => {
 
   it('should render component with initial state', () => {
     const wrapper = mount(
-      <Input {...props} />,
+      <NumberInput {...props} />,
     );
     wrapper.find('input').simulate('change');
     expect(mockFn).toHaveBeenCalled();

@@ -1,7 +1,7 @@
 @import '../../style-guide/index';
 
 .spinner {
-  color: official;
+  color: map-get($monochrome, default);
   display: inline-block;
   position: relative;
   width: 20px;
@@ -20,7 +20,7 @@
       width: 2px;
       height: 5px;
       border-radius: 20%;
-      background: map-get($monochrome, medium-tint);
+      background: map-get($monochrome, dark-tint);
     }
   }
 

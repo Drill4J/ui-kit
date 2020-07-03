@@ -11,7 +11,10 @@ storiesOf('GeneralAlerts', module)
     </GeneralAlerts>
   ))
   .add('ERROR', () => (
-    <GeneralAlerts type="ERROR" />
+    <GeneralAlerts type="ERROR">
+      Error message example. Something bad happened.
+      Error message example. Something bad happened.
+    </GeneralAlerts>
   ))
   .add('WARNING', () => (
     <GeneralAlerts type="WARNING">

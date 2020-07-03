@@ -1,0 +1,18 @@
+@import '../../../../style-guide/index';
+
+.negative-action-button {
+  border: 1px solid map-get($red, default);
+  background-color: map-get($red, default);
+  color: map-get($monochrome, white);
+  font-family: $semibold-font;
+
+  &:hover {
+    border: 1px solid map-get($red, medium-tint);
+    background-color: map-get($red, medium-tint);
+  }
+
+  &:active {
+    border: 1px solid map-get($red, shade);
+    background-color: map-get($red, shade);
+  }
+}

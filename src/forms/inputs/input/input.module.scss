@@ -1,8 +1,6 @@
 @import '../../../style-guide/index';
 
 .input-wrapper {
-  position: relative;
-
   &__input-element {
     box-sizing: border-box;
     width: 100%;
@@ -12,10 +10,10 @@
     border: 1px solid map-get($monochrome, medium-tint);
     border-radius: 4px;
     background-color: map-get($monochrome, white);
-    outline: none;
+    color: map-get($monochrome, black);
     font-family: $regular-font;
     font-size: 14px;
-    color: map-get($monochrome, black);
+    outline: none;
 
     &:focus {
       border: 1px solid map-get($monochrome, black);
@@ -25,10 +23,6 @@
       opacity: 0.5;
     }
 
-    &--rounded {
-      border-radius: 20px;
-    }
-
     &--disabled {
       border: 1px solid map-get($monochrome, medium-tint);
       background-color: map-get($monochrome, light-tint);
@@ -36,27 +30,8 @@
       opacity: 0.5;
     }
 
-    &--success {
-      border: 1px solid map-get($green, default);
-    }
-
     &--error {
       border: 1px solid map-get($red, default);
     }
-
-    &--prefix {
-      padding: 0 40px;
-    }
-  }
-
-  &__icon-wrapper {
-    display: flex;
-    justify-content: center;
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    color: map-get($monochrome, default);
-    left: 12px;
-    top: 10px;
   }
 }

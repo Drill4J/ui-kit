@@ -25,7 +25,7 @@ export const Checkbox = checkbox(
       <div className={className} onClick={handleOnChange}>
         <CheckboxInput name={value} checked={checked} />
         <CheckboxIconWrapper type={!checked ? label : undefined} color={color || 'blue'}>
-          {checked && <CheckMarkIcon width={10} height={7} />}
+          {checked && <CheckMarkIcon width={10} height={7} viewBox="0 0 14 10" />}
         </CheckboxIconWrapper>
         {label && <Label>{label}</Label>}
       </div>

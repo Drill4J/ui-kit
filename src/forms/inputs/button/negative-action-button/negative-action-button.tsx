@@ -3,7 +3,7 @@ import { BEM } from '@redneckz/react-bem-helper';
 
 import { Button } from '../button';
 
-import styles from './cancel-button.module.scss';
+import styles from './negative-action-button.module.scss';
 
 interface Props {
   className?: string;
@@ -14,9 +14,9 @@ interface Props {
   'data-test'?: string;
 }
 
-const cancelButton = BEM(styles);
+const negativeActionButton = BEM(styles);
 
-export const CancelButton = cancelButton(({ className, children, ...rest }: Props) => (
+export const NegativeActionButton = negativeActionButton(({ className, children, ...rest }: Props) => (
   <Button className={className} {...rest}>
     {children}
   </Button>

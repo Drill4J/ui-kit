@@ -3,12 +3,14 @@
 .general-alerts {
   display: flex;
   font-size: 14px;
+  line-height: 20px;
 
   &__content {
     display: flex;
-    height: 40px;
+    max-height: 40px;
     width: 100%;
-    padding: 0px 24px;
+    padding: 8px 24px;
+    word-break: break-all;
 
     & > *:not(:first-child) {
       margin-left: 8px;
@@ -35,6 +37,10 @@
 
   &__message-icon {
     display: flex;
+    align-self: start;
+    align-items: center;
+    width: 20px;
+    height: 20px;
     margin-right: 8px;
 
     &--type {

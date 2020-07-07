@@ -5,7 +5,7 @@ export interface InputProps {
   type?: string;
   checked?: boolean;
   value?: any;
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error?: boolean;
   ref?: React.Ref<HTMLInputElement>;
 }

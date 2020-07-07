@@ -7,9 +7,8 @@
 
   &__content {
     display: flex;
-    max-height: 56px;
     width: 100%;
-    padding: 8px 24px;
+    padding: 12px 24px;
     word-break: break-word;
 
     & > *:not(:first-child) {
@@ -30,6 +29,7 @@
       }
 
       &--info {
+        color: map-get($monochrome, default);
         background-color: map-get($monochrome, light-tint);
       }
     }

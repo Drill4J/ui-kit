@@ -11,10 +11,6 @@
     padding: 12px 24px;
     word-break: break-word;
 
-    & > *:not(:first-child) {
-      margin-left: 8px;
-    }
-
     &--type {
       &--success {
         background-color: map-get($green, light-tint);

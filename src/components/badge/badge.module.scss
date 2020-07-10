@@ -1,11 +1,11 @@
 @import '../../style-guide/index';
 
 .badge {
-  max-height: 22px;
-  padding: 1px 8px;
+  padding: 0 8px;
   border: 1px solid currentColor;
   border-radius: 11px;
   font-size: 12px;
+  line-height: 20px;
 
   &--bold {
     font-family: $semibold-font;

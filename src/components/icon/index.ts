@@ -59,7 +59,7 @@ import { path as cancelPath } from './path/cancel.path';
 import { path as successPath } from './path/success.path';
 import { path as testToCodePath } from './path/test-to-code.path';
 import { path as passed } from './path/passed.path';
-import { path as notPassed } from './path/not-passed.path';
+import { path as failed } from './path/failed.path';
 import { declareIcon } from './declare-icon';
 
 
@@ -136,6 +136,6 @@ export const Icons = {
     defaultHeight: 32,
     viewBox: '0 0 32 32',
   }),
-  Passed: declareIcon(passed),
-  NotPassed: declareIcon(notPassed),
+  PASSED: declareIcon(passed),
+  FAILED: declareIcon(failed),
 };

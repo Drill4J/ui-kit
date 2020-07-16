@@ -1,65 +1,48 @@
 @import '../../style-guide/index';
 
 .card {
-  width: 172px;
-  height: 96px;
-  padding: 16px;
+  display: grid;
+  grid-gap: 12px;
+  height: 88px;
+  padding: 12px 16px 16px 16px;
   border: solid 1px map-get($monochrome, medium-tint);
   font-size: 12px;
+  line-height: 16px;
   color: map-get($monochrome, default);
 
   &__methods-type {
-    margin-left: 8px;
     font-family: $semibold-font;
+    text-transform: uppercase;
+  }
+
+  &__risks-count {
+    font-family: $regular-font;
+    color: map-get($primary-blue, default);
+  }
+
+  &__covered-count {
+    font-family: $semibold-font;
+    font-size: 16px;
+    line-height: 20px;
+    color: map-get($monochrome, black);
   }
 
   &__total-methods {
-    font-size: 20px;
-    line-height: 32px;
-    color: map-get($monochrome, black);
-  }
-
-  &__info-panel {
+    font-family: $regular-font;
+    font-size: 14px;
     line-height: 20px;
-
-    :first-child {
-      color: map-get($monochrome, black);
-    }
-  }
-
-  &__risks {
-    color: map-get($red, default);
   }
 
   &__coverage-bar {
-    position: relative;
-    display: flex;
     height: 8px;
-    margin-bottom: 8px;
-    background-color: map-get($monochrome, light-tint);
+    margin-top: 4px;
+    border-radius: 2px;
+    background: map-get($monochrome, light-tint);
   }
 
-  &__current-build {
-    position: absolute;
+  &__progress {
     height: 8px;
-    background-color: map-get($green, default);
-  }
-
-  &__active-scope {
-    position: absolute;
-    height: 8px;
-    background-color: map-get($green, medium-tint);
-  }
-
-  &__overlapped-coverage {
-    position: absolute;
-    z-index: 2;
-    height: 8px;
-    background-color: map-get($green, shade);
-  }
-
-  &__coverage {
-    font-family: $semibold-font;
-    color: map-get($monochrome, black);
+    border-radius: 2px;
+    background: map-get($data-visualization, dv10);
   }
 }

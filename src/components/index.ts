@@ -13,3 +13,8 @@ export { Table, ExpandableTable, Column } from './table';
 export { TableFilter } from './table-filter';
 export { GeneralAlerts } from './general-alerts';
 export { Portal } from './portal';
+export { MultiProgressBar } from './multi-progress-bar';
+export { ProgressBar } from './progress-bar';
+export { StripedProgressBar } from './striped-progress-bar';
+export { Legends } from './legends';
+export { Status } from './status';

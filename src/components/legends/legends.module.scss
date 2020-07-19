@@ -1,0 +1,28 @@
+@import '../../style-guide/index';
+
+.legends {
+  &__legend {
+    position: relative;
+    width: 1px;
+    height: 8px;
+    background-color: map-get($monochrome, dark-tint);
+  }
+
+  &__percentage {
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translate(-50%);
+    font-size: 12px;
+    color: map-get($monochrome, dark-tint);
+
+    &--type {
+      &--start {
+        left: 4px;
+      }
+      &--end {
+        left: -8px;
+      }
+    }
+  }
+}

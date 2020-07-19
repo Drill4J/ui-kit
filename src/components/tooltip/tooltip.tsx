@@ -8,6 +8,7 @@ export interface Props {
   position?: 'top' | 'left' | 'right' | 'bottom';
   message: React.ReactNode;
   children: React.ReactNode | React.ReactNode[];
+  customStyle?: TooltipStyle;
 }
 
 export interface TooltipStyle {
@@ -16,7 +17,7 @@ export interface TooltipStyle {
 const tooltip = BEM(styles);
 
 export const Tooltip = tooltip(({
-  className, position = 'top', message, children,
+  className, position = 'top', message, children, customStyle,
 }: Props) => {
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
   const toggle = () => setIsVisible(!isVisible);
@@ -37,7 +38,7 @@ export const Tooltip = tooltip(({
         {children}
       </div>
       {isVisible && message && (
-        <Message style={style} position={position}>
+        <Message style={customStyle || style} position={position}>
           {message}
         </Message>
       )}

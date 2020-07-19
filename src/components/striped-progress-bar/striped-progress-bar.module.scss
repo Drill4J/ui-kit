@@ -1,0 +1,19 @@
+@import '../../style-guide/index';
+
+.striped-progress-bar {
+  display: block;
+  border-radius: 0 4px 4px 0;
+  transition: width 2000ms ease-in-out;
+
+  &--type {
+    &--overlapping {
+      fill: map-get($data-visualization, overlapping);
+      transform: rotate(180deg);
+      border-radius: 4px 0 0 4px;
+    }
+
+    &--scope {
+      fill: map-get($data-visualization, scope-cover);
+    }
+  }
+}

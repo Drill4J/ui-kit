@@ -1,0 +1,18 @@
+@import '../../style-guide/index';
+
+.status {
+  display: flex;
+  align-items: center;
+  font-size: 12;
+  line-height: 16px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    margin-right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: currentColor;
+  }
+}

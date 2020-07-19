@@ -36,7 +36,7 @@ export const IconsTable = iconsTable(({ className }: Props) => {
         <div>height</div>
         <div>number</div>
         <div>onClick</div>
-        <div>() => void</div>
+        <div>() =&gt; void</div>
         <div>viewBox</div>
         <div>string</div>
         <div>rotate</div>

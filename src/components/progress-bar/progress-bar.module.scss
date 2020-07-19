@@ -1,0 +1,27 @@
+@import '../../style-guide/index';
+
+.progress-bar {
+  &__progress {
+    height: 32px;
+    border-radius: 4px;
+    background: map-get($data-visualization, build-cover);
+    transition: width 2000ms ease-in-out;
+
+    &--type {
+      height: 12px;
+      border-radius: 0 4px 4px 0;
+
+      &:hover {
+        transform: scaleY(1.7);
+      }
+
+      &--scope {
+        background: map-get($data-visualization, scope-cover);
+      }
+
+      &--overlapping {
+        background: map-get($data-visualization, overlapping);
+      }
+    }
+  }
+}

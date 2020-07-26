@@ -13,10 +13,8 @@ interface Props {
 
 const stripedProgressBar = BEM(styles);
 
-export const StripedProgressBar = stripedProgressBar(({
-  className, value, type,
-}: Props) => (
-  <svg className={className} type={type} width={value} height="12">
+export const StripedProgressBar = stripedProgressBar(({ className, value, type }: Props) => (
+  <svg className={className} type={type} width={value} height="12" data-test={`striped-progress-bar:${type}`}>
     <path
       d={path}
       fillRule="nonzero"

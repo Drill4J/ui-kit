@@ -4,7 +4,7 @@ import './style-guide/_index.scss';
 export {
   Badge, Icons, OverflowText, Popup, FilledBadge, Spinner, Tooltip, TabsPanel,
   Tab, Menu, MessagePanel, Modal, Table, ExpandableTable, Column, GeneralAlerts, Portal,
-  TableFilter, MultiProgressBar, ProgressBar, StripedProgressBar, Status, Legends,
+  TableFilter, MainProgressBar, AuxiliaryProgressBar, StripedProgressBar, Status, Legends,
 } from './components';
 export {
   FormGroup, Inputs, Button, LinkButton, CancelButton, NegativeActionButton, DropdownInput, DropdownItem,

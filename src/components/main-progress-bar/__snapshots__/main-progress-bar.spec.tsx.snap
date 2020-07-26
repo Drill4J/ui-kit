@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainProgressBar should match snapshot 1`] = `
+<div
+  className="main-progress-bar"
+  data-test="main-progress-bar:undefined"
+>
+  <div
+    className="main-progress-bar__progress"
+    data-modifiers=""
+    style={
+      Object {
+        "width": "50px",
+      }
+    }
+  />
+</div>
+`;

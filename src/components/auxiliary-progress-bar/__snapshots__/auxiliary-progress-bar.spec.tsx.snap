@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryProgressBar should match snapshot 1`] = `
+<div
+  className="auxiliary-progress-bar"
+  data-test="auxiliary-progress-bar:undefined"
+>
+  <div
+    className="auxiliary-progress-bar__progress"
+    data-modifiers=""
+    style={
+      Object {
+        "width": "50px",
+      }
+    }
+  />
+</div>
+`;

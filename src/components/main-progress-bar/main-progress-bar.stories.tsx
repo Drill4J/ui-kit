@@ -12,8 +12,8 @@ storiesOf('MainProgressBar', module)
     return (
       <div style={{ display: 'grid', gap: '20px', padding: '40px' }}>
         <MainProgressBar value={`${coverage}%`} />
-        <MainProgressBar value={`${coverage}%`} type="primary" />
-        <MainProgressBar value={`${coverage}%`} type="secondary" />
+        <MainProgressBar value={`${coverage}%`} type="PRIMARY" />
+        <MainProgressBar value={`${coverage}%`} type="SECONDARY" />
         <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
       </div>
     );

@@ -12,8 +12,8 @@ storiesOf('AuxiliaryProgressBar', module)
     return (
       <div style={{ display: 'grid', gap: '20px', padding: '40px' }}>
         <AuxiliaryProgressBar value={`${coverage}%`} />
-        <AuxiliaryProgressBar value={`${coverage}%`} type="primary" />
-        <AuxiliaryProgressBar value={`${coverage}%`} type="secondary" />
+        <AuxiliaryProgressBar value={`${coverage}%`} type="PRIMARY" />
+        <AuxiliaryProgressBar value={`${coverage}%`} type="SECONDARY" />
         <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
       </div>
     );

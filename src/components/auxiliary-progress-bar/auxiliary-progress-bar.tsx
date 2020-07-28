@@ -6,7 +6,7 @@ import styles from './auxiliary-progress-bar.module.scss';
 interface Props {
   className?: string;
   value: string;
-  type?: 'primary' | 'secondary';
+  type?: 'PRIMARY' | 'SECONDARY';
   testContext?: string;
 }
 

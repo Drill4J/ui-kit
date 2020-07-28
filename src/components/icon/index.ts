@@ -60,6 +60,7 @@ import { path as successPath } from './path/success.path';
 import { path as testToCodePath } from './path/test-to-code.path';
 import { path as passed } from './path/passed.path';
 import { path as failed } from './path/failed.path';
+import { path as complete } from './path/complete.path';
 import { declareIcon } from './declare-icon';
 
 
@@ -138,4 +139,5 @@ export const Icons = {
   }),
   PASSED: declareIcon(passed),
   FAILED: declareIcon(failed),
+  Complete: declareIcon(complete),
 };

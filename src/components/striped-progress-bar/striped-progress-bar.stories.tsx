@@ -15,7 +15,7 @@ storiesOf('StripedProgressBar', module)
           display: 'grid', placeItems: 'center', width: '500px', height: ' 500px',
         }}
         >
-          <StripedProgressBar value={`${coverage}%`} type="SCOPE" />
+          <StripedProgressBar value={`${coverage}%`} type="primary" />
         </div>
         <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
       </div>

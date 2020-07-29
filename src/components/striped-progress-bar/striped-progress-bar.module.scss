@@ -6,14 +6,14 @@
   transition: width 2000ms ease-in;
 
   &--type {
-    &--overlapping {
+    &--primary {
+      fill: map-get($data-visualization, scope-cover);
+    }
+
+    &--secondary {
       fill: map-get($data-visualization, overlapping);
       transform: rotate(180deg);
       border-radius: 4px 0 0 4px;
-    }
-
-    &--scope {
-      fill: map-get($data-visualization, scope-cover);
     }
   }
 }

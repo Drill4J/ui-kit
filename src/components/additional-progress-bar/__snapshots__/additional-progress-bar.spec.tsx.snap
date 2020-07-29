@@ -2,11 +2,11 @@
 
 exports[`SecondaryProgressBar should match snapshot 1`] = `
 <div
-  className="auxiliary-progress-bar"
-  data-test="auxiliary-progress-bar:undefined"
+  className="additional-progress-bar"
+  data-test="additional-progress-bar:undefined"
 >
   <div
-    className="auxiliary-progress-bar__progress"
+    className="additional-progress-bar__progress"
     data-modifiers=""
     style={
       Object {

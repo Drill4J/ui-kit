@@ -8,7 +8,7 @@ import styles from './striped-progress-bar.module.scss';
 interface Props {
   className?: string;
   value?: string;
-  type: 'OVERLAPPING' | 'SCOPE';
+  type: 'primary' | 'secondary';
 }
 
 const stripedProgressBar = BEM(styles);

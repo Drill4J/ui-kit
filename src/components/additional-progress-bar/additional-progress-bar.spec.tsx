@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { AuxiliaryProgressBar } from './auxiliary-progress-bar';
+import { AdditionalProgressBar } from './additional-progress-bar';
 
 describe('SecondaryProgressBar', () => {
   it('should match snapshot', () => {
-    const tree = renderer.create(<AuxiliaryProgressBar value="50px" />).toJSON();
+    const tree = renderer.create(<AdditionalProgressBar value="50px" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

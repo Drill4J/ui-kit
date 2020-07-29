@@ -2,10 +2,10 @@
 
 exports[`StripedProgressBar should match snapshot 1`] = `
 <svg
-  className="striped-progress-bar striped-progress-bar--type--overlapping"
-  data-test="striped-progress-bar:OVERLAPPING"
+  className="striped-progress-bar striped-progress-bar--type--primary"
+  data-test="striped-progress-bar:primary"
   height="12"
-  type="OVERLAPPING"
+  type="primary"
   width="50px"
 >
   <path

@@ -1,19 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { AuxiliaryProgressBar } from './auxiliary-progress-bar';
+import { AdditionalProgressBar } from './additional-progress-bar';
 
-storiesOf('AuxiliaryProgressBar', module)
-  .add('AuxiliaryProgressBar with change coverage panel', () => {
+storiesOf('AdditionalProgressBar', module)
+  .add('AdditionalProgressBar with change coverage panel', () => {
     const [coverage, setCoverage] = React.useState(0);
     const handleChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
       setCoverage(Number(value));
     };
     return (
       <div style={{ display: 'grid', gap: '20px', padding: '40px' }}>
-        <AuxiliaryProgressBar value={`${coverage}%`} />
-        <AuxiliaryProgressBar value={`${coverage}%`} type="primary" />
-        <AuxiliaryProgressBar value={`${coverage}%`} type="secondary" />
+        <AdditionalProgressBar value={`${coverage}%`} />
+        <AdditionalProgressBar value={`${coverage}%`} type="primary" />
+        <AdditionalProgressBar value={`${coverage}%`} type="secondary" />
         <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
       </div>
     );

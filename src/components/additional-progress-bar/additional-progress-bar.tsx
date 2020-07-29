@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
-import styles from './auxiliary-progress-bar.module.scss';
+import styles from './additional-progress-bar.module.scss';
 
 interface Props {
   className?: string;
@@ -10,14 +10,14 @@ interface Props {
   testContext?: string;
 }
 
-const auxiliaryProgressBar = BEM(styles);
+const additionalProgressBar = BEM(styles);
 
-export const AuxiliaryProgressBar = auxiliaryProgressBar(({
+export const AdditionalProgressBar = additionalProgressBar(({
   className, value, type, testContext,
 }: Props) => (
-  <div className={className} data-test={`auxiliary-progress-bar:${(testContext || type)}`}>
+  <div className={className} data-test={`additional-progress-bar:${(testContext || type)}`}>
     <Progress style={{ width: value }} type={type} />
   </div>
 ));
 
-const Progress = auxiliaryProgressBar.progress('div');
+const Progress = additionalProgressBar.progress('div');

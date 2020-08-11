@@ -4,15 +4,22 @@
 
 Drill4J UI components library.
 
-## Documentation
-
-Check out our [documentation](https://github.com/Drill4J/admin-ui/tree/master/dev-guide)
-
 ## Installation
 
 1.  run the command `npm install @drill4j/ui-kit`
 2.  enjoy the development.
 
+## Documentation
+
+Visit [Wiki](https://github.com/Drill4J/ui-kit/wiki) page
+
 ## Technology
 
-Used technology stack: [TypeScript](https://www.typescriptlang.org/) [React](https://reactjs.org/)
+Used technology stack:
+
+1. [React](https://reactjs.org/)
+1. [TypeScript](https://www.typescriptlang.org/)
+1. [SCSS](https://sass-scss.ru/)
+1. [Storybook](https://storybook.js.org/docs/basics/introduction/)
+1. [Jest](https://jestjs.io/docs/en/snapshot-testing)
+1. [Enzyme](https://enzymejs.github.io/enzyme/docs/api/)

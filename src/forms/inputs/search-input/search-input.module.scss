@@ -1,0 +1,32 @@
+@import '../../../style-guide/index';
+
+.search-input-wrapper {
+  position: relative;
+
+  &__input-element {
+    input {
+      padding: 0 24px;
+      width: 240px;
+      max-height: 25px;
+      border: 0;
+      border-radius: 0;
+
+      &:focus {
+        border: 0;
+        border-bottom: solid 1px map-get($monochrome, medium-tint);
+      }
+    }
+  }
+
+  &__search-icon {
+    position: absolute;
+    color: map-get($primary-blue, default);
+  }
+
+  &__clear-icon {
+    position: absolute;
+    left: 230px;
+    color: map-get($red, default);
+    cursor: pointer;
+  }
+}

@@ -19,3 +19,4 @@ export { StripedProgressBar } from './striped-progress-bar';
 export { Legends } from './legends';
 export { Status } from './status';
 export { SessionIndicator } from './session-indicator';
+export { SortArrows } from './sort-arrows';

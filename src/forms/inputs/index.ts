@@ -1,5 +1,6 @@
 import { Input } from './input';
 import { NumberInput } from './number-input';
+import { SearchInput } from './search-input';
 import { Dropdown } from './dropdown';
 import { Textarea } from './textarea';
 import { Checkbox } from './checkbox';
@@ -12,6 +13,7 @@ export {
 export const Inputs = {
   Text: Input,
   Number: NumberInput,
+  Search: SearchInput,
   Dropdown,
   Textarea,
   Checkbox,

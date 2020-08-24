@@ -61,6 +61,7 @@ import { path as testToCodePath } from './path/test-to-code.path';
 import { path as passed } from './path/passed.path';
 import { path as failed } from './path/failed.path';
 import { path as complete } from './path/complete.path';
+import { path as sortingArrowPath } from './path/sorting-arrow.path';
 import { declareIcon } from './declare-icon';
 
 
@@ -140,4 +141,9 @@ export const Icons = {
   PASSED: declareIcon(passed),
   FAILED: declareIcon(failed),
   Complete: declareIcon(complete),
+  SortingArrow: declareIcon(sortingArrowPath, {
+    defaultWidth: 7,
+    defaultHeight: 10,
+    viewBox: '0 0 7 10',
+  }),
 };

@@ -6,6 +6,7 @@ export interface InputProps {
   checked?: boolean;
   value?: any;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  reset?: () => void;
   error?: boolean;
   ref?: React.Ref<HTMLInputElement>;
 }

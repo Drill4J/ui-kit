@@ -8,7 +8,7 @@ import styles from './sort-arrows.module.scss';
 interface Props {
   className?: string;
   onClick?: () => void;
-  order: 'ASC' | 'DESC';
+  order: 'ASC' | 'DESC' | null;
 }
 
 const sortArrows = BEM(styles);

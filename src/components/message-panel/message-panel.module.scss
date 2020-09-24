@@ -8,6 +8,7 @@
   z-index: 100;
 
   &__content {
+    position: absolute;
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -17,7 +18,6 @@
     font-size: 14px;
     font-family: $semibold-font;
     line-height: 20px;
-    position: absolute;
 
     &--type {
       &--success {
@@ -25,8 +25,7 @@
       }
 
       &--error {
-        color: map-get($monochrome, white);
-        background-color: map-get($red, default);
+        background-color: map-get($red, ultralight-tint);
       }
 
       &--warning {
@@ -34,6 +33,7 @@
       }
 
       &--info {
+        color: map-get($monochrome, default);
         background-color: map-get($monochrome, light-tint);
       }
     }
@@ -50,7 +50,7 @@
       }
 
       &--error {
-        color: map-get($monochrome, white);
+        color: map-get($red, default);
       }
 
       &--warning {

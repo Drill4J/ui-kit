@@ -10,7 +10,7 @@ storiesOf('MessagePanel', module)
     <MessagePanel message={{ type: 'SUCCESS', text: 'Succes! Congratz!' }} onClose={() => {}} />
   ))
   .add('ERROR', () => (
-    <MessagePanel message={{ type: 'ERROR', text: 'ERROR! Something went wrong!' }} onClose={() => {}} />
+    <MessagePanel message={{ type: 'ERROR', text: 'Error! Something went wrong!' }} onClose={() => {}} />
   ))
   .add('WARNING', () => (
     <MessagePanel
@@ -18,7 +18,7 @@ storiesOf('MessagePanel', module)
         type: 'WARNING',
         text: (
           <Panel>
-            WARNING! Something might go wrong!&nbsp;
+            Warning! Something might go wrong!&nbsp;
             <LinkButton size="large">Undo</LinkButton>
           </Panel>),
       }}
@@ -26,5 +26,5 @@ storiesOf('MessagePanel', module)
     />
   ))
   .add('INFO', () => (
-    <MessagePanel message={{ type: 'INFO', text: 'INFO! This should be read!' }} onClose={() => {}} />
+    <MessagePanel message={{ type: 'INFO', text: 'Info! This should be read!' }} onClose={() => {}} />
   ));

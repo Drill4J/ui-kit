@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BEM } from '@redneckz/react-bem-helper';
+import { BEM, div } from '@redneckz/react-bem-helper';
 
 import { Icons } from '../icon';
 
@@ -13,19 +13,18 @@ interface Props {
 
 const sortArrows = BEM(styles);
 
-export const SortArrows = sortArrows(({
-  className, onClick, order,
-}: Props) => (
+export const SortArrows = sortArrows(({ className, onClick, order }: Props) => (
   <div className={className} onClick={onClick}>
-    <SortArrowWrapper>
-      <SortArrow active={order === 'ASC'} rotate={180} />
-      <SortArrow active={order === 'DESC'} />
-    </SortArrowWrapper>
+    <SortArrowsWrapper>
+      <SortArrow active={order === 'ASC'}>
+        <Icons.SortingArrow rotate={180} />
+      </SortArrow>
+      <SortArrow active={order === 'DESC'}>
+        <Icons.SortingArrow />
+      </SortArrow>
+    </SortArrowsWrapper>
   </div>
 ));
 
-const SortArrowWrapper = sortArrows.sortArrowWrapper('div');
-const SortArrow: React.FC<{
-  active: boolean;
-  rotate?: number;
-}> = sortArrows.sortArrow(Icons.SortingArrow);
+const SortArrowsWrapper = sortArrows.sortArrowsWrapper('div');
+const SortArrow = sortArrows.sortArrow(div({} as { active: boolean }));

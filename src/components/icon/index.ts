@@ -62,6 +62,7 @@ import { path as passed } from './path/passed.path';
 import { path as failed } from './path/failed.path';
 import { path as complete } from './path/complete.path';
 import { path as sortingArrowPath } from './path/sorting-arrow.path';
+import { path as offlineAgent } from './path/offline-agent.path';
 import { declareIcon } from './declare-icon';
 
 
@@ -146,4 +147,5 @@ export const Icons = {
     defaultHeight: 10,
     viewBox: '0 0 7 10',
   }),
+  OfflineAgent: declareIcon(offlineAgent, { defaultWidth: 21, defaultHeight: 20 }),
 };

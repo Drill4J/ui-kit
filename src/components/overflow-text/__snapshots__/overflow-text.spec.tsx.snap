@@ -3,17 +3,15 @@
 exports[`should match snapshot 1`] = `
 <div
   className="overflow-text"
-  data-modifiers=""
+  data-title={null}
 >
-  Foo bar
-</div>
-`;
-
-exports[`should match snapshot 1`] = `
-<div
-  className="overflow-text"
-  data-modifiers=""
->
-  Foo bar
+  <span
+    className="overflow-text__wrapper"
+    data-modifiers=""
+  >
+    <span>
+      Foo bar
+    </span>
+  </span>
 </div>
 `;

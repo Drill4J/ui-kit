@@ -9,6 +9,7 @@
     height: 32px;
     border-radius: 4px;
     background: map-get($data-visualization, build-cover);
+    transition: width 2000ms ease-in;
 
     &--type {
       &--primary {

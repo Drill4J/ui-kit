@@ -3,6 +3,7 @@ import { BEM } from '@redneckz/react-bem-helper';
 
 import { TableRow } from './table__row';
 import { TableHeader } from './table__header';
+import { Sort } from './table-types';
 
 import styles from './table.module.scss';
 
@@ -12,14 +13,14 @@ interface Props {
   children: any;
   idKey?: string;
   footer?: React.ReactNode;
-  sort?: object;
-  onSort?: (sortField: string) => void;
   columnsSize?: 'wide' | 'medium';
   expandedRows?: string[];
   expandedColumns?: any[];
   expandedContentKey?: string;
   withoutHeader?: boolean;
   selectedRows?: string[];
+  sort: Sort;
+  onSort: (sort: Sort) => void;
 }
 
 const table = BEM(styles);
@@ -36,16 +37,18 @@ export const Table = table(
     expandedContentKey,
     withoutHeader,
     selectedRows = [],
+    sort,
+    onSort,
   }: Props) => {
-    const columns = React.Children.map(children, (column) => column && column.props);
+    const columns = React.Children.map(children, (column) => column?.props);
     const expandedColumnsComponents = React.Children.map(
       expandedColumns,
-      (column) => column && column.props,
+      (column) => column?.props,
     );
 
     return (
       <table className={className}>
-        {!withoutHeader && <TableHeader columns={columns} />}
+        {!withoutHeader && <TableHeader columns={columns} sort={sort} onSort={onSort} />}
         <tbody>
           {data.map((item, index) => (
             <TableRow

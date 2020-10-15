@@ -69,21 +69,6 @@
     }
   }
 
-  &__toggle {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    cursor: pointer;
-    display: flex;
-  }
-
-  &__sort {
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    padding-right: 12px;
-  }
-
   &--columns-size {
     &--wide {
       tbody {

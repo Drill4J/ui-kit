@@ -62,31 +62,40 @@ const data = [{
   agentVersion: '0.6.0-10',
 }];
 
-storiesOf('ExpandableTable', module).add('ExpandableTable', () => (
-  <ExpandableTable
-    data={data}
-    idKey="id"
-    expandedColumns={[
-      <Column name="expander" Cell={() => null} />,
-      <Column
-        name="name"
-        label="Name"
-        Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>}
-      />,
+storiesOf('ExpandableTable', module).add('ExpandableTable', () => {
+  const [sort, setSort] = React.useState<{fieldName: string; order: 'ASC' | 'DESC'}>({ fieldName: 'name', order: 'ASC' });
+  return (
+    <ExpandableTable
+      data={data}
+      idKey="id"
+      sort={sort}
+      onSort={setSort}
+      expandedColumns={[
+        <Column name="expander" Cell={() => null} />,
+        <Column
+          name="name"
+          label="Name"
+          Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>}
+        />,
+        <Column
+          name="description"
+          label="Description"
+          Cell={({ value }) => <span>{value.substr(0, 150)}</span>}
+        />,
+        <Column name="agentType" label="Type" />,
+      ]}
+      expandedContentKey="agents"
+    >
+      <Column name="name" label="Name" />
       <Column
         name="description"
         label="Description"
-        Cell={({ value }) => <span>{value.substr(0, 150)}</span>}
-      />,
-      <Column name="agentType" label="Type" />,
-    ]}
-    expandedContentKey="agents"
-  >
-    <Column name="name" label="Name" />
-    <Column
-      name="description"
-      label="Description"
-    />
-    <Column name="agentType" label="Type" />
-  </ExpandableTable>
-));
+      />
+      <Column name="agentType" label="Type" />
+    </ExpandableTable>
+  );
+});
+
+function invertOrder(order: 'ASC' | 'DESC') {
+  return order === 'ASC' ? 'DESC' : 'ASC';
+}

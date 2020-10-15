@@ -4,6 +4,7 @@ import { BEM } from '@redneckz/react-bem-helper';
 import { Table } from '../table';
 import { Column } from '../column';
 import { RowExpander } from './row-expander';
+import { Sort } from '../table-types';
 
 import styles from './expandable-table.module.scss';
 
@@ -17,6 +18,8 @@ interface Props {
   secondLevelExpand?: any[];
   className?: string;
   hasSecondLevelExpand?: boolean;
+  sort: Sort;
+  onSort: (sort: Sort) => void;
 }
 
 const expandableTable = BEM(styles);
@@ -29,6 +32,8 @@ export const ExpandableTable = expandableTable(
     expandedColumns,
     className,
     expandedContentKey,
+    sort,
+    onSort,
     ...restProps
   }: Props) => {
     const [expandedRows, setExpandedRows] = React.useState<string[]>([]);
@@ -40,6 +45,8 @@ export const ExpandableTable = expandableTable(
         idKey={idKey}
         expandedColumns={expandedColumns}
         expandedContentKey={expandedContentKey}
+        sort={sort}
+        onSort={onSort}
         {...restProps}
       >
         {[

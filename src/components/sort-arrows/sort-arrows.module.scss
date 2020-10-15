@@ -19,7 +19,7 @@
 
   &__sort-arrow {
     &--active {
-      color: map-get($monochrome, default);
+      color: map-get($primary-blue, default);
     }
   }
 }

@@ -7,14 +7,13 @@ import styles from './sort-arrows.module.scss';
 
 interface Props {
   className?: string;
-  onClick?: () => void;
   order: 'ASC' | 'DESC' | null;
 }
 
 const sortArrows = BEM(styles);
 
-export const SortArrows = sortArrows(({ className, onClick, order }: Props) => (
-  <div className={className} onClick={onClick}>
+export const SortArrows = sortArrows(({ className, order }: Props) => (
+  <div className={className}>
     <SortArrowsWrapper>
       <SortArrow active={order === 'ASC'}>
         <Icons.SortingArrow rotate={180} />

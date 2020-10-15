@@ -8,12 +8,15 @@ describe('Table', () => {
   it('should match snapshot', () => {
     const tree = renderer
       .create(
-        <Table data={[{
-          buildVersion: '1658090997',
-          addedDate: 1580285098638,
-          totalMethods: 97,
-          newMethods: 40,
-        }]}
+        <Table
+          data={[{
+            buildVersion: '1658090997',
+            addedDate: 1580285098638,
+            totalMethods: 97,
+            newMethods: 40,
+          }]}
+          sort={{ order: 'ASC', fieldName: 'addedDate' }}
+          onSort={() => {}}
         >
           <Column
             name="alias"

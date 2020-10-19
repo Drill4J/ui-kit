@@ -63,6 +63,7 @@ import { path as failed } from './path/failed.path';
 import { path as complete } from './path/complete.path';
 import { path as sortingArrowPath } from './path/sorting-arrow.path';
 import { path as offlineAgent } from './path/offline-agent.path';
+import { path as uncoveredMethods } from './path/uncovered-methods.path';
 import { declareIcon } from './declare-icon';
 
 
@@ -148,4 +149,5 @@ export const Icons = {
     viewBox: '0 0 7 10',
   }),
   OfflineAgent: declareIcon(offlineAgent, { defaultWidth: 21, defaultHeight: 20 }),
+  UncoveredMethods: declareIcon(uncoveredMethods, { defaultWidth: 16, defaultHeight: 16 }),
 };

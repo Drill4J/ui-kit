@@ -2,26 +2,27 @@
 
 exports[`ExpandableTable should match snapshot 1`] = `
 <table
-  className="table table--columns-size--medium expandable-table"
+  className="table table--columns-size--medium"
 >
   <thead
     className="table__header"
   >
     <tr>
       <th
+        align="left"
         style={
           Object {
-            "width": undefined,
+            "width": "24px",
           }
         }
       >
         <div
-          className="panel"
-          data-test=""
+          className="default-header-cell"
           onClick={[Function]}
         />
       </th>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -29,8 +30,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
         }
       >
         <div
-          className="panel"
-          data-test=""
+          className="default-header-cell"
           onClick={[Function]}
         >
           <div
@@ -90,6 +90,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
         </div>
       </th>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -97,8 +98,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
         }
       >
         <div
-          className="panel"
-          data-test=""
+          className="default-header-cell"
           onClick={[Function]}
         >
           <div
@@ -163,7 +163,13 @@ exports[`ExpandableTable should match snapshot 1`] = `
     <tr
       className="table__row"
     >
-      <td>
+      <td
+        style={
+          Object {
+            "width": "24px",
+          }
+        }
+      >
         <div
           className="row-expander"
           onClick={[Function]}
@@ -192,17 +198,35 @@ exports[`ExpandableTable should match snapshot 1`] = `
           </div>
         </div>
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         First column
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         Second column
       </td>
     </tr>
     <tr
       className="table__row"
     >
-      <td>
+      <td
+        style={
+          Object {
+            "width": "24px",
+          }
+        }
+      >
         <div
           className="row-expander"
           onClick={[Function]}
@@ -231,10 +255,22 @@ exports[`ExpandableTable should match snapshot 1`] = `
           </div>
         </div>
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         First column
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         Second column
       </td>
     </tr>

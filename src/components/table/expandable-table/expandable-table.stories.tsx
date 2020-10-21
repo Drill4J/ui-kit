@@ -86,16 +86,13 @@ storiesOf('ExpandableTable', module).add('ExpandableTable', () => {
       ]}
       expandedContentKey="agents"
     >
-      <Column name="name" label="Name" />
+      <Column name="name" label="Name" width="10%" />
       <Column
         name="description"
         label="Description"
+        width="20%"
       />
       <Column name="agentType" label="Type" />
     </ExpandableTable>
   );
 });
-
-function invertOrder(order: 'ASC' | 'DESC') {
-  return order === 'ASC' ? 'DESC' : 'ASC';
-}

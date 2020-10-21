@@ -1,10 +1,12 @@
 import * as React from 'react';
 
 export type Cell = React.ComponentType<any>;
+export type Order = 'ASC' | 'DESC';
+export type Align = 'left' | 'center' | 'right' | 'justify';
 
 export interface Sort {
   fieldName: string;
-  order: 'ASC' | 'DESC';
+  order: Order;
 }
 
 export interface ColumnProps {
@@ -14,6 +16,7 @@ export interface ColumnProps {
   label?: string;
   width?: string;
   colSpan?: number;
+  align?: Align;
 }
 
 export interface ExpandSchema {

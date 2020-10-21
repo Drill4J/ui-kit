@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Table } from './table';
 import { Column } from './column';
 import { Icons } from '../icon';
+import { OverflowText } from '../overflow-text';
 
 const data = [{
   funcDefinition: 'function sum(a, b) { return a + b; };',
@@ -11,7 +12,7 @@ const data = [{
   anonymousFuncExpression: 'const sum = function(a, b) { return a + b; };',
   lambdaFunction: 'const sum = (a, b) => { return a + b; };',
   arrowFunction: 'const sum = (a, b) => (a + b);',
-  icon: 'Arrow',
+  icon: 'Agent',
 }];
 
 storiesOf('Table', module).add('Table', () => {
@@ -26,14 +27,14 @@ storiesOf('Table', module).add('Table', () => {
         name="lambdaFunction"
         label="Lambda Function"
         Cell={({ value, item: { arrowFunction } }) => (
-          <pre>
+          <OverflowText>
             {value || arrowFunction}
-          </pre>
+          </OverflowText>
         )}
       />
       <Column
         name="icon"
-        label="Icons"
+        HeaderCell={() => <div>Icon</div>}
         Cell={({ value }: { value: keyof typeof Icons }) => {
           const CellIcon = Icons[value];
           return <CellIcon />;
@@ -42,12 +43,12 @@ storiesOf('Table', module).add('Table', () => {
       <Column
         name="funcDefinition"
         label="Func Definition"
-        Cell={({ value }) => <pre>{(value)}</pre>}
+        Cell={({ value }) => <div>{(value)}</div>}
       />
       <Column
         name="funcExpression"
         HeaderCell={() => (
-          <pre>Func Expression</pre>
+          <div>Func Expression</div>
         )}
       />
       <Column
@@ -55,11 +56,8 @@ storiesOf('Table', module).add('Table', () => {
         HeaderCell={() => (
           <pre>Anonymous Func Expression</pre>
         )}
+        align="right"
       />
     </Table>
   );
 });
-
-function invertOrder(order: 'ASC' | 'DESC') {
-  return order === 'ASC' ? 'DESC' : 'ASC';
-}

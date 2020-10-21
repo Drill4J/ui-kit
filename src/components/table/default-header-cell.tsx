@@ -1,22 +1,29 @@
 import * as React from 'react';
+import { BEM } from '@redneckz/react-bem-helper';
 
-import { Panel } from '../../layouts';
 import { SortArrows } from '../sort-arrows';
-import { ColumnProps, Sort } from './table-types';
+import { ColumnProps, Sort, Order } from './table-types';
+
+import styles from './default-header-cell.module.scss';
 
 interface Props {
+  className?: string;
   column: ColumnProps;
   sort: Sort;
   onSort: (sort: Sort) => void;
 }
 
-export const DefaultHeaderCell = ({ column: { name, label }, sort, onSort }: Props) => (
-  <Panel onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
+const defaultHeaderCell = BEM(styles);
+
+export const DefaultHeaderCell = defaultHeaderCell(({
+  className, column: { name, label }, sort, onSort,
+}: Props) => (
+  <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
     {name !== 'selector' && <SortArrows order={name === sort.fieldName ? sort.order : null} /> }
     {label}
-  </Panel>
-);
+  </div>
+));
 
-function invertOrder(order: 'ASC' | 'DESC') {
+function invertOrder(order: Order) {
   return order === 'ASC' ? 'DESC' : 'ASC';
 }

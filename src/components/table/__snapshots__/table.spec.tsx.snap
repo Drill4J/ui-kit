@@ -9,6 +9,7 @@ exports[`Table should match snapshot 1`] = `
   >
     <tr>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -16,8 +17,7 @@ exports[`Table should match snapshot 1`] = `
         }
       >
         <div
-          className="panel"
-          data-test=""
+          className="default-header-cell"
           onClick={[Function]}
         >
           <div
@@ -77,6 +77,7 @@ exports[`Table should match snapshot 1`] = `
         </div>
       </th>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -84,8 +85,7 @@ exports[`Table should match snapshot 1`] = `
         }
       >
         <div
-          className="panel"
-          data-test=""
+          className="default-header-cell"
           onClick={[Function]}
         >
           <div
@@ -145,6 +145,7 @@ exports[`Table should match snapshot 1`] = `
         </div>
       </th>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -156,6 +157,7 @@ exports[`Table should match snapshot 1`] = `
         </div>
       </th>
       <th
+        align="left"
         style={
           Object {
             "width": undefined,
@@ -172,22 +174,46 @@ exports[`Table should match snapshot 1`] = `
     <tr
       className="table__row"
     >
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         <div
           onClick={[Function]}
         >
           1658090997
         </div>
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         <span>
           1580285098638
         </span>
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         97
       </td>
-      <td>
+      <td
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
         40
       </td>
     </tr>

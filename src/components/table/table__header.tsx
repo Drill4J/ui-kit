@@ -19,9 +19,11 @@ export const TableHeader = BEM(styles).header(({
   <thead className={className}>
     <tr>
       {columns.map((column) => {
-        const { name, width, HeaderCell } = column;
+        const {
+          name, width, HeaderCell, align = 'left',
+        } = column;
         return (
-          <th key={name} style={{ width }}>
+          <th key={name} style={{ width }} align={align}>
             {HeaderCell
               ? HeaderCell({ column })
               : <DefaultHeaderCell column={column} sort={sort} onSort={onSort} />}

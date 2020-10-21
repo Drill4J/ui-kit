@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { Table } from './table';
 import { Column } from './column';
+import { OverflowText } from '../overflow-text';
 
 const data = [{
   funcDefinition: 'function sum(a, b) { return a + b; };',
@@ -17,9 +18,9 @@ storiesOf('Table', module).add('Table', () => (
       name="lambdaFunction"
       label="Lambda Function"
       Cell={({ value, item: { arrowFunction } }) => (
-        <pre>
+        <OverflowText>
           {value || arrowFunction}
-        </pre>
+        </OverflowText>
       )}
     />
     <Column

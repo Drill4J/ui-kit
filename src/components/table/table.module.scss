@@ -1,8 +1,9 @@
 @import '../../style-guide/index';
 
 .table {
-  border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
   font-size: 14px;
   color: map-get($monochrome, default);
   white-space: nowrap;

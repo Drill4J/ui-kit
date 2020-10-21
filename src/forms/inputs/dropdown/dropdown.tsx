@@ -23,7 +23,7 @@ export const Dropdown = dropdown(({
       <Container onClick={() => setIsExpanded(!isExpanded)}>
         <Value>{selectedValue && selectedValue.label}</Value>
         <Icon>
-          <Icons.Expander />
+          <Icons.Expander width={8} height={8} rotate={isExpanded ? 180 : 0} />
         </Icon>
       </Container>
       {isExpanded && (

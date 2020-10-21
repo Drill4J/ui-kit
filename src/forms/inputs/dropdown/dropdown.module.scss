@@ -31,8 +31,7 @@
   &__items-list {
     display: flex;
     flex-direction: column;
-    padding: 8px;
-    width: 274px;
+    width: 306px;
     max-height: 345px;
     overflow-y: auto;
     background-color: map-get($monochrome, white);
@@ -45,6 +44,7 @@
     align-items: center;
     font-size: 14px;
     line-height: 32px;
+    padding-left: 8px;
     color: map-get($monochrome, black);
     cursor: pointer;
 
@@ -54,7 +54,7 @@
   }
 
   &__selected-icon {
-    width: 20px;
+    width: 24px;
     color: map-get($primary-blue, default);
   }
 }

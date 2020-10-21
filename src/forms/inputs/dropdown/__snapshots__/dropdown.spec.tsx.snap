@@ -21,7 +21,7 @@ exports[`Dropdown should match snapshot 1`] = `
         className="generic-icon"
         data-modifiers=""
         fillRule="evenodd"
-        height={13}
+        height={8}
         style={
           Object {
             "WebkitTransform": "rotate(0deg)",

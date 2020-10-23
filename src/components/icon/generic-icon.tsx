@@ -11,15 +11,18 @@ interface GenericIconProps {
   height?: number;
   transform?: string;
   rotate?: number;
+  opacity?: number;
   fillRule?: 'inherit' | 'nonzero' | 'evenodd';
   onClick?: () => void;
 }
 
-export const GenericIcon = BEM(styles)(({ path, rotate = 0, ...rest }: GenericIconProps) => (
+export const GenericIcon = BEM(styles)(({
+  path, rotate = 0, opacity = 100, ...rest
+}: GenericIconProps) => (
   <svg
     {...rest}
     transform={`rotate(${rotate})`}
-    style={{ WebkitTransform: `rotate(${rotate}deg)` }}
+    style={{ WebkitTransform: `rotate(${rotate}deg)`, opacity: `${opacity}%` }}
   >
     {mapPath(path, (d: string, key: number) => (
       <path d={d} key={key} />

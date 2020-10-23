@@ -38,6 +38,7 @@ exports[`Table should match snapshot 1`] = `
                   style={
                     Object {
                       "WebkitTransform": "rotate(180deg)",
+                      "opacity": "100%",
                     }
                   }
                   transform="rotate(180)"
@@ -60,6 +61,7 @@ exports[`Table should match snapshot 1`] = `
                   style={
                     Object {
                       "WebkitTransform": "rotate(0deg)",
+                      "opacity": "100%",
                     }
                   }
                   transform="rotate(0)"
@@ -106,6 +108,7 @@ exports[`Table should match snapshot 1`] = `
                   style={
                     Object {
                       "WebkitTransform": "rotate(180deg)",
+                      "opacity": "100%",
                     }
                   }
                   transform="rotate(180)"
@@ -128,6 +131,7 @@ exports[`Table should match snapshot 1`] = `
                   style={
                     Object {
                       "WebkitTransform": "rotate(0deg)",
+                      "opacity": "100%",
                     }
                   }
                   transform="rotate(0)"

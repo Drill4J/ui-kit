@@ -26,6 +26,7 @@ exports[`DropdownInput Should render a DropdownInput 1`] = `
         style={
           Object {
             "WebkitTransform": "rotate(0deg)",
+            "opacity": "100%",
           }
         }
         transform="rotate(0)"

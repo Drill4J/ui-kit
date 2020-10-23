@@ -4,5 +4,6 @@ export interface IconProps {
   onClick?: () => void;
   viewBox?: string;
   rotate?: number;
+  opacity?: number;
   'data-test'?: string;
 }

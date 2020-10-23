@@ -12,7 +12,7 @@ export interface Sort {
 export interface ColumnProps {
   name: string;
   Cell?: Cell;
-  HeaderCell?: (props: { column: ColumnProps }) => JSX.Element;
+  HeaderCell?: (props: { column: ColumnProps }) => JSX.Element | null;
   label?: string;
   width?: string;
   colSpan?: number;

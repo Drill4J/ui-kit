@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
-import nanoid from 'nanoid';
+import { nanoid } from 'nanoid';
 
 import { Checkbox } from '../../forms/inputs/checkbox';
 import { useClickOutside } from '../../hooks';

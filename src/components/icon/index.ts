@@ -66,7 +66,6 @@ import { path as offlineAgent } from './path/offline-agent.path';
 import { path as uncoveredMethods } from './path/uncovered-methods.path';
 import { declareIcon } from './declare-icon';
 
-
 export const Icons = {
   Arrow: declareIcon(arrowPath),
   Account: declareIcon(accountPath, { defaultWidth: 20, defaultHeight: 20 }),

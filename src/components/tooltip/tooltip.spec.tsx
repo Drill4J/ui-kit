@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 
 import { Tooltip } from './tooltip';
 
-
 describe('Tooltip', () => {
   it('should match snapshot', () => {
     const tree = renderer.create(

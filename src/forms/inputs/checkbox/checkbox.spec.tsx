@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 
 import { Checkbox } from './checkbox';
 
-
 describe('Checkbox', () => {
   it('should match snapshot', () => {
     const tree = renderer.create(

@@ -19,8 +19,8 @@ interface Props {
   expandedContentKey?: string;
   withoutHeader?: boolean;
   selectedRows?: string[];
-  sort: Sort;
-  onSort: (sort: Sort) => void;
+  sort?: Sort;
+  onSort?: (sort: Sort) => void;
 }
 
 const table = BEM(styles);

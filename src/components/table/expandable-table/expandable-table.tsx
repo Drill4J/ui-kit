@@ -15,8 +15,8 @@ interface Props {
   secondLevelExpand?: any[];
   className?: string;
   hasSecondLevelExpand?: boolean;
-  sort: Sort;
-  onSort: (sort: Sort) => void;
+  sort?: Sort;
+  onSort?: (sort: Sort) => void;
 }
 
 export const ExpandableTable = ({

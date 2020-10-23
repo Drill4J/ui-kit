@@ -9,8 +9,8 @@ import styles from './table.module.scss';
 interface Props {
   className?: string;
   columns: ColumnProps[];
-  sort: Sort;
-  onSort: (sort: Sort) => void;
+  sort?: Sort;
+  onSort?: (sort: Sort) => void;
 }
 
 export const TableHeader = BEM(styles).header(({

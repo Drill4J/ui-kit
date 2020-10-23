@@ -9,19 +9,23 @@ import styles from './default-header-cell.module.scss';
 interface Props {
   className?: string;
   column: ColumnProps;
-  sort: Sort;
-  onSort: (sort: Sort) => void;
+  sort?: Sort;
+  onSort?: (sort: Sort) => void;
 }
 
 const defaultHeaderCell = BEM(styles);
 
 export const DefaultHeaderCell = defaultHeaderCell(({
-  className, column: { name, label }, sort, onSort,
+  className, column: { name, label = '' }, sort, onSort,
 }: Props) => (
-  <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
-    {name !== 'selector' && <SortArrows order={name === sort.fieldName ? sort.order : null} /> }
-    {label}
-  </div>
+  <>
+    {onSort && sort ? (
+      <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
+        <SortArrows order={name === sort.fieldName ? sort.order : null} />
+        {label}
+      </div>
+    ) : label}
+  </>
 ));
 
 function invertOrder(order: Order) {

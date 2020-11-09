@@ -46,7 +46,7 @@ describe('ExpandableTable', () => {
           data={data}
           idKey="name"
           columnsSize="medium"
-          sort={{ order: 'ASC', fieldName: 'firstColumn' }}
+          sort={{ order: 'ASC', field: 'firstColumn' }}
           onSort={() => {}}
           expandedColumns={[
             <Column name="firstColumn" Cell={({ value }) => <span style={{ marginLeft: '30px' }}>{value}</span>} />,

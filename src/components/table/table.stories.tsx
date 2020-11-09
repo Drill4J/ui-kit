@@ -16,7 +16,7 @@ const data = [{
 }];
 
 storiesOf('Table', module).add('Table', () => {
-  const [sort, setSort] = React.useState<{fieldName: string; order: 'ASC' | 'DESC'}>({ fieldName: 'name', order: 'ASC' });
+  const [sort, setSort] = React.useState<{field: string; order: 'ASC' | 'DESC'}>({ field: 'name', order: 'ASC' });
   return (
     <Table
       data={data}

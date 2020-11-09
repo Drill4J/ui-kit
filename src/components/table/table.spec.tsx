@@ -15,7 +15,7 @@ describe('Table', () => {
             totalMethods: 97,
             newMethods: 40,
           }]}
-          sort={{ order: 'ASC', fieldName: 'addedDate' }}
+          sort={{ order: 'ASC', field: 'addedDate' }}
           onSort={() => {}}
         >
           <Column

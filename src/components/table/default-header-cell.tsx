@@ -20,8 +20,8 @@ export const DefaultHeaderCell = defaultHeaderCell(({
 }: Props) => (
   <>
     {onSort && sort ? (
-      <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
-        <SortArrows order={name === sort.fieldName ? sort.order : null} />
+      <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), field: name })}>
+        <SortArrows order={name === sort.field ? sort.order : null} />
         {label}
       </div>
     ) : label}

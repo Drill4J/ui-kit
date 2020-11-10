@@ -33,7 +33,7 @@ function getMessageIcon(type: 'SUCCESS' | 'ERROR' | 'WARNING' | 'INFO') {
     case 'ERROR': {
       return (
         <MessageIcon type={type}>
-          <Icons.Warning height={16} width={16} />
+          <Icons.Cancel height={16} width={16} />
         </MessageIcon>
       );
     }

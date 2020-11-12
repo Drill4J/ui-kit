@@ -64,6 +64,8 @@ import { path as complete } from './path/complete.path';
 import { path as sortingArrowPath } from './path/sorting-arrow.path';
 import { path as offlineAgent } from './path/offline-agent.path';
 import { path as uncoveredMethods } from './path/uncovered-methods.path';
+import { path as realTime } from './path/real-time.path';
+import { path as global } from './path/global.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -149,4 +151,6 @@ export const Icons = {
   }),
   OfflineAgent: declareIcon(offlineAgent, { defaultWidth: 21, defaultHeight: 20 }),
   UncoveredMethods: declareIcon(uncoveredMethods, { defaultWidth: 16, defaultHeight: 16 }),
+  RealTime: declareIcon(realTime),
+  Global: declareIcon(global),
 };

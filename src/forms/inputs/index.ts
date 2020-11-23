@@ -10,6 +10,7 @@ export { DropdownInput, DropdownItem } from './dropdown-input';
 export {
   Button, LinkButton, CancelButton, NegativeActionButton,
 } from './button';
+export { Checkbox } from './checkbox';
 export const Inputs = {
   Text: Input,
   Number: NumberInput,

@@ -8,7 +8,7 @@ export {
   SessionIndicator, SortArrows,
 } from './components';
 export {
-  FormGroup, Inputs, Button, LinkButton, CancelButton, NegativeActionButton, DropdownInput, DropdownItem,
+  FormGroup, Inputs, Button, LinkButton, CancelButton, NegativeActionButton, DropdownInput, DropdownItem, Checkbox,
 } from './forms';
 export {
   Panel, PanelSpread, PanelItem, Section,

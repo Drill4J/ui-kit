@@ -1,0 +1,13 @@
+@import '../../style-guide/colors';
+
+.legend {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: map-get($monochrome, default);
+
+  &__circle {
+    margin-right: 8px;
+  }
+}

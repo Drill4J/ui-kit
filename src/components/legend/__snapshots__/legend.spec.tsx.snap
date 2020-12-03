@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Legend should match snapshot 1`] = `
+<span
+  className="legend"
+>
+  <span>
+    <svg
+      className="legend__circle"
+      data-modifiers=""
+      height={8}
+      width={8}
+    >
+      <circle
+        cx="4"
+        cy="4"
+        fill="#62adfc"
+        r="4"
+      />
+    </svg>
+    build-cover
+  </span>
+  <span>
+    <svg
+      className="legend__circle"
+      data-modifiers=""
+      height={8}
+      width={8}
+    >
+      <circle
+        cx="4"
+        cy="4"
+        fill="#4f8ac9"
+        r="4"
+      />
+    </svg>
+    overlapping
+  </span>
+  <span>
+    <svg
+      className="legend__circle"
+      data-modifiers=""
+      height={8}
+      width={8}
+    >
+      <circle
+        cx="4"
+        cy="4"
+        fill="#aed4fd"
+        r="4"
+      />
+    </svg>
+    scope-cover
+  </span>
+</span>
+`;

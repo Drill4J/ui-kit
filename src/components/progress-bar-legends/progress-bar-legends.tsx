@@ -3,15 +3,15 @@ import { BEM } from '@redneckz/react-bem-helper';
 
 import { Panel } from '../../layouts';
 
-import styles from './legends.module.scss';
+import styles from './progress-bar-legends.module.scss';
 
 interface Props {
   className?: string;
 }
 
-const legends = BEM(styles);
+const progressBarLegends = BEM(styles);
 
-export const Legends = legends(({
+export const ProgressBarLegends = progressBarLegends(({
   className,
 }: Props) => (
   <div className={className}>
@@ -25,5 +25,5 @@ export const Legends = legends(({
   </div>
 ));
 
-const Legend = legends.legend('div');
-const Percentage = legends.percentage('div');
+const Legend = progressBarLegends.legend('div');
+const Percentage = progressBarLegends.percentage('div');

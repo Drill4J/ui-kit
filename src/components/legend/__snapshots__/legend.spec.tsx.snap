@@ -4,53 +4,56 @@ exports[`Legend should match snapshot 1`] = `
 <span
   className="legend"
 >
-  <span>
+  <div
+    className="legend__item"
+    data-modifiers=""
+  >
     <svg
-      className="legend__circle"
-      data-modifiers=""
-      height={8}
-      width={8}
+      height={10}
+      width={10}
     >
       <circle
-        cx="4"
-        cy="4"
+        cx="5"
+        cy="5"
         fill="#62adfc"
-        r="4"
+        r="4.5"
       />
     </svg>
     build-cover
-  </span>
-  <span>
+  </div>
+  <div
+    className="legend__item"
+    data-modifiers=""
+  >
     <svg
-      className="legend__circle"
-      data-modifiers=""
-      height={8}
-      width={8}
+      height={10}
+      width={10}
     >
       <circle
-        cx="4"
-        cy="4"
+        cx="5"
+        cy="5"
         fill="#4f8ac9"
-        r="4"
+        r="4.5"
       />
     </svg>
     overlapping
-  </span>
-  <span>
+  </div>
+  <div
+    className="legend__item"
+    data-modifiers=""
+  >
     <svg
-      className="legend__circle"
-      data-modifiers=""
-      height={8}
-      width={8}
+      height={10}
+      width={10}
     >
       <circle
-        cx="4"
-        cy="4"
+        cx="5"
+        cy="5"
         fill="#aed4fd"
-        r="4"
+        r="4.5"
       />
     </svg>
     scope-cover
-  </span>
+  </div>
 </span>
 `;

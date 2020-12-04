@@ -5,6 +5,7 @@ import styles from './legend.module.scss';
 
 interface LegendItem {
   color: string;
+  borderColor?: string;
   label: React.ReactNode;
 }
 
@@ -17,15 +18,15 @@ const legend = BEM(styles);
 
 export const Legend = legend(({ className, legendItems }: Props) => (
   <span className={className}>
-    {legendItems.map(({ color, label }) => (
-      <span key={color}>
-        <Circle width={8} height={8}>
-          <circle cx="4" cy="4" r="4" fill={color} />
-        </Circle>
+    {legendItems.map(({ color, label, borderColor }) => (
+      <Item key={color}>
+        <svg width={10} height={10}>
+          <circle cx="5" cy="5" r="4.5" fill={color} stroke={borderColor} />
+        </svg>
         {label}
-      </span>
+      </Item>
     ))}
   </span>
 ));
 
-const Circle = legend.circle('svg');
+const Item = legend.item('div');

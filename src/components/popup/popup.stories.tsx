@@ -18,7 +18,7 @@ storiesOf('Popup', module).add('Popup', () => {
         isOpen={isOpenedInfoPopup}
         type="info"
         onToggle={() => setisOpenedInfoPopup(false)}
-        header={(<h1>Info</h1>)}
+        header={(<div>Info</div>)}
         closeOnFadeClick
       >
         <div style={{ padding: '24px 24px', fontFamily: 'sans-serif' }}>

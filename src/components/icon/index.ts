@@ -67,6 +67,8 @@ import { path as uncoveredMethods } from './path/uncovered-methods.path';
 import { path as realTime } from './path/real-time.path';
 import { path as global } from './path/global.path';
 import { path as graph } from './path/graph.path';
+import { path as flag } from './path/flag.path';
+import { path as filledFlag } from './path/filled-flag.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -155,4 +157,6 @@ export const Icons = {
   RealTime: declareIcon(realTime),
   Global: declareIcon(global),
   Graph: declareIcon(graph, { defaultWidth: 70, defaultHeight: 75 }),
+  Flag: declareIcon(flag, { defaultWidth: 16, defaultHeight: 16 }),
+  FilledFlag: declareIcon(filledFlag, { defaultWidth: 16, defaultHeight: 16 }),
 };

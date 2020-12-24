@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
+import { useHover } from '../../hooks';
 import { Portal } from '../portal';
 import { getTooltipPosition } from './get-tooltip-position';
 
@@ -19,8 +20,7 @@ export const Tooltip = tooltip(({
   className, message, children, position = 'top-center',
 }: Props) => {
   const offset = 12;
-  const [isVisible, setIsVisible] = React.useState<boolean>(false);
-  const toggle = () => setIsVisible(!isVisible);
+  const { ref, isVisible } = useHover();
 
   const [tooltipPositionType, setTooltipPositionType] = React.useState(position);
   const [{ height: messageHeight, width: messageWidth }, setMessageCoords] = React.useState({ height: 0, width: 0 } as DOMRect);
@@ -55,8 +55,10 @@ export const Tooltip = tooltip(({
 
   return (
     <div className={className}>
-      <div onMouseOverCapture={toggle} onMouseOut={toggle} onBlur={toggle} ref={childrenRef}>
-        {children}
+      <div ref={ref}>
+        <div ref={childrenRef}>
+          {children}
+        </div>
       </div>
       {isVisible && message && (
         <Portal rootElementId="tooltip">

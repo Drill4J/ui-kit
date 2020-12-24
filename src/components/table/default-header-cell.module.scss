@@ -1,6 +1,8 @@
 @import '../../style-guide/index';
 
 .default-header-cell {
+  position: relative;
   display: inline-flex;
-  gap: 4px;
+  align-items: center;
+  cursor: pointer;
 }

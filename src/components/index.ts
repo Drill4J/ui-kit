@@ -19,5 +19,5 @@ export { StripedProgressBar } from './striped-progress-bar';
 export { ProgressBarLegends } from './progress-bar-legends';
 export { Status } from './status';
 export { SessionIndicator } from './session-indicator';
-export { SortArrows } from './sort-arrows';
+export { SortArrow } from './sort-arrow';
 export { Legend } from './legend';

@@ -1,26 +1,17 @@
 @import '../../../../style-guide/index';
 
 .row-expander {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  position: relative;
 
   &__icon {
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 16px;
     color: map-get($primary-blue, default);
-    margin-right: 5px;
 
     &--expanded {
       transform: rotate(90deg);
-    }
-
-    &--with-margin {
-      position: absolute;
-      right: -22px;
-      top: -7px;
     }
   }
 }

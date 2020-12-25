@@ -9,7 +9,6 @@ interface Props {
   data: object[];
   idKey: string;
   children: React.ReactNode;
-  columnsSize?: 'wide' | 'medium';
   expandedColumns?: any[];
   expandedContentKey: string;
   secondLevelExpand?: any[];
@@ -57,7 +56,6 @@ const getExpanderColumn = ({
   expandedRows,
   setExpandedRows,
   idKey,
-  withMargin,
   expandedContentKey,
 }: {
   idKey: string;
@@ -78,9 +76,8 @@ const getExpanderColumn = ({
         }}
         expanded={expandedRows.includes(item[idKey])}
         key={item[idKey]}
-        withMargin={withMargin}
       />
     ) : null)}
-    width="24px"
+    align="end"
   />
 );

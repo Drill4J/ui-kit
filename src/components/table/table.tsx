@@ -13,7 +13,6 @@ interface Props {
   children: any;
   idKey?: string;
   footer?: React.ReactNode;
-  columnsSize?: 'wide' | 'medium';
   expandedRows?: string[];
   expandedColumns?: any[];
   expandedContentKey?: string;
@@ -21,6 +20,7 @@ interface Props {
   selectedRows?: string[];
   sort?: Sort;
   onSort?: (sort: Sort) => void;
+  templateColumns?: string;
 }
 
 const table = BEM(styles);
@@ -39,32 +39,37 @@ export const Table = table(
     selectedRows = [],
     sort,
     onSort,
+    templateColumns = '',
   }: Props) => {
     const columns = React.Children.map(children, (column) => column?.props);
     const expandedColumnsComponents = React.Children.map(
       expandedColumns,
       (column) => column?.props,
     );
+    const gridTemplateColumns = !expandedColumns
+      ? (templateColumns || `40% repeat(${columns?.length - 1}, 1fr)`) : `32px 40% repeat(${columns?.length - 2}, 1fr)`;
+    const gridExpandedTemplateColumns = expandedColumns
+      ? `32px 40% repeat(${expandedColumns?.length - 2}, 1fr)` : `repeat(${columns?.length}, 1fr)`;
 
     return (
-      <table className={className}>
-        {!withoutHeader && <TableHeader columns={columns} sort={sort} onSort={onSort} />}
-        <tbody>
-          {data.map((item, index) => (
-            <TableRow
-              key={idKey ? String(item[idKey]) : index}
-              item={item}
-              columns={columns}
-              index={index}
-              expandedColumns={expandedColumnsComponents}
-              color={getRowColor({ expandedRows, selectedRows, itemId: String(item[idKey]) })}
-              expandedContentKey={expandedContentKey}
-              expandedRows={expandedRows}
-            />
-          ))}
-        </tbody>
+      <div className={className}>
+        {!withoutHeader && <TableHeader columns={columns} gridTemplateColumns={gridTemplateColumns} sort={sort} onSort={onSort} />}
+        {data.map((item, index) => (
+          <TableRow
+            key={idKey ? String(item[idKey]) : index}
+            item={item}
+            columns={columns}
+            index={index}
+            expandedColumns={expandedColumnsComponents}
+            color={getRowColor({ expandedRows, selectedRows, itemId: String(item[idKey]) })}
+            expandedContentKey={expandedContentKey}
+            expandedRows={expandedRows}
+            gridTemplateColumns={gridTemplateColumns}
+            gridExpandedTemplateColumns={gridExpandedTemplateColumns}
+          />
+        ))}
         {footer}
-      </table>
+      </div>
     );
   },
 );

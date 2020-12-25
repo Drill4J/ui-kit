@@ -16,12 +16,12 @@ const data = [{
 }];
 
 storiesOf('Table', module).add('Table', () => {
-  const [sort, setSort] = React.useState<{fieldName: string; order: 'ASC' | 'DESC'}>({ fieldName: 'name', order: 'ASC' });
+  const [sort, setSort] = React.useState<{field: string; order: 'ASC' | 'DESC' | null}>({ field: 'name', order: 'ASC' });
   return (
     <Table
       data={data}
       sort={sort}
-      onSort={setSort}
+      onSort={(cellSort) => setSort(cellSort)}
     >
       <Column
         name="lambdaFunction"
@@ -56,7 +56,6 @@ storiesOf('Table', module).add('Table', () => {
         HeaderCell={() => (
           <pre>Anonymous Func Expression</pre>
         )}
-        align="right"
       />
     </Table>
   );

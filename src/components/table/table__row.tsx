@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { BEM } from '@redneckz/react-bem-helper';
+import { BEM, div } from '@redneckz/react-bem-helper';
 
 import { get } from './get';
 import { DefaultCell } from './default-cell';
 // eslint-disable-next-line import/no-cycle
 import { ExpandedRowContent } from './expanded-row-content';
 
-import styles from './table.module.scss';
+import styles from './table-row.module.scss';
 
 interface Props {
   className?: string;
@@ -19,9 +19,13 @@ interface Props {
   expandedRows?: string[];
   nested?: boolean;
   nestedLast?: boolean;
+  gridTemplateColumns: string;
+  gridExpandedTemplateColumns?: string;
 }
 
-export const TableRow = BEM(styles).row(
+const tableRow = BEM(styles);
+
+export const TableRow = tableRow(
   ({
     className,
     item,
@@ -31,25 +35,30 @@ export const TableRow = BEM(styles).row(
     color,
     expandedColumns = [],
     expandedRows,
+    gridTemplateColumns,
+    gridExpandedTemplateColumns = '',
   }: Props) => (
     <>
-      <tr className={className}>
+      <div className={className} style={{ display: 'grid', gridTemplateColumns, backgroundColor: color ? '#F8F9FB' : undefined }}>
         {columns.map((column) => {
           const Cell = column.Cell || DefaultCell;
           return (
-            <td key={column.name} colSpan={column.colSpan} style={{ width: column.width }} align={column.align}>
+            <TableRowCell key={column.name} type={column.align || 'end'} selector={column.name === 'selector'}>
               <Cell value={get(item, column.name)} item={item} rowIndex={index} />
-            </td>
+            </TableRowCell>
           );
         })}
-      </tr>
+      </div>
       {color && (
         <ExpandedRowContent
           data={item[expandedContentKey]}
           expandedColumns={expandedColumns}
           expandedRows={expandedRows}
+          gridExpandedTemplateColumns={gridExpandedTemplateColumns}
         />
       )}
     </>
   ),
 );
+
+const TableRowCell = tableRow.tableRowCell(div({} as { selector?: boolean }));

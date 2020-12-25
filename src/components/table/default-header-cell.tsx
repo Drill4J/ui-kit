@@ -20,12 +20,13 @@ export const DefaultHeaderCell = defaultHeaderCell(({
   className, column: { name, label = '' }, sort, onSort,
 }: Props) => {
   const { ref, isVisible } = useHover();
+  const activeCell = name === sort?.field;
   return (
     <div ref={ref}>
       {onSort && sort ? (
-        <div className={className} onClick={() => onSort({ order: invertOrder(sort.order), fieldName: name })}>
-          {(isVisible || name === sort.fieldName) &&
-          <SortArrow active={name === sort.fieldName} order={name === sort.fieldName ? sort.order : null} />}
+        <div className={className} onClick={() => onSort({ order: setOrder(sort.order), field: name })}>
+          {name !== 'selector' && (isVisible || activeCell) &&
+          <SortArrow active={activeCell} order={activeCell ? sort.order : null} />}
           {label}
         </div>
       ) : label}
@@ -33,6 +34,13 @@ export const DefaultHeaderCell = defaultHeaderCell(({
   );
 });
 
-function invertOrder(order: Order) {
-  return order === 'ASC' ? 'DESC' : 'ASC';
+function setOrder(order: Order) {
+  switch (order) {
+    case 'ASC':
+      return 'DESC';
+    case 'DESC':
+      return null;
+    default:
+      return 'ASC';
+  }
 }

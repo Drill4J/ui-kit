@@ -2,14 +2,35 @@
 
 exports[`ExpandedRowContent should match snapshot 1`] = `
 Array [
-  <tr
-    className="table__row table__row--nested"
+  <div
+    className="table-row table-row--nested"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "display": "grid",
+        "gridTemplateColumns": "1fr 1fr 1fr",
+      }
+    }
   />,
-  <tr
-    className="table__row table__row--nested"
+  <div
+    className="table-row table-row--nested"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "display": "grid",
+        "gridTemplateColumns": "1fr 1fr 1fr",
+      }
+    }
   />,
-  <tr
-    className="table__row table__row--nested table__row--nested-last"
+  <div
+    className="table-row table-row--nested table-row--nested-last"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "display": "grid",
+        "gridTemplateColumns": "1fr 1fr 1fr",
+      }
+    }
   />,
 ]
 `;

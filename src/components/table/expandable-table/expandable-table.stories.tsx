@@ -78,16 +78,15 @@ storiesOf('ExpandableTable', module).add('ExpandableTable', () => (
         label="Description"
         Cell={({ value }) => <span>{value.substr(0, 150)}</span>}
       />,
-      <Column name="agentType" label="Type" align="right" />,
+      <Column name="agentType" label="Type" />,
     ]}
     expandedContentKey="agents"
   >
-    <Column name="name" label="Name" width="10%" />
+    <Column name="name" label="Name" />
     <Column
       name="description"
       label="Description"
-      width="20%"
     />
-    <Column name="agentType" label="Type" align="right" />
+    <Column name="agentType" label="Type" />
   </ExpandableTable>
 ));

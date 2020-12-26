@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.53",
+  "version": "0.1.54",
   "author": "Drill4J",
   "license": "Apache-2.0",
   "description": "Drill4J UI components library",
@@ -28,16 +28,17 @@
     "test:coverage": "jest --coverage",
     "typecheck": "tsc --project tsconfig.json --noEmit --skipLibCheck",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src"
+    "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
-    "@storybook/addon-actions": "^6.0.27",
-    "@storybook/addon-info": "^5.3.18",
-    "@storybook/addon-links": "^6.0.27",
-    "@storybook/addons": "^6.0.27",
-    "@storybook/react": "^6.0.27",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/addons": "^6.1.11",
+    "@storybook/react": "^6.1.11",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.2",

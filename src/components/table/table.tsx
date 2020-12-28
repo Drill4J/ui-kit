@@ -20,7 +20,8 @@ interface Props {
   selectedRows?: string[];
   sort?: Sort;
   onSort?: (sort: Sort) => void;
-  templateColumns?: string;
+  gridTemplateColumns?: string;
+  gridExpandedTemplateColumns?: string;
 }
 
 const table = BEM(styles);
@@ -39,21 +40,29 @@ export const Table = table(
     selectedRows = [],
     sort,
     onSort,
-    templateColumns = '',
+    gridTemplateColumns = '',
+    gridExpandedTemplateColumns = '',
   }: Props) => {
     const columns = React.Children.map(children, (column) => column?.props);
     const expandedColumnsComponents = React.Children.map(
       expandedColumns,
       (column) => column?.props,
     );
-    const gridTemplateColumns = !expandedColumns
-      ? (templateColumns || `40% repeat(${columns?.length - 1}, 1fr)`) : `32px 40% repeat(${columns?.length - 2}, 1fr)`;
-    const gridExpandedTemplateColumns = expandedColumns
+    const defaultGridTemplateColumns = !expandedColumns
+      ? `40% repeat(${columns?.length - 1}, 1fr)` : `32px 40% repeat(${columns?.length - 2}, 1fr)`;
+    const defaultGridExpandedTemplateColumns = expandedColumns
       ? `32px 40% repeat(${expandedColumns?.length - 2}, 1fr)` : `repeat(${columns?.length}, 1fr)`;
 
     return (
       <div className={className}>
-        {!withoutHeader && <TableHeader columns={columns} gridTemplateColumns={gridTemplateColumns} sort={sort} onSort={onSort} />}
+        {!withoutHeader && (
+          <TableHeader
+            columns={columns}
+            gridTemplateColumns={gridTemplateColumns || defaultGridTemplateColumns}
+            sort={sort}
+            onSort={onSort}
+          />
+        )}
         {data.map((item, index) => (
           <TableRow
             key={idKey ? String(item[idKey]) : index}
@@ -64,8 +73,8 @@ export const Table = table(
             color={getRowColor({ expandedRows, selectedRows, itemId: String(item[idKey]) })}
             expandedContentKey={expandedContentKey}
             expandedRows={expandedRows}
-            gridTemplateColumns={gridTemplateColumns}
-            gridExpandedTemplateColumns={gridExpandedTemplateColumns}
+            gridTemplateColumns={gridTemplateColumns || defaultGridTemplateColumns}
+            gridExpandedTemplateColumns={gridExpandedTemplateColumns || defaultGridExpandedTemplateColumns}
           />
         ))}
         {footer}

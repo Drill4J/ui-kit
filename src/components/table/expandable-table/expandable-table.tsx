@@ -16,6 +16,8 @@ interface Props {
   hasSecondLevelExpand?: boolean;
   sort?: Sort;
   onSort?: (sort: Sort) => void;
+  gridTemplateColumns?: string;
+  gridExpandedTemplateColumns?: string;
 }
 
 export const ExpandableTable = ({
@@ -27,6 +29,8 @@ export const ExpandableTable = ({
   expandedContentKey,
   sort,
   onSort,
+  gridTemplateColumns,
+  gridExpandedTemplateColumns,
   ...restProps
 }: Props) => {
   const [expandedRows, setExpandedRows] = React.useState<string[]>([]);
@@ -41,6 +45,8 @@ export const ExpandableTable = ({
       sort={sort}
       onSort={onSort}
       {...restProps}
+      gridTemplateColumns={gridTemplateColumns}
+      gridExpandedTemplateColumns={gridExpandedTemplateColumns}
     >
       {[
         getExpanderColumn({

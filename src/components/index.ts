@@ -21,3 +21,4 @@ export { Status } from './status';
 export { SessionIndicator } from './session-indicator';
 export { SortArrow } from './sort-arrow';
 export { Legend } from './legend';
+export { EllipsisOverflowText } from './ellipsis-overflow-text';

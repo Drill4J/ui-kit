@@ -1,12 +1,13 @@
-import React from 'react';
+import { ChangeEvent, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { AdditionalProgressBar } from './additional-progress-bar';
 
-storiesOf('AdditionalProgressBar', module)
-  .add('AdditionalProgressBar with change coverage panel', () => {
-    const [coverage, setCoverage] = React.useState(0);
-    const handleChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+storiesOf('AdditionalProgressBar', module).add(
+  'AdditionalProgressBar with change coverage panel',
+  () => {
+    const [coverage, setCoverage] = useState(0);
+    const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
       setCoverage(Number(value));
     };
     return (
@@ -17,4 +18,5 @@ storiesOf('AdditionalProgressBar', module)
         <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
       </div>
     );
-  });
+  },
+);

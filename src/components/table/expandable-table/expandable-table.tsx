@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Children, useState, ReactNode } from 'react';
 
 import { Table } from '../table';
 import { Column } from '../column';
@@ -8,7 +8,7 @@ import { Sort } from '../table-types';
 interface Props {
   data: object[];
   idKey: string;
-  children: React.ReactNode;
+  children: ReactNode;
   expandedColumns?: any[];
   expandedContentKey: string;
   secondLevelExpand?: any[];
@@ -33,7 +33,7 @@ export const ExpandableTable = ({
   gridExpandedTemplateColumns,
   ...restProps
 }: Props) => {
-  const [expandedRows, setExpandedRows] = React.useState<string[]>([]);
+  const [expandedRows, setExpandedRows] = useState<string[]>([]);
   return (
     <Table
       className={className}
@@ -50,9 +50,12 @@ export const ExpandableTable = ({
     >
       {[
         getExpanderColumn({
-          idKey, expandedRows, setExpandedRows, expandedContentKey,
+          idKey,
+          expandedRows,
+          setExpandedRows,
+          expandedContentKey,
         }),
-        ...React.Children.toArray(children),
+        ...Children.toArray(children),
       ]}
     </Table>
   );
@@ -73,17 +76,18 @@ const getExpanderColumn = ({
   <Column
     name="selector"
     key={idKey}
-    Cell={({ item }) => (item[expandedContentKey] ? (
-      <RowExpander
-        onClick={() => {
-          expandedRows.includes(item[idKey])
-            ? setExpandedRows(expandedRows.filter((selectedItem) => selectedItem !== item[idKey]))
-            : setExpandedRows([...expandedRows, item[idKey]]);
-        }}
-        expanded={expandedRows.includes(item[idKey])}
-        key={item[idKey]}
-      />
-    ) : null)}
+    Cell={({ item }) =>
+      (item[expandedContentKey] ? (
+        <RowExpander
+          onClick={() => {
+            expandedRows.includes(item[idKey])
+              ? setExpandedRows(expandedRows.filter((selectedItem) => selectedItem !== item[idKey]))
+              : setExpandedRows([...expandedRows, item[idKey]]);
+          }}
+          expanded={expandedRows.includes(item[idKey])}
+          key={item[idKey]}
+        />
+      ) : null)}
     align="end"
   />
 );

@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC, useRef } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { useElementSize } from './use-element-size';
 
-const Component: React.FC = () => {
-  const node = React.useRef<HTMLDivElement>(null);
+const Component: FC = () => {
+  const node = useRef<HTMLDivElement>(null);
   const { width: contentWidth, height: contentHeight } = useElementSize(node);
 
   return (

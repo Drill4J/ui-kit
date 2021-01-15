@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { Component } from 'react';
 import { createPortal } from 'react-dom';
 
-export class Portal<Props extends { rootElementId: string }> extends React.Component<Props> {
+export class Portal<Props extends { rootElementId: string }> extends Component<Props> {
   public element: HTMLDivElement;
 
   public rootElementById: HTMLElement | null;

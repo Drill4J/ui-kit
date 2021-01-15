@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Children, ReactNode } from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
 import { TableRow } from './table__row';
@@ -12,7 +12,7 @@ interface Props {
   data?: Array<{ [key: string]: unknown }>;
   children: any;
   idKey?: string;
-  footer?: React.ReactNode;
+  footer?: ReactNode;
   expandedRows?: string[];
   expandedColumns?: any[];
   expandedContentKey?: string;
@@ -43,15 +43,14 @@ export const Table = table(
     gridTemplateColumns = '',
     gridExpandedTemplateColumns = '',
   }: Props) => {
-    const columns = React.Children.map(children, (column) => column?.props);
-    const expandedColumnsComponents = React.Children.map(
-      expandedColumns,
-      (column) => column?.props,
-    );
+    const columns = Children.map(children, (column) => column?.props);
+    const expandedColumnsComponents = Children.map(expandedColumns, (column) => column?.props);
     const defaultGridTemplateColumns = !expandedColumns
-      ? `40% repeat(${columns?.length - 1}, 1fr)` : `32px 40% repeat(${columns?.length - 2}, 1fr)`;
+      ? `40% repeat(${columns?.length - 1}, 1fr)`
+      : `32px 40% repeat(${columns?.length - 2}, 1fr)`;
     const defaultGridExpandedTemplateColumns = expandedColumns
-      ? `32px 40% repeat(${expandedColumns?.length - 2}, 1fr)` : `repeat(${columns?.length}, 1fr)`;
+      ? `32px 40% repeat(${expandedColumns?.length - 2}, 1fr)`
+      : `repeat(${columns?.length}, 1fr)`;
 
     return (
       <div className={className}>
@@ -74,7 +73,9 @@ export const Table = table(
             expandedContentKey={expandedContentKey}
             expandedRows={expandedRows}
             gridTemplateColumns={gridTemplateColumns || defaultGridTemplateColumns}
-            gridExpandedTemplateColumns={gridExpandedTemplateColumns || defaultGridExpandedTemplateColumns}
+            gridExpandedTemplateColumns={
+              gridExpandedTemplateColumns || defaultGridExpandedTemplateColumns
+            }
           />
         ))}
         {footer}

@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { TabsPanel, Tab } from './tabs';
 
 storiesOf('Tabs', module).add('Tabs', () => {
-  const [selectedTab, setSelectedTab] = React.useState('general');
+  const [selectedTab, setSelectedTab] = useState('general');
   return (
     <TabsPanel activeTab={selectedTab} onSelect={setSelectedTab}>
       <Tab name="general">General</Tab>

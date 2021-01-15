@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { BEM, div } from '@redneckz/react-bem-helper';
 
 import { Icons } from '../../../components';
@@ -15,7 +15,7 @@ export const DropdownInput = dropdownInput(
   ({
     className, options, value, onChange, error,
   }: DropdownInputProps) => {
-    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
     const node = useClickOutside(() => setIsExpanded(false));
     return (
       <div className={className} ref={node}>

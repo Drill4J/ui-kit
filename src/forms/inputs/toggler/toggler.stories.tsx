@@ -1,11 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Toggler } from './toggler';
 import { Spinner } from '../../../components/spinner';
 
 storiesOf('Toggler', module).add('Toggler', () => {
-  const [value, setValue] = React.useState(true);
+  const [value, setValue] = useState(true);
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', width: '300px' }}>
       <Toggler

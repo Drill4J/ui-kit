@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC, useRef } from 'react';
 import renderer from 'react-test-renderer';
 
 import { useElementSize } from './use-element-size';
 
-const Component: React.FC = () => {
-  const node = React.useRef<HTMLDivElement>(null);
+const Component: FC = () => {
+  const node = useRef<HTMLDivElement>(null);
   const { width: contentWidth, height: contentHeight } = useElementSize(node);
 
   return (
@@ -16,11 +16,7 @@ const Component: React.FC = () => {
 
 describe('useElementSize', () => {
   it('should match snapshot', () => {
-    const component = renderer
-      .create(
-        <Component />,
-      )
-      .toJSON();
+    const component = renderer.create(<Component />).toJSON();
 
     expect(component).toMatchSnapshot();
   });

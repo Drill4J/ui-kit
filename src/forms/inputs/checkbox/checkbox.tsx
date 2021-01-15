@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BEM, input, div } from '@redneckz/react-bem-helper';
 
 import { Icons } from '../../../components/icon';

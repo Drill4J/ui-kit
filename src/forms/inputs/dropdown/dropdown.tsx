@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
 import { Icons } from '../../../components';
@@ -14,7 +14,7 @@ const dropdown = BEM(styles);
 export const Dropdown = dropdown(({
   className, items, value, onChange,
 }: DropdownProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const node = useClickOutside(() => setIsExpanded(false));
   const selectedValue = items.find((item) => value === item.value);
 

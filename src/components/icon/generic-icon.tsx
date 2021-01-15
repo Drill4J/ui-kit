@@ -1,4 +1,3 @@
-import React from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
 
 import styles from './generic-icon.module.scss';

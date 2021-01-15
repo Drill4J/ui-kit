@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BEM, input as bemInput } from '@redneckz/react-bem-helper';
 
 import { INPUT_PROPS } from './input-props';

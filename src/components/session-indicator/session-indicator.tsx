@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BEM, tag } from '@redneckz/react-bem-helper';
 
 import { path as circlePath } from './circle.path';

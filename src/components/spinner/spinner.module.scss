@@ -24,6 +24,12 @@
     }
   }
 
+  &--disabled {
+    div:after {
+      background: map-get($monochrome, white);
+    }
+  }
+
   div:nth-child(1) {
     transform: rotate(0deg);
     animation-delay: -1.1s;

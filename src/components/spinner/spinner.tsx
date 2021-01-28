@@ -4,6 +4,7 @@ import styles from './spinner.module.scss';
 
 interface Props {
   className?: string;
+  disabled?: boolean;
 }
 
 const spinner = BEM(styles);

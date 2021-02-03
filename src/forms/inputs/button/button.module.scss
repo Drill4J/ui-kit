@@ -3,13 +3,9 @@
 .button {
   display: flex;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 16px;
   outline: 0;
   cursor: pointer;
-
-  & > :not(:last-child) {
-    margin-right: 8px;
-  }
 
   &--type {
     &--primary {
@@ -46,14 +42,16 @@
 
   &--size {
     &--large {
-      line-height: 18px;
-      padding: 6px 16px;
+      height: 32px;
+      line-height: 20px;
+      padding: 0 16px;
       font-size: 14px;
     }
 
     &--small {
-      line-height: 14px;
-      padding: 4px 12px;
+      height: 24px;
+      line-height: 16px;
+      padding: 0 12px;
       font-size: 12px;
     }
   }

@@ -7,7 +7,6 @@
   background-color: transparent;
   color: map-get($primary-blue, default);
   font-family: $semibold-font;
-
   &:hover {
     color: map-get($primary-blue, medium-tint);
   }

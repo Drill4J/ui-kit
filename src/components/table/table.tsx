@@ -76,6 +76,9 @@ export const Table = table(
             gridExpandedTemplateColumns={
               gridExpandedTemplateColumns || defaultGridExpandedTemplateColumns
             }
+            nested={Boolean(
+              getRowColor({ expandedRows, selectedRows, itemId: String(item[idKey]) }),
+            )}
           />
         ))}
         {footer}

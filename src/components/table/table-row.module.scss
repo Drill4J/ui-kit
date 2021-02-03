@@ -27,11 +27,11 @@
   }
 
   &--nested {
-    border-left: 2px solid map-get($primary-blue, light-tint);
-    border-right: 2px solid map-get($primary-blue, light-tint);
+    border-left: 1px solid map-get($monochrome, medium-tint);
+    border-right: 1px solid map-get($monochrome, medium-tint);
   }
 
   &--nested-last {
-    border-bottom: 2px solid map-get($primary-blue, light-tint);
+    border-bottom: 1px solid map-get($monochrome, medium-tint);
   }
 }

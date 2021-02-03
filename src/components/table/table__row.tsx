@@ -38,11 +38,22 @@ export const TableRow = tableRow(
     gridExpandedTemplateColumns = '',
   }: Props) => (
     <>
-      <div className={className} style={{ display: 'grid', gridTemplateColumns, backgroundColor: color ? '#F8F9FB' : undefined }}>
+      <div
+        className={className}
+        style={{
+          display: 'grid',
+          gridTemplateColumns,
+          backgroundColor: color ? '#F8F9FB' : undefined,
+        }}
+      >
         {columns.map((column) => {
           const Cell = column.Cell || DefaultCell;
           return (
-            <TableRowCell key={column.name} type={column.align || 'end'} selector={column.name === 'selector'}>
+            <TableRowCell
+              key={column.name}
+              type={column.align || 'end'}
+              selector={column.name === 'selector'}
+            >
               <Cell value={get(item, column.name)} item={item} rowIndex={index} />
             </TableRowCell>
           );

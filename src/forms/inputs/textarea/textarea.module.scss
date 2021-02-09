@@ -20,14 +20,13 @@
     }
 
     &::placeholder {
-      opacity: 0.5;
+      color: map-get($monochrome, default);
     }
 
     &--disabled {
       border: 1px solid map-get($monochrome, medium-tint);
       background-color: map-get($monochrome, light-tint);
-      color: map-get($monochrome, black);
-      opacity: 0.5;
+      color: map-get($monochrome, default);
     }
 
     &--error {

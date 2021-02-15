@@ -23,7 +23,16 @@ export const DefaultHeaderCell = defaultHeaderCell(({
   return (
     <div ref={ref}>
       {onSort && sort ? (
-        <div className={className} onClick={() => onSort({ order: setOrder(sort.order), field: name })}>
+        <div
+          className={className}
+          onClick={() => onSort(name === sort.field ? {
+            order: setOrder(sort.order),
+            field: setOrder(sort.order) ? name : '',
+          } : {
+            field: name,
+            order: 'ASC',
+          })}
+        >
           {name !== 'selector' && (isVisible || activeCell) &&
           <SortArrow active={activeCell} order={activeCell ? sort.order : null} />}
           {label}

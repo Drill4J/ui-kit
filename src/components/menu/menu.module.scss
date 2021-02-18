@@ -11,6 +11,14 @@
     max-width: 32px;
     color: map-get($primary-blue, default);
     cursor: pointer;
+
+    &:hover {
+      color: map-get($primary-blue, medium-tint);
+    }
+
+    &:active {
+      color: map-get($primary-blue, shade);
+    }
   }
 
   &__items-list {

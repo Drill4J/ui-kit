@@ -1,5 +1,6 @@
 import { Children, ReactNode } from 'react';
 import { BEM } from '@redneckz/react-bem-helper';
+import { nanoid } from 'nanoid';
 
 import { TableRow } from './table__row';
 import { TableHeader } from './table__header';
@@ -64,7 +65,7 @@ export const Table = table(
         )}
         {data.map((item, index) => (
           <TableRow
-            key={idKey ? String(item[idKey]) : index}
+            key={nanoid()}
             item={item}
             columns={columns}
             index={index}

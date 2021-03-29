@@ -11,6 +11,7 @@
   font-family: $semibold-font;
   border-bottom: 1px solid map-get($monochrome, black);
   border-top: 1px solid map-get($monochrome, black);
+  background-color: map-get($monochrome, white);
   color: map-get($monochrome, black);
 
   &__table-header-cell {

@@ -1,6 +1,9 @@
 @import '../../style-guide/index';
 
 .table-header {
+  position: sticky;
+  top: -0.25rem;
+  z-index: 40;
   align-items: center;
   height: 52px;
   font-size: 14px;

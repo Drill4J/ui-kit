@@ -22,8 +22,6 @@
   }
 
   &__items-list {
-    position: absolute;
-    right: calc(50% - 22px);
     display: flex;
     flex-direction: column;
     padding: 8px 0;
@@ -35,15 +33,11 @@
 
     &--position {
       &--bottom {
-        top: calc(100% + 12px);
-
         &::before {
           top: -7px;
         }
       }
       &--top {
-        bottom: calc(100% + 12px);
-
         &::before {
           bottom: -7px;
         }

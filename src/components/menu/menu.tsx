@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import {
+  useLayoutEffect, useRef, useState,
+} from 'react';
 import { BEM, div } from '@redneckz/react-bem-helper';
-import VisibilitySensor from 'react-visibility-sensor';
 import { nanoid } from 'nanoid';
 
 import { Icons } from '../icon';
@@ -13,6 +14,7 @@ interface MenuItemType {
   label: string;
   icon: keyof typeof Icons;
   onClick: () => void;
+  content?: React.ReactNode;
 }
 
 interface Props {
@@ -30,6 +32,38 @@ export const Menu = menu(({
   const [isListOpened, setIsListOpened] = useState(false);
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');
   const node = useClickOutside(() => setIsListOpened(false));
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuPadding = 16;
+  const triangleHeightAndMargin = 34;
+  const menuItemsHeight = items.length * 32;
+
+  const {
+    top: iconTopPosition = 0,
+  } = node?.current?.getBoundingClientRect() || {};
+
+  useLayoutEffect(() => {
+    if (iconTopPosition &&
+      menuItemsHeight + menuPadding + iconTopPosition + triangleHeightAndMargin < document.documentElement.clientHeight) {
+      setPosition('bottom');
+    } else {
+      setPosition('top');
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        !entry.isIntersecting && setPosition('top');
+      },
+      {
+        root: null,
+        threshold: 1.0,
+      },
+    );
+    menuRef.current && observer.observe(menuRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isListOpened]);
 
   return (
     <div className={className} ref={node}>
@@ -39,13 +73,20 @@ export const Menu = menu(({
       >
         {bordered ? <Icons.MoreOptionsWithBorder /> : <Icons.MoreOptions />}
         {isListOpened && (
-          <VisibilitySensor
-            onChange={(isVisible) => {
-              !isVisible && setPosition('top');
+          <div
+            ref={menuRef}
+            style={{
+              position: 'absolute',
+              zIndex: 30,
+              top: position === 'bottom' ? 'calc(100% + 12px)' : undefined,
+              bottom: position === 'top' ? 'calc(100% + 12px)' : undefined,
+              right: 'calc(50% - 22px)',
             }}
           >
             <ItemsList position={position}>
-              {items.map(({ icon, label, onClick }) => {
+              {items.map(({
+                icon, label, onClick, content,
+              }) => {
                 const ItemIcon = Icons[icon];
                 return (
                   <Item
@@ -54,12 +95,12 @@ export const Menu = menu(({
                     data-test={`menu:item:${spacesToDashes(label)}`}
                   >
                     <ItemIcon width={16} height={16} />
-                    <ItemLabel>{label}</ItemLabel>
+                    <ItemLabel>{content || label}</ItemLabel>
                   </Item>
                 );
               })}
             </ItemsList>
-          </VisibilitySensor>
+          </div>
         )}
       </MenuIcon>
     </div>

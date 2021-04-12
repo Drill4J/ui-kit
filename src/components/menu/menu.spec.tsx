@@ -2,6 +2,7 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
 import { Menu } from './menu';
+import '../../__mocks__/intersectionObserverMock';
 
 describe('Menu', () => {
   it('should match snapshot', () => {

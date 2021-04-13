@@ -33,15 +33,16 @@ export const Menu = menu(({
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');
   const node = useClickOutside(() => setIsListOpened(false));
   const menuRef = useRef<HTMLDivElement>(null);
-  const menuPadding = 16;
-  const triangleHeightAndMargin = 34;
-  const menuItemsHeight = items.length * 32;
 
   const {
     top: iconTopPosition = 0,
   } = node?.current?.getBoundingClientRect() || {};
 
   useLayoutEffect(() => {
+    const menuPadding = 16;
+    const triangleHeightAndMargin = 34;
+    const menuItemsHeight = items.length * 32;
+
     if (iconTopPosition &&
       menuItemsHeight + menuPadding + iconTopPosition + triangleHeightAndMargin < document.documentElement.clientHeight) {
       setPosition('bottom');

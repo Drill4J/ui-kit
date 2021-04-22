@@ -2,10 +2,10 @@
 
 exports[`Menu should match snapshot 1`] = `
 <div
-  className="menu"
+  className="sc-bdvvaa gDgZDz"
 >
   <div
-    className="menu__menu-icon"
+    className="sc-gsDJrp hkJiwu"
     data-test="menu:icon:"
     onClick={[Function]}
   >

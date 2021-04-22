@@ -1,33 +1,109 @@
 import {
   useLayoutEffect, useRef, useState,
 } from 'react';
-import { BEM, div } from '@redneckz/react-bem-helper';
 import { nanoid } from 'nanoid';
+import styled, { css } from 'styled-components';
 
 import { Icons } from '../icon';
 import { useClickOutside } from '../../hooks';
 import { spacesToDashes } from './spaces-to-dashes';
 
-import styles from './menu.module.scss';
-
 interface MenuItemType {
   label: string;
   icon: keyof typeof Icons;
   onClick: () => void;
-  content?: React.ReactNode;
+  Content?: (props: { children: JSX.Element}) => JSX.Element;
 }
 
 interface Props {
-  className?: string;
   items: MenuItemType[];
   bordered?: boolean;
   testContext?: string;
 }
 
-const menu = BEM(styles);
+const Wrapper = styled.div`
+  color: #1b191b;
+`;
 
-export const Menu = menu(({
-  className, items, bordered, testContext = '',
+const MenuIcon = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-height: 32px;
+  max-width: 32px;
+  color: #007fff;
+  cursor: pointer;
+
+  &:hover {
+    color: #3399ff;
+  }
+
+  &:active {
+    color: #006cd8;
+  }
+`;
+
+const ItemsList = styled.div<{ position: 'bottom' | 'top' }>`
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.15));
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1b191b;
+  z-index: 50;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    left: calc(100% - 30px);
+    height: 15px;
+    width: 15px;
+    transform: rotate(45deg);
+  }
+
+  ${({ position }) => position === 'bottom' && css`
+    &::before {
+      top: -7px;
+    }
+  `}
+
+  ${({ position }) => position === 'top' && css`
+    &::before {
+      bottom: -7px;
+    }
+  `}
+  ${({ position }) => css`
+    &::before {
+      ${position === 'top' ? 'bottom: -7px;' : 'top: -7px;'}
+    }
+  `}
+`;
+
+const Item = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f8f9fb;
+  }
+`;
+
+const ItemLabel = styled.span`
+  font-size: 14px;
+  line-height: 32px;
+  margin-left: 8px;
+  white-space: nowrap;
+`;
+
+export const Menu = ({
+  items,
+  bordered,
+  testContext = '',
 }: Props) => {
   const [isListOpened, setIsListOpened] = useState(false);
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');
@@ -67,7 +143,7 @@ export const Menu = menu(({
   }, [isListOpened]);
 
   return (
-    <div className={className} ref={node}>
+    <Wrapper ref={node}>
       <MenuIcon
         onClick={() => setIsListOpened(!isListOpened)}
         data-test={`menu:icon:${testContext}`}
@@ -86,31 +162,29 @@ export const Menu = menu(({
           >
             <ItemsList position={position}>
               {items.map(({
-                icon, label, onClick, content,
+                icon,
+                label,
+                onClick,
+                Content = ({ children }) => children,
               }) => {
                 const ItemIcon = Icons[icon];
                 return (
-                  <Item
-                    onClick={onClick}
-                    key={nanoid()}
-                    data-test={`menu:item:${spacesToDashes(label)}`}
-                  >
-                    <ItemIcon width={16} height={16} />
-                    <ItemLabel>{content || label}</ItemLabel>
-                  </Item>
+                  <Content>
+                    <Item
+                      onClick={onClick}
+                      key={nanoid()}
+                      data-test={`menu:item:${spacesToDashes(label)}`}
+                    >
+                      <ItemIcon width={16} height={16} />
+                      <ItemLabel>{label}</ItemLabel>
+                    </Item>
+                  </Content>
                 );
               })}
             </ItemsList>
           </div>
         )}
       </MenuIcon>
-    </div>
+    </Wrapper>
   );
-});
-
-const MenuIcon = menu.menuIcon(
-  div({ onClick: () => {}, 'data-test': '' } as { onClick?: () => void; 'data-test'?: string }),
-);
-const ItemsList = menu.itemsList(div({} as { position?: 'bottom' | 'top' }));
-const Item = menu.item('div');
-const ItemLabel = menu.itemLabel('span');
+};

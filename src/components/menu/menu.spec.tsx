@@ -39,6 +39,8 @@ describe('Menu', () => {
         },
       ]}
     />);
+
+    wrapper.find('div[data-test="menu:icon:"]').simulate('click');
     wrapper.find('div[data-test="menu:item:rename"]').simulate('click');
     expect(mockFn).toHaveBeenCalledTimes(1);
   });

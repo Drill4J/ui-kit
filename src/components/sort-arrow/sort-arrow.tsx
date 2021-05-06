@@ -1,8 +1,7 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
 import { Icons } from '../icon';
-
-import styles from './sort-arrow.module.scss';
+import { COLORS } from '../../theme';
 
 interface Props {
   className?: string;
@@ -10,10 +9,21 @@ interface Props {
   active?: boolean;
 }
 
-const sortArrow = BEM(styles);
-
-export const SortArrow = sortArrow(({ className, order }: Props) => (
-  <div className={className}>
+export const SortArrow = ({ className, order, active }: Props) => (
+  <Wrapper className={className} active={active}>
     <Icons.SortingArrow rotate={order === 'DESC' ? 0 : 180} />
-  </div>
-));
+  </Wrapper>
+);
+
+const Wrapper = styled.div<{active?: boolean}>`
+  position: absolute;
+  left: -16px;
+  display: grid;
+  place-items: center;
+  height: 16px;
+  width: 16px;
+  color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+  cursor: pointer;
+  
+  ${({ active }) => active && css`color: ${COLORS.PRIMARY_BLUE.SHADE}`}
+`;

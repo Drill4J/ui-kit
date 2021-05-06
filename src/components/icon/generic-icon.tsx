@@ -1,6 +1,4 @@
-import { BEM } from '@redneckz/react-bem-helper';
-
-import styles from './generic-icon.module.scss';
+import styled from 'styled-components';
 
 interface GenericIconProps {
   className?: string;
@@ -14,7 +12,7 @@ interface GenericIconProps {
   onClick?: () => void;
 }
 
-export const GenericIcon = BEM(styles)(({ path, rotate = 0, ...rest }: GenericIconProps) => (
+export const GenericIcon = styled(({ path, rotate = 0, ...rest }: GenericIconProps) => (
   <svg
     {...rest}
     transform={`rotate(${rotate})`}
@@ -24,7 +22,9 @@ export const GenericIcon = BEM(styles)(({ path, rotate = 0, ...rest }: GenericIc
       <path d={d} key={key} />
     ))}
   </svg>
-));
+))`
+  fill: currentColor;
+`;
 
 function mapPath(path = '', mapper: (value: string, index: number) => JSX.Element) {
   return path

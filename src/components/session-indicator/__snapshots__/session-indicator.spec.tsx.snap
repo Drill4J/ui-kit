@@ -2,7 +2,7 @@
 
 exports[`SessionIndicator should match snapshot 1`] = `
 <svg
-  className="session-indicator session-indicator--active"
+  className="sc-bdvvaa haETCP"
   viewBox="0 0 32 32"
 >
   <g
@@ -12,11 +12,11 @@ exports[`SessionIndicator should match snapshot 1`] = `
     strokeWidth="1"
   >
     <path
-      className="session-indicator__circle-path"
+      className="sc-gsDJrp jGFgOS"
       d="M15.993 32A15.999 15.999 0 0 1 7.061 2.73 15.998 15.998 0 0 1 30.83 22.004a.709.709 0 1 1-1.312-.531c2.881-7.063-.143-15.154-6.95-18.595C15.763-.562 7.455 1.8 3.477 8.308c-3.978 6.507-2.293 14.98 3.873 19.47 6.166 4.489 14.745 3.491 19.717-2.293a.709.709 0 1 1 1.077.922A15.992 15.992 0 0 1 15.993 32z"
     />
     <path
-      className="session-indicator__eye-path session-indicator__eye-path--active"
+      className="sc-dkPtyc dTXuJq"
       d="M15.993 11.643a4.336 4.336 0 0 0-3.075 1.274 4.336 4.336 0 0 0-1.275 3.076c0 1.201.487 2.289 1.275 3.076a4.342 4.342 0 0 0 6.15-.002 4.343 4.343 0 0 0 .001-6.15 4.336 4.336 0 0 0-3.076-1.274z"
     />
   </g>

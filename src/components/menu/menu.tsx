@@ -7,6 +7,7 @@ import styled, { css } from 'styled-components';
 import { Icons } from '../icon';
 import { useClickOutside } from '../../hooks';
 import { spacesToDashes } from './spaces-to-dashes';
+import { COLORS } from '../../theme';
 
 interface MenuItemType {
   label: string;
@@ -22,7 +23,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  color: #1b191b;
+  color: ${COLORS.MONOCHROME.BLACK};
 `;
 
 const MenuIcon = styled.div`
@@ -31,15 +32,15 @@ const MenuIcon = styled.div`
   align-items: center;
   max-height: 32px;
   max-width: 32px;
-  color: #007fff;
+  color: ${COLORS.PRIMARY_BLUE.DEFAULT};
   cursor: pointer;
 
   &:hover {
-    color: #3399ff;
+    color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
   }
 
   &:active {
-    color: #006cd8;
+    color: ${COLORS.PRIMARY_BLUE.SHADE};
   }
 `;
 
@@ -49,8 +50,8 @@ const ItemsList = styled.div<{ position: 'bottom' | 'top' }>`
   padding: 8px 0;
   filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.15));
   border-radius: 8px;
-  background-color: #ffffff;
-  color: #1b191b;
+  background-color: ${COLORS.MONOCHROME.WHITE};
+  color: ${COLORS.MONOCHROME.BLACK};
   z-index: 50;
 
   &::before {
@@ -89,7 +90,7 @@ const Item = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f8f9fb;
+    background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
   }
 `;
 

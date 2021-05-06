@@ -1,33 +1,67 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
 import { Icons } from '../icon';
-import { Panel } from '../../layouts';
+import { COLORS } from '../../theme';
 
-import styles from './general-alerts.module.scss';
+type Message = 'SUCCESS' | 'ERROR' | 'WARNING' | 'INFO'
 
 interface Props {
   className?: string;
   children?: React.ReactNode;
-  type: 'SUCCESS' | 'ERROR' | 'WARNING' | 'INFO';
+  type: Message;
 }
 
-const generalAlerts = BEM(styles);
-
-export const GeneralAlerts = generalAlerts(({
+export const GeneralAlerts = ({
   className, children = 'Internal service error', type,
 }: Props) => (
-  <div className={className}>
+  <Wrapper className={className}>
     <Content type={type}>
       {getMessageIcon(type)}
       {children}
     </Content>
-  </div>
-));
+  </Wrapper>
+);
 
-const Content = generalAlerts.content(Panel);
-const MessageIcon = generalAlerts.messageIcon('div');
+const Wrapper = styled.div`
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
+`;
 
-function getMessageIcon(type: 'SUCCESS' | 'ERROR' | 'WARNING' | 'INFO') {
+const Content = styled.div<{type?: Message}>`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 12px 24px;
+  word-break: break-word;
+  
+  ${({ type }) => [
+    type === 'SUCCESS' && css`background-color: ${COLORS.GREEN.LIGHT_TINT}`,
+    type === 'ERROR' && css`background-color: ${COLORS.RED.ULTRALIGHT_TINT}`,
+    type === 'INFO' && css`
+      color: ${COLORS.MONOCHROME.DEFAULT};
+      background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
+    `,
+    type === 'WARNING' && css`background-color: ${COLORS.ORANGE.LIGHT_TINT}`,
+  ]}
+`;
+
+const MessageIcon = styled.div<{type?: Message}>`
+  display: flex;
+  align-self: start;
+  align-items: center;
+  height: 20px;
+  margin-right: 8px;
+  
+  ${({ type }) => [
+    type === 'SUCCESS' && css`color: ${COLORS.GREEN.DEFAULT}`,
+    type === 'ERROR' && css`color: ${COLORS.RED.DEFAULT}`,
+    type === 'INFO' && css`color: ${COLORS.MONOCHROME.DEFAULT};`,
+    type === 'WARNING' && css`color: ${COLORS.ORANGE.DEFAULT}`,
+  ]}
+`;
+
+function getMessageIcon(type: Message) {
   switch (type) {
     case 'ERROR': {
       return (

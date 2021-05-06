@@ -2,16 +2,14 @@
 
 exports[`GeneralAlerts should match snapshot with the default text 1`] = `
 <div
-  className="general-alerts general-alerts--type--success"
+  className="sc-bdvvaa fvQeHI"
 >
   <div
-    className="panel general-alerts__content general-alerts__content--type--success"
-    data-test=""
-    onClick={[Function]}
+    className="sc-gsDJrp kAeWrI"
+    type="SUCCESS"
   >
     <div
-      className="general-alerts__message-icon general-alerts__message-icon--type--success"
-      data-modifiers="type--SUCCESS"
+      className="sc-dkPtyc eBkaxl"
       type="SUCCESS"
     >
       <svg

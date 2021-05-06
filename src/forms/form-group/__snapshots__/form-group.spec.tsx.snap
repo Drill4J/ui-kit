@@ -1,29 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should match snapshot 1`] = `
-<div
-  className="form-group"
->
+<div>
   <div
-    className="panel panel--align--space-between"
-    data-test=""
-    onClick={[Function]}
+    className="sc-bdvvaa bkKWSB"
   >
     <label
-      className="form-group__label"
-      data-modifiers=""
+      className="sc-gsDJrp gufwci"
     >
       Form
     </label>
     <div>
       <div
-        className="panel"
-        data-test=""
-        onClick={[Function]}
+        className="sc-bdvvaa bkKWSB"
       >
         <span
-          className="form-group__optional-label"
-          data-modifiers=""
+          className="sc-dkPtyc iUmdcE"
         >
           Optional
         </span>
@@ -31,8 +23,7 @@ exports[`should match snapshot 1`] = `
     </div>
   </div>
   <div
-    className="form-group__input"
-    data-modifiers=""
+    className="sc-eCImvq cAEScb"
   >
     <input />
   </div>

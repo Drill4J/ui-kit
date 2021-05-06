@@ -1,8 +1,6 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
-import { Panel } from '../../layouts';
-
-import styles from './form-group.module.scss';
+import { COLORS, FONTS } from '../../theme';
 
 interface Props {
   className?: string;
@@ -12,13 +10,11 @@ interface Props {
   actions?: React.ReactNode;
 }
 
-const formGroup = BEM(styles);
-
-export const FormGroup = formGroup(({
+export const FormGroup = ({
   className, children, label, optional, actions,
 }: Props) => (
   <div className={className}>
-    <Panel align="space-between">
+    <Panel>
       <Label>{label}</Label>
       <div>
         <Panel>
@@ -29,9 +25,33 @@ export const FormGroup = formGroup(({
     </Panel>
     <Input>{children}</Input>
   </div>
-));
+);
 
-const Label = formGroup.label('label');
-const OptionalLabel = formGroup.optionalLabel('span');
-const Actions = formGroup.actions('div');
-const Input = formGroup.input('div');
+const Panel = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Label = styled.label`
+  font-family: ${FONTS.SEMI_BOLD};
+  font-size: 14px;
+  line-height: 20px;
+  color: ${COLORS.MONOCHROME.BLACK};
+`;
+
+const OptionalLabel = styled.span`
+  line-height: 16px;
+  font-size: 12px;
+  color: ${COLORS.MONOCHROME.DEFAULT};
+`;
+
+const Actions = styled.div`
+  display: flex;
+  margin-left: 8px;
+`;
+const Input = styled.div`
+  width: 100%;
+  margin-top: 8px;
+`;

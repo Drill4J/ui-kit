@@ -2,12 +2,11 @@
 
 exports[`MainProgressBar should match snapshot 1`] = `
 <div
-  className="main-progress-bar"
+  className="sc-bdvvaa omMhm"
   data-test="main-progress-bar:undefined"
 >
   <div
-    className="main-progress-bar__progress"
-    data-modifiers=""
+    className="sc-gsDJrp cbjaIP"
     style={
       Object {
         "width": "50px",

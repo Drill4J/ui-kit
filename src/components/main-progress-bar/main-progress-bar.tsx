@@ -1,6 +1,6 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
-import styles from './main-progress-bar.module.scss';
+import { COLORS } from '../../theme';
 
 interface Props {
   className?: string;
@@ -9,14 +9,26 @@ interface Props {
   testContext?: string;
 }
 
-const mainProgressBar = BEM(styles);
-
-export const MainProgressBar = mainProgressBar(({
+export const MainProgressBar = ({
   className, value, type, testContext,
 }: Props) => (
-  <div className={className} data-test={`main-progress-bar:${(testContext || type)}`}>
+  <Wrapper className={className} data-test={`main-progress-bar:${(testContext || type)}`}>
     <Progress style={{ width: value }} type={type} />
-  </div>
-));
+  </Wrapper>
+);
 
-const Progress = mainProgressBar.progress('div');
+const Wrapper = styled.div`
+  height: 32px;
+  border-radius: 4px;
+  background: ${COLORS.MONOCHROME.LIGHT_TINT};;
+`;
+
+const Progress = styled.div<{type?: 'primary' | 'secondary'}>`
+  height: 32px;
+  border-radius: 4px;
+  background: ${COLORS.DATA_VISUALIZATION.BUILD_COVER};
+  ${({ type }) => [
+    type === 'secondary' && css`background: ${COLORS.DATA_VISUALIZATION.OVERLAPPING}`,
+    type === 'primary' && css`background: ${COLORS.DATA_VISUALIZATION.SCOPE_COVER}`,
+  ]}
+`;

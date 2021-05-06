@@ -2,29 +2,26 @@
 
 exports[`Tabs Panel should match snapshot 1`] = `
 <div
-  className="tabs"
+  className="sc-bdvvaa eiZGns"
 >
   <button
-    className="tabs__tab-label tabs__tab-label--active"
+    className="sc-gsDJrp coXvlh"
     name="general"
     onClick={[Function]}
-    type="button"
   >
     General
   </button>
   <button
-    className="tabs__tab-label"
+    className="sc-gsDJrp dtWpkg"
     name="system"
     onClick={[Function]}
-    type="button"
   >
     System
   </button>
   <button
-    className="tabs__tab-label"
+    className="sc-gsDJrp dtWpkg"
     name="plugins"
     onClick={[Function]}
-    type="button"
   >
     Plugins
   </button>

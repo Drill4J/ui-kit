@@ -1,7 +1,7 @@
 import { Children, cloneElement, ReactElement } from 'react';
-import { BEM, button } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
-import styles from './tabs.module.scss';
+import { COLORS, FONTS } from '../../theme';
 
 interface Props {
   className?: string;
@@ -10,22 +10,59 @@ interface Props {
   onSelect: (tabName: string) => void;
 }
 
-const tabsPanel = BEM(styles);
-
-export const TabsPanel = tabsPanel((props: Props) => {
+export const TabsPanel = (props: Props) => {
   const {
     children, className, activeTab, onSelect,
   } = props;
 
   return (
-    <div className={className}>
+    <Wrapper className={className}>
       {Children.map(children, (child: ReactElement, index: number) =>
         cloneElement(child, {
           onClick: () => onSelect && onSelect(child.props.name || index),
           active: (child.props.name || index) === activeTab,
         }))}
-    </div>
+    </Wrapper>
   );
-});
+};
 
-export const Tab = tabsPanel.tabLabel(button({ name: '' }));
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+export const Tab = styled('button')<{active?: boolean; disabled?: boolean}>`
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  min-height: 47px;
+  border: none;
+  padding: 0 0 4px 0;
+  background: none;
+  white-space: nowrap;
+  outline: none;
+  color: ${COLORS.MONOCHROME.DEFAULT};
+  font-family: ${FONTS.SEMI_BOLD};
+  font-size: 14px;
+  margin-right: 28px;
+  
+  ${({ active }) => [
+    active && css`
+      color: ${COLORS.MONOCHROME.BLACK};
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        border-radius: 2px;
+        background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+        transform: translateY(50%);
+      }
+    `,
+  ]}
+`;

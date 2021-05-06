@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Legend should match snapshot 1`] = `
-<span
-  className="legend"
+<div
+  className="sc-bdvvaa htzGmK"
 >
   <div
-    className="legend__item"
-    data-modifiers=""
+    className="sc-gsDJrp iCEvit"
   >
     <svg
       height={10}
@@ -22,8 +21,7 @@ exports[`Legend should match snapshot 1`] = `
     build-cover
   </div>
   <div
-    className="legend__item"
-    data-modifiers=""
+    className="sc-gsDJrp iCEvit"
   >
     <svg
       height={10}
@@ -39,8 +37,7 @@ exports[`Legend should match snapshot 1`] = `
     overlapping
   </div>
   <div
-    className="legend__item"
-    data-modifiers=""
+    className="sc-gsDJrp iCEvit"
   >
     <svg
       height={10}
@@ -55,5 +52,5 @@ exports[`Legend should match snapshot 1`] = `
     </svg>
     scope-cover
   </div>
-</span>
+</div>
 `;

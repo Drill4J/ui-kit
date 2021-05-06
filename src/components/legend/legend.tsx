@@ -1,6 +1,5 @@
-import { BEM } from '@redneckz/react-bem-helper';
-
-import styles from './legend.module.scss';
+import styled from 'styled-components';
+import { COLORS } from '../../theme';
 
 interface LegendItem {
   color: string;
@@ -13,10 +12,8 @@ interface Props {
   legendItems: LegendItem[];
 }
 
-const legend = BEM(styles);
-
-export const Legend = legend(({ className, legendItems }: Props) => (
-  <span className={className}>
+export const Legend = ({ className, legendItems }: Props) => (
+  <Wrapper className={className}>
     {legendItems.map(({ color, label, borderColor }) => (
       <Item key={color}>
         <svg width={10} height={10}>
@@ -25,7 +22,19 @@ export const Legend = legend(({ className, legendItems }: Props) => (
         {label}
       </Item>
     ))}
-  </span>
-));
+  </Wrapper>
+);
 
-const Item = legend.item('div');
+const Wrapper = styled.div`
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  line-height: 16px;
+  color: ${COLORS.MONOCHROME.DEFAULT};
+`;
+
+const Item = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;

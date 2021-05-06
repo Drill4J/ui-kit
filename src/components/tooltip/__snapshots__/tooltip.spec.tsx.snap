@@ -1,21 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip should match snapshot 1`] = `
-<Context.Provider
-  value=""
->
-  <Unknown
-    className="tooltip"
-    data-modifiers=""
-    message={
-      <span>
-        Tooltip
-      </span>
-    }
-  >
+<styled.div>
+  <div>
     <div>
-      Tooltip
+      <div>
+        Tooltip
+      </div>
     </div>
-  </Unknown>
-</Context.Provider>
+  </div>
+</styled.div>
 `;

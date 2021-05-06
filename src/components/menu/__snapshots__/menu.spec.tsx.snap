@@ -2,16 +2,15 @@
 
 exports[`Menu should match snapshot 1`] = `
 <div
-  className="sc-bdvvaa gDgZDz"
+  className="sc-gsDJrp kwxVoi"
 >
   <div
-    className="sc-gsDJrp hkJiwu"
+    className="sc-dkPtyc eMdikA"
     data-test="menu:icon:"
     onClick={[Function]}
   >
     <svg
-      className="generic-icon"
-      data-modifiers=""
+      className="sc-bdvvaa eCjinC"
       fillRule="evenodd"
       height={16}
       style={

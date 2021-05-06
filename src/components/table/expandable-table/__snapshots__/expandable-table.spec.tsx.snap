@@ -2,10 +2,10 @@
 
 exports[`ExpandableTable should match snapshot 1`] = `
 <div
-  className="table"
+  className="sc-iCfLBT goZboA"
 >
   <div
-    className="table-header"
+    className="sc-jRQAMF hkxFLH"
     style={
       Object {
         "display": "grid",
@@ -14,8 +14,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
     }
   >
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -24,7 +23,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
     >
       <div>
         <div
-          className="default-header-cell"
+          className="sc-eCImvq kptLx"
           onClick={[Function]}
         >
           
@@ -32,8 +31,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -42,15 +40,14 @@ exports[`ExpandableTable should match snapshot 1`] = `
     >
       <div>
         <div
-          className="default-header-cell"
+          className="sc-eCImvq kptLx"
           onClick={[Function]}
         >
           <div
-            className="sort-arrow sort-arrow--active"
+            className="sc-hKwCoD fsWkTx"
           >
             <svg
-              className="generic-icon"
-              data-modifiers=""
+              className="sc-dkPtyc cBsjbZ"
               fillRule="evenodd"
               height={10}
               style={
@@ -72,8 +69,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -82,7 +78,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
     >
       <div>
         <div
-          className="default-header-cell"
+          className="sc-eCImvq kptLx"
           onClick={[Function]}
         >
           Second column
@@ -91,7 +87,7 @@ exports[`ExpandableTable should match snapshot 1`] = `
     </div>
   </div>
   <div
-    className="table-row"
+    className="sc-bdvvaa cwzVte"
     style={
       Object {
         "backgroundColor": undefined,
@@ -101,18 +97,18 @@ exports[`ExpandableTable should match snapshot 1`] = `
     }
   >
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--selector table-row__table-row-cell--type--end"
+      className="sc-gsDJrp hMqCxI"
+      type="end"
     >
       <div
-        className="row-expander"
+        className="sc-furvIG eBhwIT"
         onClick={[Function]}
       >
         <div
-          className="row-expander__icon"
+          className="sc-pVTma bGxqVC"
         >
           <svg
-            className="generic-icon"
-            data-modifiers=""
+            className="sc-dkPtyc cBsjbZ"
             fillRule="evenodd"
             height={13}
             style={
@@ -132,18 +128,20 @@ exports[`ExpandableTable should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       First column
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       Second column
     </div>
   </div>
   <div
-    className="table-row"
+    className="sc-bdvvaa cwzVte"
     style={
       Object {
         "backgroundColor": undefined,
@@ -153,18 +151,18 @@ exports[`ExpandableTable should match snapshot 1`] = `
     }
   >
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--selector table-row__table-row-cell--type--end"
+      className="sc-gsDJrp hMqCxI"
+      type="end"
     >
       <div
-        className="row-expander"
+        className="sc-furvIG eBhwIT"
         onClick={[Function]}
       >
         <div
-          className="row-expander__icon"
+          className="sc-pVTma bGxqVC"
         >
           <svg
-            className="generic-icon"
-            data-modifiers=""
+            className="sc-dkPtyc cBsjbZ"
             fillRule="evenodd"
             height={13}
             style={
@@ -184,12 +182,14 @@ exports[`ExpandableTable should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       First column
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       Second column
     </div>

@@ -1,8 +1,7 @@
-import { BEM, div } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
+import { COLORS } from '../../../../theme';
 import { Icons } from '../../../icon';
-
-import styles from './row-expander.module.scss';
 
 interface Props {
   className?: string;
@@ -10,16 +9,26 @@ interface Props {
   onClick: () => void;
 }
 
-const rowExpander = BEM(styles);
-
-export const RowExpander = rowExpander(({
+export const RowExpander = ({
   className, expanded, onClick,
 }: Props) => (
-  <div className={className} onClick={onClick}>
+  <Wrapper className={className} onClick={onClick}>
     <IconWrapper expanded={expanded}>
       <Icons.Expander />
     </IconWrapper>
-  </div>
-));
+  </Wrapper>
+);
 
-const IconWrapper = rowExpander.icon(div({} as { expanded?: boolean }));
+const Wrapper = styled.div`
+  cursor: pointer;
+`;
+
+const IconWrapper = styled.div<{ expanded?: boolean }>`
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+  
+  ${({ expanded }) => expanded && css`transform: rotate(90deg);`}
+`;

@@ -2,19 +2,18 @@
 
 exports[`GeneralAlerts should match snapshot with the default text 1`] = `
 <div
-  className="sc-bdvvaa fvQeHI"
+  className="sc-gsDJrp hXBTmi"
 >
   <div
-    className="sc-gsDJrp kAeWrI"
+    className="sc-dkPtyc dCsRLl"
     type="SUCCESS"
   >
     <div
-      className="sc-dkPtyc eBkaxl"
+      className="sc-hKwCoD gfBQFU"
       type="SUCCESS"
     >
       <svg
-        className="generic-icon"
-        data-modifiers=""
+        className="sc-bdvvaa eCjinC"
         fillRule="evenodd"
         height={16}
         style={

@@ -49,6 +49,6 @@ describe('Tabs Panel', () => {
         .find('button')
         .at(1)
         .prop('className'),
-    ).toMatch(/--active/);
+    ).toMatch('sc-gsDJrp coXvlh');
   });
 });

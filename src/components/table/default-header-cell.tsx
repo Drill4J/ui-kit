@@ -1,10 +1,8 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
 import { useHover } from '../../hooks';
 import { SortArrow } from '../sort-arrow';
 import { ColumnProps, Sort, Order } from './table-types';
-
-import styles from './default-header-cell.module.scss';
 
 interface Props {
   className?: string;
@@ -13,9 +11,7 @@ interface Props {
   onSort?: (sort: Sort) => void;
 }
 
-const defaultHeaderCell = BEM(styles);
-
-export const DefaultHeaderCell = defaultHeaderCell(({
+export const DefaultHeaderCell = ({
   className, column: { name, label = '' }, sort, onSort,
 }: Props) => {
   const { ref, isVisible } = useHover();
@@ -23,7 +19,7 @@ export const DefaultHeaderCell = defaultHeaderCell(({
   return (
     <div ref={ref}>
       {onSort && sort ? (
-        <div
+        <Wrapper
           className={className}
           onClick={() => onSort(name === sort.field ? {
             order: setOrder(sort.order),
@@ -36,11 +32,18 @@ export const DefaultHeaderCell = defaultHeaderCell(({
           {name !== 'selector' && (isVisible || activeCell) &&
           <SortArrow active={activeCell} order={activeCell ? sort.order : null} />}
           {label}
-        </div>
+        </Wrapper>
       ) : label}
     </div>
   );
-});
+};
+
+const Wrapper = styled.div`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+`;
 
 function setOrder(order: Order) {
   switch (order) {

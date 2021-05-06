@@ -2,10 +2,10 @@
 
 exports[`Table should match snapshot 1`] = `
 <div
-  className="table"
+  className="sc-iCfLBT goZboA"
 >
   <div
-    className="table-header"
+    className="sc-jRQAMF hkxFLH"
     style={
       Object {
         "display": "grid",
@@ -14,8 +14,7 @@ exports[`Table should match snapshot 1`] = `
     }
   >
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -24,7 +23,7 @@ exports[`Table should match snapshot 1`] = `
     >
       <div>
         <div
-          className="default-header-cell"
+          className="sc-eCImvq kptLx"
           onClick={[Function]}
         >
           Name
@@ -32,8 +31,7 @@ exports[`Table should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -42,15 +40,14 @@ exports[`Table should match snapshot 1`] = `
     >
       <div>
         <div
-          className="default-header-cell"
+          className="sc-eCImvq kptLx"
           onClick={[Function]}
         >
           <div
-            className="sort-arrow sort-arrow--active"
+            className="sc-hKwCoD fsWkTx"
           >
             <svg
-              className="generic-icon"
-              data-modifiers=""
+              className="sc-dkPtyc cBsjbZ"
               fillRule="evenodd"
               height={10}
               style={
@@ -72,8 +69,7 @@ exports[`Table should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -85,8 +81,7 @@ exports[`Table should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-header__table-header-cell"
-      data-modifiers=""
+      className="sc-gKckTs gjbTVu"
       style={
         Object {
           "justifySelf": "end",
@@ -99,7 +94,7 @@ exports[`Table should match snapshot 1`] = `
     </div>
   </div>
   <div
-    className="table-row"
+    className="sc-bdvvaa cwzVte"
     style={
       Object {
         "backgroundColor": undefined,
@@ -109,7 +104,8 @@ exports[`Table should match snapshot 1`] = `
     }
   >
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       <div
         onClick={[Function]}
@@ -118,19 +114,22 @@ exports[`Table should match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       <span>
         1580285098638
       </span>
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       97
     </div>
     <div
-      className="table-row__table-row-cell table-row__table-row-cell--type--end"
+      className="sc-gsDJrp yLkSP"
+      type="end"
     >
       40
     </div>

@@ -19,8 +19,7 @@ exports[`DropdownInput Should render a DropdownInput 1`] = `
       data-modifiers=""
     >
       <svg
-        className="generic-icon"
-        data-modifiers=""
+        className="sc-gsDJrp eoXRPA"
         fillRule="evenodd"
         height={13}
         style={

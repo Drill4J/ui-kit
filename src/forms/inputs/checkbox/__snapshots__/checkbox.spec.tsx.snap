@@ -19,7 +19,7 @@ exports[`Checkbox should match snapshot 1`] = `
     color="blue"
   >
     <svg
-      className="generic-icon checkbox__check-mark-icon"
+      className="sc-bdvvaa eCjinC checkbox__check-mark-icon"
       data-modifiers=""
       fillRule="evenodd"
       height={7}

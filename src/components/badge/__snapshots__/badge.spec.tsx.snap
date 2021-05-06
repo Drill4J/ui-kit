@@ -2,7 +2,8 @@
 
 exports[`Badge should match snapshot with bold text 1`] = `
 <span
-  className="badge badge--bold badge--color--green"
+  className="sc-bdvvaa cWUSQK"
+  color="green"
 >
   Online
 </span>

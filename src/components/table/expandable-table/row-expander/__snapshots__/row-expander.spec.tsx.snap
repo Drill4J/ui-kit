@@ -2,15 +2,14 @@
 
 exports[`RowExpander should match snapshot 1`] = `
 <div
-  className="row-expander row-expander--expanded"
+  className="sc-gsDJrp ISUyu"
   onClick={[MockFunction]}
 >
   <div
-    className="row-expander__icon row-expander__icon--expanded"
+    className="sc-dkPtyc clqNmD"
   >
     <svg
-      className="generic-icon"
-      data-modifiers=""
+      className="sc-bdvvaa eCjinC"
       fillRule="evenodd"
       height={13}
       style={

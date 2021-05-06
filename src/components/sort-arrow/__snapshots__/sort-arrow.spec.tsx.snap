@@ -26,11 +26,10 @@ exports[`SortArrows should match snapshot ascending sort-arrow 1`] = `
 
 exports[`SortArrows should match snapshot descending sort-arrow 1`] = `
 <div
-  className="sort-arrow"
+  className="sc-gsDJrp bCSgqY"
 >
   <svg
-    className="generic-icon"
-    data-modifiers=""
+    className="sc-bdvvaa eCjinC"
     fillRule="evenodd"
     height={10}
     style={

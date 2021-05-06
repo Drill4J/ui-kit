@@ -18,8 +18,7 @@ exports[`Dropdown should match snapshot 1`] = `
       data-modifiers=""
     >
       <svg
-        className="generic-icon"
-        data-modifiers=""
+        className="sc-gsDJrp eoXRPA"
         fillRule="evenodd"
         height={8}
         style={

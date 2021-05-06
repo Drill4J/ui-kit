@@ -1,17 +1,19 @@
-import { BEM } from '@redneckz/react-bem-helper';
-import { InputProps } from '../input-types';
+import styled from 'styled-components';
+
 import { Input } from '../input';
+import { InputProps } from '../input-types';
 
-import styles from './number-input.module.scss';
-
-const numberInput = BEM(styles);
-
-export const NumberInput = numberInput(({
-  className, ...restProps
-}: InputProps) => (
+export const NumberInput = ({ className, ...restProps }: InputProps) => (
   <div className={className}>
     <InputElement {...restProps} />
   </div>
-));
+);
 
-const InputElement = numberInput.inputElement(Input);
+const InputElement = styled(Input)`
+  input {
+    width: 60px;
+    height: 32px;
+    padding: 0 8px;
+    text-align: right;
+  }
+`;

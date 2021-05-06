@@ -1,6 +1,6 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
-import styles from './additional-progress-bar.module.scss';
+import { COLORS } from '../../colors';
 
 interface Props {
   className?: string;
@@ -9,16 +9,35 @@ interface Props {
   testContext?: string;
 }
 
-const additionalProgressBar = BEM(styles);
-
-export const AdditionalProgressBar = additionalProgressBar(
-  ({
-    className, value, type, testContext,
-  }: Props) => (
-    <div className={className} data-test={`additional-progress-bar:${testContext || type}`}>
-      <Progress style={{ width: value }} type={type} />
-    </div>
-  ),
+export const AdditionalProgressBar = ({
+  className,
+  value,
+  type,
+  testContext,
+}: Props) => (
+  <Wrapper className={className} data-test={`additional-progress-bar:${testContext || type}`}>
+    <Progress style={{ width: value }} type={type} />
+  </Wrapper>
 );
 
-const Progress = additionalProgressBar.progress('div');
+const Wrapper = styled.div`
+  height: 12px;
+  border-radius: 4px;
+  background: ${COLORS.MONOCHROME.LIGHT_TINT};
+`;
+
+const Progress = styled.div<{ type?: 'primary' | 'secondary' }>`
+  height: 12px;
+  border-radius: 4px;
+  background: ${COLORS.DATA_VISUALIZATION.BUILD_COVER};
+  ${({ type }) => [
+    typeof type !== 'undefined' && css`
+      border-radius: 0 4px 4px 0;
+
+      &:hover {
+        transform: scaleY(1.7);
+      }
+    `,
+    type === 'primary' && css`background: ${COLORS.DATA_VISUALIZATION.SCOPE_COVER}`,
+    type === 'secondary' && css`background: ${COLORS.DATA_VISUALIZATION.OVERLAPPING}`]}
+`;

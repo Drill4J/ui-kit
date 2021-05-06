@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { COLORS } from '../../colors';
+import { COLORS } from '../../theme';
 
 interface Props {
   className?: string;

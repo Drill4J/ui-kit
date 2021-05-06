@@ -56,3 +56,9 @@ export const COLORS = {
     SCOPE_COVER: '#aed4fd',
   },
 };
+export const FONTS = {
+  SEMI_BOLD: "'OpenSans-Semibold', sans-serif",
+  LIGHT: "'OpenSans-Light', sans-serif",
+  REGULAR: "'OpenSans', sans-serif",
+  COND_BOLD: "'OpenSansCondBold', sans-serif",
+};

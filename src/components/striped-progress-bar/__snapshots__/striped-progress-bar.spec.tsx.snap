@@ -2,7 +2,7 @@
 
 exports[`StripedProgressBar should match snapshot 1`] = `
 <svg
-  className="striped-progress-bar striped-progress-bar--type--primary"
+  className="sc-bdvvaa hxDWJJ"
   data-test="striped-progress-bar:primary"
   height="12"
   type="primary"

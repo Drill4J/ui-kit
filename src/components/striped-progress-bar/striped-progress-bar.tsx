@@ -1,8 +1,7 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
 import { path } from './path';
-
-import styles from './striped-progress-bar.module.scss';
+import { COLORS } from '../../theme';
 
 interface Props {
   className?: string;
@@ -10,10 +9,8 @@ interface Props {
   type: 'primary' | 'secondary';
 }
 
-const stripedProgressBar = BEM(styles);
-
-export const StripedProgressBar = stripedProgressBar(({ className, value, type }: Props) => (
-  <svg className={className} type={type} width={value} height="12" data-test={`striped-progress-bar:${type}`}>
+export const StripedProgressBar = ({ className, value, type }: Props) => (
+  <Wrapper className={className} type={type} width={value} height="12" data-test={`striped-progress-bar:${type}`}>
     <path
       d={path}
       fillRule="nonzero"
@@ -31,5 +28,20 @@ export const StripedProgressBar = stripedProgressBar(({ className, value, type }
         repeatCount="indefinite"
       />
     </path>
-  </svg>
-));
+  </Wrapper>
+);
+
+const Wrapper = styled.svg<{type?: 'primary' | 'secondary'}>`
+  display: block;
+  border-radius: 0 4px 4px 0;
+  transition: width 2000ms ease-in;
+
+  ${({ type }) => [
+    type === 'primary' && css`fill: ${COLORS.DATA_VISUALIZATION.SCOPE_COVER}`,
+    type === 'secondary' && css`
+      fill: ${COLORS.DATA_VISUALIZATION.OVERLAPPING};
+      transform: rotate(180deg);
+      border-radius: 4px 0 0 4px;
+    `,
+  ]}
+`;

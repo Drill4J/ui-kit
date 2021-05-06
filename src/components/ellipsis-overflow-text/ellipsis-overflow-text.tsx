@@ -1,5 +1,7 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
-import styles from './ellipsis-overflow-text.module.scss';
-
-export const EllipsisOverflowText = BEM(styles)('div');
+export const EllipsisOverflowText = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;

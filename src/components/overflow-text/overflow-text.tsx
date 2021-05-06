@@ -1,5 +1,13 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
-import styles from './overflow-text.module.scss';
-
-export const OverflowText = BEM(styles)('div');
+export const OverflowText = styled.div`
+  width: 100%;
+  height: 1.4em;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  background: linear-gradient(to right, currentColor 80%, transparent 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;

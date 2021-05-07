@@ -1,19 +1,36 @@
-import { BEM, textarea as bemTextarea } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
 import { TextareaProps } from './textarea-types';
-import { INPUT_PROPS } from '../input/input-props';
+import { COLORS, FONTS } from '../../../theme';
 
-import styles from './textarea.module.scss';
+export const Textarea = styled.textarea<TextareaProps>`
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: ${FONTS.REGULAR};
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid ${COLORS.MONOCHROME.MEDIUM_TINT};
+  color: ${COLORS.MONOCHROME.BLACK};
+  outline: none;
+  resize: none;
 
-const textarea = BEM(styles);
+  &:focus {
+    border: 1px solid ${COLORS.MONOCHROME.BLACK};
+  }
 
-const INPUT_PROPS_OBJ = Object.assign({}, ...INPUT_PROPS.map((key) => ({ [key]: undefined })));
+  &::placeholder {
+    color: ${COLORS.MONOCHROME.DEFAULT};
+  }
 
-export const Textarea = (props: TextareaProps) => <TextareaElement {...props} />;
-
-const TextareaElement = textarea.input(
-  bemTextarea({
-    ...INPUT_PROPS_OBJ,
-    value: '',
-  } as {}),
-);
+  ${({ disabled, error }) => [
+    disabled && css`
+      border: 1px solid ${COLORS.MONOCHROME.MEDIUM_TINT};
+      background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
+      color: ${COLORS.MONOCHROME.DEFAULT};
+    `,
+    error && css`border: 1px solid ${COLORS.RED.DEFAULT}`,
+  ]}
+`;

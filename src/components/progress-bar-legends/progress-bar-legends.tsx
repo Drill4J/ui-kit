@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { Panel } from '../../layouts';
 import { COLORS } from '../../theme';
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 export const ProgressBarLegends = ({ className }: Props) => (
   <div className={className}>
-    <Panel align="space-between">
+    <Panel>
       <Legend><Percentage type="start">0</Percentage></Legend>
       <Legend><Percentage>25</Percentage></Legend>
       <Legend><Percentage>50</Percentage></Legend>
@@ -18,6 +17,13 @@ export const ProgressBarLegends = ({ className }: Props) => (
     </Panel>
   </div>
 );
+
+const Panel = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const Legend = styled.div`
   position: relative;

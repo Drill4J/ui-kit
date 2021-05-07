@@ -1,8 +1,7 @@
 import { storiesOf } from '@storybook/react';
 
 import { MessagePanel } from './message-panel';
-import { LinkButton } from '../../forms/inputs/button';
-import { Panel } from '../../layouts';
+import { LinkButton } from '../../forms';
 
 storiesOf('MessagePanel', module)
   .add('SUCCESS', () => (
@@ -16,10 +15,10 @@ storiesOf('MessagePanel', module)
       message={{
         type: 'WARNING',
         text: (
-          <Panel>
+          <div style={{ display: 'flex', width: '100%' }}>
             Warning! Something might go wrong!&nbsp;
             <LinkButton size="large">Undo</LinkButton>
-          </Panel>),
+          </div>),
       }}
       onClose={() => {}}
     />

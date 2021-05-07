@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { Panel } from '../../layouts';
 import { Icons } from '../icon';
 import { Message } from './message-type';
 import { COLORS, FONTS } from '../../theme';
@@ -24,6 +23,13 @@ export const MessagePanel = ({ className, message: { type, text }, onClose }: Pr
     </Content>
   </Wrapper>
 );
+
+const Panel = styled.div<{align?: string}>`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  ${({ align }) => align === 'space-between' && css`justify-content: space-between`}
+`;
 
 const MessageText = styled.div`
   display: flex;

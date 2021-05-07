@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { InputProps } from '../input-types';
 import { Input } from '../input';
 import { Icons } from '../../../components';
-import { Panel } from '../../../layouts';
 import { COLORS } from '../../../theme';
 
 export const SearchInput = ({ className, reset, ...restProps }: InputProps) => (
@@ -15,6 +14,12 @@ export const SearchInput = ({ className, reset, ...restProps }: InputProps) => (
     </Panel>
   </Wrapper>
 );
+
+const Panel = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+`;
 
 const Wrapper = styled.div`
   position: relative;

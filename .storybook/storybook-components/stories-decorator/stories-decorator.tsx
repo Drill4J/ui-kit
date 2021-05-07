@@ -1,19 +1,8 @@
 import * as React from 'react';
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
-import styles from './stories-decorator.module.scss';
+import { FONTS } from '../../../src/theme';
 
-const storiesDecorator = BEM(styles);
-
-interface Props {
-  className?: string;
-  children?: React.ReactNode | React.ReactNode [];
-}
-
-export const StoriesDecorator = storiesDecorator(({ className, children }: Props) => {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  );
-});
+export const StoriesDecorator = styled.div`
+  font-family: ${FONTS.REGULAR};
+`

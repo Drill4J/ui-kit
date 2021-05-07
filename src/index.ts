@@ -6,7 +6,6 @@ export {
   Icons,
   OverflowText,
   Popup,
-  FilledBadge,
   Spinner,
   Tooltip,
   TabsPanel,
@@ -19,16 +18,15 @@ export {
   Column,
   GeneralAlerts,
   Portal,
-  TableFilter,
   MainProgressBar,
   AdditionalProgressBar,
   StripedProgressBar,
-  Status,
   ProgressBarLegends,
   SessionIndicator,
   SortArrow,
   Legend,
   EllipsisOverflowText,
+  Status,
 } from './components';
 export {
   FormGroup,
@@ -37,11 +35,6 @@ export {
   LinkButton,
   CancelButton,
   NegativeActionButton,
-  DropdownInput,
-  DropdownItem,
   Checkbox,
 } from './forms';
-export {
-  Panel, PanelSpread, PanelItem, Section,
-} from './layouts';
 export { useClickOutside, useElementSize, useHover } from './hooks';

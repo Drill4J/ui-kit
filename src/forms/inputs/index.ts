@@ -6,7 +6,6 @@ import { Textarea } from './textarea';
 import { Checkbox } from './checkbox';
 import { Toggler } from './toggler';
 
-export { DropdownInput, DropdownItem } from './dropdown-input';
 export {
   Button, LinkButton, CancelButton, NegativeActionButton,
 } from './button';

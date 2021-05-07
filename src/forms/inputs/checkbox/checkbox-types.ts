@@ -5,5 +5,4 @@ export interface CheckboxProps {
   label?: string;
   disabled?: boolean;
   value?: string;
-  color?: 'blue' | 'green' | 'red' | 'yellow' | 'orange';
 }

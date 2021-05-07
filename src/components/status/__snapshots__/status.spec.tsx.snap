@@ -2,7 +2,7 @@
 
 exports[`Status should match snapshot with simple text 1`] = `
 <div
-  className="status"
+  className="sc-bdvvaa gOYSKC"
   data-test="status:data-test"
 >
   Online

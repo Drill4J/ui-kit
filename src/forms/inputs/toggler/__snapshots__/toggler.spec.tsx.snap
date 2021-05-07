@@ -2,27 +2,26 @@
 
 exports[`Toggler Should render a toggler 1`] = `
 <label
-  className="toggler"
+  className="sc-gsDJrp gEGQyS"
 >
   <div
-    className="input-wrapper toggler__input toggler__input--checked"
+    className="sc-dkPtyc cpUwga"
   >
     <input
       checked={true}
-      className="input-wrapper__input-element"
+      className="sc-bdvvaa bVyvoG"
       onChange={[Function]}
       type="checkbox"
       value={true}
     />
   </div>
   <span
-    className="toggler__slider"
-    data-modifiers=""
+    checked={true}
+    className="sc-hKwCoD fnERlt"
   />
   <div
     checked={true}
-    className="toggler__label toggler__label--checked"
-    data-modifiers="checked"
+    className="sc-eCImvq bwvyzH"
   >
     toggler
   </div>

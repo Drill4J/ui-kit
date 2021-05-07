@@ -2,32 +2,23 @@
 
 exports[`Input Should render a Input 1`] = `
 Array [
-  <div
-    className="input-wrapper"
-  >
+  <div>
     <input
-      className="input-wrapper__input-element"
+      className="sc-bdvvaa bVyvoG"
       placeholder="enter text..."
-      value=""
     />
   </div>,
-  <div
-    className="input-wrapper input-wrapper--disabled"
-  >
+  <div>
     <input
-      className="input-wrapper__input-element input-wrapper__input-element--disabled"
+      className="sc-bdvvaa etdfVC"
       disabled={true}
       placeholder="enter text..."
-      value=""
     />
   </div>,
-  <div
-    className="input-wrapper input-wrapper--error"
-  >
+  <div>
     <input
-      className="input-wrapper__input-element input-wrapper__input-element--error"
+      className="sc-bdvvaa bjAYhT"
       placeholder="enter text..."
-      value=""
     />
   </div>,
 ]

@@ -2,25 +2,20 @@
 
 exports[`Checkbox should match snapshot 1`] = `
 <div
-  className="checkbox checkbox--checked"
+  className="sc-jgrIVw icuQUs"
   onClick={[Function]}
 >
   <input
     checked={true}
-    className="checkbox__checkbox-input checkbox__checkbox-input--checked"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
+    className="sc-gSQGeZ jmBHUO"
     type="checkbox"
-    value=""
   />
   <div
-    className="checkbox__checkbox-icon-wrapper checkbox__checkbox-icon-wrapper--color--blue"
-    color="blue"
+    checked={true}
+    className="sc-lbhJmS kpSLiO"
   >
     <svg
-      className="sc-bdvvaa eCjinC checkbox__check-mark-icon"
-      data-modifiers=""
+      className="sc-gsDJrp eoXRPA sc-iNGGwv ipPRYo"
       fillRule="evenodd"
       height={7}
       style={
@@ -38,8 +33,7 @@ exports[`Checkbox should match snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="checkbox__label"
-    data-modifiers=""
+    className="sc-jeqYYF kCecMR"
   >
     checkbox
   </div>

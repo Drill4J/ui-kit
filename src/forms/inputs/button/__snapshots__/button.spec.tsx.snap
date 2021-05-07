@@ -2,23 +2,7 @@
 
 exports[`should match snapshot 1`] = `
 <button
-  className="button button--type--primary button--size--large"
-  data-test=""
-  disabled={false}
-  onClick={[Function]}
-  size="large"
-  type="primary"
->
-  Primary large
-</button>
-`;
-
-exports[`should match snapshot 1`] = `
-<button
-  className="button button--type--primary button--size--large"
-  data-test=""
-  disabled={false}
-  onClick={[Function]}
+  className="sc-bdvvaa iJkLDP"
   size="large"
   type="primary"
 >

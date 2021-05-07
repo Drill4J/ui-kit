@@ -2,9 +2,8 @@
 
 exports[`Textarea should match snapshot 1`] = `
 <textarea
-  className="textarea__input"
+  className="sc-bdvvaa fLlQRn"
   onChange={[Function]}
-  rows={2}
   value="Textarea component"
 />
 `;

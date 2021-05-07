@@ -1,6 +1,4 @@
-import { BEM } from '@redneckz/react-bem-helper';
-
-import styles from './status.module.scss';
+import styled from 'styled-components';
 
 interface Props {
   className?: string;
@@ -8,8 +6,23 @@ interface Props {
   testContext?: string;
 }
 
-const status = BEM(styles);
+export const Status = ({ className, children, testContext = 'data-test' }: Props) => (
+  <Wrapper className={className} data-test={`status:${testContext}`}>{children}</Wrapper>
+);
 
-export const Status = status(({ className, children, testContext = 'data-test' }: Props) => (
-  <div className={className} data-test={`status:${testContext}`}>{children}</div>
-));
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 16px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    margin-right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: currentColor;
+  }
+`;

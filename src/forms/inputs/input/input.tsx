@@ -1,25 +1,42 @@
-import { BEM, input as bemInput } from '@redneckz/react-bem-helper';
+import styled, { css } from 'styled-components';
 
-import { INPUT_PROPS } from './input-props';
 import { InputProps } from '../input-types';
+import { COLORS, FONTS } from '../../../theme';
 
-import styles from './input.module.scss';
-
-const input = BEM(styles);
-
-const INPUT_PROPS_OBJ = Object.assign({}, ...INPUT_PROPS.map((key) => ({ [key]: undefined })));
-
-export const Input = input(({
-  className, ...restProps
-}: InputProps) => (
+export const Input = ({ className, ...restProps }: InputProps) => (
   <div className={className}>
     <InputElement {...restProps} />
   </div>
-));
-
-const InputElement = input.inputElement(
-  bemInput({
-    ...INPUT_PROPS_OBJ,
-    value: '',
-  } as {}),
 );
+
+const InputElement = styled.input<{disabled?: boolean; error?: boolean}>`
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  line-height: 22px;
+  border: 1px solid ${COLORS.MONOCHROME.MEDIUM_TINT};
+  border-radius: 4px;
+  background-color: ${COLORS.MONOCHROME.WHITE};
+  color: ${COLORS.MONOCHROME.BLACK};
+  font-family: ${FONTS.REGULAR};
+  font-size: 14px;
+  outline: none;
+
+  &:focus {
+    border: 1px solid ${COLORS.MONOCHROME.BLACK};
+  }
+
+  &::placeholder {
+    color: ${COLORS.MONOCHROME.DEFAULT};
+  }
+
+  ${({ disabled, error }) => [
+    disabled && css`
+      border: 1px solid ${COLORS.MONOCHROME.MEDIUM_TINT};
+      background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
+      color: ${COLORS.MONOCHROME.DEFAULT};
+    `,
+    error && css`border: 1px solid ${COLORS.RED.DEFAULT}`,
+  ]}
+`;

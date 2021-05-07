@@ -1,22 +1,21 @@
-import { BEM } from '@redneckz/react-bem-helper';
+import styled from 'styled-components';
 
 import { Button } from '../button';
+import { COLORS, FONTS } from '../../../../theme';
 
-import styles from './link-button.module.scss';
+export const LinkButton = styled(Button)`
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+  font-family: ${FONTS.SEMI_BOLD};
+  
+  &:hover {
+    color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+  }
 
-interface Props {
-  className?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-  size?: 'large' | 'small';
-  disabled?: boolean;
-  'data-test'?: string;
-}
-
-const linkButton = BEM(styles);
-
-export const LinkButton = linkButton(({ className, children, ...rest }: Props) => (
-  <Button className={className} {...rest}>
-    {children}
-  </Button>
-));
+  &:active {
+    color: ${COLORS.PRIMARY_BLUE.SHADE};
+  }
+`;

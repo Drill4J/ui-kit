@@ -1,5 +1,5 @@
 export interface ButtonType {
-  type?: 'primary' | 'secondary';
+  kind?: 'primary' | 'secondary';
   size?: 'large' | 'small';
   disabled?: boolean;
   'data-test'?: string;

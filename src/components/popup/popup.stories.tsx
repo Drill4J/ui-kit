@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Popup } from './popup';
-import { CancelButton } from '../../forms/inputs/button/cancel-button';
-import { Button } from '../../forms/inputs/button';
+import { CancelButton, Button } from '../../forms';
 
 storiesOf('Popup', module).add('Popup', () => {
   const [isOpenedInfoPopup, setisOpenedInfoPopup] = useState(true);
@@ -11,10 +10,10 @@ storiesOf('Popup', module).add('Popup', () => {
   return (
     <>
       <div style={{ display: 'inline-grid', gridGap: '20px' }}>
-        <Button type="primary" size="large" onClick={() => setisOpenedInfoPopup(true)}>
+        <Button kind="primary" size="large" onClick={() => setisOpenedInfoPopup(true)}>
           Open info popup
         </Button>
-        <Button type="primary" size="large" onClick={() => setIsOpenedErrorPop(true)}>
+        <Button kind="primary" size="large" onClick={() => setIsOpenedErrorPop(true)}>
           Open error popup
         </Button>
       </div>

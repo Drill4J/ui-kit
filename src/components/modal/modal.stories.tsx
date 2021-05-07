@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Modal } from './modal';
-import { Button } from '../../forms/inputs/button';
-import { CancelButton } from '../../forms/inputs/button/cancel-button';
+import { Button, CancelButton } from '../../forms';
+
 import { Tooltip } from '../tooltip';
 
 storiesOf('Modal', module).add('Modal', () => {
   const [isOpenedModal, setisOpenedModal] = useState(true);
   return (
     <>
-      <Button type="primary" size="large" onClick={() => setisOpenedModal(true)}>
+      <Button kind="primary" size="large" onClick={() => setisOpenedModal(true)}>
         Open modal
       </Button>
       <Modal isOpen={isOpenedModal} onToggle={() => setisOpenedModal(false)}>

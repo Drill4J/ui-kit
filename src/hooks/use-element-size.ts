@@ -15,9 +15,11 @@ export function useElementSize<E extends HTMLElement>(ref: React.RefObject<E>) {
     handleResize();
     // @ts-ignore
     const resizeObserver = new ResizeObserver(() => handleResize());
+    // @ts-ignore
     resizeObserver.observe(element);
 
     return () => {
+      // @ts-ignore
       resizeObserver.disconnect(element);
     };
   }, [ref]);

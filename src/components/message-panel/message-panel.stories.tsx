@@ -15,7 +15,7 @@ storiesOf('MessagePanel', module)
       message={{
         type: 'WARNING',
         text: (
-          <div style={{ display: 'flex', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
             Warning! Something might go wrong!&nbsp;
             <LinkButton size="large">Undo</LinkButton>
           </div>),

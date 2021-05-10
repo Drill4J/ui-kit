@@ -81,11 +81,11 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{tsx}": [
       "eslint --fix",
       "git add"
     ],
-    "*.{scss,md}": [
+    "*.{md}": [
       "prettier --write",
       "git add"
     ]

@@ -1,6 +1,3 @@
-import './style-guide/fonts/fonts.scss';
-import './style-guide/_index.scss';
-
 export {
   Badge,
   Icons,

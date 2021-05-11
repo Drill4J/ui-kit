@@ -2,9 +2,9 @@
 
 exports[`should match snapshot 1`] = `
 <button
-  className="sc-bdvvaa iJkLDP"
+  className="sc-bdvvaa fRwYyz"
+  kind="primary"
   size="large"
-  type="primary"
 >
   Primary large
 </button>

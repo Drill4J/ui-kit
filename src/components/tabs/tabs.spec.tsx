@@ -44,11 +44,5 @@ describe('Tabs Panel', () => {
       .at(1)
       .simulate('click');
     expect(handleSelect).toHaveBeenCalledWith(activeTab);
-    expect(
-      wrapper
-        .find('button')
-        .at(1)
-        .prop('className'),
-    ).toMatch('sc-gsDJrp coXvlh');
   });
 });

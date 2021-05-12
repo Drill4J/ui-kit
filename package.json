@@ -82,7 +82,7 @@
   },
   "lint-staged": {
     "*.{tsx}": [
-      "eslint --fix",
+      "eslint ./src --ext .ts,.tsx --fix",
       "git add"
     ],
     "*.{md}": [

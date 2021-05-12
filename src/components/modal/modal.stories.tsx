@@ -10,7 +10,7 @@ storiesOf('Modal', module).add('Modal', () => {
   const [isOpenedModal, setisOpenedModal] = useState(true);
   return (
     <>
-      <Button kind="primary" size="large" onClick={() => setisOpenedModal(true)}>
+      <Button primary size="large" onClick={() => setisOpenedModal(true)}>
         Open modal
       </Button>
       <Modal isOpen={isOpenedModal} onToggle={() => setisOpenedModal(false)}>

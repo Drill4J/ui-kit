@@ -7,22 +7,22 @@ import { NegativeActionButton } from './negative-action-button';
 
 storiesOf('Button', module).add('types of buttons', () => (
   <div style={{ display: 'grid', gridGap: '20px', placeItems: 'center' }}>
-    <Button kind="primary" size="large">
+    <Button primary size="large">
       Primary large
     </Button>
-    <Button kind="primary" size="small">
+    <Button primary size="small">
       Primary small
     </Button>
-    <Button kind="secondary" size="large">
+    <Button secondary size="large">
       Secondary large
     </Button>
-    <Button kind="secondary" size="small">
+    <Button secondary size="small">
       Secondary small
     </Button>
-    <Button kind="primary" size="large">
+    <Button primary size="large">
       <span>Primary large</span>
     </Button>
-    <Button kind="secondary" size="small">
+    <Button secondary size="small">
       <span>Secondary small</span>
     </Button>
     <CancelButton size="large">Cancel button large</CancelButton>

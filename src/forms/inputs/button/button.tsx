@@ -10,8 +10,10 @@ export const Button = styled.button<ButtonType>`
   outline: 0;
   cursor: pointer;
   
-  ${({ kind, size, disabled }) => [
-    kind === 'primary' && css`
+  ${({
+    primary, secondary, size, disabled,
+  }) => [
+    primary && css`
       border: 1px solid ${COLORS.PRIMARY_BLUE.DEFAULT};
       background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
       color: ${COLORS.MONOCHROME.WHITE};
@@ -27,7 +29,7 @@ export const Button = styled.button<ButtonType>`
         background-color: ${COLORS.PRIMARY_BLUE.SHADE};
       }
     `,
-    kind === 'secondary' && css`
+    secondary && css`
       border: 1px solid ${COLORS.PRIMARY_BLUE.DEFAULT};
       background-color: ${COLORS.MONOCHROME.WHITE};
       color: ${COLORS.PRIMARY_BLUE.DEFAULT};

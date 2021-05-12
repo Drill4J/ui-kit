@@ -10,10 +10,10 @@ storiesOf('Popup', module).add('Popup', () => {
   return (
     <>
       <div style={{ display: 'inline-grid', gridGap: '20px' }}>
-        <Button kind="primary" size="large" onClick={() => setisOpenedInfoPopup(true)}>
+        <Button primary size="large" onClick={() => setisOpenedInfoPopup(true)}>
           Open info popup
         </Button>
-        <Button kind="primary" size="large" onClick={() => setIsOpenedErrorPop(true)}>
+        <Button primary size="large" onClick={() => setIsOpenedErrorPop(true)}>
           Open error popup
         </Button>
       </div>

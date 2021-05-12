@@ -5,7 +5,7 @@ import { Button } from './button';
 it('should match snapshot', () => {
   const tree = renderer
     .create(
-      <Button kind="primary" size="large">
+      <Button primary size="large">
         Primary large
       </Button>,
     )

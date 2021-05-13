@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
 
 import { Icons } from '../icon';
 import { Portal } from '../portal';
@@ -13,21 +14,60 @@ interface Props {
 
 export const Modal = ({
   className, children, onToggle, isOpen,
-}: Props) => (
-  <Portal rootElementId="modal">
-    {isOpen && (
-      <Wrapper className={className}>
-        <ModalCard>
-          <CloseButton onClick={() => onToggle(!isOpen)}>
-            <Icons.Close />
-          </CloseButton>
-          {children}
-        </ModalCard>
-        <Fade onClick={() => onToggle(!isOpen)} />
-      </Wrapper>
-    )}
-  </Portal>
-);
+}: Props) => {
+  const borderRef = useRef(null);
+  const [modalWidth, setModalWidth] = useState(400);
+
+  function handleMouseMove({ clientX }: MouseEvent) {
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    setModalWidth(window.innerWidth - clientX - scrollBarWidth);
+  }
+  function handleMouseDown({ target }: MouseEvent) {
+    if (target === borderRef.current) {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
+  }
+  function handleMouseUp() {
+    document.removeEventListener('mousemove', handleMouseMove);
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+  return (
+    <Portal rootElementId="modal">
+      {isOpen && (
+        <Wrapper className={className}>
+          <ModalCard width={modalWidth}>
+            <CloseButton onClick={() => onToggle(!isOpen)}>
+              <Icons.Close />
+            </CloseButton>
+            <BorderLeft ref={borderRef} />
+            {children}
+          </ModalCard>
+          <Fade onClick={() => onToggle(!isOpen)} />
+        </Wrapper>
+      )}
+    </Portal>
+  );
+};
+
+const BorderLeft = styled.div`
+  position: absolute;
+  z-index: 100;
+  width: 4px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  box-shadow:  -20px 0 40px 0 rgba(15, 36, 52, 0.15);
+  background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+  cursor: col-resize;
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -37,16 +77,18 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const ModalCard = styled.div`
+const ModalCard = styled.div<{width: number}>`
   position: absolute;
   top: 0;
   right: 0;
-  width: 400px;
   height: 100%;
   z-index: 100;
-  box-shadow: -4px 0 0 0 ${COLORS.PRIMARY_BLUE.DEFAULT}, -20px 0 40px 0 rgba(15, 36, 52, 0.15);
   background-color: ${COLORS.MONOCHROME.WHITE};
+  min-width: 400px;
+  max-width: calc(100% - 48px); // closeButton widths
+  ${({ width }) => css`width: ${width}px`}
 `;
+
 const CloseButton = styled.div`
   position: absolute;
   left: -48px;
@@ -60,6 +102,7 @@ const CloseButton = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+
 const Fade = styled.div`
   position: absolute;
   width: 100%;

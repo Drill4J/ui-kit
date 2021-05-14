@@ -2,17 +2,17 @@
 
 exports[`Dropdown should match snapshot 1`] = `
 <div
-  className="sc-gSQGeZ idxJxr"
+  className="sc-efQUeY eAqWsJ"
 >
   <div
-    className="sc-lbhJmS dWymtc"
+    className="sc-cTApHj jQobsq"
     onClick={[Function]}
   >
     <div
-      className="sc-iNGGwv cegFbp"
+      className="sc-jObXwK kmHMTY"
     />
     <div
-      className="sc-jeqYYF ioTeUs"
+      className="sc-dPiKHq dhhGrP"
     >
       <svg
         className="sc-gsDJrp eoXRPA"

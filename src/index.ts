@@ -1,7 +1,6 @@
 export {
   Badge,
   Icons,
-  OverflowText,
   Popup,
   Spinner,
   Tooltip,
@@ -10,9 +9,6 @@ export {
   Menu,
   MessagePanel,
   Modal,
-  Table,
-  ExpandableTable,
-  Column,
   GeneralAlerts,
   Portal,
   MainProgressBar,
@@ -22,7 +18,6 @@ export {
   SessionIndicator,
   SortArrow,
   Legend,
-  EllipsisOverflowText,
   Status,
 } from './components';
 export {

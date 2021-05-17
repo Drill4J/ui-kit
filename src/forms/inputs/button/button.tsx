@@ -7,6 +7,7 @@ export const Button = styled.button<ButtonType>`
   display: flex;
   align-items: center;
   border-radius: 16px;
+  column-gap: 8px;
   outline: 0;
   cursor: pointer;
   

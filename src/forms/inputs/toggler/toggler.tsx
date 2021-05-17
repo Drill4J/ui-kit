@@ -5,20 +5,25 @@ import { Input } from '../input';
 import { TogglerProps } from './toggler-types';
 
 export const Toggler = ({
-  className, label, value, onChange = () => {},
+  className, label, value, onChange = () => {}, disabled,
 }: TogglerProps) => (
-  <Checkbox className={className}>
+  <Checkbox className={className} disabled={disabled}>
     <CheckboxInput type="checkbox" checked={Boolean(value)} value={value} onChange={onChange} />
     <CheckboxTogglerLabel checked={Boolean(value)} />
     {label && <Label checked={Boolean(value)}>{label}</Label>}
   </Checkbox>
 );
 
-const Checkbox = styled.label`
+const Checkbox = styled.label<{disabled?: boolean}>`
   position: relative;
   display: inline-block;
   width: 20px;
   height: 12px;
+  ${({ disabled }) => disabled && css`
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
+  `}
 `;
 
 const CheckboxInput = styled(Input)`
@@ -34,7 +39,7 @@ const CheckboxInput = styled(Input)`
   }
 `;
 
-const CheckboxTogglerLabel = styled.span<{checked?: boolean }>`
+const CheckboxTogglerLabel = styled.span<{checked?: boolean}>`
   position: absolute;
   cursor: pointer;
   top: 0;

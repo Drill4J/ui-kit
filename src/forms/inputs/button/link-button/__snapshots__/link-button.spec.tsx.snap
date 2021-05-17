@@ -2,7 +2,7 @@
 
 exports[`should match snapshot 1`] = `
 <button
-  className="sc-bdvvaa sc-gsDJrp iJkLDP dcPFaG"
+  className="sc-bdvvaa sc-gsDJrp dEcWDh dcPFaG"
   size="large"
 >
   Link button

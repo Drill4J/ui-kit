@@ -19,7 +19,7 @@ export const Checkbox = ({
   return (
     <Wrapper onClick={handleOnChange} disabled={disabled}>
       <CheckboxInput name={value} checked={checked} type="checkbox" />
-      <CheckboxIconWrapper type={!checked ? label : undefined} checked={checked} color={color}>
+      <CheckboxIconWrapper type={!checked && typeof label === 'string' ? label : undefined} checked={checked} color={color}>
         {checked && <CheckMarkIcon width={10} height={7} viewBox="0 0 14 10" />}
       </CheckboxIconWrapper>
       {label && <Label>{label}</Label>}
@@ -57,7 +57,7 @@ const CheckboxIconWrapper = styled.div<{type?: string; checked?: boolean; color?
     border: ${({ color }) => (color
     ? `1px solid ${color}`
     : `1px solid ${COLORS.PRIMARY_BLUE.MEDIUM_TINT}`)};
-    opacity: ${({ color }) => color && 0.5};
+    opacity: ${({ color }) => color && 0.8};
   }
   
   ${({ type, checked, color }) => [

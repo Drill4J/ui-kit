@@ -69,6 +69,7 @@ import { path as global } from './path/global.path';
 import { path as graph } from './path/graph.path';
 import { path as flag } from './path/flag.path';
 import { path as filledFlag } from './path/filled-flag.path';
+import { path as stateWatcher } from './path/state-watcher.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -159,4 +160,5 @@ export const Icons = {
   Graph: declareIcon(graph, { defaultWidth: 70, defaultHeight: 75 }),
   Flag: declareIcon(flag, { defaultWidth: 16, defaultHeight: 16 }),
   FilledFlag: declareIcon(filledFlag, { defaultWidth: 16, defaultHeight: 16 }),
+  StateWatcher: declareIcon(stateWatcher, { defaultWidth: 32, defaultHeight: 32 }),
 };

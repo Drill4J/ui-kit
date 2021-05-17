@@ -10,6 +10,12 @@ storiesOf('Checkbox', module).add('Checkbox', () => {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
       <Checkbox
+        color="#F7D77C"
+        checked={checkedFirst}
+        label={checkedFirst ? 'checked' : 'not checked'}
+        onChange={() => (checkedFirst ? setCheckedFirst(false) : setCheckedFirst(true))}
+      />
+      <Checkbox
         checked={checkedFirst}
         label={checkedFirst ? 'checked' : 'not checked'}
         onChange={() => (checkedFirst ? setCheckedFirst(false) : setCheckedFirst(true))}

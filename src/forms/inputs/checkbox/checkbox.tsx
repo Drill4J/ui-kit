@@ -5,7 +5,7 @@ import { CheckboxProps } from './checkbox-types';
 import { COLORS } from '../../../theme';
 
 export const Checkbox = ({
-  className, onChange, checked, label, value, disabled,
+  onChange, checked, label, value, disabled, color,
 }: CheckboxProps) => {
   const handleOnChange = () => {
     onChange &&
@@ -17,9 +17,9 @@ export const Checkbox = ({
         } as React.ChangeEvent<HTMLInputElement>);
   };
   return (
-    <Wrapper className={className} onClick={handleOnChange} disabled={disabled}>
+    <Wrapper onClick={handleOnChange} disabled={disabled}>
       <CheckboxInput name={value} checked={checked} type="checkbox" />
-      <CheckboxIconWrapper type={!checked ? label : undefined} checked={checked}>
+      <CheckboxIconWrapper type={!checked ? label : undefined} checked={checked} color={color}>
         {checked && <CheckMarkIcon width={10} height={7} viewBox="0 0 14 10" />}
       </CheckboxIconWrapper>
       {label && <Label>{label}</Label>}
@@ -43,21 +43,26 @@ const CheckboxInput = styled.input`
   display: none;
 `;
 
-const CheckboxIconWrapper = styled.div<{type?: string; checked?: boolean}>`
+const CheckboxIconWrapper = styled.div<{type?: string; checked?: boolean; color?: string }>`
   box-sizing: border-box;
   position: relative;
   width: 16px;
   height: 16px;
   border-radius: 3px;
-  border: 1px solid ${COLORS.PRIMARY_BLUE.DEFAULT};
+  border: ${({ color }) => (color
+    ? `1px solid ${color}`
+    : `1px solid ${COLORS.PRIMARY_BLUE.MEDIUM_TINT}`)};
 
   &:hover {
-    border: 1px solid ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+    border: ${({ color }) => (color
+    ? `1px solid ${color}`
+    : `1px solid ${COLORS.PRIMARY_BLUE.MEDIUM_TINT}`)};
+    opacity: ${({ color }) => color && 0.5};
   }
   
-  ${({ type, checked }) => [
+  ${({ type, checked, color }) => [
     type === 'all' && css`
-      background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+      background-color: ${color || COLORS.PRIMARY_BLUE.DEFAULT};
       &::before {
         position: absolute;
         top: 50%;
@@ -71,14 +76,16 @@ const CheckboxIconWrapper = styled.div<{type?: string; checked?: boolean}>`
       }
 
       &:hover {
-        background-color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+        background-color: ${color || COLORS.PRIMARY_BLUE.MEDIUM_TINT};
       }
     `,
     checked && css`
-      background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+      background-color: ${color || COLORS.PRIMARY_BLUE.DEFAULT};
+      border: 1px solid ${color || COLORS.PRIMARY_BLUE.DEFAULT};
 
       &:hover {
-        background-color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+        background-color: ${color || COLORS.PRIMARY_BLUE.MEDIUM_TINT};
+        border: 1px solid ${color || COLORS.PRIMARY_BLUE.MEDIUM_TINT};
       }
     `,
   ]}

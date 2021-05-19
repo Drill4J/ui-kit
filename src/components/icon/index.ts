@@ -70,6 +70,8 @@ import { path as graph } from './path/graph.path';
 import { path as flag } from './path/flag.path';
 import { path as filledFlag } from './path/filled-flag.path';
 import { path as stateWatcher } from './path/state-watcher.path';
+import { path as data } from './path/data.path';
+import { path as play } from './path/play.path';
 import { declareIcon } from './declare-icon';
 
 export const Icons = {
@@ -161,4 +163,6 @@ export const Icons = {
   Flag: declareIcon(flag, { defaultWidth: 16, defaultHeight: 16 }),
   FilledFlag: declareIcon(filledFlag, { defaultWidth: 16, defaultHeight: 16 }),
   StateWatcher: declareIcon(stateWatcher, { defaultWidth: 32, defaultHeight: 32 }),
+  Data: declareIcon(data, { defaultWidth: 160, defaultHeight: 160 }),
+  Play: declareIcon(play),
 };

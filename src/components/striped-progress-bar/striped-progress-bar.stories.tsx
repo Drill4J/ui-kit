@@ -19,6 +19,9 @@ storiesOf('StripedProgressBar', module).add('StripedProgressBar with change cove
         }}
       >
         <StripedProgressBar value={`${coverage}%`} type="primary" />
+        {' '}
+        <br />
+        <StripedProgressBar value={`${coverage}%`} type="secondary" />
       </div>
       <input type="range" min="0" max="100" value={coverage} onChange={handleChange} />
     </div>

@@ -1,11 +1,10 @@
 export interface DropdownItemProps {
-  value: string;
-  label: string;
+  value: number | string;
+  label: React.ReactNode;
 }
 
 export interface DropdownProps {
-  className?: string;
   items: DropdownItemProps[];
-  value: string;
+  value: number | string;
   onChange: (arg: DropdownItemProps) => void;
 }

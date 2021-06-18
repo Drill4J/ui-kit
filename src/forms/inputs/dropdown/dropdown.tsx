@@ -7,14 +7,14 @@ import { DropdownProps } from './dropdown-types';
 import { COLORS, FONTS } from '../../../theme';
 
 export const Dropdown = ({
-  className, items, value, onChange,
+  items, value, onChange,
 }: DropdownProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const node = useClickOutside(() => setIsExpanded(false));
   const selectedValue = items.find((item) => value === item.value);
 
   return (
-    <Wrapper className={className} ref={node}>
+    <Wrapper ref={node}>
       <Button onClick={() => setIsExpanded(!isExpanded)}>
         <Value>{selectedValue && selectedValue.label}</Value>
         <Icon>

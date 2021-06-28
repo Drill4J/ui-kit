@@ -3,9 +3,11 @@
 exports[`GeneralAlerts should match snapshot with the default text 1`] = `
 <div
   className="sc-gsDJrp hXBTmi"
+  data-test="general-alert"
 >
   <div
     className="sc-dkPtyc dCsRLl"
+    data-test="general-alert:content"
     type="SUCCESS"
   >
     <div

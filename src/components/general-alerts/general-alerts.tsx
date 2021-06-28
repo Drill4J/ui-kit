@@ -14,8 +14,8 @@ interface Props {
 export const GeneralAlerts = ({
   className, children = 'Internal service error', type,
 }: Props) => (
-  <Wrapper className={className}>
-    <Content type={type}>
+  <Wrapper className={className} data-test="general-alert">
+    <Content type={type} data-test="general-alert:content">
       {getMessageIcon(type)}
       {children}
     </Content>

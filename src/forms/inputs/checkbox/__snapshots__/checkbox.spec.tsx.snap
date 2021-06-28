@@ -2,20 +2,20 @@
 
 exports[`Checkbox should match snapshot 1`] = `
 <div
-  className="sc-efQUeY kTjrUE"
+  className="sc-dPiKHq gcpgfU"
   onClick={[Function]}
 >
   <input
     checked={true}
-    className="sc-cTApHj oOinf"
+    className="sc-bBHHQT sQSgW"
     type="checkbox"
   />
   <div
     checked={true}
-    className="sc-jObXwK kMaYwC"
+    className="sc-cNKpQo hVgyxZ"
   >
     <svg
-      className="sc-gsDJrp eoXRPA sc-dPiKHq bKVjFZ"
+      className="sc-gsDJrp eoXRPA sc-AjmZR ixOclY"
       fillRule="evenodd"
       height={7}
       style={
@@ -33,7 +33,7 @@ exports[`Checkbox should match snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="sc-bBHHQT hydeiE"
+    className="sc-khQdMy gAOLRn"
   >
     checkbox
   </div>

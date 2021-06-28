@@ -17,3 +17,4 @@ export { SessionIndicator } from './session-indicator';
 export { SortArrow } from './sort-arrow';
 export { Legend } from './legend';
 export { Status } from './status';
+export { Stub } from './stub';

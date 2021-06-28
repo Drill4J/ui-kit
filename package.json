@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.82",
+  "version": "0.1.83",
   "author": "Drill4J",
   "license": "Apache-2.0",
   "description": "Drill4J UI components library",
@@ -11,6 +11,7 @@
     "url": "https://github.com/Drill4J/ui-kit"
   },
   "dependencies": {
+    "@drill4j/common-utils": "^1.0.0",
     "@types/nanoid": "^2.1.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -19,6 +20,7 @@
     "postcss": "^8.2.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-final-form": "^6.5.3",
     "styled-components": "^5.2.3",
     "typescript": "^4.1.3"
   },

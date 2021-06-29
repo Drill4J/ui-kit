@@ -1,3 +1,5 @@
+import '../index.css';
+
 export { Badge } from './badge';
 export { Icons } from './icon';
 export { Popup } from './popup';

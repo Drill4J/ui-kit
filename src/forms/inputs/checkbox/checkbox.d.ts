@@ -1,68 +1,65 @@
 import { CheckboxProps } from './checkbox-types';
-
 export declare const Checkbox: {
-  ({
-    className, onChange, checked, label, value, disabled,
-  }: CheckboxProps): JSX.Element;
-  displayName: string;
-  __docgenInfo: {
-    description: string;
+    ({ onChange, checked, label, value, disabled, color, }: CheckboxProps): JSX.Element;
     displayName: string;
-    props: {
-      className: {
-        defaultValue: null;
+    __docgenInfo: {
         description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
+        displayName: string;
+        props: {
+            color: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            onChange: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            checked: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            label: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            disabled: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            value: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
         };
-      };
-      onChange: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
-      checked: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
-      label: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
-      disabled: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
-      value: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
     };
-  };
 };

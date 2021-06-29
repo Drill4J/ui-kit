@@ -1,33 +1,33 @@
 interface Props {
-  className?: string;
-  disabled?: boolean;
+    className?: string;
+    disabled?: boolean;
 }
 export declare const Spinner: {
-  ({ className, disabled }: Props): JSX.Element;
-  displayName: string;
-  __docgenInfo: {
-    description: string;
+    ({ className, disabled, }: Props): JSX.Element;
     displayName: string;
-    props: {
-      className: {
-        defaultValue: null;
+    __docgenInfo: {
         description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
+        displayName: string;
+        props: {
+            className: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            disabled: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
         };
-      };
-      disabled: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
     };
-  };
 };
 export {};

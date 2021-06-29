@@ -1,43 +1,43 @@
 interface Props {
-  className?: string;
-  value?: string;
-  type: 'primary' | 'secondary';
+    className?: string;
+    value?: string;
+    type: 'primary' | 'secondary';
 }
 export declare const StripedProgressBar: {
-  ({ className, value, type }: Props): JSX.Element;
-  displayName: string;
-  __docgenInfo: {
-    description: string;
+    ({ className, value, type }: Props): JSX.Element;
     displayName: string;
-    props: {
-      className: {
-        defaultValue: null;
+    __docgenInfo: {
         description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
+        displayName: string;
+        props: {
+            className: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            value: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            type: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
         };
-      };
-      value: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
-      type: {
-        defaultValue: null;
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
     };
-  };
 };
 export {};

@@ -1,36 +1,36 @@
 interface Props {
-  className?: string;
-  children?: string;
-  testContext?: string;
+    className?: string;
+    children?: string;
+    testContext?: string;
 }
 export declare const Status: {
-  ({ className, children, testContext }: Props): JSX.Element;
-  displayName: string;
-  __docgenInfo: {
-    description: string;
+    ({ className, children, testContext }: Props): JSX.Element;
     displayName: string;
-    props: {
-      className: {
-        defaultValue: null;
+    __docgenInfo: {
         description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
+        displayName: string;
+        props: {
+            className: {
+                defaultValue: null;
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
+            testContext: {
+                defaultValue: {
+                    value: string;
+                };
+                description: string;
+                name: string;
+                required: boolean;
+                type: {
+                    name: string;
+                };
+            };
         };
-      };
-      testContext: {
-        defaultValue: {
-          value: string;
-        };
-        description: string;
-        name: string;
-        required: boolean;
-        type: {
-          name: string;
-        };
-      };
     };
-  };
 };
 export {};

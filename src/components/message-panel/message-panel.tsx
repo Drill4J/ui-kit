@@ -5,20 +5,19 @@ import { Message } from './message-type';
 import { COLORS, FONTS } from '../../theme';
 
 interface Props {
-  className?: string;
   message: Message;
   onClose(): void;
 }
 
-export const MessagePanel = ({ className, message: { type, text }, onClose }: Props) => (
-  <Wrapper className={className}>
+export const MessagePanel = ({ message: { type, text }, onClose }: Props) => (
+  <Wrapper>
     <Content type={type}>
       <Panel align="space-between">
         <Panel>
           {getMessageIcon(type)}
-          <MessageText>{text}</MessageText>
+          <MessageText data-test="message-panel:text">{text}</MessageText>
         </Panel>
-        <CloseIcon onClick={onClose} />
+        <CloseIcon onClick={onClose} data-test="message-panel:close-icon" />
       </Panel>
     </Content>
   </Wrapper>

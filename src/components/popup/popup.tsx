@@ -31,7 +31,7 @@ export const Popup = ({
           <Content type={type}>
             <Header>
               {header}
-              <CloseButton onClick={() => onToggle(!isOpen)} />
+              <CloseButton onClick={() => onToggle(!isOpen)} data-test="popup:close-button" />
             </Header>
             {children}
           </Content>

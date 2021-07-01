@@ -19,10 +19,15 @@ export const Checkbox = ({
   return (
     <Wrapper onClick={handleOnChange} disabled={disabled}>
       <CheckboxInput name={value} checked={checked} type="checkbox" />
-      <CheckboxIconWrapper type={!checked && typeof label === 'string' ? label : undefined} checked={checked} color={color}>
+      <CheckboxIconWrapper
+        type={!checked && typeof label === 'string' ? label : undefined}
+        checked={checked}
+        color={color}
+        data-test="checkbox:input"
+      >
         {checked && <CheckMarkIcon width={10} height={7} viewBox="0 0 14 10" />}
       </CheckboxIconWrapper>
-      {label && <Label>{label}</Label>}
+      {label && <Label data-test="checkbox:label">{label}</Label>}
     </Wrapper>
   );
 };

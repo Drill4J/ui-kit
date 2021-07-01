@@ -44,7 +44,7 @@ export const Modal = ({
       {isOpen && (
         <Wrapper className={className}>
           <ModalCard width={modalWidth}>
-            <CloseButton onClick={() => onToggle(!isOpen)}>
+            <CloseButton onClick={() => onToggle(!isOpen)} data-test="modal:close-button">
               <Icons.Close />
             </CloseButton>
             <BorderLeft ref={borderRef} />

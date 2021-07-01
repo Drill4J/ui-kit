@@ -12,8 +12,14 @@ export const NumberInput = ({ className, ...restProps }: InputProps) => (
 const InputElement = styled(Input)`
   input {
     width: 60px;
-    height: 32px;
+    height: 40px;
     padding: 0 8px;
-    text-align: right;
+
+    -moz-appearance: textfield;
+
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
 `;

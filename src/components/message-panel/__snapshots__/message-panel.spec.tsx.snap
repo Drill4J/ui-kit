@@ -38,12 +38,14 @@ exports[`MessagePanel should match snapshot with the default text 1`] = `
         </div>
         <div
           className="sc-dkPtyc fJXMLW"
+          data-test="message-panel:text"
         >
           Succes! Congratz!
         </div>
       </div>
       <svg
         className="sc-bdvvaa eCjinC sc-hKwCoD iissVB"
+        data-test="message-panel:close-icon"
         fillRule="evenodd"
         height={16}
         onClick={[Function]}

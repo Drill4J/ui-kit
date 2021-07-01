@@ -4,7 +4,7 @@ exports[`NumberInput Should render a NumberInput 1`] = `
 Array [
   <div>
     <div
-      className="sc-gsDJrp dyjsIK"
+      className="sc-gsDJrp lkMaPF"
     >
       <input
         className="sc-bdvvaa bVyvoG"
@@ -14,7 +14,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-gsDJrp dyjsIK"
+      className="sc-gsDJrp lkMaPF"
     >
       <input
         className="sc-bdvvaa etdfVC"
@@ -25,7 +25,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-gsDJrp dyjsIK"
+      className="sc-gsDJrp lkMaPF"
     >
       <input
         className="sc-bdvvaa bjAYhT"

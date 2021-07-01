@@ -1,29 +1,20 @@
-import styled, { css } from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 import { Icons } from '../icon';
-import { COLORS } from '../../theme';
 
 interface Props {
-  className?: string;
   order: 'ASC' | 'DESC' | null;
   active?: boolean;
 }
 
-export const SortArrow = ({ className, order, active }: Props) => (
-  <Wrapper className={className} active={active}>
+export const SortArrow = ({ order, active }: Props) => (
+  <Wrapper active={active}>
     <Icons.SortingArrow rotate={order === 'DESC' ? 0 : 180} />
   </Wrapper>
 );
 
 const Wrapper = styled.div<{active?: boolean}>`
-  position: absolute;
-  left: -16px;
-  display: grid;
-  place-items: center;
-  height: 16px;
-  width: 16px;
-  color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
-  cursor: pointer;
+  ${tw`grid place-items-center h-4 w-4 text-blue-medium-tint cursor-pointer`}
   
-  ${({ active }) => active && css`color: ${COLORS.PRIMARY_BLUE.SHADE}`}
+  ${({ active }) => active && tw`text-blue-shade`}
 `;

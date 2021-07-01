@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { IconProps } from './generic-icon-types';
 interface Settings {
     viewBox?: string;

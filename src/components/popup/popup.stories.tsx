@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { Popup } from './popup';
-import { CancelButton, Button } from '../../forms';
+import { CancelButton, Button } from '../forms';
 
 storiesOf('Popup', module).add('Popup', () => {
   const [isOpenedInfoPopup, setisOpenedInfoPopup] = useState(true);
   const [isOpenedErrorPopup, setIsOpenedErrorPop] = useState(false);
   return (
     <>
-      <div style={{ display: 'inline-grid', gridGap: '20px' }}>
+      <div tw="inline-grid gap-5">
         <Button primary size="large" onClick={() => setisOpenedInfoPopup(true)}>
           Open info popup
         </Button>
@@ -24,7 +25,7 @@ storiesOf('Popup', module).add('Popup', () => {
         header={<div>Info</div>}
         closeOnFadeClick
       >
-        <div style={{ padding: '24px 24px', fontFamily: 'sans-serif' }}>
+        <div tw="p-6">
           <h2>Info popup content</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti ullam praesentium
@@ -50,7 +51,7 @@ storiesOf('Popup', module).add('Popup', () => {
         header={<h1>Error</h1>}
         closeOnFadeClick
       >
-        <div style={{ padding: '24px 24px', fontFamily: 'sans-serif' }}>
+        <div tw="p-6">
           <h2>Error popup content</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti ullam praesentium

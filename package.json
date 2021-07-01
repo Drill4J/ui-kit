@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.86",
+  "version": "0.1.88",
   "homepage": "http://drill4j.github.io/ui-kit",
   "author": "Drill4J",
   "license": "Apache-2.0",
@@ -11,92 +11,47 @@
     "type": "git",
     "url": "https://github.com/Drill4J/ui-kit"
   },
-  "dependencies": {
-    "@drill4j/common-utils": "^1.0.0",
-    "@types/nanoid": "^2.1.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/styled-components": "^5.1.9",
-    "nanoid": "^3.1.15",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-final-form": "^6.5.3",
-    "styled-components": "^5.2.3",
-    "typescript": "^4.1.3"
-  },
-  "scripts": {
-    "build": "NODE_ENV=production npm run tailwind:css && rollup -c && tsc",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --passWithNoTests --watch",
-    "test:coverage": "jest --coverage",
-    "typecheck": "tsc --project tsconfig.json --noEmit --skipLibCheck",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "storybook": "npm run tailwind:css && start-storybook -p 6006 -c .storybook watch-css -s ./src",
-    "tailwind:css": "tailwind build ./src/tailwind.css -c tailwind.config.js -o ./src/index.css",
-    "build-storybook": "build-storybook",
-    "deploy": "gh-pages -d storybook-static",
-    "prepare": "npm run build"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@storybook/addon-actions": "^6.1.11",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.1.11",
-    "@storybook/addons": "^6.1.11",
-    "@storybook/react": "^6.1.21",
-    "@types/enzyme": "^3.10.5",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.2",
-    "@types/react-test-renderer": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
-    "autoprefixer": "^10.2.6",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.1.0",
-    "enzyme": "^3.11.0",
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-json": "^2.1.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.22.0",
-    "gh-pages": "^3.2.3",
-    "husky": "^4.2.5",
-    "jest": "^26.6.1",
-    "jest-css-modules-transform": "^4.0.0",
-    "lint-staged": "^10.1.7",
-    "node-sass": "^4.14.1",
-    "postcss": "^8.3.5",
-    "prettier": "^2.1.2",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-test-renderer": "^17.0.1",
-    "rollup": "^2.32.1",
-    "rollup-plugin-postcss": "4.0.0",
-    "rollup-plugin-react-svg": "^3.0.3",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.28.0",
-    "sass-loader": "^10.0.4",
-    "tailwindcss": "^2.2.4",
-    "ts-jest": "^26.4.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
     }
   },
-  "lint-staged": {
-    "*.{tsx}": [
-      "eslint ./src --ext .ts,.tsx --fix",
-      "git add"
-    ],
-    "*.{md}": [
-      "prettier --write",
-      "git add"
-    ]
+  "scripts": {
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy": "gh-pages -d storybook-static"
+  },
+  "dependencies": {
+    "@drill4j/common-utils": "^1.0.0",
+    "@drill4j/types-admin": "^1.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-error-boundary": "^3.1.3",
+    "react-final-form": "^6.5.3",
+    "react-table": "^7.7.0",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-table": "^7.7.1",
+    "@types/styled-components": "^5.1.7",
+    "autoprefixer": "^10.2.4",
+    "babel-plugin-styled-components": "^1.12.0",
+    "gh-pages": "^3.2.3",
+    "postcss": "^8.2.7",
+    "tailwindcss": "^2.2.4",
+    "twin.macro": "^2.3.0",
+    "typescript": "^4.2.2"
   }
 }

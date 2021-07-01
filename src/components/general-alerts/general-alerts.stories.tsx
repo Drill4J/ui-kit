@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 
 import { GeneralAlerts } from './general-alerts';
-import { Spinner } from '../spinner';
 
 storiesOf('GeneralAlerts', module)
   .add('SUCCESS', () => (
@@ -25,12 +24,8 @@ storiesOf('GeneralAlerts', module)
       Warning message example. Something affects product usage.
     </GeneralAlerts>
   ))
-  .add('INFO', () => (
-    <GeneralAlerts type="INFO" />
-  ))
   .add('WARNING alert with component', () => (
     <GeneralAlerts type="INFO">
       please wait...
-      <Spinner />
     </GeneralAlerts>
   ));

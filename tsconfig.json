@@ -1,28 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "skipLibCheck": true,
     "noEmit": true,
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "declaration": true
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true
   },
-  "include": ["src", "declaration.d.ts"],
-  "exclude": [
-    "node_modules",
-    "**/*.stories.tsx",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.d.ts",
-    "./.storybook"
-  ]
+  "include": ["src", "types"]
 }

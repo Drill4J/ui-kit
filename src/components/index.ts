@@ -1,5 +1,3 @@
-import '../index.css';
-
 export { Badge } from './badge';
 export { Icons } from './icon';
 export { Popup } from './popup';
@@ -20,3 +18,23 @@ export { SortArrow } from './sort-arrow';
 export { Legend } from './legend';
 export { Status } from './status';
 export { Stub } from './stub';
+export { Table, TableElements } from './table';
+export {
+  FormGroup,
+  Inputs,
+  Button,
+  LinkButton,
+  CancelButton,
+  NegativeActionButton,
+  Checkbox,
+  Fields,
+  handleFieldErrors,
+  required,
+  composeValidators,
+  correctPattern,
+  numericLimits,
+  positiveInteger,
+  requiredArray,
+  sizeLimit,
+  toError,
+} from './forms';

@@ -6,8 +6,6 @@ storiesOf('Spinner', module).add('Spinner', () => (
   <div>
     <Spinner />
     <br />
-    <span style={{ background: '#000000' }}>
-      <Spinner disabled />
-    </span>
+    <Spinner disabled />
   </div>
 ));

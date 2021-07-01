@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import styled from 'styled-components';
-import { COLORS } from '../../theme';
+import tw, { styled } from 'twin.macro';
 
 interface Props {
   icon: React.ReactNode;
@@ -35,29 +34,13 @@ export const Stub = ({ icon, title, message }: Props) => (
 );
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-  padding: 40px 0;
-  color: ${COLORS.MONOCHROME.MEDIUM_TINT};
+  ${tw`flex flex-col flex-grow py-10 px-0 justify-center items-center w-full h-full text-monochrome-medium-tint`};
 `;
 
 const Title = styled.div`
-  margin-top: 16px;
-  margin-bottom: 8px;
-  font-size: 20px;
-  line-height: 32px;
-  color: ${COLORS.MONOCHROME.DEFAULT};
+  ${tw`mt-4 mb-2 text-20 leading-32 text-monochrome-default`};
 `;
 
 const Message = styled.div`
-  margin-top: 8px;
-  font-size: 14px;
-  line-height: 20px;
-  color: ${COLORS.MONOCHROME.DEFAULT};
-  text-align: center;
+  ${tw`mt-2 text-14 leading-20 text-monochrome-default text-center`};
 `;

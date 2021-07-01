@@ -1,34 +1,22 @@
-import styled, { css } from 'styled-components';
-
-import { COLORS } from '../../theme';
+import tw, { styled } from 'twin.macro';
 
 interface Props {
-  className?: string;
   value: string;
   type?: 'primary' | 'secondary';
   testContext?: string;
 }
 
-export const MainProgressBar = ({
-  className, value, type, testContext,
-}: Props) => (
-  <Wrapper className={className} data-test={`main-progress-bar:${(testContext || type)}`}>
+export const MainProgressBar = ({ value, type, testContext }: Props) => (
+  <div tw="h-8 rounded bg-monochrome-light-tint" data-test={`main-progress-bar:${(testContext || type)}`}>
     <Progress style={{ width: value }} type={type} />
-  </Wrapper>
+  </div>
 );
 
-const Wrapper = styled.div`
-  height: 32px;
-  border-radius: 4px;
-  background: ${COLORS.MONOCHROME.LIGHT_TINT};;
-`;
-
 const Progress = styled.div<{type?: 'primary' | 'secondary'}>`
-  height: 32px;
-  border-radius: 4px;
-  background: ${COLORS.DATA_VISUALIZATION.BUILD_COVER};
+  ${tw`h-8 rounded bg-data-visualization-coverage`}
+
   ${({ type }) => [
-    type === 'secondary' && css`background: ${COLORS.DATA_VISUALIZATION.OVERLAPPING}`,
-    type === 'primary' && css`background: ${COLORS.DATA_VISUALIZATION.SCOPE_COVER}`,
+    type === 'secondary' && tw`bg-data-visualization-overlapping`,
+    type === 'primary' && tw`bg-data-visualization-scope-cover`,
   ]}
 `;

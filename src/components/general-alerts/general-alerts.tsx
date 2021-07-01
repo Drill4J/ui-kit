@@ -1,63 +1,42 @@
-import styled, { css } from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
-import { Icons } from '../icon';
-import { COLORS } from '../../theme';
+import { Icons } from "../../components/icon";
 
 type Message = 'SUCCESS' | 'ERROR' | 'WARNING' | 'INFO'
 
 interface Props {
-  className?: string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   type: Message;
 }
 
-export const GeneralAlerts = ({
-  className, children = 'Internal service error', type,
-}: Props) => (
-  <Wrapper className={className} data-test="general-alert">
+export const GeneralAlerts = ({ children, type }: Props) => (
+  <div tw="flex text-14 leading-20" data-test="general-alert">
     <Content type={type} data-test="general-alert:content">
       {getMessageIcon(type)}
       {children}
     </Content>
-  </Wrapper>
+  </div>
 );
 
-const Wrapper = styled.div`
-  display: flex;
-  font-size: 14px;
-  line-height: 20px;
-`;
-
 const Content = styled.div<{type?: Message}>`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  padding: 12px 24px;
-  word-break: break-word;
+  ${tw`flex w-full items-center py-3 px-6 break-words`};
   
   ${({ type }) => [
-    type === 'SUCCESS' && css`background-color: ${COLORS.GREEN.LIGHT_TINT}`,
-    type === 'ERROR' && css`background-color: ${COLORS.RED.ULTRALIGHT_TINT}`,
-    type === 'INFO' && css`
-      color: ${COLORS.MONOCHROME.DEFAULT};
-      background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
-    `,
-    type === 'WARNING' && css`background-color: ${COLORS.ORANGE.LIGHT_TINT}`,
+    type === 'SUCCESS' && tw`bg-green-light-tint`,
+    type === 'ERROR' && tw`bg-red-ultralight-tint`,
+    type === 'INFO' && tw`text-monochrome-default bg-monochrome-light-tint`,
+    type === 'WARNING' && tw`bg-orange-light-tint`,
   ]}
 `;
 
 const MessageIcon = styled.div<{type?: Message}>`
-  display: flex;
-  align-self: start;
-  align-items: center;
-  height: 20px;
-  margin-right: 8px;
+  ${tw`flex self-start items-center h-5 mr-2`};
   
   ${({ type }) => [
-    type === 'SUCCESS' && css`color: ${COLORS.GREEN.DEFAULT}`,
-    type === 'ERROR' && css`color: ${COLORS.RED.DEFAULT}`,
-    type === 'INFO' && css`color: ${COLORS.MONOCHROME.DEFAULT};`,
-    type === 'WARNING' && css`color: ${COLORS.ORANGE.DEFAULT}`,
+    type === 'SUCCESS' && tw`text-green-default`,
+    type === 'ERROR' && tw`text-red-default`,
+    type === 'INFO' && tw`text-monochrome-default`,
+    type === 'WARNING' && tw`text-orange-default`,
   ]}
 `;
 

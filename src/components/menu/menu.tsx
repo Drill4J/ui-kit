@@ -2,12 +2,11 @@ import {
   useLayoutEffect, useRef, useState,
 } from 'react';
 import { nanoid } from 'nanoid';
-import styled, { css } from 'styled-components';
+import tw, { styled, css } from 'twin.macro';
 
 import { Icons } from '../icon';
 import { useClickOutside } from '../../hooks';
-import { spacesToDashes } from './spaces-to-dashes';
-import { COLORS } from '../../theme';
+import { spacesToDashes } from '@drill4j/common-utils';
 
 interface MenuItemType {
   label: string;
@@ -22,37 +21,18 @@ interface Props {
   testContext?: string;
 }
 
-const Wrapper = styled.div`
-  color: ${COLORS.MONOCHROME.BLACK};
-`;
-
 const MenuIcon = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
   max-height: 32px;
   max-width: 32px;
-  color: ${COLORS.PRIMARY_BLUE.DEFAULT};
-  cursor: pointer;
-
-  &:hover {
-    color: ${COLORS.PRIMARY_BLUE.MEDIUM_TINT};
-  }
-
-  &:active {
-    color: ${COLORS.PRIMARY_BLUE.SHADE};
-  }
+  ${tw`relative flex items-center text-blue-default cursor-pointer
+    hover:text-blue-medium-tint
+    active:text-blue-shade
+  `}
 `;
 
 const ItemsList = styled.div<{ position: 'bottom' | 'top' }>`
-  display: flex;
-  flex-direction: column;
-  padding: 8px 0;
   filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.15));
-  border-radius: 8px;
-  background-color: ${COLORS.MONOCHROME.WHITE};
-  color: ${COLORS.MONOCHROME.BLACK};
-  z-index: 50;
+  ${tw`flex flex-col py-2 px-0 rounded-lg z-50 bg-monochrome-white text-monochrome-black`}
 
   &::before {
     content: '';
@@ -83,22 +63,13 @@ const ItemsList = styled.div<{ position: 'bottom' | 'top' }>`
 `;
 
 const Item = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
-  }
+  ${tw`flex flex-row items-center py-0 px-4 cursor-pointer
+    hover:bg-monochrome-light-tint
+  `};
 `;
 
 const ItemLabel = styled.span`
-  font-size: 14px;
-  line-height: 32px;
-  margin-left: 8px;
-  white-space: nowrap;
+  ${tw`text-14 leading-32 ml-2 whitespace-nowrap`};
 `;
 
 export const Menu = ({
@@ -144,7 +115,7 @@ export const Menu = ({
   }, [isListOpened]);
 
   return (
-    <Wrapper ref={node}>
+    <div tw="text-monochrome-black" ref={node}>
       <MenuIcon
         onClick={() => setIsListOpened(!isListOpened)}
         data-test={`menu:icon:${testContext}`}
@@ -186,6 +157,6 @@ export const Menu = ({
           </div>
         )}
       </MenuIcon>
-    </Wrapper>
+    </div>
   );
 };

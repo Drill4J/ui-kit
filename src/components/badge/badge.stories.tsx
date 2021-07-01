@@ -1,10 +1,11 @@
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { Badge } from './badge';
 
 storiesOf('Badge', module)
   .add('with simple and bold text', () => (
-    <div style={{ display: 'flex', justifyContent: 'space-between', margin: '40px 0px' }}>
+    <div tw="flex justify-between w-full">
       <Badge>simple</Badge>
       <Badge bold>bold</Badge>
       <Badge color="green">Online</Badge>

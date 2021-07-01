@@ -16,10 +16,11 @@ Visit [Wiki](https://github.com/Drill4J/ui-kit/wiki) page
 ## Technology
 
 Used technology stack:
+## Links
 
-1. [React](https://reactjs.org/)
-1. [TypeScript](https://www.typescriptlang.org/)
-1. [SCSS](https://sass-scss.ru/)
-1. [Storybook](https://storybook.js.org/docs/basics/introduction/)
-1. [Jest](https://jestjs.io/docs/en/snapshot-testing)
-1. [Enzyme](https://enzymejs.github.io/enzyme/docs/api/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Storybook](https://storybook.js.org/)
+- [StyledComponents](https://styled-components.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Twin](https://github.com/ben-rogerson/twin.macro)

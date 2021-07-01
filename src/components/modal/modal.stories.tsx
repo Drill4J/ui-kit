@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { Modal } from './modal';
-import { Button, CancelButton } from '../../forms';
+import { Button, CancelButton } from '../forms';
 
 import { Tooltip } from '../tooltip';
 
@@ -14,7 +15,7 @@ storiesOf('Modal', module).add('Modal', () => {
         Open modal
       </Button>
       <Modal isOpen={isOpenedModal} onToggle={() => setisOpenedModal(false)}>
-        <div style={{ padding: '0px 24px', fontFamily: 'sans-serif' }}>
+        <div tw="px-6">
           <h2>Modal content</h2>
           <Tooltip message="Modal content">
             <p>

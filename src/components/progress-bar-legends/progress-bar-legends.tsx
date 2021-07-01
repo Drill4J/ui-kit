@@ -1,13 +1,7 @@
-import styled, { css } from 'styled-components';
+import tw, { styled, css } from 'twin.macro';
 
-import { COLORS } from '../../theme';
-
-interface Props {
-  className?: string;
-}
-
-export const ProgressBarLegends = ({ className }: Props) => (
-  <div className={className}>
+export const ProgressBarLegends = () => (
+  <div>
     <Panel>
       <Legend><Percentage type="start">0</Percentage></Legend>
       <Legend><Percentage>25</Percentage></Legend>
@@ -26,10 +20,7 @@ const Panel = styled.div`
 `;
 
 const Legend = styled.div`
-  position: relative;
-  width: 1px;
-  height: 8px;
-  background-color: ${COLORS.MONOCHROME.DARK_TINT};
+  ${tw`relative w-1px h-2 bg-monochrome-dark-tint`};
 `;
 
 const Percentage = styled.div<{type?: 'start' | 'end'}>`
@@ -37,8 +28,7 @@ const Percentage = styled.div<{type?: 'start' | 'end'}>`
   left: 50%;
   top: 8px;
   transform: translate(-50%);
-  font-size: 12px;
-  color: ${COLORS.MONOCHROME.DARK_TINT};
+  ${tw`absolute text-12 text-monochrome-dark-tint`};
   
   ${({ type }) => [
     type === 'start' && css`left: 4px`,

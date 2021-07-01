@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { COLORS } from '../../theme';
+import 'twin.macro';
 
 interface LegendItem {
   color: string;
@@ -8,33 +7,18 @@ interface LegendItem {
 }
 
 interface Props {
-  className?: string;
   legendItems: LegendItem[];
 }
 
-export const Legend = ({ className, legendItems }: Props) => (
-  <Wrapper className={className}>
+export const Legend = ({ legendItems }: Props) => (
+  <div tw="flex gap-x-6 text-12 leading-16 text-monochrome-default">
     {legendItems.map(({ color, label, borderColor }) => (
-      <Item key={color}>
+      <div tw="flex items-center gap-x-2" key={color}>
         <svg width={10} height={10}>
           <circle cx="5" cy="5" r="4.5" fill={color} stroke={borderColor} />
         </svg>
         {label}
-      </Item>
+      </div>
     ))}
-  </Wrapper>
+  </div>
 );
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 24px;
-  font-size: 12px;
-  line-height: 16px;
-  color: ${COLORS.MONOCHROME.DEFAULT};
-`;
-
-const Item = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;

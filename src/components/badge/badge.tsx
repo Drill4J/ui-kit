@@ -1,9 +1,6 @@
-import styled, { css } from 'styled-components';
-
-import { COLORS, FONTS } from '../../theme';
+import tw, { styled } from 'twin.macro';
 
 interface Props {
-  className?: string;
   children?: React.ReactNode;
   bold?: boolean;
   color?: 'green' | 'orange' | 'gray' | 'red';
@@ -15,23 +12,11 @@ export const Badge = styled.span<Props>`
   border-radius: 11px;
   font-size: 12px;
   line-height: 20px;
-  ${({ bold }) => bold && css`font-family: ${FONTS.SEMI_BOLD}`}
+  ${({ bold }) => bold && tw`font-bold`}
   ${({ color }) => [
-    color === 'gray' && css`
-      border: 1px solid ${COLORS.MONOCHROME.DEFAULT};
-      color: ${COLORS.MONOCHROME.DEFAULT};
-    `,
-    color === 'green' && css`
-      border: 1px solid ${COLORS.GREEN.DEFAULT};
-      color: ${COLORS.GREEN.DEFAULT};
-    `,
-    color === 'orange' && css`
-      border: 1px solid ${COLORS.ORANGE.DEFAULT};
-      color: ${COLORS.ORANGE.DEFAULT};
-    `,
-    color === 'red' && css`
-      border: 1px solid ${COLORS.RED.DEFAULT};
-      color: ${COLORS.RED.DEFAULT};
-    `,
+    color === 'gray' && tw`text-monochrome-default`,
+    color === 'green' && tw`text-green-default`,
+    color === 'orange' && tw`text-orange-default`,
+    color === 'red' && tw`text-red-default`,
   ]}
 `;

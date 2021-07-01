@@ -1,7 +1,8 @@
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { MessagePanel } from './message-panel';
-import { LinkButton } from '../../forms';
+import { LinkButton } from '../forms';
 
 storiesOf('MessagePanel', module)
   .add('SUCCESS', () => (
@@ -15,10 +16,11 @@ storiesOf('MessagePanel', module)
       message={{
         type: 'WARNING',
         text: (
-          <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <div tw="flex items-center w-full">
             Warning! Something might go wrong!&nbsp;
             <LinkButton size="large">Undo</LinkButton>
-          </div>),
+          </div>
+        ),
       }}
       onClose={() => {}}
     />

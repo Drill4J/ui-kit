@@ -1,15 +1,12 @@
-import styled, { css } from 'styled-components';
-
-import { COLORS } from '../../theme';
+import { styled, css } from 'twin.macro';
 
 interface Props {
-  className?: string;
   value?: string;
   type: 'primary' | 'secondary';
 }
 
-export const StripedProgressBar = ({ className, value, type }: Props) => (
-  <Wrapper className={className} type={type} style={{ width: value }} data-test={`striped-progress-bar:${type}`} />
+export const StripedProgressBar = ({ value, type }: Props) => (
+  <Wrapper type={type} style={{ width: value }} data-test={`striped-progress-bar:${type}`} />
 );
 
 const Wrapper = styled.div<{type?: 'primary' | 'secondary'}>`
@@ -23,15 +20,15 @@ const Wrapper = styled.div<{type?: 'primary' | 'secondary'}>`
   ${({ type }) => [
     type === 'primary' && css`
       background-image: linear-gradient(135deg,
-      transparent 10%, ${COLORS.DATA_VISUALIZATION.SCOPE_COVER} 10%, ${COLORS.DATA_VISUALIZATION.SCOPE_COVER} 50%,
+      transparent 10%, #aed4fd 10%, #aed4fd 50%,
       transparent 50%,
-      transparent 60%, ${COLORS.DATA_VISUALIZATION.SCOPE_COVER} 60%, ${COLORS.DATA_VISUALIZATION.SCOPE_COVER});
+      transparent 60%, #aed4fd 60%, #aed4fd);
     `,
     type === 'secondary' && css`
       background-image: linear-gradient(135deg,
-      transparent 10%, ${COLORS.DATA_VISUALIZATION.OVERLAPPING} 10%, ${COLORS.DATA_VISUALIZATION.OVERLAPPING} 50%,
+      transparent 10%, #4f8ac9 10%, #4f8ac9 50%,
       transparent 50%,
-      transparent 60%, ${COLORS.DATA_VISUALIZATION.OVERLAPPING} 60%, ${COLORS.DATA_VISUALIZATION.OVERLAPPING});
+      transparent 60%, #4f8ac9 60%, #4f8ac9);
       transform: rotate(180deg);
       border-radius: 4px 0 0 4px;
     `,

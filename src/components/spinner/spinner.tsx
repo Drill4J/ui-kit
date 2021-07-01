@@ -1,17 +1,11 @@
-import styled from 'styled-components';
-
-import { COLORS } from '../../theme';
+import tw, { styled } from 'twin.macro';
 
 interface Props {
-  className?: string;
   disabled?: boolean;
 }
 
-export const Spinner = ({
-  className,
-  disabled,
-}: Props) => (
-  <Wrapper className={className} disabled={disabled}>
+export const Spinner = ({disabled}: Props) => (
+  <Wrapper disabled={disabled}>
     <div />
     <div />
     <div />
@@ -28,11 +22,7 @@ export const Spinner = ({
 );
 
 const Wrapper = styled.div<{ disabled?: boolean }>`
-  color: ${COLORS.MONOCHROME.DEFAULT};
-  display: inline-block;
-  position: relative;
-  width: 20px;
-  height: 20px;
+  ${tw`inline-block relative w-5 h-5 text-monochrome-default`};
 
   div {
     transform-origin: 10px 10px;
@@ -47,9 +37,9 @@ const Wrapper = styled.div<{ disabled?: boolean }>`
       width: 2px;
       height: 5px;
       border-radius: 20%;
-      background: ${COLORS.MONOCHROME.DARK_TINT};
+      ${tw`bg-monochrome-dark-tint`};
       
-      ${({ disabled }) => disabled && `background: ${COLORS.MONOCHROME.WHITE}`}
+      ${({ disabled }) => disabled && tw`bg-monochrome-white`};
     }
   }
 

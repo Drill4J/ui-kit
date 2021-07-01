@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare const Icons: {
     Arrow: ({ width, height, ...rest }: import("./generic-icon-types").IconProps) => JSX.Element;
     Account: ({ width, height, ...rest }: import("./generic-icon-types").IconProps) => JSX.Element;

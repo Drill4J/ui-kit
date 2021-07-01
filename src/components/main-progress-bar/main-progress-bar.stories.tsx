@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { MainProgressBar } from './main-progress-bar';
 
@@ -9,7 +10,7 @@ storiesOf('MainProgressBar', module).add('MainProgressBar with change coverage p
     setCoverage(Number(value));
   };
   return (
-    <div style={{ display: 'grid', gap: '20px', padding: '40px' }}>
+    <div tw="grid gap-5 p-10">
       <MainProgressBar value={`${coverage}%`} />
       <MainProgressBar value={`${coverage}%`} type="primary" />
       <MainProgressBar value={`${coverage}%`} type="secondary" />

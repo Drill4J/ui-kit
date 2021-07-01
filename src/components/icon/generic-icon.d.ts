@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface GenericIconProps {
     className?: string;
     path: string;

@@ -1,21 +1,17 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
+import tw, { styled, css } from 'twin.macro';
 
 import { useHover } from '../../hooks';
 import { Portal } from '../portal';
 import { getTooltipPosition } from './get-tooltip-position';
-import { COLORS } from '../../theme';
 
 export interface Props {
-  className?: string;
   message: React.ReactNode;
   children: React.ReactNode | React.ReactNode[];
   position?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right';
 }
 
-export const Tooltip = ({
-  className, message, children, position = 'top-center',
-}: Props) => {
+export const Tooltip = ({ message, children, position = 'top-center' }: Props) => {
   const offset = 12;
   const { ref, isVisible } = useHover();
 
@@ -65,7 +61,7 @@ export const Tooltip = ({
   };
 
   return (
-    <Wrapper className={className}>
+    <div tw="inline-block">
       <div ref={ref}>
         <div ref={childrenRef}>{children}</div>
       </div>
@@ -75,31 +71,17 @@ export const Tooltip = ({
             style={getTooltipPosition(tooltipPositionType, anchors)}
             type={tooltipPositionType}
           >
-            <div ref={messageRef}>{message}</div>
+            <div tw="py-2 px-4" ref={messageRef}>{message}</div>
           </Message>
         </Portal>
       )}
-    </Wrapper>
+    </div>
   );
 };
 
-const Wrapper = styled.div`
-  display: inline-block;
-`;
-
 const Message = styled.div<{type?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right'}>`
-  position: absolute;
-  white-space: pre;
-  text-decoration: none;
-  color: ${COLORS.MONOCHROME.WHITE};
-  font-size: 12px;
-  background: ${COLORS.MONOCHROME.BLACK};
-  border-radius: 4px;
   z-index: 100;
-
-  & > div {
-    padding: 8px 16px;
-  }
+  ${tw`absolute whitespace-pre no-underline text-monochrome-white text-12 rounded bg-monochrome-black`};
 
   &::after {
     width: 8px;
@@ -111,31 +93,31 @@ const Message = styled.div<{type?: 'top-center' | 'top-right' | 'top-left' | 'le
     type === 'top-left' && css`
       bottom: -8px;
       left: calc(100% - 8px);
-      border-right-color: ${COLORS.MONOCHROME.BLACK};
+      border-right-color: #1b191b;
       border-left: none;
     `,
     type === 'top-center' && css`
       bottom: -8px;
       right: calc(50% - 8px);
-      border-top-color: ${COLORS.MONOCHROME.BLACK};
+      border-top-color: #1b191b;
       border-bottom: none;
     `,
     type === 'top-right' && css`
       bottom: -8px;
       right: calc(100% - 8px);
-      border-left-color: ${COLORS.MONOCHROME.BLACK};
+      border-left-color: #1b191b;
       border-right: none;
     `,
     type === 'left' && css`
       bottom: 8px;
       left: 100%;
-      border-left-color: ${COLORS.MONOCHROME.BLACK};
+      border-left-color: #1b191b;
       border-right: none;
     `,
     type === 'right' && css`
       bottom: 8px;
       right: 100%;
-      border-right-color: ${COLORS.MONOCHROME.BLACK};
+      border-right-color: #1b191b;
       border-left: none;
     `,
   ]}

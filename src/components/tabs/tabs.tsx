@@ -1,10 +1,7 @@
 import { Children, cloneElement, ReactElement } from 'react';
-import styled, { css } from 'styled-components';
-
-import { COLORS, FONTS } from '../../theme';
+import tw, { styled, css } from 'twin.macro';
 
 interface Props {
-  className?: string;
   children: ReactElement | ReactElement[];
   activeTab: number | string;
   onSelect: (tabName: string) => void;
@@ -12,11 +9,11 @@ interface Props {
 
 export const TabsPanel = (props: Props) => {
   const {
-    children, className, activeTab, onSelect,
+    children, activeTab, onSelect,
   } = props;
 
   return (
-    <Wrapper className={className}>
+    <Wrapper>
       {Children.map(children, (child: ReactElement, index: number) =>
         cloneElement(child, {
           onClick: () => onSelect && onSelect(child.props.name || index),
@@ -31,25 +28,12 @@ const Wrapper = styled.div`
 `;
 
 export const Tab = styled('button')<{active?: boolean; disabled?: boolean}>`
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
   min-height: 47px;
-  border: none;
-  padding: 0 0 4px 0;
-  background: none;
-  white-space: nowrap;
-  outline: none;
-  color: ${COLORS.MONOCHROME.DEFAULT};
-  font-family: ${FONTS.SEMI_BOLD};
-  font-size: 14px;
-  margin-right: 28px;
+  ${tw`flex items-center box-border relative cursor-pointer border-none pb-1 bg-none whitespace-nowrap outline-none text-monochrome-default font-bold text-14 mr-7`};
   
   ${({ active }) => [
     active && css`
-      color: ${COLORS.MONOCHROME.BLACK};
+      color: #1b191b;
 
       &:after {
         content: '';
@@ -60,7 +44,7 @@ export const Tab = styled('button')<{active?: boolean; disabled?: boolean}>`
         bottom: 0;
         height: 4px;
         border-radius: 2px;
-        background-color: ${COLORS.PRIMARY_BLUE.DEFAULT};
+        background-color: #007fff;
         transform: translateY(50%);
       }
     `,

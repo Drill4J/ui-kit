@@ -1,13 +1,12 @@
-import styled from 'styled-components';
+import { styled } from 'twin.macro';
 
 interface Props {
-  className?: string;
   children?: string;
   testContext?: string;
 }
 
-export const Status = ({ className, children, testContext = 'data-test' }: Props) => (
-  <Wrapper className={className} data-test={`status:${testContext}`}>{children}</Wrapper>
+export const Status = ({ children, testContext = 'data-test' }: Props) => (
+  <Wrapper data-test={`status:${testContext}`}>{children}</Wrapper>
 );
 
 const Wrapper = styled.div`

@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { StripedProgressBar } from './striped-progress-bar';
 
@@ -9,17 +10,9 @@ storiesOf('StripedProgressBar', module).add('StripedProgressBar with change cove
     setCoverage(Number(value));
   };
   return (
-    <div style={{ padding: '40px' }}>
-      <div
-        style={{
-          display: 'grid',
-          placeItems: 'center',
-          width: '500px',
-          height: ' 500px',
-        }}
-      >
+    <div tw="p-10">
+      <div tw="grid place-items-center w-40 h-40">
         <StripedProgressBar value={`${coverage}%`} type="primary" />
-        {' '}
         <br />
         <StripedProgressBar value={`${coverage}%`} type="secondary" />
       </div>

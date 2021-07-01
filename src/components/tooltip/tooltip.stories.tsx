@@ -1,16 +1,17 @@
 import { storiesOf } from '@storybook/react';
+import 'twin.macro';
 
 import { Tooltip } from './tooltip';
 
 storiesOf('Tooltip', module).add('Tooltip', () => (
   <>
-    <div style={{ margin: '50px 100px' }}>
+    <div tw="my-10 mx-20">
       <Tooltip message="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero">
         Tooltip
         <div>top-right</div>
       </Tooltip>
     </div>
-    <div style={{ margin: '50px 200px' }}>
+    <div tw="my-16 mx-30">
       <Tooltip
         message={(
           <>
@@ -35,7 +36,7 @@ storiesOf('Tooltip', module).add('Tooltip', () => (
         <div>top-center</div>
       </Tooltip>
     </div>
-    <div style={{ margin: '50px 600px' }}>
+    <div tw="my-20 mx-100">
       <Tooltip
         position="right"
         message="Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo..."
@@ -44,7 +45,7 @@ storiesOf('Tooltip', module).add('Tooltip', () => (
         <div>right</div>
       </Tooltip>
     </div>
-    <div style={{ margin: '50px 600px' }}>
+    <div tw="my-20 mx-100">
       <Tooltip
         position="left"
         message="Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo..."
@@ -53,7 +54,7 @@ storiesOf('Tooltip', module).add('Tooltip', () => (
         <div>left</div>
       </Tooltip>
     </div>
-    <div style={{ margin: '50px 600px' }}>
+    <div tw="my-20 mx-100">
       <Tooltip
         position="top-left"
         message="Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo..."

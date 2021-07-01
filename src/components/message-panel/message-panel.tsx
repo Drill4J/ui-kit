@@ -1,88 +1,46 @@
-import styled, { css } from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 import { Icons } from '../icon';
 import { Message } from './message-type';
-import { COLORS, FONTS } from '../../theme';
 
 interface Props {
-  className?: string;
   message: Message;
   onClose(): void;
 }
 
-export const MessagePanel = ({ className, message: { type, text }, onClose }: Props) => (
-  <Wrapper className={className}>
+export const MessagePanel = ({ message: { type, text }, onClose }: Props) => (
+  <div tw="absolute h-12 w-full right-0 z-50">
     <Content type={type}>
-      <Panel align="space-between">
-        <Panel>
+      <div tw="flex w-full items-center justify-between">
+        <div tw="flex w-full items-center">
           {getMessageIcon(type)}
-          <MessageText>{text}</MessageText>
-        </Panel>
-        <CloseIcon onClick={onClose} />
-      </Panel>
+          <div tw="flex items-center ml-2" data-test="message-panel:text">{text}</div>
+        </div>
+        <Icons.Close tw="mr-6 cursor-pointer" onClick={onClose} data-test="message-panel:close-icon" />
+      </div>
     </Content>
-  </Wrapper>
+  </div>
 );
 
-const Panel = styled.div<{align?: string}>`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  ${({ align }) => align === 'space-between' && css`justify-content: space-between`}
-`;
-
-const MessageText = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-`;
-
-const CloseIcon = styled(Icons.Close)`
-  margin-right: 25px;
-  cursor: pointer;
-`;
-
-const Wrapper = styled.div`
-  height: 48px;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  z-index: 100;
-`;
-
 const Content = styled.div<Pick<Message, 'type'>>`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  height: 100%;
-  width: 100%;
-  color: ${COLORS.MONOCHROME.BLACK};
-  font-size: 14px;
-  font-family: ${FONTS.SEMI_BOLD};
-  line-height: 20px;
+  ${tw`absolute flex items-center flex-grow h-full w-full text-monochrome-black text-14 font-bold leading-20`};
   
   ${({ type }) => [
-    type === 'SUCCESS' && css`background-color: ${COLORS.GREEN.LIGHT_TINT}`,
-    type === 'ERROR' && css`background-color: ${COLORS.RED.ULTRALIGHT_TINT}`,
-    type === 'INFO' && css`
-      color: ${COLORS.MONOCHROME.DEFAULT};
-      background-color: ${COLORS.MONOCHROME.LIGHT_TINT};
-    `,
-    type === 'WARNING' && css`background-color: ${COLORS.ORANGE.LIGHT_TINT}`,
+    type === 'SUCCESS' && tw`bg-green-light-tint`,
+    type === 'ERROR' && tw`bg-red-ultralight-tint`,
+    type === 'INFO' && tw`text-monochrome-default bg-monochrome-light-tint`,
+    type === 'WARNING' && tw`bg-orange-light-tint`,
   ]}
 `;
 
 const MessageIconWrapper = styled.div<Pick<Message, 'type'>>`
-  display: flex;
-  align-items: center;
-  margin-left: 24px;
+  ${tw`flex items-center ml-6`};
   
   ${({ type }) => [
-    type === 'SUCCESS' && css`color: ${COLORS.GREEN.DEFAULT}`,
-    type === 'ERROR' && css`color: ${COLORS.RED.DEFAULT}`,
-    type === 'INFO' && css`color: ${COLORS.MONOCHROME.DEFAULT};`,
-    type === 'WARNING' && css`color: ${COLORS.ORANGE.DEFAULT}`,
+    type === 'SUCCESS' && tw`text-green-default`,
+    type === 'ERROR' && tw`text-red-default`,
+    type === 'INFO' && tw`text-monochrome-default`,
+    type === 'WARNING' && tw`text-orange-default`,
   ]}
 `;
 

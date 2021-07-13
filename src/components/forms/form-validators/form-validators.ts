@@ -75,7 +75,7 @@ export function numericLimits({
   return (valitationItem) => {
     const value = getPropertyByPath(valitationItem, fieldName);
     return Number(value) < min || Number(value) > max
-      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} should be between ${min} and ${max} ${unit}.`)
+      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} should be between ${min}% and ${max}%`)
       : undefined;
   };
 }
@@ -84,7 +84,7 @@ export function positiveInteger(fieldName: string, fieldAlias?: string): FormVal
   return (valitationItem) => {
     const value = getPropertyByPath(valitationItem, fieldName);
     return !Number.isInteger(Number(value)) || Number(value) < 0
-      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} number should be positive integer or 0.`)
+      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} value should be positive integer or 0`)
       : undefined;
   };
 }

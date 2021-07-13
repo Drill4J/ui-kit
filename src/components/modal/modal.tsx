@@ -8,9 +8,10 @@ interface Props {
   children: React.ReactChild;
   onToggle: (isOpen: boolean) => void;
   isOpen: boolean;
+  isDisableFadeClick?: boolean;
 }
 
-export const Modal = ({ children, onToggle, isOpen }: Props) => {
+export const Modal = ({ children, onToggle, isOpen, isDisableFadeClick }: Props) => {
   const borderRef = useRef(null);
   const [modalWidth, setModalWidth] = useState(400);
 
@@ -46,7 +47,7 @@ export const Modal = ({ children, onToggle, isOpen }: Props) => {
             <BorderLeft ref={borderRef} />
             {children}
           </ModalCard>
-          <Fade onClick={() => onToggle(!isOpen)} />
+          <Fade onClick={() => !isDisableFadeClick && onToggle(!isOpen)} />
         </div>
       )}
     </Portal>

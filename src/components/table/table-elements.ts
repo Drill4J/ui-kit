@@ -2,6 +2,7 @@ import tw, { styled } from 'twin.macro';
 
 const TableHead = styled.thead`
   ${tw`bg-monochrome-white text-14 leading-20 font-bold border-b border-t border-monochrome-black`};
+  ${tw`sticky top-0`};
 `;
 
 const SortArrow = styled.div`

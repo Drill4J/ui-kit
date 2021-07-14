@@ -60,9 +60,9 @@ BuildsTable.args = {
       width: '10%',
     },
   ],
-  data: Array.from({ length: 200 }, (_, i) => ({
+  data: Array.from({ length: 208 }, (_, i) => ({
     buildVersion: `0.${i}.0`,
-    detectedAt: 1625224274896,
+    detectedAt: Math.round(Math.random() * i),
     summary: null,
   })),
 };

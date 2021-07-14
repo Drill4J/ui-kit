@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
   useTable, useExpanded, Column, useSortBy, usePagination,
 } from 'react-table';
@@ -138,7 +138,7 @@ export const Table = withErrorBoundary(({
       ))}
     </TableElements.TR>
   );
-
+  const ref = useRef(null);
   return (
     <>
       {Boolean(filteredCount) && (
@@ -154,8 +154,9 @@ export const Table = withErrorBoundary(({
           />
         </div>
       )}
-      <table {...getTableProps()} tw="table-fixed w-full text-14 leading-16 text-monochrome-black">
-        <TableElements.TableHead>
+      <table {...getTableProps()} tw="table-fixed relative w-full text-14 leading-16 text-monochrome-black">
+        <div tw="absolute top-0" ref={ref}/>
+        <TableElements.TableHead >
           {headerGroups.map((headerGroup: any) => (
             <TableHeaderRow headerGroup={headerGroup} />
           ))}
@@ -177,10 +178,25 @@ export const Table = withErrorBoundary(({
       {stub}
       <Pagination
         pagesLength={pageOptions.length}
-        gotoPage={gotoPage}
+        gotoPage={(value: number) => {
+          gotoPage(value);
+          ref && ref.current && ref?.current?.scrollIntoView({
+            behavior: "smooth"
+          })
+        }}
         pageIndex={pageIndex}
-        previousPage={previousPage}
-        nextPage={nextPage}
+        previousPage={() => {
+          previousPage();
+          ref && ref.current && ref.current.scrollIntoView({
+            behavior: "smooth"
+          })
+        }}
+        nextPage={() => {
+          nextPage();
+          ref && ref.current && ref.current.scrollIntoView({
+            behavior: "smooth"
+          })
+        }}
         canPreviousPage={canPreviousPage}
         canNextPage={canNextPage}
         pageSize={pageSize}

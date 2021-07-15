@@ -138,7 +138,7 @@ export const Table = withErrorBoundary(({
       ))}
     </TableElements.TR>
   );
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   return (
     <>
       {Boolean(filteredCount) && (
@@ -180,7 +180,7 @@ export const Table = withErrorBoundary(({
         pagesLength={pageOptions.length}
         gotoPage={(value: number) => {
           gotoPage(value);
-          ref && ref.current && ref?.current?.scrollIntoView({
+          ref && ref.current && ref.current.scrollIntoView({
             behavior: "smooth"
           })
         }}

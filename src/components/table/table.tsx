@@ -41,6 +41,7 @@ interface Props {
   stub?: React.ReactNode;
   isDefaulToggleSortBy?: boolean;
   columnsDependency?: Array<string | number | boolean | null | undefined>;
+  withSearch?: boolean;
 }
 
 export const Table = withErrorBoundary(({
@@ -52,6 +53,7 @@ export const Table = withErrorBoundary(({
   stub = null,
   isDefaulToggleSortBy,
   columnsDependency = [],
+  withSearch
 }: Props) => {
   const {
     page,
@@ -141,7 +143,7 @@ export const Table = withErrorBoundary(({
   const ref = useRef<HTMLDivElement>(null);
   return (
     <>
-      {Boolean(filteredCount) && (
+      {withSearch && (
         <div tw="mt-2">
           <SearchPanel
             onSearch={(searchValue) => {
@@ -152,8 +154,7 @@ export const Table = withErrorBoundary(({
             searchResult={filteredCount}
             placeholder={placeholder}
           />
-        </div>
-      )}
+      </div>)}
       <table {...getTableProps()} tw="table-fixed relative w-full text-14 leading-16 text-monochrome-black">
         <div tw="absolute top-0" ref={ref}/>
         <TableElements.TableHead >

@@ -2,7 +2,7 @@ import tw, { styled } from 'twin.macro';
 
 const TableHead = styled.thead`
   ${tw`bg-monochrome-white text-14 leading-20 font-bold`};
-  ${tw`sticky top-0`};
+  ${tw`sticky top-0 z-50`};
   
   box-shadow: inset 0 1px 0 #1b1b1b,
   inset 0 -1px 0 #1b1b1b;

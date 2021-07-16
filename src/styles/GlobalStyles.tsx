@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
+import '../index.css';
 
 const CustomStyles = createGlobalStyle`
   html,

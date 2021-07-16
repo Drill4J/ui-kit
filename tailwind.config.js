@@ -4,6 +4,7 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false,
+  mode: 'jit',
   theme: {
     boxShadow: {
       DEFAULT: '0 0 24px rgba(0, 0, 0, 0.15)',
@@ -187,9 +188,16 @@ module.exports = {
       ...theme('colors'),
       'current-color': 'currentColor',
     }),
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'current-color': 'currentColor',
+    }),
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+    }
   },
   plugins: [
     plugin(({ addUtilities }) => {

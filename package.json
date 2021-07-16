@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.111",
+  "version": "0.1.112",
   "homepage": "http://drill4j.github.io/ui-kit",
   "author": "Drill4J",
   "license": "Apache-2.0",
@@ -24,6 +24,7 @@
     "build": "rollup -c && tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "tailwind:css": "tailwind build src/tailwind.css -c tailwind.config.js -o src/index.css",
     "deploy": "gh-pages -d storybook-static"
   },
   "dependencies": {

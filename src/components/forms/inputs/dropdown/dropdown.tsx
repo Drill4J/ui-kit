@@ -1,55 +1,69 @@
-import { useState } from 'react';
-import tw, { styled } from 'twin.macro';
+import { useLayoutEffect, useRef, useState } from 'react';
+import 'twin.macro'
 
-import { Icons } from '../../../../components/icon';
+import { Icons } from '../../../icon/index';
 import { useClickOutside } from '../../../../hooks';
-import { DropdownProps } from './dropdown-types';
 
-export const Dropdown = ({ items, value, onChange }: DropdownProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const node = useClickOutside(() => setIsExpanded(false));
-  const selectedValue = items.find((item) => value === item.value);
+type Position = 'top' | 'bottom';
+
+interface Item {
+  value: string;
+  label: React.ReactNode;
+}
+
+interface Props {
+  items: Item[];
+  action: (value: string) => void;
+  selectedValue: string;
+  className?: string;
+}
+
+export const Dropdown = ({ items, action, selectedValue, className }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState<Position>('bottom');
+  const node = useClickOutside(() => setIsOpen(false));
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const labelNode = useRef<HTMLDivElement>(null);
+
+  const itemHeight = 32;
+  const dropdownHeight = itemHeight * items.length;
+  const { top: menuTopPosition = 0 } = node?.current?.getBoundingClientRect() || {};
+  const { height: dropdownLabelHeight = 0 } = labelNode?.current?.getBoundingClientRect() || {};
+  const listMargin = 4;
+
+  useLayoutEffect(() => {
+    menuTopPosition && menuTopPosition + dropdownLabelHeight + dropdownHeight < document.documentElement.clientHeight ? setPosition('bottom'): setPosition("top")
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        !entry.isIntersecting && setPosition('top');
+      },
+      {
+        root: null,
+        threshold: 1.0,
+      },
+    );
+    dropdownRef.current && observer.observe(dropdownRef.current);
+  }, [isOpen])
 
   return (
-    <div tw="relative" ref={node}>
-      <div tw="flex items-center cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
-        <div tw="text-14 font-bold leading-24 text-blue-default">{selectedValue && selectedValue.label}</div>
-        <div tw="text-blue-default ml-2 rotate-90">
-          <Icons.Expander width={8} height={8} rotate={isExpanded ? 180 : 0} />
-        </div>
-      </div>
-      {isExpanded && (
-        <div tw="absolute top-8 z-50">
-          <ItemsList>
-            {items.map((item) => (
-              <Item
-                onClick={() => {
-                  onChange(item);
-                  setIsExpanded(false);
-                }}
-                key={item.value}
-              >
-                <div tw="flex items-center w-6 text-blue-default">{value === item.value && <Icons.Check />}</div>
-                {item.label}
-              </Item>
-            ))}
-          </ItemsList>
+    <div ref={node} tw="relative flex items-center gap-x-1 text-monochrome-black cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+        <span ref={labelNode} tw="text-14 leading-20 font-bold" className={className} data-test="table-pagination:page-rows">
+          {selectedValue}
+        </span>
+      <Icons.Expander width={8} height={8} rotate={isOpen ? -90 : 90} />
+      {isOpen && (
+        <div ref={dropdownRef} tw="absolute shadow bg-monochrome-white" style={{
+          top: position === 'bottom' ? `${dropdownLabelHeight + listMargin}px` : `-${dropdownHeight + listMargin}px`
+        }}>
+          {items.map(({label, value}) => (
+            <div tw="flex items-center pl-2 pr-8 text-14 leading-32 hover:bg-monochrome-light-tint" onClick={(() => action(value))} key={value}>
+              {selectedValue === value && <Icons.Check width={14} height={10} viewBox="0 0 14 10" tw="absolute text-blue-default" />}
+              <span tw="ml-6">{label}</span>
+            </div>
+          ))}
         </div>
       )}
     </div>
   );
 };
-
-const ItemsList = styled.div`
-  ${tw`flex flex-col overflow-y-auto bg-monochrome-white shadow`};
-  width: 306px;
-  max-height: 345px;
-`;
-
-const Item = styled.div`
-  ${tw`flex flex-row items-center text-14 leading-32 pl-2 text-monochrome-black cursor-pointer`}
-
-  &:hover {
-    background-color: rgba(104, 116, 129, 0.05);
-  }
-`

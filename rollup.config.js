@@ -3,6 +3,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import pkg from './package.json';
+import svg from 'rollup-plugin-svg';
 
 export default {
   input: 'src/index.ts',
@@ -22,5 +23,6 @@ export default {
       exclude: 'node_modules/**',
     }),
     terser(),
+    svg(),
   ],
 };

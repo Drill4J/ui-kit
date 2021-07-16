@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import 'twin.macro'
 
-import { Icons } from '../../../icon/index';
+import { Icons } from '../../../icon';
 import { useClickOutside } from '../../../../hooks';
 
 type Position = 'top' | 'bottom';

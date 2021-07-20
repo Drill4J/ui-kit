@@ -10,7 +10,7 @@ interface Props {
 export const FormGroup = ({
   children, label, optional, actions,
 }: Props) => (
-  <>
+  <div>
     <Panel>
       <div tw="font-bold text-14 leading-20 text-monochrome-black">{label}</div>
       <div>
@@ -21,7 +21,7 @@ export const FormGroup = ({
       </div>
     </Panel>
     <div tw="w-full mt-2">{children}</div>
-  </>
+  </div>
 );
 
 const Panel = styled.div`

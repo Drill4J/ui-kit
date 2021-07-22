@@ -18,7 +18,9 @@ export { SortArrow } from './sort-arrow';
 export { Legend } from './legend';
 export { Status } from './status';
 export { Stub } from './stub';
-export { Table, TableElements, TableActionsProvider, setSearch, setSort, useTableActionsState, useTableActionsDispatch, Cells } from './table';
+export {
+  Table, TableElements, TableActionsProvider, setSearch, setSort, useTableActionsState, useTableActionsDispatch, Cells,
+} from './table';
 export {
   FormGroup,
   Inputs,

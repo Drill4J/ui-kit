@@ -1,9 +1,9 @@
 import { Inputs } from '../inputs';
-import { field } from './field';
+import { fieldWrapper } from './field-wrapper';
 
 export const Fields = {
-  Input: field(Inputs.Text),
-  Search: field(Inputs.Search),
-  Textarea: field(Inputs.Textarea),
-  Checkbox: field(Inputs.Checkbox),
-};
+  Input: fieldWrapper(Inputs.Text),
+  Search: fieldWrapper(Inputs.Search),
+  Textarea: fieldWrapper(Inputs.Textarea),
+  NumberInput: fieldWrapper(Inputs.Number),
+} as any;

@@ -15,5 +15,7 @@
  */
 export { Table } from './table';
 export { TableElements } from './table-elements';
-export * as Cells from './cells';
-export { TableActionsProvider, setSearch, setSort, useTableActionsState, useTableActionsDispatch } from './table-actions';
+export { Cells } from './cells';
+export {
+  TableActionsProvider, setSearch, setSort, useTableActionsState, useTableActionsDispatch,
+} from './table-actions';

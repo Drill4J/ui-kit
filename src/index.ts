@@ -46,4 +46,6 @@ export {
   useTableActionsState,
   useTableActionsDispatch,
 } from './components';
-export { useClickOutside, useElementSize, useHover } from './hooks';
+export {
+  useClickOutside, useElementSize, useHover, usePreserveCaretPosition, useRunAfterUpdate,
+} from './hooks';

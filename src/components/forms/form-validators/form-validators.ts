@@ -64,17 +64,17 @@ export function handleFieldErrors(fieldErrors: FieldError[] = []): Record<string
 }
 
 export function numericLimits({
-  fieldName, fieldAlias = '', unit = '', min, max,
+  fieldName, fieldAlias = '', min, max,
 }: {
   fieldName: string;
   fieldAlias?: string;
-  unit?: string;
   min: number;
   max: number;
 }): FormValidator {
   return (valitationItem) => {
     const value = getPropertyByPath(valitationItem, fieldName);
-    return Number(value) < min || Number(value) > max
+
+    return typeof value !== 'undefined' || Number(value) < min || Number(value) > max
       ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} should be between ${min}% and ${max}%`)
       : undefined;
   };

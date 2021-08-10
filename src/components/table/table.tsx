@@ -105,7 +105,7 @@ export const Table = withErrorBoundary(({
             style={{ textAlign: column.textAlign || 'right', width: column.width }}
             data-test={`table-th-${column.id}`}
           >
-            <div tw="relative inline-flex items-center">
+            <TableElements.Label>
               {!column.notSortable && (
                 <TableElements.SortArrow
                   active={column.isSorted || active}
@@ -115,7 +115,7 @@ export const Table = withErrorBoundary(({
                 </TableElements.SortArrow>
               )}
               {column.render('Header')}
-            </div>
+            </TableElements.Label>
           </TableElements.TH>
         );
       })}

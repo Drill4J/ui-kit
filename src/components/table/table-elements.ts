@@ -14,12 +14,16 @@ const SortArrow = styled.div`
   ${({ active }: { active: boolean }) => active && tw`visible text-blue-shade`}
 `;
 
-const TH = styled.th`
-  ${tw`first:px-4 last:px-4`};
-
+const Label = styled.span`
+  ${tw`relative inline-flex items-center`};
+  
   &:hover ${SortArrow} {
     ${tw`visible`};
   }
+`;
+
+const TH = styled.th`
+  ${tw`first:px-4 last:px-4`};  
 `;
 
 const TR = styled.tr`
@@ -30,6 +34,7 @@ const TR = styled.tr`
 export const TableElements = {
   TableHead,
   SortArrow,
+  Label,
   TH,
   TR,
 };

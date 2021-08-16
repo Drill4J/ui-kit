@@ -184,9 +184,10 @@ export const Table = withErrorBoundary(({
       {stub}
       <Pagination
         pagesLength={pageOptions.length}
-        gotoPage={(value: number) => {
+        gotoPage={async (value: number) => {
           gotoPage(value);
-          ref && ref.current && ref.current.scrollIntoView({
+          // need this code to be executed after rendering
+          await ref && ref.current && ref.current.scrollIntoView({
             behavior: 'smooth',
           });
         }}

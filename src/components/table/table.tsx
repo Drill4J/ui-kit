@@ -130,6 +130,7 @@ export const Table = withErrorBoundary(({
           tw="first:px-4 last:px-4"
           style={{ textAlign: cell.column.textAlign || 'right' }}
           data-test={`td-row-${cell.column.id}`}
+          key={cell.column.id}
         >
           <div
             data-test={`td-row-cell-${cell.column.id}`}
@@ -186,10 +187,12 @@ export const Table = withErrorBoundary(({
         pagesLength={pageOptions.length}
         gotoPage={async (value: number) => {
           gotoPage(value);
-          // need this code to be executed after rendering
-          await ref && ref.current && ref.current.scrollIntoView({
-            behavior: 'smooth',
-          });
+          if (value <= pageOptions.length) {
+            // need this code to be executed after rendering
+            await ref && ref.current && ref.current.scrollIntoView({
+              behavior: 'smooth',
+            });
+          }
         }}
         pageIndex={pageIndex}
         previousPage={() => {

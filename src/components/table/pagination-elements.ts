@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import tw, { styled } from 'twin.macro';
+import { Inputs } from '../forms';
 
 const PaginationArrow = styled.div`
   ${tw`flex items-center justify-center w-8 h-8 cursor-pointer hover:text-blue-medium-tint`};
@@ -35,8 +36,21 @@ const Dots = styled.div`
   ${({ active }: { active: boolean}) => active && tw`text-blue-default`}
 `;
 
+const NumberInput = styled(Inputs.Number)`
+  ${tw`px-3`}
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+`;
+
 export const PaginationElements = {
   PaginationArrow,
   PageNumber,
   Dots,
+  NumberInput,
 };

@@ -16,7 +16,6 @@
 import { useState } from 'react';
 import 'twin.macro';
 
-import { Inputs } from '../forms/inputs';
 import { Icons } from '../icon';
 import { useClickOutside } from '../../hooks';
 import { PaginationElements } from './pagination-elements';
@@ -102,7 +101,7 @@ export const Pagination = ({
   const gotoPageByPageNumber = (pageNumber: number) => gotoPage(pageNumber - 1);
 
   const Tooltip = () => {
-    const [number, setNumber] = useState<number | undefined>();
+    const [number, setNumber] = useState<number>(0);
 
     const handleSubmit = (evt: any) => {
       evt.preventDefault();
@@ -113,7 +112,7 @@ export const Pagination = ({
         <div tw="flex items-center gap-x-2 whitespace-nowrap">
           Go to
           <form onSubmit={handleSubmit}>
-            <Inputs.Number type="number" value={number} onChange={e => setNumber(e.target.value ? Number(e.target.value) : undefined)} />
+            <PaginationElements.NumberInput type="number" value={number || ''} onChange={e => setNumber(Number(e.target.value))} />
           </form>
         </div>
         <div tw="absolute left-14 w-6 overflow-hidden inline-block" style={{ top: '72px' }}>
@@ -156,7 +155,7 @@ export const Pagination = ({
         {isOpen && (
           <div tw="absolute -top-24 shadow bg-monochrome-white z-50">
             {values.map((value) => (
-              <div tw="flex items-center px-2 w-36 hover:bg-monochrome-light-tint" onClick={(() => action(value))}>
+              <div tw="flex items-center px-2 w-36 hover:bg-monochrome-light-tint" onClick={(() => action(value))} key={value}>
                 {initialValue === value && <Icons.Check width={14} height={10} viewBox="0 0 14 10" tw="absolute text-blue-default" />}
                 <span tw="ml-6">{`${value} per page`}</span>
               </div>

@@ -1,7 +1,9 @@
+// @ts-ignore
+import MiddleEllipsis from 'react-middle-ellipsis';
+
 export {
   Field, Form, Formik, FieldInputProps, useFormikContext, FormikProps, ErrorMessage, useField,
 } from 'formik';
-
 export {
   Badge,
   Icons,
@@ -54,3 +56,7 @@ export {
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition, useRunAfterUpdate,
 } from './hooks';
+
+export const Typography = {
+  MiddleEllipsis,
+};

@@ -4,6 +4,8 @@ import { SearchInput } from './search-input';
 import { Textarea } from './textarea';
 import { Checkbox } from './checkbox';
 import { Toggler } from './toggler';
+import { DarkInput } from './dark-input';
+import { DarkTextarea } from './dark-textarea';
 
 export {
   Button, LinkButton, CancelButton, NegativeActionButton,
@@ -16,5 +18,7 @@ export const Inputs = {
   Textarea,
   Checkbox,
   Toggler,
+  DarkInput,
+  DarkTextarea,
 };
 export { Dropdown } from './dropdown';

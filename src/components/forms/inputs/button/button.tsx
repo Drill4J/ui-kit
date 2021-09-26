@@ -14,7 +14,7 @@ export const Button = styled.button<ButtonType>`
       active:border-blue-shade active:bg-blue-shade 
     `,
     secondary &&
-    tw`border border-blue-default bg-monochrome-white text-blue-default font-bold
+    tw`border border-blue-default bg-transparent text-blue-default font-bold
       hover:border-blue-medium-tint
       active:border-blue-shade
     `,

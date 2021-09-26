@@ -42,4 +42,3 @@ export {
   Dropdown,
   FormValidator,
 } from './forms';
-export { Panel } from './panel';

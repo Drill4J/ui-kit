@@ -6,4 +6,6 @@ export const Fields = {
   Search: fieldWrapper(Inputs.Search),
   Textarea: fieldWrapper(Inputs.Textarea),
   NumberInput: fieldWrapper(Inputs.Number),
+  DarkInput: fieldWrapper(Inputs.DarkInput),
+  DarkTextarea: fieldWrapper(Inputs.DarkTextarea),
 } as any;

@@ -110,6 +110,8 @@ module.exports = {
         'ultralight-tint': '#e5f2ff',
       },
       monochrome: {
+        gray: '#81868B',
+        dark: '#444244',
         black: '#1b191b',
         white: '#ffffff',
         default: '#687481',

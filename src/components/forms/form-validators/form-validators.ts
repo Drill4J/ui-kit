@@ -84,7 +84,7 @@ export function positiveInteger(fieldName: string, fieldAlias?: string): FormVal
   return (valitationItem) => {
     const value = getPropertyByPath(valitationItem, fieldName);
     return !Number.isInteger(Number(value)) || Number(value) < 0
-      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} value should be positive integer or 0`)
+      ? toError(fieldName, `${fieldAlias || camelToSpaces(fieldName)} value should be a positive integer or 0`)
       : undefined;
   };
 }

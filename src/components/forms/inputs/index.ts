@@ -7,6 +7,7 @@ import { Toggler } from './toggler';
 import { DarkInput } from './dark-input';
 import { DarkTextarea } from './dark-textarea';
 import { Select } from './select';
+import { Radio } from './radio';
 
 export {
   Button, LinkButton, CancelButton, NegativeActionButton,
@@ -22,6 +23,7 @@ export const Inputs = {
   DarkInput,
   DarkTextarea,
   Select,
+  Radio,
 };
 
 export { Dropdown } from './dropdown';

@@ -9,9 +9,12 @@ export interface Props {
   message: React.ReactNode;
   children: React.ReactNode | React.ReactNode[];
   position?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right';
+  className?: string;
 }
 
-export const Tooltip = ({ message, children, position = 'top-center' }: Props) => {
+export const Tooltip = ({
+  message, children, position = 'top-center', className,
+}: Props) => {
   const offset = 12;
   const { ref, isVisible } = useHover();
 
@@ -61,7 +64,7 @@ export const Tooltip = ({ message, children, position = 'top-center' }: Props) =
   };
 
   return (
-    <div tw="inline-block">
+    <div tw="inline-block" className={className}>
       <div ref={ref}>
         <div ref={childrenRef}>{children}</div>
       </div>

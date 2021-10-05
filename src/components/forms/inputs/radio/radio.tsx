@@ -1,20 +1,9 @@
-import tw, { css } from 'twin.macro';
-
-const styles = css`
-  &:checked {
-    &:after {
-      content: "";
-      ${tw`absolute w-2 h-2 rounded-full bg-current-color`}
-      ${tw`top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-    }
-  }
-`;
+import 'twin.macro';
 
 export const Radio = ({ field, ...props }: any) => (
   <input
     type="radio"
-    css={[tw`
-      relative
+    tw="relative
       appearance-none
       min-w-[16px]
       max-w-[16px]
@@ -24,8 +13,9 @@ export const Radio = ({ field, ...props }: any) => (
       border
       rounded-full
       border-current-color
-      cursor-pointer`,
-    styles]}
+      cursor-pointer
+      checked:after:(content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-current-color)
+     "
     {...field}
     {...props}
   />

@@ -15,12 +15,14 @@
 */
 import React, { useMemo, useRef, useState } from 'react';
 import {
-  useTable, useExpanded, Column, useSortBy, usePagination,
+  useTable, useExpanded, Column, useSortBy, usePagination, useFilters,
 } from 'react-table';
 import { withErrorBoundary } from 'react-error-boundary';
 import { Order } from '@drill4j/types-admin';
 import tw from 'twin.macro';
 
+import { Cells } from './cells';
+import { Inputs } from '../forms';
 import { Icons } from '../icon';
 import { TableErrorFallback } from '../error-fallback';
 import {
@@ -30,7 +32,8 @@ import { SearchPanel } from '../search-panel';
 import { TableElements } from './table-elements';
 import { Pagination } from './pagination';
 
-type CustomColumn = Column & { textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean}
+type CustomColumn = Column &
+{ textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean, filterable?: boolean; };
 
 interface SortBy {
   id: string;
@@ -50,6 +53,32 @@ interface Props {
   defaultSortBy?: SortBy[];
 }
 
+function DefaultColumnFilter({
+  column: {
+    filterValue = '', setFilter = () => {}, Header = '',
+  } = {},
+}: any) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div tw="relative z-50">
+      <TableElements.ColumnSearchIcon active={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      {isOpen && (
+        <div tw="absolute top-6 -left-2 w-60 p-4 rounded-lg bg-monochrome-white shadow text-14 leading-32 z-50">
+          <Inputs.Search
+            value={filterValue}
+            onChange={e => {
+              setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+            }}
+            reset={() => setFilter('')}
+            placeholder={`Search by ${Header.toLowerCase()}`}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export const Table = withErrorBoundary(({
   columns,
   data,
@@ -62,6 +91,28 @@ export const Table = withErrorBoundary(({
   withSearch,
   defaultSortBy = [],
 }: Props) => {
+  const filterTypes = React.useMemo(
+    () => ({
+      text: (rows: any, id: any, filterValue: any) => rows.filter((row:any) => {
+        const rowValue = row.values[id];
+        return rowValue !== undefined
+          ? String(rowValue)
+            .toLowerCase()
+            .startsWith(String(filterValue).toLowerCase())
+          : true;
+      }),
+    }),
+    [],
+  );
+
+  const defaultColumn = React.useMemo(
+    () => ({
+      // Let's set up our default Filter UI
+      Filter: DefaultColumnFilter,
+    }),
+    [],
+  );
+
   const {
     page,
     getTableProps, getTableBodyProps, headerGroups, prepareRow,
@@ -72,14 +123,17 @@ export const Table = withErrorBoundary(({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    state: { pageIndex, pageSize, filters },
   }: any = useTable(
     {
       columns: useMemo(() => columns, [...columnsDependency]),
       data: useMemo(() => data, [data]),
       initialState: { pageSize: 25, sortBy: defaultSortBy },
       autoResetPage: false,
+      defaultColumn, // Be sure to pass the defaultColumn option
+      filterTypes,
     } as any,
+    useFilters,
     useSortBy,
     useExpanded,
     usePagination,
@@ -102,62 +156,8 @@ export const Table = withErrorBoundary(({
       : dispatch(setSort({ order: setOrder(sort?.order), field: column.id }));
   };
 
-  const TableHeaderRow = ({ headerGroup }: any) => (
-    <tr tw="h-13 px-4">
-      {headerGroup.headers.map((column: any) => {
-        const active = column.id === sort?.field;
-        return (
-          <TableElements.TH
-            key={`table-th-${column.id}`}
-            style={{ textAlign: column.textAlign || 'right', width: column.width }}
-            data-test={`table-th-${column.id}`}
-          >
-            <TableElements.Label key={`table-label-${column.id}`}>
-              {!column.notSortable && (
-                <TableElements.SortArrow
-                  active={column.isSorted || active}
-                  onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => toggleSort(event, column)}
-                  data-test="table-th-sort-arrow"
-                >
-                  <Icons.SortingArrow
-                    rotate={column.isSortedDesc || (active && sort?.order === 'DESC') ? 0 : 180}
-                  />
-                </TableElements.SortArrow>
-              )}
-              <React.Fragment key={`table-header-cell-${column.id}`}>{column.render('Header')}</React.Fragment>
-            </TableElements.Label>
-          </TableElements.TH>
-        );
-      })}
-    </tr>
-  );
-
-  const TableRow = ({ row }: any) => (
-    <TableElements.TR isExpanded={row.isExpanded}>
-      {row.cells.map((cell: any) => (
-        <td
-          {...cell.getCellProps()}
-          css={[tw`px-4`, renderRowSubComponent && tw`first:pr-0`]}
-          style={{ textAlign: cell.column.textAlign || 'right' }}
-          data-test={`td-row-${cell.column.id}`}
-          key={cell.column.id}
-        >
-          <div
-            css={[!cell.column.disableEllipsis && tw`text-ellipsis`]}
-            title={cell?.value}
-            data-test={`td-row-cell-${cell.column.id}`}
-            onClick={() => cell.column.id === 'expander' &&
-                          setExpandedRows(row.isExpanded
-                            ? expandedRows.filter((id) => id !== row.original.id)
-                            : [...expandedRows, row.original.id])}
-          >
-            {cell.render('Cell')}
-          </div>
-        </td>
-      ))}
-    </TableElements.TR>
-  );
   const ref = useRef<HTMLDivElement>(null);
+
   return (
     <>
       {withSearch && (
@@ -177,7 +177,35 @@ export const Table = withErrorBoundary(({
       <table {...getTableProps()} tw="table-fixed relative w-full text-14 leading-16 text-monochrome-black">
         <TableElements.TableHead>
           {headerGroups.map((headerGroup: any) => (
-            <TableHeaderRow {...headerGroup.getHeaderGroupProps()} headerGroup={headerGroup} />
+            <tr tw="h-13 px-4">
+              {headerGroup.headers.map((column: any) => {
+                const active = column.id === sort?.field;
+                return (
+                  <TableElements.TH
+                    key={`table-th-${column.id}`}
+                    style={{ textAlign: column.textAlign || 'right', width: column.filterable ? '100%' : column.width }}
+                    data-test={`table-th-${column.id}`}
+                  >
+                    <TableElements.Label key={`table-label-${column.id}`}>
+                      {!column.notSortable && (
+                        <TableElements.SortArrow
+                          active={column.isSorted || active}
+                          onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => toggleSort(event, column)}
+                        >
+                          <Icons.SortingArrow
+                            rotate={column.isSortedDesc || (active && sort?.order === 'DESC') ? 0 : 180}
+                          />
+                        </TableElements.SortArrow>
+                      )}
+                      <div tw="flex items-center gap-3">
+                        {column.render('Header')}
+                        {column.filterable ? column.render('Filter') : null}
+                      </div>
+                    </TableElements.Label>
+                  </TableElements.TH>
+                );
+              })}
+            </tr>
           ))}
         </TableElements.TableHead>
         <tbody {...getTableBodyProps()}>
@@ -185,9 +213,42 @@ export const Table = withErrorBoundary(({
             const row = { ...rawRow, isExpanded: expandedRows.includes(rawRow.original.id) };
             prepareRow(row);
             const rowProps = row.getRowProps();
+
             return (
               <React.Fragment key={rowProps.key}>
-                <TableRow {...rowProps} row={row} />
+                <TableElements.TR isExpanded={row.isExpanded}>
+                  {row.cells.map((cell: any) => {
+                    const isDefaultCell = cell.column.filterable;
+                    return (
+                      <td
+                        {...cell.getCellProps()}
+                        css={[tw`px-4`, renderRowSubComponent && tw`first:pr-0`]}
+                        style={{ textAlign: cell.column.textAlign || 'right' }}
+                        data-test={`td-row-${cell.column.id}`}
+                        key={cell.column.id}
+                      >
+                        <div
+                          css={[!cell.column.disableEllipsis && tw`text-ellipsis`]}
+                          title={cell?.value}
+                          data-test={`td-row-cell-${cell.column.id}`}
+                          onClick={() => cell.column.id === 'expander' &&
+                          setExpandedRows(row.isExpanded
+                            ? expandedRows.filter((id) => id !== row.original.id)
+                            : [...expandedRows, row.original.id])}
+                        >
+                          {isDefaultCell
+                            ? (
+                              <Cells.Highlight
+                                text={cell.value}
+                                searchWords={[...filters.map(({ value = '' }) => value), searchQuery?.value]}
+                              />
+                            )
+                            : cell.render('Cell')}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </TableElements.TR>
                 {row.isExpanded && renderRowSubComponent?.({ row, rowProps })}
               </React.Fragment>
             );

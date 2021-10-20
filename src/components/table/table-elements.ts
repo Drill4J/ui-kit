@@ -1,4 +1,5 @@
 import tw, { styled } from 'twin.macro';
+import { Icons } from '../icon';
 
 const TableHead = styled.thead`
   ${tw`bg-monochrome-white text-14 leading-20 font-bold`};
@@ -31,7 +32,19 @@ const TR = styled.tr`
   ${({ isExpanded }: { isExpanded: boolean }) => isExpanded && tw`bg-monochrome-light-tint`}
 `;
 
+const ColumnSearchIcon = styled(Icons.Search)`
+  ${tw`
+    text-monochrome-default
+    hover:text-blue-medium-tint 
+    active:text-blue-shade 
+    cursor-pointer
+  `}
+
+  ${({ active }: { active: boolean }) => active && tw`text-blue-default`}
+`;
+
 export const TableElements = {
+  ColumnSearchIcon,
   TableHead,
   SortArrow,
   Label,

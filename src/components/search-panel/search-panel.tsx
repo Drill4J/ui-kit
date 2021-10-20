@@ -44,30 +44,29 @@ export const SearchPanel = ({
   }, [searchValue]);
 
   return (
-    <div>
-      <div className="flex items-baseline w-full">
-        <div className="py-2 h-10">
-          <Inputs.Search
-            value={searchValue}
-            onChange={({ target: { value = '' } }) => setValue(convertToSingleSpaces(value))}
-            placeholder={placeholder}
-            reset={() => setValue('')}
-          />
-        </div>
-        <div
-          className={`flex items-center w-full ml-4 ${
-            searchQuery ? 'justify-between' : 'justify-end'
-          } text-12 leading-20 monochrome-default`}
-        >
-          {searchQuery && (
-            <span data-test="search-panel:search-result">
-              {searchResult}
-              {' '}
-              result
-              {searchResult > 1 ? 's' : ''}
-            </span>
-          )}
-        </div>
+    <div className="flex items-baseline">
+      <div className="py-2 h-10">
+        <Inputs.Search
+          tw="w-[230px]"
+          value={searchValue}
+          onChange={({ target: { value = '' } }) => setValue(convertToSingleSpaces(value))}
+          placeholder={placeholder}
+          reset={() => setValue('')}
+        />
+      </div>
+      <div
+        className={`flex items-center w-full ml-4 ${
+          searchQuery ? 'justify-between' : 'justify-end'
+        } text-12 leading-20 monochrome-default`}
+      >
+        {searchQuery && (
+          <span data-test="search-panel:search-result">
+            {searchResult}
+            {' '}
+            result
+            {searchResult > 1 ? 's' : ''}
+          </span>
+        )}
       </div>
     </div>
   );

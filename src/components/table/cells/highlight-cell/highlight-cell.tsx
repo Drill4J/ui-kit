@@ -13,18 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { DurationCell } from './duration-cell';
-import { CompoundCell } from './compound-cell';
-import { CoverageCell } from './coverage-cell';
-import { ClickableCell } from './clickable-cell';
-import { TestStatusCell } from './test-status-cell';
-import { HighlightCell } from './highlight-cell';
+import Highlighter from 'react-highlight-words';
 
-export const Cells = {
-  Duration: DurationCell,
-  Compound: CompoundCell,
-  Clickable: ClickableCell,
-  Coverage: CoverageCell,
-  TestStatus: TestStatusCell,
-  Highlight: HighlightCell,
-} as any;
+interface Props {
+  text: string;
+  searchWords: string[];
+}
+
+export const HighlightCell = ({ text = '', searchWords }: Props) => (
+  <Highlighter
+    highlightStyle={{ backgroundColor: '#FFE74C' }}
+    searchWords={searchWords}
+    autoEscape
+    textToHighlight={text}
+  >
+    {text}
+  </Highlighter>
+);

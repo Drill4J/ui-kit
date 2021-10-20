@@ -1,5 +1,6 @@
 // @ts-ignore
 import MiddleEllipsis from 'react-middle-ellipsis';
+import Highlighter from 'react-highlight-words';
 
 export {
   Field, Form, Formik, FieldInputProps, useFormikContext, FormikProps, ErrorMessage, useField,
@@ -56,6 +57,7 @@ export {
   idValidator,
   DisabledFormGroup,
   alreadyExist,
+  SearchPanel,
 } from './components';
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition,
@@ -64,5 +66,6 @@ export {
 
 export const Typography = {
   MiddleEllipsis,
+  Highlighter,
 };
 export * from './utils';

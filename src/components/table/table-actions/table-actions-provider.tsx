@@ -18,15 +18,17 @@ import { ReactNode, useReducer } from 'react';
 import {
   TableActionsStateContext,
   TableActionsDispatchContext,
-  defaultState,
+  defaultState as localDefaultState,
 } from './table-actions-context';
 import { actionsReducer } from './reducer';
+import { TableActionsState } from './table-actions-types';
 
 interface Props {
+  defaultState?: TableActionsState;
   children: ReactNode;
 }
 
-export const TableActionsProvider = ({ children }: Props) => {
+export const TableActionsProvider = ({ children, defaultState = localDefaultState }: Props) => {
   const [state, dispatch] = useReducer(actionsReducer, defaultState);
 
   return (

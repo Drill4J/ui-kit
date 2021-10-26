@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { useClickOutside } from '../../../../hooks';
 import { DarkInput } from '../dark-input';
@@ -8,13 +8,14 @@ export const Select = (props: any) => {
   const [isListOpened, setIsListOpened] = useState(false);
   const node = useClickOutside(() => setIsListOpened(false));
   const {
-    field, form, options, placeholder,
+    field, form, options, placeholder, children, value,
   } = props;
   return (
     <div tw="w-[400px] space-y-1 text-monochrome-medium-tint" ref={node}>
       <div tw="relative hover:text-blue-medium-tint" onClick={() => setIsListOpened(!isListOpened)}>
         <DarkInput
           {...field}
+          value={value || field.value}
           placeholder={placeholder}
           tw="caret-transparent cursor-pointer"
         />
@@ -25,16 +26,17 @@ export const Select = (props: any) => {
       </div>
       <div>
         {isListOpened && (
-          <div tw="py-2 bg-monochrome-black border rounded border-monochrome-dark text-monochrome-medium-tint text-12 leading-20">
-            {options.map((option: string) => (
-              <Option
-                selected={option === field.value}
-                tw="px-4 py-1 hover:(cursor-pointer bg-monochrome-white bg-opacity-[0.1])"
-                onClick={() => form.setFieldValue(field.name, option)}
-              >
-                {option}
-              </Option>
-            ))}
+          <div tw="bg-monochrome-black border rounded border-monochrome-dark text-monochrome-medium-tint text-12 leading-20">
+            {Children.count(children) > 0
+              ? children
+              : options.map((option: string) => (
+                <Option
+                  selected={option === field.value}
+                  onClick={() => form.setFieldValue(field.name, option)}
+                >
+                  {option}
+                </Option>
+              ))}
           </div>
         )}
       </div>
@@ -43,6 +45,6 @@ export const Select = (props: any) => {
 };
 
 const Option = styled.div`
-  ${tw`px-4 py-1 hover:(cursor-pointer bg-monochrome-white bg-opacity-[0.1])`}
+  ${tw`px-4 py-3 hover:(cursor-pointer bg-monochrome-white bg-opacity-[0.1])`}
   ${({ selected }: { selected: boolean }) => selected && tw`text-blue-default`}
 `;

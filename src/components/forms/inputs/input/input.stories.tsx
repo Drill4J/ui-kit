@@ -7,7 +7,8 @@ import { Fields } from '../../fields';
 import 'twin.macro';
 import { DarkFormGroup } from '../../dark-form-group';
 import { DisabledFormGroup } from '../../disabled-form-group';
-import { Inputs } from '..';
+import { Checkbox, Inputs } from '..';
+import { Select } from '../select';
 
 storiesOf('Input', module).add('Input types', () => {
   const [tab, setTab] = useState('general');
@@ -22,13 +23,32 @@ storiesOf('Input', module).add('Input types', () => {
           email: '',
           agentId: 'dev-pet',
           buildVersion: '1.1.1',
+          agentType: 'Elm',
+          agents: [{ id: '123q' }, { id: '223q' }, { id: '323q' }],
         }}
         onSubmit={values => {
           alert(JSON.stringify(values));
         }}
       >
         <Form tw="w-40 space-y-4" autoComplete="off">
-          <DisabledFormGroup fields={['agentId', 'buildVersion']} />
+          <Field name="agentType" component={Select} options={['Java', 'Js', 'Net']} placeholder="Choose your option" />
+          <Field name="agents" value="All selected">
+            {({ field }) => (
+              <Select value={field.value[2].id} placeholder="Choose your option">
+                {field.value.map(({ id }) => (
+                  <label>
+                    <Field
+                      tw="text-blue-default"
+                      name={id}
+                      type="checkbox"
+                      component={Checkbox}
+                    />
+                    {id}
+                  </label>
+                ))}
+              </Select>
+            )}
+          </Field>
           <Field name="name" component={Fields.Input} placeholder="enter name" />
           <Field name="email" component={Fields.Input} placeholder="enter email" />
           <div tw="space-y-8">

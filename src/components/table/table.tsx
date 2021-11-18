@@ -13,7 +13,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import React, { useMemo, useRef, useState } from 'react';
+import React, {
+  useEffect, useMemo, useRef, useState,
+} from 'react';
 import {
   useTable, useExpanded, Column, useSortBy, usePagination, useFilters,
 } from 'react-table';
@@ -158,6 +160,8 @@ export const Table = withErrorBoundary(({
 
   const ref = useRef<HTMLDivElement>(null);
 
+  useEffect(() => gotoPage(0), [filters]);
+
   return (
     <>
       {withSearch && (
@@ -180,7 +184,6 @@ export const Table = withErrorBoundary(({
             <tr tw="h-13 px-4">
               {headerGroup.headers.map((column: any) => {
                 const active = column.id === sort?.field;
-                console.log(column);
                 return (
                   <TableElements.TH
                     key={`table-th-${column.id}`}

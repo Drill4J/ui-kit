@@ -62,9 +62,9 @@ BuildsTable.args = {
       },
     },
     testDetails: {
-      engine: `junit-jupiter-${(Math.random() + 1).toString(36).substring(7)}`,
-      class: `api.standalone.StandaloneApiTest-${(Math.random() + 1).toString(36).substring(7)}`,
-      mathod: `junit5IgnoredTest-${(Math.random() + 1).toString(36).substring(7)}`,
+      engine: `junit-jupiter-${i}`,
+      class: `api.standalone.StandaloneApiTest-${i}`,
+      mathod: `junit5IgnoredTest-${i}`,
       params: 'qwe-wwwe-qwe',
     },
     details: {

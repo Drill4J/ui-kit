@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import tw, { styled } from 'twin.macro';
-import { Inputs } from '../forms';
+import { Inputs } from '../../forms';
 
 const PaginationArrow = styled.div`
   ${tw`flex items-center justify-center w-8 h-8 cursor-pointer hover:text-blue-medium-tint`};

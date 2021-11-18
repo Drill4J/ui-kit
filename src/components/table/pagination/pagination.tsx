@@ -13,12 +13,13 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import { useState } from 'react';
+import { useCallback } from 'react';
 import 'twin.macro';
 
-import { Icons } from '../icon';
+import { Icons } from '../../icon';
 import { PaginationElements } from './pagination-elements';
-import { Popover } from '../popover';
+import { SelectRowsCountDropdown } from './select-rows-count-drop-down';
+import { Ellipsis } from './ellipsis';
 
 interface Props {
   pagesLength: number;
@@ -31,12 +32,6 @@ interface Props {
   pageSize: number;
   setPageSize: (pageSize: number) => void;
   rowsCount: number;
-}
-
-interface SelectRowsCountDropdownProps {
-  values: number[];
-  action: (value: number) => void;
-  initialValue: number
 }
 
 export const MAX_PAGES_WITH_ELLIPSIS_COUNT = 7;
@@ -67,12 +62,14 @@ export const Pagination = ({
     </>
   );
 
+  const MemoEllipsis = useCallback(() => <Ellipsis gotoPage={gotoPage} />, []);
+
   const renderPagesWithEllipsis = () => {
     if (currentPage < MAX_LEFT_OR_RIGHT_PAGES_COUNT) {
       return (
         <>
           {renderPages(1, MAX_LEFT_OR_RIGHT_PAGES_COUNT)}
-          <Ellipsis />
+          <MemoEllipsis />
           {renderPage(pagesLength)}
         </>
       );
@@ -83,7 +80,7 @@ export const Pagination = ({
       return (
         <>
           {renderPage(1)}
-          <Ellipsis />
+          <MemoEllipsis />
           {renderPages(lastPagesStart, pagesLength)}
         </>
       );
@@ -92,9 +89,9 @@ export const Pagination = ({
     return (
       <>
         {renderPage(1)}
-        <Ellipsis />
+        <MemoEllipsis />
         {renderPages(currentPage - 1, currentPage + 1)}
-        <Ellipsis />
+        <MemoEllipsis />
         {renderPage(pagesLength)}
       </>
     );
@@ -103,89 +100,6 @@ export const Pagination = ({
   const Pages = () => (pagesLength < MAX_PAGES_WITH_ELLIPSIS_COUNT
     ? renderPages(1, pagesLength)
     : renderPagesWithEllipsis());
-
-  const Tooltip = () => {
-    const [number, setNumber] = useState<number>(0);
-
-    const handleSubmit = (evt: any) => {
-      evt.preventDefault();
-      typeof number === 'number' && gotoPage(number);
-    };
-    return (
-      <div tw="relative w-34 p-4 rounded-lg bg-monochrome-white shadow text-14 leading-32 z-50">
-        <div tw="flex items-center gap-x-2 whitespace-nowrap">
-          Go to
-          <form onSubmit={handleSubmit} data-test="pagination:tooltip:form">
-            <PaginationElements.NumberInput
-              type="number"
-              value={number || ''}
-              onChange={e => setNumber(Number(e.target.value))}
-              data-test="pagination:tooltip:input"
-            />
-          </form>
-        </div>
-        <div tw="absolute left-14 w-6 overflow-hidden inline-block" style={{ top: '72px' }}>
-          <div tw="h-3 w-11 bg-monochrome-white transform origin-top-left" style={{ transform: 'rotate(-45deg)' }} />
-        </div>
-      </div>
-    );
-  };
-
-  const Ellipsis = () => (
-    <Popover tw="flex items-center h-8 px-3 text-monochrome-default" data-test="table-pagination:dots">
-      {({ isOpen, setIsOpen }) => (
-        <>
-          <PaginationElements.Dots
-            tw="flex items-end cursor-pointer hover:text-blue-medium-tint"
-            active={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            ...
-          </PaginationElements.Dots>
-          {isOpen && (
-            <div tw="absolute" style={{ top: '-74px', left: '-46px' }}>
-              <Tooltip />
-            </div>
-          )}
-        </>
-      )}
-    </Popover>
-  );
-
-  const SelectRowsCountDropdown = ({ values, action, initialValue }: SelectRowsCountDropdownProps) => (
-    <Popover>
-      {({ setIsOpen, isOpen }) => (
-        <>
-          <span
-            tw="flex items-center gap-x-1 text-monochrome-black cursor-pointer"
-            onClick={() => setIsOpen(!isOpen)}
-            data-test="table-pagination:select-rows-dropdown"
-          >
-            <span tw="font-bold" data-test="table-pagination:page-rows">
-              {`${initialValue * (currentPage) - initialValue}-${pagesLength === pageIndex + 1
-                ? rowsCount : (initialValue * (currentPage))}`}
-            </span>
-            <Icons.Expander width={8} height={8} rotate={isOpen ? 90 : -90} />
-          </span>
-          {isOpen && (
-            <div tw="absolute -top-24 shadow bg-monochrome-white z-50">
-              {values.map((value) => (
-                <div
-                  tw="flex items-center px-2 w-36 hover:bg-monochrome-light-tint"
-                  onClick={(() => action(value))}
-                  key={value}
-                  data-test="table-pagination:select-rows-dropdown:item"
-                >
-                  {initialValue === value && <Icons.Check width={14} height={10} viewBox="0 0 14 10" tw="absolute text-blue-default" />}
-                  <span tw="ml-6">{`${value} per page`}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </>
-      )}
-    </Popover>
-  );
 
   return (
     <div tw="flex justify-between pr-1 pt-4">
@@ -196,6 +110,10 @@ export const Pagination = ({
             values={[25, 50, 100]}
             action={(value) => setPageSize(Number(value))}
             initialValue={pageSize}
+            currentPage={currentPage}
+            pagesLength={pagesLength}
+            pageIndex={pageIndex}
+            rowsCount={rowsCount}
           />
           &nbsp;of
           <span tw="text-monochrome-black font-bold" data-test="table:rows:count">{rowsCount}</span>

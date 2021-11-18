@@ -180,6 +180,7 @@ export const Table = withErrorBoundary(({
             <tr tw="h-13 px-4">
               {headerGroup.headers.map((column: any) => {
                 const active = column.id === sort?.field;
+                console.log(column);
                 return (
                   <TableElements.TH
                     key={`table-th-${column.id}`}
@@ -255,38 +256,40 @@ export const Table = withErrorBoundary(({
           })}
         </tbody>
       </table>
-      <React.Fragment key="table-stub">{stub}</React.Fragment>
-      <Pagination
-        pagesLength={pageOptions.length}
-        gotoPage={async (value: number) => {
-          const newPage = value - 1; // in the react-table pages start from 0
-          if (value > 0 && newPage < pageOptions.length && newPage !== pageIndex) {
-            gotoPage(newPage);
-            // need this code to be executed after rendering
-            await ref && ref.current && ref.current.scrollIntoView({
+      {page.length === 0 && stub}
+      {page.length !== 0 && (
+        <Pagination
+          pagesLength={pageOptions.length}
+          gotoPage={async (value: number) => {
+            const newPage = value - 1; // in the react-table pages start from 0
+            if (value > 0 && newPage < pageOptions.length && newPage !== pageIndex) {
+              gotoPage(newPage);
+              // need this code to be executed after rendering
+              await ref && ref.current && ref.current.scrollIntoView({
+                behavior: 'smooth',
+              });
+            }
+          }}
+          pageIndex={pageIndex}
+          previousPage={() => {
+            previousPage();
+            ref && ref.current && ref.current.scrollIntoView({
               behavior: 'smooth',
             });
-          }
-        }}
-        pageIndex={pageIndex}
-        previousPage={() => {
-          previousPage();
-          ref && ref.current && ref.current.scrollIntoView({
-            behavior: 'smooth',
-          });
-        }}
-        nextPage={() => {
-          nextPage();
-          ref && ref.current && ref.current.scrollIntoView({
-            behavior: 'smooth',
-          });
-        }}
-        canPreviousPage={canPreviousPage}
-        canNextPage={canNextPage}
-        pageSize={pageSize}
-        setPageSize={setPageSize}
-        rowsCount={data.length}
-      />
+          }}
+          nextPage={() => {
+            nextPage();
+            ref && ref.current && ref.current.scrollIntoView({
+              behavior: 'smooth',
+            });
+          }}
+          canPreviousPage={canPreviousPage}
+          canNextPage={canNextPage}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+          rowsCount={data.length}
+        />
+      )}
     </>
   );
 }, {

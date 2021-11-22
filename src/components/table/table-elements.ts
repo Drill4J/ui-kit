@@ -16,7 +16,7 @@ const SortArrow = styled.div`
 `;
 
 const Label = styled.span`
-  ${tw`relative inline-flex items-center`};
+  ${tw`w-full relative inline-flex items-center`};
   
   &:hover ${SortArrow} {
     ${tw`visible`};
@@ -32,19 +32,7 @@ const TR = styled.tr`
   ${({ isExpanded }: { isExpanded: boolean }) => isExpanded && tw`bg-monochrome-light-tint`}
 `;
 
-const ColumnSearchIcon = styled(Icons.Search)`
-  ${tw`
-    text-monochrome-default
-    hover:text-blue-medium-tint 
-    active:text-blue-shade 
-    cursor-pointer
-  `}
-
-  ${({ active }: { active: boolean }) => active && tw`text-blue-default`}
-`;
-
 export const TableElements = {
-  ColumnSearchIcon,
   TableHead,
   SortArrow,
   Label,

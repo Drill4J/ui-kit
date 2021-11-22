@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import tw, { styled } from 'twin.macro';
 
 import { InputProps } from '../input-types';
@@ -7,19 +8,30 @@ export const SearchInput = ({
   className,
   reset,
   ...restProps
-}: InputProps) => (
-  <div tw="relative">
-    <div tw="flex items-center" className={className}>
-      <SearchIcon />
-      <Input {...restProps} />
-      {restProps?.value && (
-        <ClearIcon width={8} height={8} onClick={reset} data-testid="search-input:clear-icon" />
-      )}
-    </div>
-  </div>
-);
+}: InputProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const node = useRef<HTMLFormElement>(null);
 
-const Input = styled.input`
+  useEffect(() => {
+    if (node && node.current && isOpen) {
+      node.current.focus();
+    }
+  }, [isOpen]);
+
+  return (
+    <div tw="w-full relative">
+      <div tw="flex items-center" className={className}>
+        <SearchIcon onClick={() => setIsOpen(!isOpen)} isActive={isOpen || restProps?.value} />
+        {isOpen && <Input {...restProps} ref={node} />}
+        {isOpen && restProps?.value && (
+          <ClearIcon width={8} height={8} onClick={reset} data-testid="search-input:clear-icon" />
+        )}
+      </div>
+    </div>
+  );
+};
+
+const Input: React.ElementType = styled.input`
   ${tw`
     w-full h-6 px-6 
     appearance-none outline-none 
@@ -31,7 +43,15 @@ const Input = styled.input`
 `;
 
 const SearchIcon = styled(Icons.Search)`
-  ${tw`absolute text-blue-default`}
+  ${tw`
+    absolute
+    text-monochrome-default
+    hover:text-blue-medium-tint 
+    active:text-blue-shade
+    cursor-pointer
+  `}
+
+  ${({ isActive }: { isActive: boolean}) => isActive && tw`text-blue-default`}
 `;
 
 const ClearIcon = styled(Icons.Close)`

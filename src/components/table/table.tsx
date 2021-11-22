@@ -60,24 +60,15 @@ function DefaultColumnFilter({
     filterValue = '', setFilter = () => {}, Header = '',
   } = {},
 }: any) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div tw="relative z-50">
-      <TableElements.ColumnSearchIcon active={isOpen} onClick={() => setIsOpen(!isOpen)} />
-      {isOpen && (
-        <div tw="absolute top-6 -left-2 w-60 p-4 rounded-lg bg-monochrome-white shadow text-14 leading-32 z-50">
-          <Inputs.Search
-            value={filterValue}
-            onChange={e => {
-              setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-            }}
-            reset={() => setFilter('')}
-            placeholder={`Search by ${Header.toLowerCase()}`}
-          />
-        </div>
-      )}
-    </div>
+    <Inputs.Search
+      value={filterValue}
+      onChange={e => {
+        setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+      }}
+      reset={() => setFilter('')}
+      placeholder={`Search by ${Header.toLowerCase()}`}
+    />
   );
 }
 
@@ -201,7 +192,7 @@ export const Table = withErrorBoundary(({
                           />
                         </TableElements.SortArrow>
                       )}
-                      <div tw="flex items-center gap-3">
+                      <div tw="flex items-center gap-3 w-full">
                         {column.render('Header')}
                         {column.filterable ? column.render('Filter') : null}
                       </div>

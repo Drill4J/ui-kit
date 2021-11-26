@@ -26,7 +26,7 @@ export const DefaultTableHeaderColumn = ({ column }: any) => (
       {!column.notSortable && (
         <TableElements.SortArrow
           active={column.isSorted}
-          onClick={column.getSortByToggleProps}
+          {...column.getHeaderProps(column.getSortByToggleProps())}
         >
           <Icons.SortingArrow rotate={column.isSortedDesc ? 0 : 180} />
         </TableElements.SortArrow>

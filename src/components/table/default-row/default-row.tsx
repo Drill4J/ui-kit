@@ -31,7 +31,7 @@ export const DefaultRow = ({
     <>
       <TableElements.TR isExpanded={row.isExpanded}>
         {row.cells.map((cell: any) => {
-          const isDefaultCell = cell.column.filterable;
+          const isDefaultCell = cell.column.filterable && !cell.column.isCustomCell;
           return (
             <td
               {...cell.getCellProps()}

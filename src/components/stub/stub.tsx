@@ -20,10 +20,13 @@ interface Props {
   icon: React.ReactNode;
   title: React.ReactNode;
   message: React.ReactNode;
+  className?: string;
 }
 
-export const Stub = ({ icon, title, message }: Props) => (
-  <Content>
+export const Stub = ({
+  icon, title, message, className,
+}: Props) => (
+  <Content className={className}>
     <React.Fragment key="stub-icon">{ icon }</React.Fragment>
     <Title data-test="stub:title">
       { title }

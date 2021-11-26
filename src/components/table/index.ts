@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 export { Table } from './table';
+export { VirtualizedTable } from './virtualized-table';
 export { TableElements } from './table-elements';
 export { Cells } from './cells';
 export {

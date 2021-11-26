@@ -50,6 +50,7 @@ export {
   sizeLimit,
   toError,
   Table,
+  VirtualizedTable,
   TableElements,
   Cells,
   TableActionsProvider,

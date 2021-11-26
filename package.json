@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "0.1.174",
+  "version": "0.1.175",
   "homepage": "http://drill4j.github.io/ui-kit",
   "author": "Drill4J",
   "license": "Apache-2.0",
@@ -51,6 +51,7 @@
     "react-middle-ellipsis": "^1.2.1",
     "react-router-dom": "^5.2.1",
     "react-table": "^7.7.0",
+    "react-window": "^1.8.6",
     "regenerator-runtime": "^0.13.9",
     "styled-components": "^5.2.3",
     "tailwindcss": "^2.2.6",
@@ -78,6 +79,7 @@
     "@types/react-router-dom": "^5.1.8",
     "@types/react-table": "^7.7.1",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/react-window": "^1.8.5",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",

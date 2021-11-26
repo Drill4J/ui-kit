@@ -21,15 +21,16 @@ import {
 } from 'react-table';
 import { withErrorBoundary } from 'react-error-boundary';
 
-import { Inputs } from '../forms';
+import { DefaultColumnFilter } from './filters';
 import { TableErrorFallback } from '../error-fallback';
 import { TableElements } from './table-elements';
 import { Pagination } from './pagination';
 import { DefaultTableHeaderColumn } from './default-table-header-column';
 import { DefaultRow } from './default-row';
+import { TableHeader } from './table-header';
 
 type CustomColumn = Column &
-{ textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean, filterable?: boolean; };
+{ textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean, filterable?: boolean; isCustomCell?: boolean };
 
 interface SortBy {
   id: string;
@@ -44,24 +45,8 @@ export interface Props {
   columnsDependency?: Array<string | number | boolean | null | undefined>;
   defaultSortBy?: SortBy[];
   defaultFilters?: {id: string; value: string}[];
-  isDefaultExpanded?: (original: any) => boolean
-}
-
-function DefaultColumnFilter({
-  column: {
-    filterValue = '', setFilter = () => {}, Header = '',
-  } = {},
-}: any) {
-  return (
-    <Inputs.Search
-      value={filterValue}
-      onChange={e => {
-        setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-      }}
-      reset={() => setFilter('')}
-      placeholder={`Search by ${Header.toLowerCase()}`}
-    />
-  );
+  isDefaultExpanded?: (original: any) => boolean;
+  name?: string;
 }
 
 export const Table = withErrorBoundary(({
@@ -73,6 +58,7 @@ export const Table = withErrorBoundary(({
   defaultSortBy = [],
   defaultFilters = [],
   isDefaultExpanded,
+  name = '',
 }: Props) => {
   const filterTypes = React.useMemo(
     () => ({
@@ -133,6 +119,7 @@ export const Table = withErrorBoundary(({
   return (
     <>
       <div ref={ref} />
+      <TableHeader name={name} displayedResult={`Displaying ${page.length} of ${data.length} ${name}`} tw="mb-3" />
       <table {...getTableProps()} tw="table-fixed relative w-full text-14 leading-16 text-monochrome-black">
         <TableElements.TableHead>
           {headerGroups.map((headerGroup: any) => (

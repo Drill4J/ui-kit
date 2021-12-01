@@ -98,9 +98,13 @@ export const Table = withErrorBoundary(({
   }: any = useTable(
     {
       columns: useMemo(() => columns, [...columnsDependency]),
-      data: useMemo(() => data, [data]),
-      initialState: { pageSize: 25, sortBy: defaultSortBy, filters: defaultFilters },
+      data,
+      initialState: {
+        pageSize: 25, sortBy: defaultSortBy, filters: defaultFilters,
+      },
       autoResetPage: false,
+      autoResetFilters: false,
+      autoResetSortBy: false,
       defaultColumn, // Be sure to pass the defaultColumn option
       filterTypes,
     } as any,

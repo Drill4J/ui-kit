@@ -62,7 +62,6 @@ export const Table = withErrorBoundary(({
   stub = null,
   columnsDependency = [],
   defaultSortBy = [],
-  defaultFilters = [],
   isDefaultExpanded,
   name = '',
   resultName = '',
@@ -91,7 +90,7 @@ export const Table = withErrorBoundary(({
     [],
   );
 
-  const { tableState = '{"pageIndex":0,"pageSize":25}' } = useQueryParams<{ tableState?: string }>();
+  const { tableState = '{"pageIndex":0,"pageSize":25,"filters":[]}' } = useQueryParams<{ tableState?: string }>();
   const parsedTableState = JSON.parse(tableState);
 
   const {
@@ -110,7 +109,7 @@ export const Table = withErrorBoundary(({
       columns: useMemo(() => columns, [...columnsDependency]),
       data: useMemo(() => (!isLoading && data.length > 0 ? data : Array(initialRowsCount).fill(initialRowsCount)), [isLoading, data]),
       initialState: {
-        pageSize: 25, sortBy: defaultSortBy, filters: defaultFilters, ...parsedTableState,
+        pageSize: 25, sortBy: defaultSortBy, ...parsedTableState,
       },
       autoResetPage: false,
       autoResetFilters: false,
@@ -126,19 +125,15 @@ export const Table = withErrorBoundary(({
   const { push } = useHistory() || {};
 
   useEffect(() => {
-    const newState = JSON.stringify({ pageIndex, pageSize });
+    const newState = JSON.stringify({ pageIndex, pageSize, filters });
     if (newState !== tableState) {
-      if (pageIndex === 0 && pageSize === 25) {
+      if (pageIndex === 0 && pageSize === 25 && filters.length === 0) {
         push(removeQueryParamsFromPath(['tableState']));
         return;
       }
       push(addQueryParamsToPath({ tableState: newState }));
     }
-  }, [pageIndex, pageSize, push]);
-
-  useEffect(() => () => {
-    push(removeQueryParamsFromPath(['tableState']));
-  }, []);
+  }, [pageIndex, pageSize, filters]);
 
   useEffect(() => {
     const { pageIndex: pageIndexFromUrl = 0, pageSize: pageSizeFromUrl = 25 } = parsedTableState;

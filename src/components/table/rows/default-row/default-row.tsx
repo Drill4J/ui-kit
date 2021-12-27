@@ -42,13 +42,13 @@ export const DefaultRow = ({
             >
               <div
                 css={[!cell.column.disableEllipsis && tw`text-ellipsis`]}
-                title={cell?.value}
                 data-test={`td-row-cell-${cell.column.id}`}
                 onClick={() => cell.column.id === 'expander' && setIsExpanded(!isExpanded)}
               >
                 {isDefaultCell
                   ? (
                     <Cells.Highlight
+                      title={cell?.value}
                       text={cell.value}
                       searchWords={searchWords}
                     />

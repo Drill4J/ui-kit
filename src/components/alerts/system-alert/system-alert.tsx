@@ -24,8 +24,8 @@ export const SystemAlert = ({
     {/* HACK: use min-width use min-width so that the text does not stretch outside the block
         Link: https://css-tricks.com/flexbox-truncated-text/ */}
     <div tw="flex flex-col flex-grow py-1 min-w-8px">
-      <span tw="text-16 leading-24 font-bold truncate">{title}</span>
-      <div tw="text-14 leading-20">{children}</div>
+      <span tw="text-16 leading-24 font-bold truncate" data-test="system-alert:title">{title}</span>
+      <div tw="text-14 leading-20" data-test="system-alert:description">{children}</div>
     </div>
     {action}
     <CloseButton tw="flex justify-center items-center w-6 h-6 mt-1" onClick={onClose}>

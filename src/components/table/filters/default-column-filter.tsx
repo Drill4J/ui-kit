@@ -29,6 +29,7 @@ export function DefaultColumnFilter({
         setInputValue('');
       }}
       placeholder={`Search by ${Header.toLowerCase()}`}
+      data-test={`${Header.toLowerCase()}:search-input`}
     />
   );
 }

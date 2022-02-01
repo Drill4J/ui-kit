@@ -13,37 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import tw, { styled, css } from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 
 interface TabProps {
   active?: boolean
 }
 
-export const Tab = styled.div<TabProps>`
-  ${tw`relative inline-flex items-center pb-2 mr-4 text-14 font-bold text-monochrome-default cursor-pointer`};
-  min-height: 46px;
-  box-sizing: border-box;
-  border: none;
-  background: none;
-  white-space: nowrap;
-  outline: none;
+export const Tab = styled.div`
+  ${tw`
+      relative inline-flex pt-2 pb-3 text-14 leading-20 text-monochrome-default font-bold cursor-pointer capitalize
+      hover:text-blue-medium-tint
+  `};
 
-  ${({ active }) =>
-    active &&
-    css`
-      ${tw`text-monochrome-black`};
-
-      &:after {
-        ${tw`bg-blue-default`};
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 4px;
-        border-radius: 2px;
-        transform: translateY(50%);
-      }
-    `}
+  ${({ active }: TabProps) => active &&
+    tw`
+    text-blue-default
+    after:(content block absolute bottom-0 h-1 w-full bg-blue-default rounded-t-lg)
+  `}
 `;

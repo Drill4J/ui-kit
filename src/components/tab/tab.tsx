@@ -27,7 +27,7 @@ export const Tab = styled.div`
 
   ${({ active }: TabProps) => active &&
     tw`
-    text-blue-default
+    text-blue-default hover:text-blue-default
     after:(content block absolute bottom-0 h-1 w-full bg-blue-default rounded-t-lg)
   `}
 `;

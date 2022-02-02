@@ -1,99 +1,18 @@
-import tw, { styled } from 'twin.macro';
+import React from 'react';
+// no use tw here because it can`t load animation to plugins
 
-interface Props {
-  disabled?: boolean;
-}
-
-export const Spinner = ({ disabled }: Props) => (
-  <Wrapper disabled={disabled}>
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-  </Wrapper>
+export const Spinner = () => (
+  <svg
+    className="animate-spin w-4 h-4 text-blue-default"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+    <path
+      className="opacity-[0.15]"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    />
+  </svg>
 );
-
-const Wrapper = styled.div<{ disabled?: boolean }>`
-  ${tw`inline-block relative w-5 h-5 text-monochrome-default`};
-  div {
-    transform-origin: 10px 10px;
-    animation: lds-spinner 1.2s linear infinite;
-    &:after {
-      content: ' ';
-      display: block;
-      position: absolute;
-      top: 1px;
-      left: 9px;
-      width: 2px;
-      height: 5px;
-      border-radius: 20%;
-      ${tw`bg-monochrome-dark-tint`};
-      
-      ${({ disabled }) => disabled && tw`bg-monochrome-white`};
-    }
-  }
-  div:nth-child(1) {
-    transform: rotate(0deg);
-    animation-delay: -1.1s;
-  }
-  div:nth-child(2) {
-    transform: rotate(30deg);
-    animation-delay: -1s;
-  }
-  div:nth-child(3) {
-    transform: rotate(60deg);
-    animation-delay: -0.9s;
-  }
-  div:nth-child(4) {
-    transform: rotate(90deg);
-    animation-delay: -0.8s;
-  }
-  div:nth-child(5) {
-    transform: rotate(120deg);
-    animation-delay: -0.7s;
-  }
-  div:nth-child(6) {
-    transform: rotate(150deg);
-    animation-delay: -0.6s;
-  }
-  div:nth-child(7) {
-    transform: rotate(180deg);
-    animation-delay: -0.5s;
-  }
-  div:nth-child(8) {
-    transform: rotate(210deg);
-    animation-delay: -0.4s;
-  }
-  div:nth-child(9) {
-    transform: rotate(240deg);
-    animation-delay: -0.3s;
-  }
-  div:nth-child(10) {
-    transform: rotate(270deg);
-    animation-delay: -0.2s;
-  }
-  div:nth-child(11) {
-    transform: rotate(300deg);
-    animation-delay: -0.1s;
-  }
-  div:nth-child(12) {
-    transform: rotate(330deg);
-    animation-delay: 0s;
-  }
-  @keyframes lds-spinner {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-`;

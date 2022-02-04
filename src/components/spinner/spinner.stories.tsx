@@ -10,15 +10,16 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => <Spinner {...args} />;
-export const Default = Template.bind({});
+export const BLUE = Template.bind({});
+BLUE.args = { color: 'blue' };
 
-export const Disabled = Template.bind({});
-Disabled.args = { disabled: true };
-Disabled.parameters = {
+export const White = Template.bind({});
+White.args = { };
+White.parameters = {
   backgrounds: {
     default: 'blue',
     values: [
       { name: 'blue', value: '#00f' },
     ],
   },
-}
+};

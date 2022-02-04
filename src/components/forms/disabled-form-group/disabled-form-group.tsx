@@ -11,12 +11,12 @@ interface Props {
 }
 
 export const DisabledFormGroup = ({ fields }: Props) => (
-  <div tw="space-y-6 p-6 border border-monochrome-dark rounded leading-24 text-12">
+  <div tw="space-y-6 p-6 border border-monochrome-dark rounded text-14 leading-20">
     {fields.map(({ label, name }) => (
       <div>
-        <div tw="text-monochrome-dark-tint font-bold">{label}</div>
+        <div tw="text-monochrome-medium-tint font-bold">{label}</div>
         <Field name={name}>
-          {({ field }: any) => <div tw="text-14 text-monochrome-light-tint">{field?.value}</div>}
+          {({ field }: any) => <div tw="text-14 text-monochrome-dark-tint">{field?.value}</div>}
         </Field>
       </div>
     ))}

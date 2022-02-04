@@ -76,7 +76,7 @@ export const Tooltip = ({
 };
 
 const Message = styled.div<{type?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right'}>`
-  z-index: 100;
+  z-index: 150;
   ${tw`absolute whitespace-pre no-underline text-monochrome-white text-12 rounded bg-monochrome-black`};
 
   &::after {

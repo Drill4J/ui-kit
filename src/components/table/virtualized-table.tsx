@@ -89,7 +89,6 @@ export const VirtualizedTable = withErrorBoundary(({
     getTableBodyProps,
     headerGroups,
     rows,
-    totalColumnsWidth,
     prepareRow,
     state: { filters } = {} as any,
   } = useTable(
@@ -142,15 +141,6 @@ export const VirtualizedTable = withErrorBoundary(({
     [prepareRow, rows],
   );
 
-  const scrollBarSize = React.useMemo(() => {
-    const scrollDiv = document.createElement('div');
-    scrollDiv.setAttribute('style', 'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;');
-    document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-    document.body.removeChild(scrollDiv);
-    return scrollbarWidth;
-  }, []);
-
   return (
     <>
       {renderHeader && renderHeader({ currentCount: rows.length, totalCount: data.length })}
@@ -189,10 +179,10 @@ export const VirtualizedTable = withErrorBoundary(({
             ? stub
             : (
               <FixedSizeListWithCustomScroll
+                width="auto"
                 height={listHeight}
                 itemSize={listItemSize}
                 itemCount={rows.length}
-                width={totalColumnsWidth + scrollBarSize}
               >
                 {RenderRow}
               </FixedSizeListWithCustomScroll>

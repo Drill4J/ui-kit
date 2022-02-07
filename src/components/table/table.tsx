@@ -160,19 +160,20 @@ export const Table = withErrorBoundary(({
       {renderHeader && renderHeader({ currentCount: page.length, totalCount: data.length })}
       <table {...getTableProps()} tw="table-fixed relative w-full text-14 leading-16 text-monochrome-black" {...rest}>
         <TableElements.TableHead>
-          {headerGroups.map((headerGroup: any) => (
-            <tr tw="h-13 px-4">
-              {headerGroup.headers.map((column: any) => <DefaultTableHeaderColumn column={column} />)}
+          {headerGroups.map((headerGroup: any, index: number) => (
+            <tr tw="h-13 px-4" key={index}>
+              {headerGroup.headers.map((column: any) => <DefaultTableHeaderColumn column={column} key={column.id} />)}
             </tr>
           ))}
         </TableElements.TableHead>
         <tbody {...getTableBodyProps()}>
           {page.map((rawRow: any, i: number) => (isLoading
             ? (
-              <SkeletonRow rawRow={rawRow} prepareRow={prepareRow} delay={`${Math.ceil((i + 1) / 3)}s`} />
+              <SkeletonRow key={rawRow.id} rawRow={rawRow} prepareRow={prepareRow} delay={`${Math.ceil((i + 1) / 3)}s`} />
             )
             : (
               <DefaultRow
+                key={rawRow.id}
                 rawRow={rawRow}
                 prepareRow={prepareRow}
                 renderRowSubComponent={renderRowSubComponent}

@@ -1,10 +1,11 @@
 import tw, { styled } from 'twin.macro';
+import React from 'react';
 
-export const DarkTextarea = (props: any) => (
+export const DarkTextarea = React.forwardRef((props: any, ref) => (
   <TextareaWrapper {...props}>
-    <StyledTextarea {...props} />
+    <StyledTextarea {...props} ref={ref} />
   </TextareaWrapper>
-);
+));
 
 const TextareaWrapper = styled.span<{
   disabled?: boolean;

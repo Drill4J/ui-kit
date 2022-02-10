@@ -53,7 +53,7 @@ const ModalContent: React.FC<PanelProps> = ({
 };
 
 const Content = styled.div<PanelProps>`
-  ${tw`absolute top-1/2 left-1/2 z-[100] bg-monochrome-white`}
+  ${tw`absolute top-1/2 left-1/2 z-[150] bg-monochrome-white`}
   ${tw`-translate-x-1/2 -translate-y-1/2`}
 
   ${({ type }) => [
@@ -63,7 +63,7 @@ const Content = styled.div<PanelProps>`
 `;
 
 const Fade = styled.div`
-  ${tw`absolute w-full h-full top-0 left-0 bg-monochrome-black z-[90] opacity-40`};
+  ${tw`absolute w-full h-full top-0 left-0 bg-monochrome-black z-[130] opacity-40`};
 `;
 
 const Header: React.FC = ({ children, ...rest }) => {

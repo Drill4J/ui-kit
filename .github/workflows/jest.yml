@@ -13,7 +13,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - name: Start tests
-        run: npm run --silent test -- --testLocationInResults --json --coverage --outputFile="jest.results.json"
+        run: npm run --silent test -- -u --testLocationInResults --json --coverage --outputFile="jest.results.json"
         continue-on-error: true
       - uses: willcaul/jest-github-action@v1
         env:

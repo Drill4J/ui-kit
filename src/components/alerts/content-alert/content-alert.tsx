@@ -22,13 +22,13 @@ export const ContentAlert: FC<ContentAlertProps> = ({ message, type }) => (
 );
 
 const Body = styled.div<{type: AlertType}>`
-  ${tw`rounded-lg overflow-hidden border`};
+  ${tw`rounded-lg overflow-hidden`};
 
   ${({ type }) => [
-    type === 'INFO' && tw`border-blue-primary`,
-    type === 'SUCCESS' && tw`border-green-success`,
-    type === 'WARNING' && tw`border-orange-warning`,
-    type === 'ERROR' && tw`border-red-medium-tint`,
+    type === 'INFO' && tw`bg-[rgba(33, 150, 243, 0.2)]`,
+    type === 'SUCCESS' && tw`bg-[rgba(0, 182, 2, 0.2)]`,
+    type === 'WARNING' && tw`bg-[rgba(245, 166, 35, 0.2)]`,
+    type === 'ERROR' && tw`bg-[rgba(241, 51, 51, 0.2)]`,
   ]}
 `;
 

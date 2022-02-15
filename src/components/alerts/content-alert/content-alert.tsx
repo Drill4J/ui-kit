@@ -8,8 +8,8 @@ interface ContentAlertProps {
   type: AlertType;
 }
 
-export const ContentAlert: FC<ContentAlertProps> = ({ message, type }) => (
-  <Body type={type} tw="flex gap-x-3 px-4 py-2">
+export const ContentAlert: FC<ContentAlertProps> = ({ message, type, ...rest }) => (
+  <Body type={type} tw="flex gap-x-3 px-4 py-2" {...rest}>
     <div tw="mt-1">
       <ColorWrapper type={type}>
         {getIcon(type)}

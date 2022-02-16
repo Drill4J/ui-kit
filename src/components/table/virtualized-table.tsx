@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import {
   useTable, Column, useSortBy, useBlockLayout, useFilters,
 } from 'react-table';
@@ -21,11 +21,14 @@ import { withErrorBoundary } from 'react-error-boundary';
 import { FixedSizeList } from 'react-window';
 import tw, { styled } from 'twin.macro';
 
+import { useHistory } from 'react-router-dom';
 import { Icons } from '../icon';
 import { Cells } from './cells';
 import { TableErrorFallback } from '../error-fallback';
 import { DefaultColumnFilter } from './filters';
 import { alphanumeric } from './sorting/alphanumeric';
+import { useQueryParams } from '../../hooks';
+import { addQueryParamsToPath, removeQueryParamsFromPath } from '../../utils';
 
 type CustomColumn = Column &
 { textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean, filterable?: boolean; isCustomCell?: boolean };
@@ -85,18 +88,22 @@ export const VirtualizedTable = withErrorBoundary(({
     [],
   );
 
+  const { virtualTableState = '{"filters":[]}' } = useQueryParams<{ virtualTableState?: string }>();
+  const parsedTableState = JSON.parse(virtualTableState);
+
   const {
+    setAllFilters,
     getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
     state: { filters } = {} as any,
-  } = useTable(
+  }: any = useTable(
     {
       columns: useMemo(() => columns.map((col) => ({ ...col, sortType: alphanumeric })), [...columnsDependency]),
       data: useMemo(() => (data.length > 0 ? data : Array(initialRowsCount).fill(initialRowsCount)), [data]),
-      initialState: { sortBy: defaultSortBy, filters: defaultFilters },
+      initialState: { sortBy: defaultSortBy, filters: defaultFilters, ...parsedTableState },
       autoResetPage: false,
       defaultColumn, // Be sure to pass the defaultColumn option
       filterTypes,
@@ -105,6 +112,23 @@ export const VirtualizedTable = withErrorBoundary(({
     useSortBy,
     useBlockLayout,
   );
+  const { push } = useHistory() || {};
+
+  useEffect(() => { // set state to url
+    const newState = JSON.stringify({ filters });
+    if (newState !== virtualTableState) {
+      if (filters.length === 0) {
+        push(removeQueryParamsFromPath(['virtualTableState']));
+        return;
+      }
+      push(addQueryParamsToPath({ virtualTableState: newState }));
+    }
+  }, [filters]);
+
+  useEffect(() => { // set state from url when we navigate via back/froward buttons in browser
+    const { filters: filtersFromUrl = [] } = parsedTableState;
+    setAllFilters(filtersFromUrl);
+  }, [virtualTableState]);
 
   const RenderRow = React.useCallback(
     ({ index, style }) => {
@@ -147,7 +171,7 @@ export const VirtualizedTable = withErrorBoundary(({
       {renderHeader && renderHeader({ currentCount: rows.length, totalCount: data.length })}
       <div {...getTableProps()} tw="w-full text-14 leading-24 text-monochrome-black bg-monochrome-white" {...rest}>
         <div tw="grid items-center w-full h-13 bg-monochrome-white border-monochrome-black border-t border-b">
-          {headerGroups.map(headerGroup => (
+          {headerGroups.map((headerGroup: any) => (
             <HeaderGroup
               {...headerGroup.getHeaderGroupProps()}
               style={{ display: 'grid !important', gridTemplateColumns }}

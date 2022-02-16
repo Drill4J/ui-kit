@@ -124,7 +124,7 @@ export const Table = withErrorBoundary(({
   );
   const { push } = useHistory() || {};
 
-  useEffect(() => {
+  useEffect(() => { // set state to url
     const newState = JSON.stringify({ pageIndex, pageSize, filters });
     if (newState !== tableState) {
       if (pageIndex === 0 && pageSize === 25 && filters.length === 0) {
@@ -135,7 +135,7 @@ export const Table = withErrorBoundary(({
     }
   }, [pageIndex, pageSize, filters]);
 
-  useEffect(() => {
+  useEffect(() => { // set state from url when we navigate via back/froward buttons in browser
     const { pageIndex: pageIndexFromUrl = 0, pageSize: pageSizeFromUrl = 25, filters: filtersFromUrl = [] } = parsedTableState;
     gotoPage(pageIndexFromUrl);
     setPageSize(pageSizeFromUrl);

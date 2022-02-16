@@ -24,7 +24,7 @@ const Template = (args: any) =>
           id: `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]:AUTO-${i}`,
           type: i % 2 === 0 ? 'AUTO' : 'auto',
           name: i % 2 === 0 ? `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]-${i}` : '0.1.0',
-          coverage: ++i,
+          coverage: i + 1,
         }))}
         initialRowsCount={22}
       />
@@ -85,6 +85,8 @@ BuildsTable.args = {
       Cell: ({ value = '' }: any) => (value
         ? <Cells.Coverage value={value} />
         : <Skeleton />),
+      disableSortBy: true,
+      notSortable: true,
     },
   ],
 };

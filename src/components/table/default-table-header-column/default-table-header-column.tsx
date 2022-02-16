@@ -15,6 +15,7 @@
 */
 import { Icons } from '../../icon';
 import { TableElements } from '../table-elements';
+import 'twin.macro';
 
 export const DefaultTableHeaderColumn = ({ column }: any) => (
   <TableElements.TH
@@ -22,26 +23,21 @@ export const DefaultTableHeaderColumn = ({ column }: any) => (
     style={{ textAlign: column.textAlign || 'right', width: column.filterable ? '100%' : column.width }}
     data-test={`table-th-${column.id}`}
   >
-    <TableElements.Label key={`table-label-${column.id}`}>
-      {!column.notSortable ? ( // TODO remove this operator and compose header and sort arrow in one component
-        <>
+    <div tw="flex items-center gap-x-3">
+      <TableElements.Label key={`table-label-${column.id}`} {...column.getHeaderProps(column.getSortByToggleProps())}>
+        {!column.notSortable && (
           <TableElements.SortArrow
             active={column.isSorted}
-            {...column.getHeaderProps(column.getSortByToggleProps())}
           >
             <Icons.SortingArrow rotate={column.isSortedDesc ? 0 : 180} />
           </TableElements.SortArrow>
-          <TableElements.HeaderText position={column.textAlign}>
-            <div {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}</div>
-            {column.filterable ? column.render('Filter') : null}
-          </TableElements.HeaderText>
-        </>
-      ) : (
+        )}
         <TableElements.HeaderText position={column.textAlign}>
           {column.render('Header')}
-          {column.filterable ? column.render('Filter') : null}
         </TableElements.HeaderText>
-      )}
-    </TableElements.Label>
+      </TableElements.Label>
+      {column.filterable ? column.render('Filter') : null}
+    </div>
+
   </TableElements.TH>
 );

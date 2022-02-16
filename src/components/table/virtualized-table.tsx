@@ -25,6 +25,7 @@ import { Icons } from '../icon';
 import { Cells } from './cells';
 import { TableErrorFallback } from '../error-fallback';
 import { DefaultColumnFilter } from './filters';
+import { alphanumeric } from './sorting/alphanumeric';
 
 type CustomColumn = Column &
 { textAlign?: string; width?: string; notSortable?: boolean; disableEllipsis?: boolean, filterable?: boolean; isCustomCell?: boolean };
@@ -93,7 +94,7 @@ export const VirtualizedTable = withErrorBoundary(({
     state: { filters } = {} as any,
   } = useTable(
     {
-      columns: useMemo(() => columns, [...columnsDependency]),
+      columns: useMemo(() => columns.map((col) => ({ ...col, sortType: alphanumeric })), [...columnsDependency]),
       data: useMemo(() => (data.length > 0 ? data : Array(initialRowsCount).fill(initialRowsCount)), [data]),
       initialState: { sortBy: defaultSortBy, filters: defaultFilters },
       autoResetPage: false,
@@ -155,12 +156,9 @@ export const VirtualizedTable = withErrorBoundary(({
               {headerGroup.headers.map((column: any) => (
                 <div {...column.getHeaderProps()} tw="w-full px-4">
                   <div tw="flex gap-3 items-center font-weight[600]" style={{ width: column.width }}>
-                    <Label>
+                    <Label css={!column.notSortable && tw`cursor-pointer`} {...column.getHeaderProps(column.getSortByToggleProps())}>
                       {!column.notSortable && (
-                        <SortArrow
-                          active={column.isSorted}
-                          {...column.getHeaderProps(column.getSortByToggleProps())}
-                        >
+                        <SortArrow active={column.isSorted}>
                           <Icons.SortingArrow rotate={column.isSortedDesc ? 0 : 180} />
                         </SortArrow>
                       )}
@@ -235,7 +233,7 @@ const SortArrow = styled.div`
   ${({ active }: { active: boolean }) => active && tw`visible text-blue-shade`}
 `;
 
-const Label = styled.span`
+const Label = styled.span<{css: string}>`
   ${tw`relative inline-flex items-center`};
 
   &:hover ${SortArrow} {

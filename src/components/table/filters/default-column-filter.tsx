@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { Inputs } from '../../forms';
 
@@ -17,6 +17,10 @@ export function DefaultColumnFilter({
     search(value);
     setInputValue(value);
   };
+
+  useEffect(() => { // filterValue can change not only from this  field
+    setInputValue(filterValue);
+  }, [filterValue]);
 
   return (
     <Inputs.Search

@@ -1,0 +1,22 @@
+name: JestCheck
+
+on: [pull_request]
+
+jobs:
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - name: Start tests
+        run: npm run --silent test -- -u --testLocationInResults --json --coverage --outputFile="jest.results.json"
+        continue-on-error: true
+      - uses: willcaul/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          coverage-comment: false

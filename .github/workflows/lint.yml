@@ -1,0 +1,16 @@
+name: ESLint
+
+on: [pull_request]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm install
+    - uses: bradennapier/eslint-plus-action@v3.4.2
+      env:
+        NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      with:
+        issueSummaryType: full
+        reportIgnoredFiles: true

@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import {
   useTable, Column, useSortBy, useBlockLayout, useFilters,
 } from 'react-table';
@@ -27,7 +27,7 @@ import { Cells } from './cells';
 import { TableErrorFallback } from '../error-fallback';
 import { DefaultColumnFilter } from './filters';
 import { alphanumeric } from './sorting/alphanumeric';
-import { useQueryParams } from '../../hooks';
+import { useQueryParams, useElementSize } from '../../hooks';
 import { addQueryParamsToPath, removeQueryParamsFromPath } from '../../utils';
 
 type CustomColumn = Column &
@@ -166,6 +166,9 @@ export const VirtualizedTable = withErrorBoundary(({
     [prepareRow, rows],
   );
 
+  const listContainerElement = useRef(null);
+  const { height: listContainerHeight } = useElementSize(listContainerElement);
+
   return (
     <>
       {renderHeader && renderHeader({ currentCount: rows.length, totalCount: data.length })}
@@ -175,7 +178,7 @@ export const VirtualizedTable = withErrorBoundary(({
             <HeaderGroup
               {...headerGroup.getHeaderGroupProps()}
               style={{ display: 'grid !important', gridTemplateColumns }}
-              withScroll={listItemSize * rows.length > listHeight}
+              withScroll={listItemSize * rows.length > listContainerHeight}
             >
               {headerGroup.headers.map((column: any) => (
                 <div {...column.getHeaderProps()} tw="w-full px-4">
@@ -196,13 +199,13 @@ export const VirtualizedTable = withErrorBoundary(({
           ))}
         </div>
 
-        <div {...getTableBodyProps()} tw="w-full">
+        <div {...getTableBodyProps()} tw="w-full flex-grow min-h-[1px]" ref={listContainerElement}>
           {rows.length === 0
             ? stub
             : (
               <FixedSizeListWithCustomScroll
                 width="auto"
-                height={listHeight}
+                height={listContainerHeight}
                 itemSize={listItemSize}
                 itemCount={rows.length}
               >

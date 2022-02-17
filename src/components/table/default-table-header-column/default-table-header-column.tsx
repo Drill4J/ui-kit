@@ -13,9 +13,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import tw from 'twin.macro';
 import { Icons } from '../../icon';
 import { TableElements } from '../table-elements';
-import 'twin.macro';
 
 export const DefaultTableHeaderColumn = ({ column }: any) => (
   <TableElements.TH
@@ -23,7 +23,11 @@ export const DefaultTableHeaderColumn = ({ column }: any) => (
     style={{ textAlign: column.textAlign || 'right', width: column.filterable ? '100%' : column.width }}
     data-test={`table-th-${column.id}`}
   >
-    <div tw="flex items-center gap-x-3">
+    <div css={[
+      tw`flex items-center gap-x-3 justify-end`,
+      column.textAlign === 'left' && tw`justify-start`,
+    ]}
+    >
       <TableElements.Label key={`table-label-${column.id}`} {...column.getHeaderProps(column.getSortByToggleProps())}>
         {!column.notSortable && (
           <TableElements.SortArrow
@@ -38,6 +42,5 @@ export const DefaultTableHeaderColumn = ({ column }: any) => (
       </TableElements.Label>
       {column.filterable ? column.render('Filter') : null}
     </div>
-
   </TableElements.TH>
 );

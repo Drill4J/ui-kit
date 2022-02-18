@@ -3,7 +3,6 @@ import {
   render, fireEvent, screen,
 } from '@testing-library/react';
 import { SearchPanel } from './search-panel';
-import { SessionIndicator } from '../session-indicator';
 import { getByDataTest } from '../../../test-utils';
 
 const PLACEHOLDER = 'PLACEHOLDER';

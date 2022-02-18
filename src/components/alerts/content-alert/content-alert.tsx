@@ -25,10 +25,10 @@ const Body = styled.div<{type: AlertType}>`
   ${tw`rounded-lg overflow-hidden`};
 
   ${({ type }) => [
-    type === 'INFO' && tw`bg-[#2196f3] bg-opacity-20`,
-    type === 'SUCCESS' && tw`bg-[#00b602] bg-opacity-20`,
-    type === 'WARNING' && tw`bg-[#F5A623] bg-opacity-20`,
-    type === 'ERROR' && tw`bg-[#F13333] bg-opacity-20`,
+    type === 'INFO' && tw`bg-blue-default bg-opacity-10`,
+    type === 'SUCCESS' && tw`bg-green-default bg-opacity-10`,
+    type === 'WARNING' && tw`bg-orange-default bg-opacity-10`,
+    type === 'ERROR' && tw`bg-red-medium-tint bg-opacity-10`,
   ]}
 `;
 

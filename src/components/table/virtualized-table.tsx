@@ -170,9 +170,13 @@ export const VirtualizedTable = withErrorBoundary(({
   const { height: listContainerHeight } = useElementSize(listContainerElement);
 
   return (
-    <>
+    <div tw="h-full flex flex-col">
       {renderHeader && renderHeader({ currentCount: rows.length, totalCount: data.length })}
-      <div {...getTableProps()} tw="w-full text-14 leading-24 text-monochrome-black bg-monochrome-white" {...rest}>
+      <div
+        {...getTableProps()}
+        tw="w-full flex flex-col flex-grow min-h-[1px] text-14 leading-24 text-monochrome-black bg-monochrome-white"
+        {...rest}
+      >
         <div tw="grid items-center w-full h-13 bg-monochrome-white border-monochrome-black border-t border-b">
           {headerGroups.map((headerGroup: any) => (
             <HeaderGroup
@@ -214,7 +218,7 @@ export const VirtualizedTable = withErrorBoundary(({
             )}
         </div>
       </div>
-    </>
+    </div>
   );
 }, {
   FallbackComponent: TableErrorFallback,

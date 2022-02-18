@@ -17,17 +17,19 @@ export default {
 const Template = (args: any) =>
   (
     <BrowserRouter>
-      <VirtualizedTable
-        {...args}
-        isLoading={false}
-        data={Array.from({ length: 60 }, (_, i) => ({
-          id: `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]:AUTO-${i}`,
-          type: 'AUTO',
-          name: `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]-${i}`,
-          coverage: 50,
-        }))}
-        initialRowsCount={22}
-      />
+      <div tw="h-full">
+        <VirtualizedTable
+          {...args}
+          isLoading={false}
+          data={Array.from({ length: 60 }, (_, i) => ({
+            id: `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]:AUTO-${i}`,
+            type: 'AUTO',
+            name: `[engine:junit-jupiter]/[class:api.standalone.StandaloneApiTest]/[method:junit5IgnoredTest()]-${i}`,
+            coverage: 50,
+          }))}
+          initialRowsCount={22}
+        />
+      </div>
     </BrowserRouter>
   );
 export const BuildsTable = Template.bind({});

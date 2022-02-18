@@ -20,4 +20,4 @@ const Template = ({ wrapperColor }: {wrapperColor: string}) => (
   </div>
 );
 
-export const CheckboxWithColor = Template.bind({});
+export const RadioWithColor = Template.bind({});

@@ -8,26 +8,22 @@ import { DarkTextarea } from '../inputs/dark-textarea';
 export default {
   title: 'DarkFormGroup',
   component: DarkFormGroup,
-  parameters: {
-    backgrounds: {
-      default: 'black',
-      values: [
-        {name: 'black', value: '#000'},
-      ],
-    },
-  },
 } as ComponentMeta<typeof DarkFormGroup>;
 
 const TemplateWithInput: Story = (args) => (
-  <DarkFormGroup label="" {...args}>
-    <DarkInput />
-  </DarkFormGroup>
+  <div tw="w-[400px]">
+    <DarkFormGroup label="" {...args}>
+      <DarkInput />
+    </DarkFormGroup>
+  </div>
 );
 
 const TemplateWithTextarea: Story = (args) => (
-  <DarkFormGroup label="" {...args}>
-    <DarkTextarea />
-  </DarkFormGroup>
+  <div tw="w-[400px]">
+    <DarkFormGroup label="" {...args}>
+      <DarkTextarea />
+    </DarkFormGroup>
+  </div>
 );
 
 export const DefaultWithInput = TemplateWithInput.bind({});

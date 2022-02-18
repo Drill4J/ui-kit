@@ -8,19 +8,19 @@ export default {
   title: 'Input',
   component: Input,
   argTypes: {
-    touched: {type: 'boolean'},
-    error: {type: 'boolean'},
-    disabled: {type: 'boolean'},
+    touched: { type: 'boolean' },
+    error: { type: 'boolean' },
+    disabled: { type: 'boolean' },
   },
 } as ComponentMeta<typeof Input>;
 
-const Template: Story = (args) => <Input {...args} />;
+const Template: Story = (args) => (<Input tw="w-[300px]" {...args} />);
 export const Default = Template.bind({});
 Default.args = { disabled: false };
 Default.parameters = {
   docs: {
     source: {
-      code: '<Input />',
+      code: '<Input  tw="w-[300px]" />',
     },
   },
 };

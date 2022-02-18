@@ -6,7 +6,7 @@ import { Fields } from '../../fields';
 import 'twin.macro';
 
 storiesOf('DarkTextarea', module).add('DarkTextarea', () => (
-  <div tw="bg-monochrome-dark p-6">
+  <div tw="p-6">
     <h1>Signup</h1>
     <Formik
       initialValues={{

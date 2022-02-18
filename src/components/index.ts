@@ -7,7 +7,6 @@ export { Tab } from './tab';
 export { Menu } from './menu';
 export { MessagePanel } from './message-panel';
 export { Panel } from './panel';
-export { GeneralAlerts } from './general-alerts';
 export { Portal } from './portal';
 export { MainProgressBar } from './main-progress-bar';
 export { AdditionalProgressBar } from './additional-progress-bar';

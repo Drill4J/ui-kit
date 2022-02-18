@@ -16,7 +16,6 @@ export {
   Menu,
   MessagePanel,
   Panel,
-  GeneralAlerts,
   Portal,
   MainProgressBar,
   AdditionalProgressBar,

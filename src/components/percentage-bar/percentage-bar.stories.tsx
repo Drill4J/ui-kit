@@ -21,3 +21,4 @@ export default {
 
 const Template: Story = (args) => <PercentageBar percentage={100} {...args} />;
 export const Default = Template.bind({});
+Default.args = { percentage: 100 };

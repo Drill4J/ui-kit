@@ -28,7 +28,7 @@ export default {
 const Template: Story = (args) => <StripedProgressBar type="primary" value="100" {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = { type: 'primary' };
+Primary.args = { type: 'primary', value: 300 };
 
 export const Secondary = Template.bind({});
-Secondary.args = { type: 'secondary' };
+Secondary.args = { type: 'secondary', value: 300 };

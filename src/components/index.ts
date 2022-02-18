@@ -5,7 +5,6 @@ export { Spinner } from './spinner';
 export { Tooltip } from './tooltip';
 export { Tab } from './tab';
 export { Menu } from './menu';
-export { MessagePanel } from './message-panel';
 export { Panel } from './panel';
 export { Portal } from './portal';
 export { MainProgressBar } from './main-progress-bar';

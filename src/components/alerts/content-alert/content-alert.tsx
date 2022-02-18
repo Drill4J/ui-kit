@@ -4,11 +4,10 @@ import { AlertType } from '../../../types/alert';
 import { getIcon } from '../getIcon';
 
 interface ContentAlertProps {
-  message: string;
   type: AlertType;
 }
 
-export const ContentAlert: FC<ContentAlertProps> = ({ message, type, ...rest }) => (
+export const ContentAlert: FC<ContentAlertProps> = ({ type, children, ...rest }) => (
   <Body type={type} tw="flex gap-x-3 px-4 py-2" {...rest}>
     <div tw="mt-1">
       <ColorWrapper type={type}>
@@ -16,7 +15,7 @@ export const ContentAlert: FC<ContentAlertProps> = ({ message, type, ...rest }) 
       </ColorWrapper>
     </div>
     <Message>
-      {message}
+      {children}
     </Message>
   </Body>
 );

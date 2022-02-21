@@ -3,6 +3,7 @@ import {
   render, fireEvent, screen,
 } from '@testing-library/react';
 import { SearchPanel } from './search-panel';
+import { getByDataTest } from '../../../test-utils';
 
 const PLACEHOLDER = 'PLACEHOLDER';
 const SEARCH_RESULT = 8;
@@ -81,7 +82,7 @@ describe('SearchPanel', () => {
   });
 
   it('should reset value after the click to X', () => {
-    render(
+    const { container } = render(
       <SearchPanel
         onSearch={onSearch}
         searchResult={SEARCH_RESULT}
@@ -91,7 +92,7 @@ describe('SearchPanel', () => {
     );
     const input = screen.getByPlaceholderText(PLACEHOLDER);
     fireEvent.change(input, { target: { value: VALUE } });
-    const clearIcon = screen.getByTestId('search-input:clear-icon');
+    const clearIcon = getByDataTest(container, 'search-input:clear-icon');
     fireEvent.click(clearIcon);
 
     expect(input.getAttribute('value')).toBe('');

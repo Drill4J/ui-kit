@@ -25,12 +25,17 @@ export default {
   },
 } as Meta;
 
-const TemplateAdditionalProgressBar: Story = (args) => <AdditionalProgressBar value="100" {...args} />;
+const TemplateAdditionalProgressBar: Story = (args) => (
+  <div style={{ width: 300 }}>
+    <AdditionalProgressBar value="300px" {...args} />
+  </div>
+);
 
 export const DefaultAdditionalProgressBar: Story = TemplateAdditionalProgressBar.bind({});
+DefaultAdditionalProgressBar.args = { value: 300 };
 
 export const PrimaryAdditionalProgressBar: Story = TemplateAdditionalProgressBar.bind({});
-PrimaryAdditionalProgressBar.args = { type: 'primary' };
+PrimaryAdditionalProgressBar.args = { type: 'primary', value: 300 };
 
 export const SecondaryAdditionalProgressBar: Story = TemplateAdditionalProgressBar.bind({});
-SecondaryAdditionalProgressBar.args = { type: 'secondary' };
+SecondaryAdditionalProgressBar.args = { type: 'secondary', value: 300 };

@@ -8,13 +8,13 @@ export default {
   title: 'Textarea',
   component: Textarea,
   argTypes: {
-    touched: {type: 'boolean'},
-    error: {type: 'boolean'},
-    disabled: {type: 'boolean'},
+    touched: { type: 'boolean' },
+    error: { type: 'boolean' },
+    disabled: { type: 'boolean' },
   },
 } as ComponentMeta<typeof Textarea>;
 
-const Template: Story = (args) => <Textarea {...args} />;
+const Template: Story = (args) => <Textarea tw="w-[300px] h-[100px]" {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { disabled: false };

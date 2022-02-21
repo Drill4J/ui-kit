@@ -12,7 +12,7 @@ export default {
       control: {
         type: 'range',
         min: 0,
-        max: 100,
+        max: 300,
         step: 1,
       },
     },
@@ -27,9 +27,10 @@ export default {
 
 const Template: Story = (args) => <MainProgressBar value="100" {...args} />;
 export const Default = Template.bind({});
+Default.args = { value: 300 };
 
 export const Primary = Template.bind({});
-Primary.args = { type: 'primary' };
+Primary.args = { type: 'primary', value: 300 };
 
 export const Secondary = Template.bind({});
-Secondary.args = { type: 'secondary' };
+Secondary.args = { type: 'secondary', value: 300 };

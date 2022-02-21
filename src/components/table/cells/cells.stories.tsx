@@ -24,8 +24,8 @@ Coverage.args = {
   value: 50,
 };
 
-export const CoverageIsNull = (args) => <Cells.Coverage {...args} />;
-CoverageIsNull.args = {
+export const CoverageIsZero = (args) => <Cells.Coverage {...args} />;
+CoverageIsZero.args = {
   value: 0,
 };
 

@@ -14,7 +14,6 @@ export {
   Tooltip,
   Tab,
   Menu,
-  MessagePanel,
   Panel,
   Portal,
   MainProgressBar,

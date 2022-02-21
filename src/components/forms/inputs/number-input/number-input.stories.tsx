@@ -9,7 +9,7 @@ export default {
   component: NumberInput,
 } as ComponentMeta<typeof NumberInput>;
 
-const Template: Story = (args) => <NumberInput type="number" placeholder="enter text..." {...args} />;
+const Template: Story = (args) => <NumberInput tw="w-[300px]" type="number" placeholder="enter text..." {...args} />;
 export const Default = Template.bind({});
 Default.args = { disabled: false };
 

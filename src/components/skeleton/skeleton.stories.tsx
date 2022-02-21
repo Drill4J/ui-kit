@@ -9,7 +9,7 @@ export default {
   component: Skeleton,
 } as Meta;
 
-const Template: Story = (args) => <Skeleton {...args} />;
+const Template: Story = (args) => (<div style={{ width: 300 }}><Skeleton {...args} /></div>);
 export const Default = Template.bind({});
 
 export const WithIcon = Template.bind({});

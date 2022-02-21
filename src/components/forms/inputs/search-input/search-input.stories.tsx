@@ -13,7 +13,7 @@ export const Default: Story = (args) => {
   const { value } = args;
   const [stateValue, setStateValue] = useState(value || '');
   return (
-    <div tw="bg-monochrome-white w-full h-full p-10">
+    <div tw="bg-monochrome-white w-[300px]">
       <SearchInput
         placeholder="enter text..."
         value={stateValue}

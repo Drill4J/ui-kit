@@ -9,9 +9,8 @@ export default {
   component: Dropdown1,
 } as Meta;
 
-export const DropdownExample: Story = (args) => {
+export const Dropdown: Story = (args) => {
   const { options } = args;
-  const [value, setValue] = useState<any>('first item');
   return (
     <div tw="pt-[100px] w-[400px]">
       <Dropdown1
@@ -22,7 +21,35 @@ export const DropdownExample: Story = (args) => {
     </div>
   );
 };
-DropdownExample.args = {
+
+export const DisabledDropdown: Story = (args) => {
+  const { options } = args;
+  return (
+    <div tw="pt-[100px] w-[400px]">
+      <Dropdown1
+        options={options}
+        onSelect={(newValue) => console.log(newValue)}
+        placeholder="Choose your option"
+        disabled
+      />
+    </div>
+  );
+};
+
+Dropdown.args = {
+  options: [
+    {
+      value: 'first item',
+      label: 'first item',
+    },
+    {
+      value: 'second item',
+      label: 'second item with custom label',
+    },
+  ],
+};
+
+DisabledDropdown.args = {
   options: [
     {
       value: 'first item',

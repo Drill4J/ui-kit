@@ -14,10 +14,11 @@ interface Props {
   onSelect: (value: string) => void;
   placeholder: string;
   defaultValue?: string;
+  disabled?: boolean;
 }
 
 export const Dropdown1 = ({
-  options, onSelect, placeholder, defaultValue,
+  options, onSelect, placeholder, defaultValue, disabled,
 }: Props) => {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
@@ -26,7 +27,7 @@ export const Dropdown1 = ({
     <Popover>
       {({ setIsOpen, isOpen }) => (
         <>
-          <InputWrapper tw="flex justify-between items-center gap-x-1" onClick={() => setIsOpen(!isOpen)}>
+          <InputWrapper disabled={disabled} tw="flex justify-between items-center gap-x-1" onClick={() => setIsOpen(!isOpen)}>
             {selectedValue
               ? <span tw="text-monochrome-medium-tint" data-test="dropdown:selected-value">{selectedOption?.label}</span>
               : <span tw="text-monochrome-dark">{placeholder}</span>}
@@ -60,9 +61,10 @@ const Expander = styled(Icons.Expander)`
   ${tw`text-monochrome-medium-tint`}
 `;
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<{ disabled?: boolean }>`
   ${tw`py-2 px-4 cursor-pointer`}
   ${tw`box-border border border-monochrome-dark rounded bg-monochrome-black hover:border-monochrome-gray`}
+  ${({ disabled }) => disabled && tw`bg-monochrome-dark100 hover:border-monochrome-dark100 pointer-events-none`}
   
   &:hover ${Expander} {
     ${tw`text-blue-medium-tint`}
@@ -71,16 +73,19 @@ const InputWrapper = styled.div`
 
 const ScrollContainer = styled.div`
   ${tw`absolute z-50 top-11 py-2 w-full max-h-56 overflow-auto rounded bg-monochrome-black`};
-    &::-webkit-scrollbar {
-      ${tw`w-1 rounded bg-monochrome-light-tint`}
-    };
 
-    &::-webkit-scrollbar-thumb {
-      ${tw`w-1 rounded bg-monochrome-medium-tint`}
-    };
+  &::-webkit-scrollbar {
+    ${tw`w-1 rounded bg-monochrome-light-tint`}
+  }
+;
+
+  &::-webkit-scrollbar-thumb {
+    ${tw`w-1 rounded bg-monochrome-medium-tint`}
+  }
+;
 `;
 
-const Option = styled.div<{selected: boolean}>`
+const Option = styled.div<{ selected: boolean }>`
   ${tw`px-4 py-1 cursor-pointer`}
   ${tw`text-monochrome-medium-tint text-14 leading-20 whitespace-nowrap hover:bg-monochrome-white/10`}
   ${({ selected }) => selected && tw`text-blue-default`}

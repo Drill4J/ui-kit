@@ -60,5 +60,5 @@ const SearchIcon = styled(Icons.Search)`
 `;
 
 const ClearIcon = styled(Icons.Close)`
-  ${tw`absolute text-monochrome-black cursor-pointer right-0`}
+  ${tw`absolute text-monochrome-black cursor-pointer right-[6px]`}
 `;

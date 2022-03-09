@@ -2,9 +2,8 @@ import React, {
   memo, useCallback, useMemo, useState,
 } from 'react';
 import tw, { styled } from 'twin.macro';
-import { FixedSizeList } from 'react-window';
 
-import { Icons } from '../../../icon/index';
+import { Expander, InputWrapper, FixedSizeListWithCustomScroll } from './elements';
 import { Popover } from '../../../popover';
 import { SearchInput } from '../search-input';
 
@@ -28,7 +27,7 @@ export const Autocomplete = memo(({
   const [filterValue, setFilterValue] = useState('');
   const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
 
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue); // TODO save OptionType here
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
 
   return (
@@ -51,7 +50,7 @@ export const Autocomplete = memo(({
               {label}
             </Option>
           );
-        }, [filteredOptions]);
+        }, [filteredOptions, selectedValue]);
 
         return (
           <>
@@ -68,7 +67,14 @@ export const Autocomplete = memo(({
             </InputWrapper>
             {isOpen && (
               <div tw="absolute z-50 top-11 py-2 w-full rounded bg-monochrome-white">
-                <SearchInput tw="px-4 mb-4" placeholder="Search..." isOpen onChange={({ target: { value } }) => setFilterValue(value)} />
+                <SearchInput
+                  tw="relative mx-4 mb-4"
+                  placeholder="Search..."
+                  isOpen
+                  onChange={({ target: { value } }) => setFilterValue(value)}
+                  reset={() => setFilterValue('')}
+                  value={filterValue}
+                />
                 <FixedSizeListWithCustomScroll
                   width="auto"
                   height={getFixedSizeListWithCustomScrollHeight(filteredOptions.length)}
@@ -77,6 +83,11 @@ export const Autocomplete = memo(({
                 >
                   {renderOptions}
                 </FixedSizeListWithCustomScroll>
+                {filteredOptions.length === 0 && (
+                  <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
+                    No results found.
+                  </div>
+                )}
               </div>
             )}
           </>
@@ -85,31 +96,6 @@ export const Autocomplete = memo(({
     </Popover>
   );
 });
-
-const Expander = styled(Icons.Expander)`
-  ${tw`text-monochrome-black`}
-`;
-
-const InputWrapper = styled.div<{ disabled?: boolean; isActive: boolean; }>`
-  ${tw`py-2 px-4 cursor-pointer`}
-  ${tw`box-border border border-monochrome-dark-tint rounded bg-monochrome-white hover:border-monochrome-gray`}
-  ${({ disabled }) => disabled && tw`bg-monochrome-dark100 hover:border-monochrome-dark100 pointer-events-none`}
-  ${({ isActive }) => isActive && tw`border-monochrome-black`}
-`;
-
-const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
-  ${tw`w-full max-h-[196px] overflow-auto`};
-
-  &::-webkit-scrollbar {
-    ${tw`rounded bg-monochrome-white`}
-  }
-;
-
-  &::-webkit-scrollbar-thumb {
-    ${tw`w-1 rounded bg-monochrome-dark-tint rounded-full border-[6px] border-solid border-monochrome-white`}
-  }
-;
-`;
 
 const Option = styled.div<{ selected: boolean }>`
   ${tw`px-4 py-1 cursor-pointer`}

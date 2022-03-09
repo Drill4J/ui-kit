@@ -16,7 +16,7 @@ export const DisabledFormGroup = ({ fields }: Props) => (
       <div key={name}>
         <div tw="text-monochrome-medium-tint font-bold">{label}</div>
         <Field name={name}>
-          {({ field }: any) => <div tw="text-14 text-monochrome-dark-tint">{field?.value}</div>}
+          {({ field }: any) => <div tw="text-14 text-monochrome-dark-tint truncate">{field?.value}</div>}
         </Field>
       </div>
     ))}

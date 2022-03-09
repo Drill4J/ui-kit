@@ -106,7 +106,7 @@ const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
 ;
 
   &::-webkit-scrollbar-thumb {
-    ${tw`w-1 rounded bg-monochrome-dark-tint rounded-full border-4 border-solid border-monochrome-white`}
+    ${tw`w-1 rounded bg-monochrome-dark-tint rounded-full border-[6px] border-solid border-monochrome-white`}
   }
 ;
 `;

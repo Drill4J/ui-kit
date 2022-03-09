@@ -86,7 +86,7 @@ const ScrollContainer = styled.div`
 ;
 
   &::-webkit-scrollbar-thumb {
-    ${tw`w-1 rounded bg-monochrome-default rounded-full border-4 border-solid border-monochrome-black`}
+    ${tw`w-1 rounded bg-monochrome-default rounded-full border-[6px] border-solid border-monochrome-black`}
   }
 ;
 `;

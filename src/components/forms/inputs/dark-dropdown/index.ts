@@ -1,1 +1,1 @@
-export { DarkDropdown } from './dropdown1';
+export { DarkDropdown } from './dark-dropdown';

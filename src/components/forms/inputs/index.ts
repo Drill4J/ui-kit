@@ -27,3 +27,4 @@ export const Inputs = {
 };
 
 export { Dropdown } from './dropdown';
+export { Autocomplete, MultipleSelectAutocomplete } from './autocomplete';

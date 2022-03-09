@@ -1,5 +1,5 @@
 export {
-  Inputs, Button, LinkButton, CancelButton, NegativeActionButton, Checkbox, Dropdown, CopyButton,
+  Inputs, Button, LinkButton, CancelButton, NegativeActionButton, Checkbox, Dropdown, CopyButton, Autocomplete, MultipleSelectAutocomplete,
 } from './inputs';
 export { FormGroup } from './form-group';
 export { DisabledFormGroup } from './disabled-form-group';

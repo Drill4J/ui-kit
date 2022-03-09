@@ -46,6 +46,8 @@ export {
   idValidator,
   DisabledFormGroup,
   alreadyExist,
+  Autocomplete,
+  MultipleSelectAutocomplete,
 } from './forms';
 export { Popover } from './popover';
 export { Skeleton } from './skeleton';

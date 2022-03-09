@@ -64,6 +64,8 @@ export {
   CopyButton,
   SystemAlert,
   ContentAlert,
+  Autocomplete,
+  MultipleSelectAutocomplete,
 } from './components';
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition,

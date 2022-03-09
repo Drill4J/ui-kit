@@ -70,6 +70,12 @@ const PanelHeader: FC = ({ children, ...rest }) => (
   </div>
 );
 
+const PanelSubHeader: FC = ({ children, ...rest }) => (
+  <div tw="px-6 py-4 bg-monochrome-light-tint text-monochrome-default" {...rest}>
+    {children}
+  </div>
+);
+
 const PanelFooter: FC = ({ children, ...rest }) => (
   <div tw="px-6 py-4 bg-monochrome-light-tint" {...rest}>
     {children}
@@ -88,6 +94,7 @@ const PanelFade = styled.div`
 
 Panel.Content = PanelContent;
 Panel.Header = PanelHeader;
+Panel.SubHeader = PanelSubHeader;
 Panel.Footer = PanelFooter;
 Panel.Body = PanelBody;
 

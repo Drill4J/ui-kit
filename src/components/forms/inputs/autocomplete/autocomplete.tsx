@@ -1,15 +1,18 @@
 import React, {
   memo, useCallback, useMemo, useState,
 } from 'react';
-import tw, { styled } from 'twin.macro';
+import 'twin.macro';
 
-import { Expander, InputWrapper, FixedSizeListWithCustomScroll } from './elements';
+import {
+  Expander, InputWrapper, FixedSizeListWithCustomScroll, Option, AutocompleteBodyWrapper,
+} from './elements';
 import { Popover } from '../../../popover';
 import { SearchInput } from '../search-input';
+import { Icons } from '../../../icon';
 
 interface OptionType {
   value: string;
-  label: React.ReactNode;
+  label: string;
 }
 
 interface Props {
@@ -20,14 +23,14 @@ interface Props {
   disabled?: boolean;
 }
 const LIST_ITEM_HEIGHT = 28;
-const MAX_LIST_CONTAINER_HEIGHT = 196;
+const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
 export const Autocomplete = memo(({
   options, onSelect, placeholder, defaultValue, disabled,
 }: Props) => {
   const [filterValue, setFilterValue] = useState('');
   const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
 
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue); // TODO save OptionType here
+  const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
 
   return (
@@ -58,37 +61,24 @@ export const Autocomplete = memo(({
               tw="flex justify-between items-center gap-x-1"
               isActive={isOpen}
               disabled={disabled}
-              onClick={() => setIsOpen(!isOpen)}
             >
               {selectedValue
                 ? <span tw="text-monochrome-black" data-test="autocomplete:selected-value">{selectedOption?.label}</span>
                 : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
-              <Expander width={12} height={8} rotate={isOpen ? -90 : 90} />
+              <div tw="flex gap-x-3">
+                {selectedValue && <Icons.Close width={12} height={12} onClick={() => setSelectedValue(null)} />}
+                <Expander onClick={() => setIsOpen(!isOpen)} width={12} height={12} rotate={isOpen ? -90 : 90} />
+              </div>
             </InputWrapper>
             {isOpen && (
-              <div tw="absolute z-50 top-11 py-2 w-full rounded bg-monochrome-white">
-                <SearchInput
-                  tw="relative mx-4 mb-4"
-                  placeholder="Search..."
-                  isOpen
-                  onChange={({ target: { value } }) => setFilterValue(value)}
-                  reset={() => setFilterValue('')}
-                  value={filterValue}
+              <AutocompleteBodyWrapper>
+                <AutocompleteBody
+                  setFilterValue={setFilterValue}
+                  renderOptions={renderOptions}
+                  filterValue={filterValue}
+                  filteredOptionsCount={filteredOptions.length}
                 />
-                <FixedSizeListWithCustomScroll
-                  width="auto"
-                  height={getFixedSizeListWithCustomScrollHeight(filteredOptions.length)}
-                  itemSize={LIST_ITEM_HEIGHT}
-                  itemCount={filteredOptions.length}
-                >
-                  {renderOptions}
-                </FixedSizeListWithCustomScroll>
-                {filteredOptions.length === 0 && (
-                  <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
-                    No results found.
-                  </div>
-                )}
-              </div>
+              </AutocompleteBodyWrapper>
             )}
           </>
         );
@@ -97,11 +87,40 @@ export const Autocomplete = memo(({
   );
 });
 
-const Option = styled.div<{ selected: boolean }>`
-  ${tw`px-4 py-1 cursor-pointer`}
-  ${tw`text-monochrome-black text-14 leading-20 whitespace-nowrap hover:bg-monochrome-white/10`}
-  ${({ selected }) => selected && tw`text-blue-default`}
-`;
+interface AutocompleteBodyProps {
+  filterValue: string;
+  setFilterValue: (filter: string) => void;
+  renderOptions: ({ index, style }: any) => JSX.Element;
+  filteredOptionsCount: number;
+}
+
+export const AutocompleteBody = ({
+  filterValue, setFilterValue, renderOptions, filteredOptionsCount,
+}: AutocompleteBodyProps) => (
+  <>
+    <SearchInput
+      tw="relative mx-4 mb-4"
+      placeholder="Search..."
+      isOpen
+      onChange={({ target: { value } }) => setFilterValue(value)}
+      reset={() => setFilterValue('')}
+      value={filterValue}
+    />
+    <FixedSizeListWithCustomScroll
+      width="auto"
+      height={getFixedSizeListWithCustomScrollHeight(filteredOptionsCount)}
+      itemSize={LIST_ITEM_HEIGHT}
+      itemCount={filteredOptionsCount}
+    >
+      {renderOptions}
+    </FixedSizeListWithCustomScroll>
+    {filteredOptionsCount === 0 && (
+      <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
+        No results found.
+      </div>
+    )}
+  </>
+);
 
 function getFixedSizeListWithCustomScrollHeight(itemsCount: number) {
   return itemsCount * LIST_ITEM_HEIGHT > MAX_LIST_CONTAINER_HEIGHT ? MAX_LIST_CONTAINER_HEIGHT : itemsCount * LIST_ITEM_HEIGHT;

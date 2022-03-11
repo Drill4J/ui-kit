@@ -66,6 +66,7 @@ export {
   ContentAlert,
   Autocomplete,
   MultipleSelectAutocomplete,
+  LightDropdown,
 } from './components';
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition,

@@ -48,6 +48,7 @@ export {
   alreadyExist,
   Autocomplete,
   MultipleSelectAutocomplete,
+  LightDropdown,
 } from './forms';
 export { Popover } from './popover';
 export { Skeleton } from './skeleton';

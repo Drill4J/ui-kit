@@ -4,16 +4,12 @@ import tw, { styled } from 'twin.macro';
 import { InputProps } from '../input-types';
 import { Icons } from '../../../icon';
 
-interface Props extends InputProps{
-  isOpen?: boolean;
-}
-
 export const SearchInput = ({
   className,
   reset,
   isOpen: isDefaultOpen,
   ...restProps
-}: Props) => {
+}: { isOpen?: boolean } & InputProps) => {
   const [isOpen, setIsOpen] = useState(Boolean(restProps.value || isDefaultOpen));
   const node = useRef<HTMLFormElement>(null);
 

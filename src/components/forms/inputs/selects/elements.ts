@@ -8,6 +8,7 @@ export const Expander = styled(Icons.Expander)`
 
 export const AutocompleteBodyWrapper = styled.div`
   ${tw`absolute z-50 top-11 py-2 w-full rounded bg-monochrome-white`}
+  box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
 `;
 
 export const InputWrapper = styled.div<{ disabled?: boolean; isActive: boolean; }>`
@@ -31,6 +32,19 @@ export const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
 
 export const Option = styled.div<{ selected?: boolean }>`
   ${tw`px-4 py-1 cursor-pointer`}
-  ${tw`text-monochrome-black text-14 leading-20 whitespace-nowrap hover:bg-monochrome-white/10`}
+  ${tw`text-monochrome-black text-14 leading-20 whitespace-nowrap`}
   ${({ selected }) => selected && tw`text-blue-default`}
+`;
+
+export const ScrollContainer = styled.div`
+  ${tw`w-full max-h-[196px] overflow-auto`};
+  box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
+
+  &::-webkit-scrollbar {
+    ${tw`rounded bg-monochrome-white`}
+  };
+
+  &::-webkit-scrollbar-thumb {
+    ${tw`w-1 rounded bg-monochrome-dark-tint rounded-full border-[6px] border-solid border-monochrome-white`}
+  };
 `;

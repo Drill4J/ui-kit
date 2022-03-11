@@ -21,11 +21,9 @@ export const ScrollContainer = styled.div`
 
   &::-webkit-scrollbar {
     ${tw`rounded bg-monochrome-black`}
-  }
-;
+  };
 
   &::-webkit-scrollbar-thumb {
     ${tw`w-1 rounded bg-monochrome-default rounded-full border-[6px] border-solid border-monochrome-black`}
-  }
-;
+  };
 `;

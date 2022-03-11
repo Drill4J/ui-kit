@@ -5,10 +5,10 @@ import 'twin.macro';
 
 import {
   Expander, InputWrapper, FixedSizeListWithCustomScroll, Option, AutocompleteBodyWrapper,
-} from './elements';
-import { Popover } from '../../../popover';
-import { SearchInput } from '../search-input';
-import { Icons } from '../../../icon';
+} from '../elements';
+import { Popover } from '../../../../popover';
+import { Icons } from '../../../../icon';
+import { SearchInput } from '../../search-input';
 
 interface OptionType {
   value: string;
@@ -58,7 +58,8 @@ export const Autocomplete = memo(({
         return (
           <>
             <InputWrapper
-              tw="flex justify-between items-center gap-x-1"
+              tw="flex justify-between items-center gap-x-1 cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
               isActive={isOpen}
               disabled={disabled}
             >
@@ -67,7 +68,7 @@ export const Autocomplete = memo(({
                 : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
               <div tw="flex gap-x-3">
                 {selectedValue && <Icons.Close width={12} height={12} onClick={() => setSelectedValue(null)} />}
-                <Expander onClick={() => setIsOpen(!isOpen)} width={12} height={12} rotate={isOpen ? -90 : 90} />
+                <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
               </div>
             </InputWrapper>
             {isOpen && (

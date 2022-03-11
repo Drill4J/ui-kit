@@ -5,12 +5,12 @@ import tw, { styled } from 'twin.macro';
 
 import {
   Expander, InputWrapper, AutocompleteBodyWrapper, Option,
-} from './elements';
-import { Popover } from '../../../popover';
-import { Checkbox } from '../checkbox';
+} from '../elements';
+import { Popover } from '../../../../popover';
+import { Checkbox } from '../../checkbox';
 import { AutocompleteBody } from './autocomplete';
-import { MultiSelectCheckbox } from '../checkbox/multi-select-checkbox';
-import { Button } from '../button';
+import { MultiSelectCheckbox } from '../../checkbox/multi-select-checkbox';
+import { Button } from '../../button';
 
 interface OptionType {
   value: string;
@@ -56,17 +56,17 @@ export const MultipleSelectAutocomplete = memo(({
               data-test="autocomplete:option"
               style={style}
               key={value}
+              onClick={() => {
+                setSelectedOptions({
+                  ...selectedOptions,
+                  [value]: !selectedOptions[value],
+                });
+              }}
             >
               <Checkbox
                 tw="text-blue-default"
                 id={value}
                 checked={selectedOptions[value]}
-                onChange={() => {
-                  setSelectedOptions({
-                    ...selectedOptions,
-                    [value]: !selectedOptions[value],
-                  });
-                }}
               />
               <label htmlFor={value} tw="cursor-pointer">
                 {label}
@@ -78,9 +78,10 @@ export const MultipleSelectAutocomplete = memo(({
         return (
           <>
             <InputWrapper
-              tw="flex justify-between items-center gap-x-1"
+              tw="flex justify-between items-center gap-x-1 cursor-pointer"
               isActive={isOpen}
               disabled={disabled}
+              onClick={() => setIsOpen(!isOpen)}
             >
               {appliedOptionsLabels.length
                 ? (
@@ -91,7 +92,7 @@ export const MultipleSelectAutocomplete = memo(({
                   </span>
                 )
                 : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
-              <Expander onClick={() => setIsOpen(!isOpen)} width={12} height={12} rotate={isOpen ? -90 : 90} />
+              <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
             </InputWrapper>
             {isOpen && (
               <AutocompleteBodyWrapper>

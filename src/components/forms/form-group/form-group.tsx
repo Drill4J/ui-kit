@@ -8,9 +8,9 @@ interface Props {
 }
 
 export const FormGroup = ({
-  children, label, optional, actions,
+  children, label, optional, actions, ...rest
 }: Props) => (
-  <div>
+  <div {...rest}>
     <Panel>
       <div tw="font-bold text-14 leading-20 text-monochrome-black">{label}</div>
       <div>

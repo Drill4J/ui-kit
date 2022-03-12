@@ -15,7 +15,7 @@ export const Dropdown: Story = (args) => {
     <div tw="pt-[100px] w-[400px]">
       <DarkDropdownComponent
         options={options}
-        onSelect={(newValue) => console.log(newValue)}
+        onChange={(newValue) => console.log(newValue)}
         placeholder="Choose your option"
       />
     </div>

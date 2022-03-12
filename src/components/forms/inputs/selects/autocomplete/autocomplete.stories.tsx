@@ -16,7 +16,7 @@ export const Autocomplete: Story = (args) => {
     <div tw="pt-[100px] w-[220px]">
       <AutocompleteComponent
         options={options}
-        onSelect={(newValue) => console.log(newValue)}
+        onChange={(newValue) => console.log(newValue)}
         placeholder="Choose your option"
       />
     </div>
@@ -37,7 +37,7 @@ export const MultipleSelectAutocomplete: Story = (args) => {
     <div tw="pt-[100px] w-[220px]">
       <MultipleSelectAutocompleteComponent
         options={options}
-        onSelect={(newValue) => setValues(newValue)}
+        onChange={(newValue) => setValues(newValue)}
         placeholder="Choose your option"
         values={values}
       />

@@ -17,7 +17,7 @@ interface OptionType {
 
 interface Props {
   options: OptionType[];
-  onSelect: (value: string) => void;
+  onChange: (value: string) => void;
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -25,7 +25,7 @@ interface Props {
 const LIST_ITEM_HEIGHT = 28;
 const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
 export const Autocomplete = memo(({
-  options, onSelect, placeholder, defaultValue, disabled,
+  options, onChange, placeholder, defaultValue, disabled,
 }: Props) => {
   const [filterValue, setFilterValue] = useState('');
   const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
@@ -44,7 +44,7 @@ export const Autocomplete = memo(({
               style={style}
               onClick={() => {
                 setSelectedValue(value);
-                onSelect(value);
+                onChange(value);
                 setIsOpen(false);
               }}
               key={value}

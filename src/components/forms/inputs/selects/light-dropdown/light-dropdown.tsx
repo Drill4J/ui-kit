@@ -13,14 +13,14 @@ interface OptionType {
 
 interface Props {
   options: OptionType[];
-  onSelect: (value: string) => void;
+  onChange: (value: string) => void;
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
 }
 
 export const LightDropdown = ({
-  options, onSelect, placeholder, defaultValue, disabled,
+  options, onChange, placeholder, defaultValue, disabled,
 }: Props) => {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
@@ -47,7 +47,7 @@ export const LightDropdown = ({
                   data-test="dropdown:item"
                   onClick={() => {
                     setSelectedValue(itemValue);
-                    onSelect(itemValue);
+                    onChange(itemValue);
                     setIsOpen(false);
                   }}
                   key={itemValue}

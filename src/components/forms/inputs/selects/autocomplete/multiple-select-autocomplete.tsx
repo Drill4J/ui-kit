@@ -19,14 +19,14 @@ interface OptionType {
 
 interface Props {
   options: OptionType[];
-  onSelect: (value: Record<string, boolean>) => void;
+  onChange: (value: Record<string, boolean>) => void;
   placeholder: string;
   values: Record<string, boolean>;
   disabled?: boolean;
 }
 
 export const MultipleSelectAutocomplete = memo(({
-  options, onSelect, placeholder, values, disabled,
+  options, onChange, placeholder, values, disabled,
 }: Props) => {
   const [filterValue, setFilterValue] = useState('');
   const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
@@ -125,7 +125,7 @@ export const MultipleSelectAutocomplete = memo(({
                     primary
                     disabled={pristine}
                     onClick={() => {
-                      onSelect(selectedOptions);
+                      onChange(selectedOptions);
                       setIsOpen(false);
                     }}
                   >

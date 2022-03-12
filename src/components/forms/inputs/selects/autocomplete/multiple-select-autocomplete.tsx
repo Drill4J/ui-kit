@@ -31,7 +31,7 @@ export const MultipleSelectAutocomplete = memo(({
   const [filterValue, setFilterValue] = useState('');
   const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
 
-  const [selectedOptions, setSelectedOptions] = useState<Record<string, boolean>>(values); // TODO save OptionType here
+  const [selectedOptions, setSelectedOptions] = useState<Record<string, boolean>>(values);
   const selectedOptionsCount = useMemo(() => Object.keys(selectedOptions)
     .filter((option) => selectedOptions[option]).length, [selectedOptions]);
   const isSelectedAllOptions = selectedOptionsCount === options.length;
@@ -42,7 +42,7 @@ export const MultipleSelectAutocomplete = memo(({
 
   const appliedOptionsLabels = useMemo(() => Object.keys(values).filter((option) => values[option]), [values]);
   const pristine = useMemo(() =>
-    Object.keys({ ...values, ...selectedOptions })
+    Object.keys({ ...values, ...selectedOptions }) // all options name
       .every((option) => values[option] === selectedOptions[option]), [values, selectedOptions]);
 
   return (

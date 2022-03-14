@@ -68,7 +68,7 @@ export const MultipleSelectAutocomplete = memo(({
                 id={value}
                 checked={selectedOptions[value]}
               />
-              <label htmlFor={value} tw="cursor-pointer">
+              <label htmlFor={value} tw="cursor-pointer truncate" title={label}>
                 {label}
               </label>
             </Option>
@@ -85,7 +85,7 @@ export const MultipleSelectAutocomplete = memo(({
             >
               {appliedOptionsLabels.length
                 ? (
-                  <span tw="text-monochrome-black" data-test="autocomplete:selected-value">
+                  <span tw="text-monochrome-black truncate" data-test="autocomplete:selected-value">
                     {appliedOptionsLabels.length > 3
                       ? `${appliedOptionsLabels.length} of ${options.length} selected`
                       : appliedOptionsLabels.join(', ')}

@@ -8,7 +8,7 @@ import {
 
 interface OptionType {
   value: string;
-  label: React.ReactNode;
+  label: string;
 }
 
 interface Props {
@@ -36,7 +36,15 @@ export const LightDropdown = ({
             onClick={() => setIsOpen(!isOpen)}
           >
             {selectedValue
-              ? <span tw="text-monochrome-black" data-test="dropdown:selected-value">{selectedOption?.value}</span>
+              ? (
+                <span
+                  tw="text-monochrome-black truncate"
+                  data-test="dropdown:selected-value"
+                  title={selectedOption?.label}
+                >
+                  {selectedOption?.label}
+                </span>
+              )
               : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
             <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
           </InputWrapper>
@@ -52,6 +60,7 @@ export const LightDropdown = ({
                   }}
                   key={itemValue}
                   selected={itemValue === selectedValue}
+                  title={label}
                 >
                   {label}
                 </Option>

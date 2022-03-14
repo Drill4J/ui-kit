@@ -49,6 +49,7 @@ export const Autocomplete = memo(({
               }}
               key={value}
               selected={value === selectedValue}
+              title={label}
             >
               {label}
             </Option>
@@ -64,7 +65,7 @@ export const Autocomplete = memo(({
               disabled={disabled}
             >
               {selectedValue
-                ? <span tw="text-monochrome-black" data-test="autocomplete:selected-value">{selectedOption?.label}</span>
+                ? <span tw="text-monochrome-black truncate" data-test="autocomplete:selected-value" title={selectedOption?.label}>{selectedOption?.label}</span>
                 : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
               <div tw="flex gap-x-3">
                 {selectedValue && <Icons.Close width={12} height={12} onClick={() => setSelectedValue(null)} />}

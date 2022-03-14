@@ -31,7 +31,7 @@ export const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
 `;
 
 export const Option = styled.div<{ selected?: boolean }>`
-  ${tw`px-4 py-1 cursor-pointer`}
+  ${tw`px-4 py-1 cursor-pointer truncate`}
   ${tw`text-monochrome-black text-14 leading-20 whitespace-nowrap`}
   ${({ selected }) => selected && tw`text-blue-default`}
 `;

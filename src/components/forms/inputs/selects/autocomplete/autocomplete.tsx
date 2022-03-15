@@ -17,24 +17,25 @@ interface OptionType {
 
 interface Props {
   options: OptionType[];
-  onChange: (value: string) => void;
+  onChange: (value: string | null) => void;
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
+  className?: string;
 }
 const LIST_ITEM_HEIGHT = 28;
 const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
 export const Autocomplete = memo(({
-  options, onChange, placeholder, defaultValue, disabled,
+  options, onChange, placeholder, defaultValue, disabled, className,
 }: Props) => {
   const [filterValue, setFilterValue] = useState('');
-  const filteredOptions = useMemo(() => options.filter((option) => option.value.includes(filterValue)), [options, filterValue]);
+  const filteredOptions = useMemo(() => options.filter((option) => option.label.includes(filterValue)), [options, filterValue]);
 
   const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
 
   return (
-    <Popover>
+    <Popover className={className}>
       {({ setIsOpen, isOpen }) => {
         const renderOptions = useCallback(({ index, style }) => {
           const { value, label }: OptionType = filteredOptions[index];
@@ -65,10 +66,26 @@ export const Autocomplete = memo(({
               disabled={disabled}
             >
               {selectedValue
-                ? <span tw="text-monochrome-black truncate" data-test="autocomplete:selected-value" title={selectedOption?.label}>{selectedOption?.label}</span>
+                ? (
+                  <span
+                    tw="text-monochrome-black truncate"
+                    data-test="autocomplete:selected-value"
+                    title={selectedOption?.label}
+                  >{selectedOption?.label}
+                  </span>
+                )
                 : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
               <div tw="flex gap-x-3">
-                {selectedValue && <Icons.Close width={12} height={12} onClick={() => setSelectedValue(null)} />}
+                {selectedValue && (
+                  <Icons.Close
+                    width={12}
+                    height={12}
+                    onClick={() => {
+                      setSelectedValue(null);
+                      onChange(null);
+                    }}
+                  />
+                )}
                 <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
               </div>
             </InputWrapper>

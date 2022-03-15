@@ -9,6 +9,7 @@ import {
 interface OptionType {
   value: string;
   label: string;
+  [key: string]: string;
 }
 
 interface Props {
@@ -17,16 +18,18 @@ interface Props {
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
+  className?: string;
+  displayingInInputAccessor?: string;
 }
 
 export const LightDropdown = ({
-  options, onChange, placeholder, defaultValue, disabled,
+  options, onChange, placeholder, defaultValue, disabled, className, displayingInInputAccessor = 'label',
 }: Props) => {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
 
   return (
-    <Popover>
+    <Popover className={className}>
       {({ setIsOpen, isOpen }) => (
         <>
           <InputWrapper
@@ -35,14 +38,14 @@ export const LightDropdown = ({
             disabled={disabled}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {selectedValue
+            {selectedOption
               ? (
                 <span
                   tw="text-monochrome-black truncate"
                   data-test="dropdown:selected-value"
-                  title={selectedOption?.label}
+                  title={selectedOption[displayingInInputAccessor]}
                 >
-                  {selectedOption?.label}
+                  {selectedOption[displayingInInputAccessor]}
                 </span>
               )
               : <span tw="text-monochrome-dark-tint">{placeholder}</span>}

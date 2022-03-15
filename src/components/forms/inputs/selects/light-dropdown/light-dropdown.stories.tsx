@@ -2,18 +2,18 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import 'twin.macro';
 
-import { LightDropdown as LightDropdownComponent } from './light-dropdown';
+import { LightDropdown as DarkDropdownComponent } from './light-dropdown';
 
 export default {
   title: 'LightDropdown',
-  component: LightDropdownComponent,
+  component: DarkDropdownComponent,
 } as Meta;
 
 export const Dropdown: Story = (args) => {
   const { options } = args;
   return (
-    <div tw="pt-[100px] w-[250px]">
-      <LightDropdownComponent
+    <div tw="pt-[100px] w-[400px]">
+      <DarkDropdownComponent
         options={options}
         onChange={(newValue) => console.log(newValue)}
         placeholder="Choose your option"
@@ -26,7 +26,7 @@ Dropdown.args = {
   options: [
     {
       value: '1 item',
-      label: 'Filter’s name that contains 40 characters',
+      label: 'first item',
     },
     {
       value: '2 item',

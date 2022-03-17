@@ -5,11 +5,11 @@ export const alphanumeric = (rowA: Row, rowB: Row, columnId: string, desc: boole
   a = a?.toString();
   b = b?.toString();
 
-  if (a === b) { // no sort if values is equal
+  if (a?.toLowerCase() === b?.toLowerCase()) { // no sort if values is equal
     return desc ? -1 : 1;
   }
 
-  return a?.localeCompare(b, undefined, {
+  return a?.localeCompare(b, ['en-US', 'ru-RU'], {
     numeric: true,
     sensitivity: 'base',
   });

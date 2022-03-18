@@ -49,6 +49,7 @@ export {
   Autocomplete,
   MultipleSelectAutocomplete,
   LightDropdown,
+  HeadlessSelect,
 } from './forms';
 export { Popover } from './popover';
 export { Skeleton } from './skeleton';

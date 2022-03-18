@@ -14,7 +14,7 @@ export const AutocompleteBodyWrapper = styled.div`
 export const InputWrapper = styled.div<{ disabled?: boolean; isActive: boolean; }>`
   ${tw`py-2 px-4`}
   ${tw`box-border border border-monochrome-dark-tint rounded bg-monochrome-white hover:border-monochrome-gray`}
-  ${({ disabled }) => disabled && tw`bg-monochrome-dark100 hover:border-monochrome-dark100 pointer-events-none`}
+  ${({ disabled }) => disabled && tw`bg-monochrome-light-tint border-monochrome-dark-tint hover:border-monochrome-dark-tint pointer-events-none`}
   ${({ isActive }) => isActive && tw`border-monochrome-black`}
 `;
 

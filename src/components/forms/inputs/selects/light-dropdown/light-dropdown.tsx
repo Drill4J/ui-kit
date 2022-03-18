@@ -1,10 +1,7 @@
-import { useMemo, useState } from 'react';
+import React from 'react';
 import 'twin.macro';
 
-import { Popover } from '../../../../popover';
-import {
-  Expander, ScrollContainer, InputWrapper, Option,
-} from '../elements';
+import { Select } from '../select';
 
 interface OptionType {
   value: string;
@@ -18,60 +15,46 @@ interface Props {
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
-  className?: string;
   displayingInInputAccessor?: string;
+  className?: string;
 }
 
 export const LightDropdown = ({
-  options, onChange, placeholder, defaultValue, disabled, className, displayingInInputAccessor = 'label',
-}: Props) => {
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
-  const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
-
-  return (
-    <Popover className={className}>
-      {({ setIsOpen, isOpen }) => (
-        <>
-          <InputWrapper
-            tw="flex justify-between items-center gap-x-1 cursor-pointer"
-            isActive={isOpen}
-            disabled={disabled}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {selectedOption
-              ? (
-                <span
-                  tw="text-monochrome-black truncate"
-                  data-test="dropdown:selected-value"
-                  title={selectedOption[displayingInInputAccessor]}
-                >
-                  {selectedOption[displayingInInputAccessor]}
-                </span>
-              )
-              : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
-            <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
-          </InputWrapper>
-          {isOpen && (
-            <ScrollContainer tw="absolute z-50 top-11 py-2 w-full max-h-56 bg-monochrome-white">
-              {options.map(({ label, value: itemValue }) => (
-                <Option
-                  data-test="dropdown:item"
+  options: propsOptions, onChange, placeholder, defaultValue, disabled, displayingInInputAccessor = 'label', className,
+}: Props) => (
+  <Select
+    options={propsOptions}
+    defaultValue={defaultValue}
+    className={className}
+  >
+    {({
+      options, selectedOption, isOpen, selectValue, setIsOpen,
+    }) => (
+      <>
+        <Select.Input disabled={disabled}>
+          {selectedOption
+            ? <Select.SelectedValue>{selectedOption[displayingInInputAccessor]}</Select.SelectedValue>
+            : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+        </Select.Input>
+        {isOpen && (
+          <Select.Body>
+            <Select.ContainerWithScroll>
+              {options.map(({ label, value }) => (
+                <Select.Option
+                  selected={value === selectedOption?.value}
                   onClick={() => {
-                    setSelectedValue(itemValue);
-                    onChange(itemValue);
+                    onChange(value);
+                    selectValue(value);
                     setIsOpen(false);
                   }}
-                  key={itemValue}
-                  selected={itemValue === selectedValue}
-                  title={label}
                 >
                   {label}
-                </Option>
+                </Select.Option>
               ))}
-            </ScrollContainer>
-          )}
-        </>
-      )}
-    </Popover>
-  );
-};
+            </Select.ContainerWithScroll>
+          </Select.Body>
+        )}
+      </>
+    )}
+  </Select>
+);

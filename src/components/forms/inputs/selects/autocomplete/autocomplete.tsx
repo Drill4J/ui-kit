@@ -1,19 +1,8 @@
-import React, {
-  memo, useCallback, useMemo, useState,
-} from 'react';
+import React, { memo, useCallback } from 'react';
 import 'twin.macro';
 
-import {
-  Expander, InputWrapper, FixedSizeListWithCustomScroll, Option, AutocompleteBodyWrapper,
-} from '../elements';
-import { Popover } from '../../../../popover';
-import { Icons } from '../../../../icon';
-import { SearchInput } from '../../search-input';
-
-interface OptionType {
-  value: string;
-  label: string;
-}
+import { Select } from '../select';
+import { OptionType } from '../../../../../types/option';
 
 interface Props {
   options: OptionType[];
@@ -25,121 +14,68 @@ interface Props {
 }
 const LIST_ITEM_HEIGHT = 28;
 const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
+
 export const Autocomplete = memo(({
-  options, onChange, placeholder, defaultValue, disabled, className,
-}: Props) => {
-  const [filterValue, setFilterValue] = useState('');
-  const filteredOptions = useMemo(() => options.filter((option) => option.label.includes(filterValue)), [options, filterValue]);
-
-  const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null);
-  const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
-
-  return (
-    <Popover className={className}>
-      {({ setIsOpen, isOpen }) => {
-        const renderOptions = useCallback(({ index, style }) => {
-          const { value, label }: OptionType = filteredOptions[index];
-          return (
-            <Option
-              data-test="autocomplete:option"
-              style={style}
-              onClick={() => {
-                setSelectedValue(value);
-                onChange(value);
-                setIsOpen(false);
-              }}
-              key={value}
-              selected={value === selectedValue}
-              title={label}
-            >
-              {label}
-            </Option>
-          );
-        }, [filteredOptions, selectedValue]);
-
+  options: propsOptions, onChange, placeholder, defaultValue, disabled, className,
+}: Props) => (
+  <Select
+    options={propsOptions}
+    defaultValue={defaultValue}
+    className={className}
+  >
+    {({
+      options, selectedOption, isOpen, selectValue, setIsOpen,
+    }) => {
+      const renderOptions = useCallback(({ index, style }) => {
+        const { value, label }: OptionType = options[index];
         return (
-          <>
-            <InputWrapper
-              tw="flex justify-between items-center gap-x-1 cursor-pointer"
-              onClick={() => setIsOpen(!isOpen)}
-              isActive={isOpen}
-              disabled={disabled}
-            >
-              {selectedValue
-                ? (
-                  <span
-                    tw="text-monochrome-black truncate"
-                    data-test="autocomplete:selected-value"
-                    title={selectedOption?.label}
-                  >{selectedOption?.label}
-                  </span>
-                )
-                : <span tw="text-monochrome-dark-tint">{placeholder}</span>}
-              <div tw="flex gap-x-3">
-                {selectedValue && (
-                  <Icons.Close
-                    width={12}
-                    height={12}
-                    onClick={() => {
-                      setSelectedValue(null);
-                      onChange(null);
-                    }}
-                  />
-                )}
-                <Expander width={12} height={12} rotate={isOpen ? -90 : 90} />
-              </div>
-            </InputWrapper>
-            {isOpen && (
-              <AutocompleteBodyWrapper>
-                <AutocompleteBody
-                  setFilterValue={setFilterValue}
-                  renderOptions={renderOptions}
-                  filterValue={filterValue}
-                  filteredOptionsCount={filteredOptions.length}
-                />
-              </AutocompleteBodyWrapper>
-            )}
-          </>
+          <Select.Option
+            data-test="autocomplete:option"
+            style={style}
+            selected={value === selectedOption?.value}
+            onClick={() => {
+              onChange(value);
+              selectValue(value);
+              setIsOpen(false);
+            }}
+            key={value}
+            title={label}
+          >
+            {label}
+          </Select.Option>
         );
-      }}
-    </Popover>
-  );
-});
+      }, [options, selectedOption]);
 
-interface AutocompleteBodyProps {
-  filterValue: string;
-  setFilterValue: (filter: string) => void;
-  renderOptions: ({ index, style }: any) => JSX.Element;
-  filteredOptionsCount: number;
-}
-
-export const AutocompleteBody = ({
-  filterValue, setFilterValue, renderOptions, filteredOptionsCount,
-}: AutocompleteBodyProps) => (
-  <>
-    <SearchInput
-      tw="relative mx-4 mb-4"
-      placeholder="Search..."
-      isOpen
-      onChange={({ target: { value } }) => setFilterValue(value)}
-      reset={() => setFilterValue('')}
-      value={filterValue}
-    />
-    <FixedSizeListWithCustomScroll
-      width="auto"
-      height={getFixedSizeListWithCustomScrollHeight(filteredOptionsCount)}
-      itemSize={LIST_ITEM_HEIGHT}
-      itemCount={filteredOptionsCount}
-    >
-      {renderOptions}
-    </FixedSizeListWithCustomScroll>
-    {filteredOptionsCount === 0 && (
-      <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
-        No results found.
-      </div>
-    )}
-  </>
-);
+      return (
+        <>
+          <Select.Input disabled={disabled}>
+            {selectedOption
+              ? <Select.SelectedValue>{selectedOption.label}</Select.SelectedValue>
+              : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+          </Select.Input>
+          {isOpen && (
+            <Select.Body>
+              <Select.Search />
+              <Select.FixedSizeListWithCustomScroll
+                width="auto"
+                height={getFixedSizeListWithCustomScrollHeight(options.length)}
+                itemSize={LIST_ITEM_HEIGHT}
+                itemCount={options.length}
+              >
+                {renderOptions}
+              </Select.FixedSizeListWithCustomScroll>
+              {options.length === 0 && (
+                <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
+                  No results found.
+                </div>
+              )}
+            </Select.Body>
+          )}
+        </>
+      );
+    }}
+  </Select>
+));
 
 function getFixedSizeListWithCustomScrollHeight(itemsCount: number) {
   return itemsCount * LIST_ITEM_HEIGHT > MAX_LIST_CONTAINER_HEIGHT ? MAX_LIST_CONTAINER_HEIGHT : itemsCount * LIST_ITEM_HEIGHT;

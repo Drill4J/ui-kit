@@ -4,13 +4,13 @@ import React, {
 import tw, { styled } from 'twin.macro';
 
 import {
-  Expander, InputWrapper, AutocompleteBodyWrapper, Option,
+  Expander, InputWrapper, AutocompleteBodyWrapper, Option, FixedSizeListWithCustomScroll,
 } from '../elements';
 import { Popover } from '../../../../popover';
 import { Checkbox } from '../../checkbox';
-import { AutocompleteBody } from './autocomplete';
 import { MultiSelectCheckbox } from '../../checkbox/multi-select-checkbox';
 import { Button } from '../../button';
+import { SearchInput } from '../../search-input';
 
 interface OptionType {
   value: string;
@@ -24,6 +24,9 @@ interface Props {
   values: Record<string, boolean>;
   disabled?: boolean;
 }
+// TODo refactor it like autocomplete
+const LIST_ITEM_HEIGHT = 28;
+const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
 
 export const MultipleSelectAutocomplete = memo(({
   options, onChange, placeholder, values, disabled,
@@ -144,3 +147,42 @@ export const MultipleSelectAutocomplete = memo(({
 const Footer = styled.div`
   ${tw`flex justify-between items-center pt-4 px-4 pb-2 border-t border-monochrome-medium-tint text-monochrome-default text-14 leading-20`}
 `;
+
+interface AutocompleteBodyProps {
+  filterValue: string;
+  setFilterValue: (filter: string) => void;
+  renderOptions: ({ index, style }: any) => JSX.Element;
+  filteredOptionsCount: number;
+}
+
+export const AutocompleteBody = ({
+  filterValue, setFilterValue, renderOptions, filteredOptionsCount,
+}: AutocompleteBodyProps) => (
+  <>
+    <SearchInput
+      tw="relative mx-4 mb-4"
+      placeholder="Search..."
+      isOpen
+      onChange={({ target: { value } }) => setFilterValue(value)}
+      reset={() => setFilterValue('')}
+      value={filterValue}
+    />
+    <FixedSizeListWithCustomScroll
+      width="auto"
+      height={getFixedSizeListWithCustomScrollHeight(filteredOptionsCount)}
+      itemSize={LIST_ITEM_HEIGHT}
+      itemCount={filteredOptionsCount}
+    >
+      {renderOptions}
+    </FixedSizeListWithCustomScroll>
+    {filteredOptionsCount === 0 && (
+      <div tw="py-6 text-center text-monochrome-dark-tint text-14 leading-20">
+        No results found.
+      </div>
+    )}
+  </>
+);
+
+function getFixedSizeListWithCustomScrollHeight(itemsCount: number) {
+  return itemsCount * LIST_ITEM_HEIGHT > MAX_LIST_CONTAINER_HEIGHT ? MAX_LIST_CONTAINER_HEIGHT : itemsCount * LIST_ITEM_HEIGHT;
+}

@@ -3,17 +3,13 @@ import React, {
 } from 'react';
 import tw, { styled } from 'twin.macro';
 
+import { FixedSizeList } from 'react-window';
 import { Popover } from '../../../../popover';
 import {
   Expander,
 } from '../elements';
 import { SearchInput } from '../../search-input';
-
-interface OptionType {
-  value: string;
-  label: string;
-  [key: string]: string;
-}
+import { OptionType } from '../../../../../types/option';
 
 interface Props {
   options: OptionType[];
@@ -114,9 +110,13 @@ const Option = styled.div<{ selected?: boolean }>`
   ${tw`px-4 py-1 cursor-pointer truncate`}
   ${tw`text-monochrome-black text-14 leading-20 whitespace-nowrap`}
   ${({ selected }) => selected && tw`text-blue-default`}
+  
+  &:hover {
+    background-color: rgba(104, 116, 129, 0.1);
+  }
 `;
 
-const ContainerWithSScroll = styled.div`
+const ContainerWithScroll = styled.div`
   ${tw`w-full max-h-[196px] overflow-auto`};
 
   &::-webkit-scrollbar {
@@ -128,7 +128,19 @@ const ContainerWithSScroll = styled.div`
   };
 `;
 
-export const Body = styled.div`
+const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
+  ${tw`w-full max-h-[196px] overflow-auto`};
+
+  &::-webkit-scrollbar {
+    ${tw`rounded bg-monochrome-white`}
+  };
+
+  &::-webkit-scrollbar-thumb {
+    ${tw`w-1 rounded bg-monochrome-dark-tint rounded-full border-[6px] border-solid border-monochrome-white`}
+  };
+`;
+
+const Body = styled.div`
   ${tw`absolute z-50 top-11 py-2 w-full rounded bg-monochrome-white`}
   box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
 `;
@@ -138,6 +150,7 @@ Select.Input = Input;
 Select.Placeholder = Placeholder;
 Select.SelectedValue = SelectedValue;
 Select.Option = Option;
-Select.ContainerWithSScroll = ContainerWithSScroll;
+Select.ContainerWithScroll = ContainerWithScroll;
 Select.Body = Body;
 Select.Search = Search;
+Select.FixedSizeListWithCustomScroll = FixedSizeListWithCustomScroll;

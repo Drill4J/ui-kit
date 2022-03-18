@@ -67,6 +67,7 @@ export {
   Autocomplete,
   MultipleSelectAutocomplete,
   LightDropdown,
+  HeadlessSelect,
 } from './components';
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition,

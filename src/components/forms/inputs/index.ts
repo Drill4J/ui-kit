@@ -28,4 +28,6 @@ export const Inputs = {
 };
 
 export { Dropdown } from './dropdown';
-export { MultipleSelectAutocomplete, LightDropdown, Autocomplete } from './selects';
+export {
+  MultipleSelectAutocomplete, LightDropdown, Autocomplete, Select as HeadlessSelect,
+} from './selects';

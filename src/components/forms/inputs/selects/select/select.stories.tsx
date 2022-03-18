@@ -25,7 +25,7 @@ export const Select: Story = (args) => (
           </SelectComponent.Input>
           {isOpen && (
             <SelectComponent.Body>
-              <SelectComponent.ContainerWithSScroll>
+              <SelectComponent.ContainerWithScroll>
                 {options.map(({ label, value }) => (
                   <SelectComponent.Option
                     selected={value === selectedOption?.value}
@@ -37,7 +37,7 @@ export const Select: Story = (args) => (
                     {label}
                   </SelectComponent.Option>
                 ))}
-              </SelectComponent.ContainerWithSScroll>
+              </SelectComponent.ContainerWithScroll>
             </SelectComponent.Body>
           )}
         </>
@@ -63,7 +63,7 @@ export const Autocomplete: Story = (args) => (
           {isOpen && (
             <SelectComponent.Body>
               <SelectComponent.Search />
-              <SelectComponent.ContainerWithSScroll>
+              <SelectComponent.ContainerWithScroll>
                 {options.map(({ label, value }) => (
                   <SelectComponent.Option
                     selected={value === selectedOption?.value}
@@ -75,7 +75,7 @@ export const Autocomplete: Story = (args) => (
                     {label}
                   </SelectComponent.Option>
                 ))}
-              </SelectComponent.ContainerWithSScroll>
+              </SelectComponent.ContainerWithScroll>
             </SelectComponent.Body>
           )}
         </>

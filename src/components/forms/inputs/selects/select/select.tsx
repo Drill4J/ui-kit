@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useMemo, useState,
+  createContext, useContext, useEffect, useMemo, useState,
 } from 'react';
 import tw, { styled } from 'twin.macro';
 
@@ -7,6 +7,7 @@ import { Popover } from '../../../../popover';
 import {
   Expander,
 } from '../elements';
+import { SearchInput } from '../../search-input';
 
 interface OptionType {
   value: string;
@@ -27,11 +28,13 @@ type State = {
   options: OptionType[];
   setIsOpen: (value: boolean) => void;
   selectValue: (value: string) => void;
+  filterValue: string;
+  setFilterValue: (value: string) => void;
 };
 
 type Children = React.ReactChild | React.ReactChild[] | React.FC<State>;
 const defaultContextState: State = {
-  isOpen: false, setIsOpen: () => {}, options: [], selectValue: () => {},
+  isOpen: false, setIsOpen: () => {}, options: [], selectValue: () => {}, setFilterValue: () => {}, filterValue: '',
 };
 
 const SelectContext = createContext<State>(defaultContextState);
@@ -39,18 +42,21 @@ const SelectContext = createContext<State>(defaultContextState);
 export const Select = ({
   options, defaultValue, className, children,
 }: Props) => {
-  const [selectedValue, selectValue] = useState<string | undefined>(defaultValue);
+  const [filterValue, setFilterValue] = useState('');
+  const filteredOptions = useMemo(() => options.filter((option) => option.label.includes(filterValue)), [options, filterValue]);
+
+  const [selectedValue, selectValue] = useState<string | null>(defaultValue || null);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);
 
   return (
     <Popover className={className}>
       {({ setIsOpen, isOpen }) => (
         <SelectContext.Provider value={{
-          setIsOpen, isOpen, selectedOption, options, selectValue,
+          setIsOpen, isOpen, selectedOption, options: filteredOptions, selectValue, setFilterValue, filterValue,
         }}
         >
           {typeof children === 'function' ? children({
-            setIsOpen, isOpen, selectedOption, options, selectValue,
+            setIsOpen, isOpen, selectedOption, options: filteredOptions, selectValue, setFilterValue, filterValue,
           }) : children}
         </SelectContext.Provider>
       )}
@@ -80,6 +86,22 @@ const Input: React.FC<InputProps> = ({ children, ...rest }) => {
   );
 };
 
+const Search: React.FC = (props) => {
+  const { filterValue, setFilterValue } = useContext(SelectContext);
+
+  return (
+    <SearchInput
+      tw="relative mx-4 mb-4"
+      placeholder="Search..."
+      isOpen
+      onChange={({ target: { value } }) => setFilterValue(value)}
+      reset={() => setFilterValue('')}
+      value={filterValue}
+      {...props}
+    />
+  );
+};
+
 const Placeholder = styled.span`
   ${tw`text-monochrome-dark-tint`}
 `;
@@ -95,8 +117,7 @@ const Option = styled.div<{ selected?: boolean }>`
 `;
 
 const ContainerWithSScroll = styled.div`
-  ${tw`w-full max-h-[196px] overflow-auto bg-monochrome-white`};
-  box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
+  ${tw`w-full max-h-[196px] overflow-auto`};
 
   &::-webkit-scrollbar {
     ${tw`rounded bg-monochrome-white`}
@@ -107,9 +128,16 @@ const ContainerWithSScroll = styled.div`
   };
 `;
 
+export const Body = styled.div`
+  ${tw`absolute z-50 top-11 py-2 w-full rounded bg-monochrome-white`}
+  box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
+`;
+
 Select.InputWrapper = InputWrapper;
 Select.Input = Input;
 Select.Placeholder = Placeholder;
 Select.SelectedValue = SelectedValue;
 Select.Option = Option;
 Select.ContainerWithSScroll = ContainerWithSScroll;
+Select.Body = Body;
+Select.Search = Search;

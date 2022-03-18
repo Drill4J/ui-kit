@@ -9,7 +9,7 @@ export default {
   component: SelectComponent,
 } as Meta;
 
-export const Dropdown: Story = (args) => (
+export const Select: Story = (args) => (
   <div tw="pt-[100px] w-[400px]">
     <SelectComponent
       options={args.options}
@@ -24,19 +24,21 @@ export const Dropdown: Story = (args) => (
               : <SelectComponent.Placeholder>Placeholder</SelectComponent.Placeholder>}
           </SelectComponent.Input>
           {isOpen && (
-            <SelectComponent.ContainerWithSScroll>
-              {options.map(({ label, value }) => (
-                <SelectComponent.Option
-                  selected={value === selectedOption?.value}
-                  onClick={() => {
-                    selectValue(value);
-                    setIsOpen(false);
-                  }}
-                >
-                  {label}
-                </SelectComponent.Option>
-              ))}
-            </SelectComponent.ContainerWithSScroll>
+            <SelectComponent.Body>
+              <SelectComponent.ContainerWithSScroll>
+                {options.map(({ label, value }) => (
+                  <SelectComponent.Option
+                    selected={value === selectedOption?.value}
+                    onClick={() => {
+                      selectValue(value);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {label}
+                  </SelectComponent.Option>
+                ))}
+              </SelectComponent.ContainerWithSScroll>
+            </SelectComponent.Body>
           )}
         </>
       )}
@@ -44,7 +46,45 @@ export const Dropdown: Story = (args) => (
   </div>
 );
 
-Dropdown.args = {
+export const Autocomplete: Story = (args) => (
+  <div tw="pt-[100px] w-[400px]">
+    <SelectComponent
+      options={args.options}
+    >
+      {({
+        options, selectedOption, isOpen, selectValue, setIsOpen,
+      }) => (
+        <>
+          <SelectComponent.Input>
+            {selectedOption
+              ? <SelectComponent.SelectedValue>{selectedOption.label}</SelectComponent.SelectedValue>
+              : <SelectComponent.Placeholder>Placeholder</SelectComponent.Placeholder>}
+          </SelectComponent.Input>
+          {isOpen && (
+            <SelectComponent.Body>
+              <SelectComponent.Search />
+              <SelectComponent.ContainerWithSScroll>
+                {options.map(({ label, value }) => (
+                  <SelectComponent.Option
+                    selected={value === selectedOption?.value}
+                    onClick={() => {
+                      selectValue(value);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {label}
+                  </SelectComponent.Option>
+                ))}
+              </SelectComponent.ContainerWithSScroll>
+            </SelectComponent.Body>
+          )}
+        </>
+      )}
+    </SelectComponent>
+  </div>
+);
+
+const args = {
   options: [
     {
       value: '1 item',
@@ -80,3 +120,7 @@ Dropdown.args = {
     },
   ],
 };
+
+Select.args = args;
+
+Autocomplete.args = args;

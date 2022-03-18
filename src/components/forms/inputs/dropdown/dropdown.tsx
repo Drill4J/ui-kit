@@ -17,7 +17,7 @@ interface Props {
   onChange: (value: Value) => void;
   value: Value;
 }
-
+// TODo remove this component
 export const Dropdown = ({
   items, onChange, value,
 }: Props) => {

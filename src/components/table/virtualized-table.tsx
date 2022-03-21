@@ -225,7 +225,7 @@ export const VirtualizedTable = withErrorBoundary(({
 });
 
 const FixedSizeListWithCustomScroll = styled(FixedSizeList)`
-  will-change: auto;
+  will-change: unset;
   ${tw`grid overflow-y-scroll`}
   ::-webkit-scrollbar {
     ${tw`w-[14px] rounded`}

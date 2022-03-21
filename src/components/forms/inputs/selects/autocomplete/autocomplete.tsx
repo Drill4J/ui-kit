@@ -3,10 +3,12 @@ import 'twin.macro';
 
 import { Select } from '../select';
 import { OptionType } from '../../../../../types/option';
+import { Icons } from '../../../../icon';
 
 interface Props {
   options: OptionType[];
   onChange: (value: string | null) => void;
+  onClear?: () => void;
   placeholder: string;
   defaultValue?: string;
   disabled?: boolean;
@@ -16,7 +18,7 @@ const LIST_ITEM_HEIGHT = 28;
 const MAX_LIST_CONTAINER_HEIGHT = 196; // 7 * LIST_ITEM_HEIGHT
 
 export const Autocomplete = memo(({
-  options: propsOptions, onChange, placeholder, defaultValue, disabled, className,
+  options: propsOptions, onChange, placeholder, defaultValue, disabled, className, onClear,
 }: Props) => (
   <Select
     options={propsOptions}
@@ -49,9 +51,22 @@ export const Autocomplete = memo(({
       return (
         <>
           <Select.Input disabled={disabled}>
-            {selectedOption
-              ? <Select.SelectedValue>{selectedOption.label}</Select.SelectedValue>
-              : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+            <div tw="flex justify-between items-center flex-grow">
+              {selectedOption
+                ? <Select.SelectedValue>{selectedOption.label}</Select.SelectedValue>
+                : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+              {selectedOption && (
+                <Icons.Close
+                  width={12}
+                  height={12}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    selectValue('');
+                    onClear && onClear();
+                  }}
+                />
+              )}
+            </div>
           </Select.Input>
           {isOpen && (
             <Select.Body>

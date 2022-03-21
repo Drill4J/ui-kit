@@ -2,6 +2,7 @@ import React from 'react';
 import 'twin.macro';
 
 import { Select } from '../select';
+import { Icons } from '../../../../icon';
 
 interface OptionType {
   value: string;
@@ -32,9 +33,21 @@ export const LightDropdown = ({
     }) => (
       <>
         <Select.Input disabled={disabled}>
-          {selectedOption
-            ? <Select.SelectedValue>{selectedOption[displayingInInputAccessor]}</Select.SelectedValue>
-            : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+          <div tw="flex justify-between items-center flex-grow">
+            {selectedOption
+              ? <Select.SelectedValue>{selectedOption[displayingInInputAccessor]}</Select.SelectedValue>
+              : <Select.Placeholder>{placeholder}</Select.Placeholder>}
+            {selectedOption && (
+              <Icons.Close
+                width={12}
+                height={12}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectValue('');
+                }}
+              />
+            )}
+          </div>
         </Select.Input>
         {isOpen && (
           <Select.Body>

@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useEffect, useMemo, useState,
+  createContext, useContext, useMemo, useState,
 } from 'react';
 import tw, { styled } from 'twin.macro';
 
@@ -66,7 +66,7 @@ interface InputProps {
 }
 
 const InputWrapper = styled.div<InputProps>`
-  ${tw`flex justify-between items-center gap-x-1 cursor-pointer py-2 px-4 h-10`}
+  ${tw`flex justify-between items-center gap-x-3 cursor-pointer py-2 px-4 h-10`}
   ${tw`box-border border border-monochrome-dark-tint rounded bg-monochrome-white hover:border-monochrome-gray`}
   ${({ disabled }) => disabled && tw`bg-monochrome-dark100 hover:border-monochrome-dark100 pointer-events-none`}
   ${({ isActive }) => isActive && tw`border-monochrome-black`}

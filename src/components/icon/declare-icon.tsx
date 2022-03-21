@@ -20,7 +20,7 @@ export function declareIcon(path: string, settings: Settings = {}) {
       height={height}
       viewBox={viewBox || `0 0 ${defaultWidth} ${defaultHeight}`}
       fillRule={fillRule}
-      {...rest}
+      {...rest as any}
     />
   );
 }

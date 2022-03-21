@@ -5,12 +5,12 @@ import tw, { styled, css } from 'twin.macro';
 
 import { useHover, useIntersectionCallback } from '../../hooks';
 import { Portal } from '../portal';
-import { getTooltipPosition } from './get-tooltip-position';
+import { getTooltipPosition, Position } from './get-tooltip-position';
 
 export interface Props {
   message: React.ReactNode;
   children: React.ReactNode | React.ReactNode[];
-  position?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right';
+  position?: Position;
   className?: string;
 }
 
@@ -75,7 +75,7 @@ export const Tooltip = ({
   );
 };
 
-const Message = styled.div<{type?: 'top-center' | 'top-right' | 'top-left' | 'left' | 'right'}>`
+const Message = styled.div<{type?: Position}>`
   z-index: 150;
   ${tw`absolute whitespace-pre no-underline text-monochrome-white text-12 rounded bg-monochrome-black`};
 
@@ -110,6 +110,11 @@ const Message = styled.div<{type?: 'top-center' | 'top-right' | 'top-left' | 'le
       ${tw`bottom-2 right-full`}
         border-right-color: #1b191b;
         border-left: none;
+      `,
+    type === 'bottom-center' && css`
+      ${tw`-top-2 right-[calc(50% - 8px)]`}
+        border-bottom-color: #1b191b;
+        border-top: none;
       `,
   ]}
   }

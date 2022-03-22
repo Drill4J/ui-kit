@@ -68,7 +68,9 @@ interface InputProps {
 const InputWrapper = styled.div<InputProps>`
   ${tw`flex justify-between items-center gap-x-3 cursor-pointer py-2 px-4 h-10`}
   ${tw`box-border border border-monochrome-dark-tint rounded bg-monochrome-white hover:border-monochrome-gray`}
-  ${({ disabled }) => disabled && tw`bg-monochrome-dark100 hover:border-monochrome-dark100 pointer-events-none`}
+  ${({ disabled }) => disabled && tw`
+  bg-monochrome-light-tint border-monochrome-medium-tint 
+  hover:border-monochrome-medium-tint pointer-events-none`}
   ${({ isActive }) => isActive && tw`border-monochrome-black`}
 `;
 

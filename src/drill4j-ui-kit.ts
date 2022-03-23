@@ -68,6 +68,7 @@ export {
   MultipleSelectAutocomplete,
   LightDropdown,
   HeadlessSelect,
+  Label,
 } from './components';
 export {
   useClickOutside, useElementSize, useHover, usePreserveCaretPosition,
@@ -84,3 +85,5 @@ export const Modules = {
 };
 export * from './utils';
 export { sendAlertEvent, IAlert } from './send-alert-event';
+
+export type { OptionType } from './types/option';

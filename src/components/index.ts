@@ -17,6 +17,7 @@ export { Legend } from './legend';
 export { Status } from './status';
 export { Stub } from './stub';
 export { SearchPanel } from './search-panel';
+export { Label } from './label';
 export {
   Table, VirtualizedTable, TableElements, TableActionsProvider, setSearch, setSort, useTableActionsState, useTableActionsDispatch,
   Cells,

@@ -39,7 +39,7 @@ export const Select = ({
   options, defaultValue, className, children,
 }: Props) => {
   const [filterValue, setFilterValue] = useState('');
-  const filteredOptions = useMemo(() => options.filter((option) => option.label.includes(filterValue)), [options, filterValue]);
+  const filteredOptions = useMemo(() => options.filter((option) => option.label?.includes(filterValue)), [options, filterValue]);
 
   const [selectedValue, selectValue] = useState<string | null>(defaultValue || null);
   const selectedOption = useMemo(() => options.find(({ value }) => selectedValue === value), [selectedValue, options]);

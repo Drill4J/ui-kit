@@ -7,7 +7,7 @@ import { Icons } from '../../../../icon';
 
 interface Props {
   options: OptionType[];
-  onChange: (value: string | null) => void;
+  onChange: (value: string | null, option?: OptionType) => void;
   onClear?: () => void;
   placeholder: string;
   defaultValue?: string;
@@ -29,14 +29,15 @@ export const Autocomplete = memo(({
       options, selectedOption, isOpen, selectValue, setIsOpen,
     }) => {
       const renderOptions = useCallback(({ index, style }) => {
-        const { value, label }: OptionType = options[index];
+        const option = options[index];
+        const { value, label }: OptionType = option;
         return (
           <Select.Option
             data-test="autocomplete:option"
             style={style}
             selected={value === selectedOption?.value}
             onClick={() => {
-              onChange(value);
+              onChange(value, option);
               selectValue(value);
               setIsOpen(false);
             }}

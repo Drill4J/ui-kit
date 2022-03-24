@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 import { camelToSpaces, getPropertyByPath } from '../../../utils';
 
 type FormValidationResult = Record<string, string> | undefined;

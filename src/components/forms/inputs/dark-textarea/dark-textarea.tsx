@@ -14,7 +14,7 @@ const TextareaWrapper = styled.span<{
 }>`
   ${tw`
     flex flex-grow py-2
-    w-[400px] h-full
+    w-full h-full
     box-border outline-none
     font-regular text-14 leading-24 text-monochrome-medium-tint
     bg-monochrome-black border rounded border-monochrome-dark

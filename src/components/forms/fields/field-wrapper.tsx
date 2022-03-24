@@ -79,7 +79,7 @@ export const fieldWrapper = (Input: React.ElementType) => ({
 };
 
 const ErrorMessageWrapper = styled.div`
-  ${tw`text-12 leading-24 whitespace-nowrap text-red-default`};
+  ${tw`text-12 leading-24 whitespace-nowrap text-red-default truncate`};
 
   &::first-letter {
     text-transform: uppercase;

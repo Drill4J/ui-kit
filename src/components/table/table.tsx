@@ -153,7 +153,7 @@ export const Table = withErrorBoundary(({
       gotoPage(0);
     }
   }, [filters]);
-
+  console.log(filters);
   return (
     <>
       <div ref={ref} />
@@ -177,7 +177,7 @@ export const Table = withErrorBoundary(({
                 rawRow={rawRow}
                 prepareRow={prepareRow}
                 renderRowSubComponent={renderRowSubComponent}
-                searchWords={filters.map(({ value = '' }) => value)}
+                searchWords={filters.map(({ value = '' }) => value).filter((value: any) => typeof value === 'string')}
                 isDefaultExpanded={isDefaultExpanded && isDefaultExpanded(rawRow.original)}
               />
             )))}

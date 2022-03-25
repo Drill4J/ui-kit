@@ -153,7 +153,7 @@ export const Table = withErrorBoundary(({
       gotoPage(0);
     }
   }, [filters]);
-  console.log(filters);
+
   return (
     <>
       <div ref={ref} />

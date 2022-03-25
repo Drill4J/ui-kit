@@ -147,6 +147,10 @@ const Body = styled.div`
   box-shadow: 0px 8px 40px rgba(132, 146, 160, 0.2);
 `;
 
+const Footer = styled.div`
+  ${tw`flex justify-between items-center pt-4 px-4 pb-2 border-t border-monochrome-medium-tint text-monochrome-default text-14 leading-20`}
+`;
+
 Select.InputWrapper = InputWrapper;
 Select.Input = Input;
 Select.Placeholder = Placeholder;
@@ -155,4 +159,5 @@ Select.Option = Option;
 Select.ContainerWithScroll = ContainerWithScroll;
 Select.Body = Body;
 Select.Search = Search;
+Select.Footer = Footer;
 Select.FixedSizeListWithCustomScroll = FixedSizeListWithCustomScroll;

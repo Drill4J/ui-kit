@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 export const DarkInput = styled.input<{ disabled?: boolean; error?: boolean; touched?: boolean }>`
   ${tw`
     appearance-none
-    w-[400px] h-10 px-4
+    h-10 px-4 w-full
     box-border outline-none
     font-regular text-14 leading-24 text-monochrome-medium-tint
     bg-monochrome-black border rounded border-monochrome-dark

@@ -1,10 +1,11 @@
+import merge from 'lodash.merge';
 import { camelToSpaces, getPropertyByPath } from '../../../utils';
 
 type FormValidationResult = Record<string, string> | undefined;
 export type FormValidator = <T extends Record<string, unknown>>(formValues: T) => FormValidationResult;
 
 export function composeValidators(...validators: (FormValidator | boolean)[]): FormValidator {
-  return (values) => Object.assign({}, ...validators.map((validator) => typeof validator !== 'boolean' && validator(values)));
+  return (values) => merge({}, ...validators.map((validator) => typeof validator !== 'boolean' && validator(values)));
 }
 
 export function required(fieldName: string, fieldAlias?: string): FormValidator {

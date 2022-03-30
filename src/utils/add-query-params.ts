@@ -15,8 +15,8 @@
  */
 import queryString from 'querystring';
 
-export const addQueryParamsToPath = (params: Record<string, string>) => {
+export const addQueryParamsToPath = (params: Record<string, string>, path?: string) => {
   const { pathname, search } = window.location;
   const searchParams = Object.entries(queryString.parse(search.slice(1))); // remove ? symbol from string
-  return `${pathname}?${queryString.stringify({ ...Object.fromEntries(searchParams), ...params })}`;
+  return `${path || pathname}?${queryString.stringify({ ...Object.fromEntries(searchParams), ...params })}`;
 };

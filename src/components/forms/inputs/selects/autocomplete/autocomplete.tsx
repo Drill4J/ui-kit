@@ -9,7 +9,7 @@ interface Props {
   options: OptionType[];
   onChange: (value: string | null, option?: OptionType) => void;
   onClear?: () => void;
-  placeholder: string;
+  placeholder?: string;
   defaultValue?: string;
   disabled?: boolean;
   className?: string;
@@ -56,7 +56,7 @@ export const Autocomplete = memo(({
               {selectedOption
                 ? <Select.SelectedValue>{selectedOption.label}</Select.SelectedValue>
                 : <Select.Placeholder>{placeholder}</Select.Placeholder>}
-              {selectedOption && (
+              {selectedOption && onClear && (
                 <Icons.Close
                   width={12}
                   height={12}

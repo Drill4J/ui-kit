@@ -63,7 +63,7 @@ export const Autocomplete = memo(({
                   onClick={(e) => {
                     e.stopPropagation();
                     selectValue('');
-                    onClear && onClear();
+                    onClear();
                   }}
                 />
               )}

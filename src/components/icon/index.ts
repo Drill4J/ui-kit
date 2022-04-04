@@ -87,6 +87,7 @@ import { path as infoFilled } from './path/info-filled.path';
 import { path as successFilled } from './path/success-filled.path';
 import { path as warningFilled } from './path/warning-filled.path';
 import { path as closeBold } from './path/close-bold.path';
+import { path as filter } from './path/filter.path';
 import { path as question } from './path/question.path';
 
 export const Icons = {
@@ -195,4 +196,5 @@ export const Icons = {
   WarningFilled: declareIcon(warningFilled, { defaultWidth: 16, defaultHeight: 16 }),
   CloseBold: declareIcon(closeBold, { defaultWidth: 12, defaultHeight: 12 }),
   Question: declareIcon(question, { defaultWidth: 24, defaultHeight: 24, viewBox: '0 0 20 20' }),
+  Filter: declareIcon(filter, { defaultWidth: 16, defaultHeight: 16 }),
 };

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { ComponentMeta, Meta, Story } from '@storybook/react';
+import { ComponentMeta, Story } from '@storybook/react';
 import { Icons } from './index';
 import 'twin.macro';
 
@@ -12,7 +12,7 @@ export default {
     height: { type: 'number' },
     rotate: { type: 'number' },
   },
-} as ComponentMeta<typeof Icons>
+} as ComponentMeta<typeof Icons>;
 
 export const IconsTable: Story = (args) => {
   const StorybookIcons = Object.keys(Icons);

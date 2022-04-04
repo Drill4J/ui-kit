@@ -7,9 +7,10 @@ import { Icons } from '../../../icon';
 export const SearchInput = ({
   className,
   reset,
+  isOpen: isDefaultOpen,
   ...restProps
-}: InputProps) => {
-  const [isOpen, setIsOpen] = useState(Boolean(restProps.value));
+}: { isOpen?: boolean } & InputProps) => {
+  const [isOpen, setIsOpen] = useState(Boolean(restProps.value || isDefaultOpen));
   const node = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -55,5 +56,5 @@ const SearchIcon = styled(Icons.Search)`
 `;
 
 const ClearIcon = styled(Icons.Close)`
-  ${tw`absolute text-monochrome-black cursor-pointer right-0`}
+  ${tw`absolute text-monochrome-black cursor-pointer right-[6px]`}
 `;

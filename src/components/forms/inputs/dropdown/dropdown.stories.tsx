@@ -22,13 +22,15 @@ export const Template: Story = (args) => {
     </div>
   );
 };
-Template.args = { items: [
-  {
-    value: 'first item',
-    label: 'first item',
-  },
-  {
-    value: 'second item',
-    label: 'second item with custom label',
-  },
-] }
+Template.args = {
+  items: [
+    {
+      value: 'first item',
+      label: 'first item',
+    },
+    {
+      value: 'second item',
+      label: 'second item with custom label',
+    },
+  ],
+};

@@ -16,12 +16,14 @@ interface Props {
   items: MenuItemType[];
   bordered?: boolean;
   testContext?: string;
+  className?: string;
 }
 
 export const Menu = ({
   items,
   bordered,
   testContext = '',
+  className,
 }: Props) => (
   <Popover tw="text-monochrome-black">
     {({ isOpen, setIsOpen }) => {
@@ -30,6 +32,7 @@ export const Menu = ({
 
       return (
         <MenuIcon
+          className={className}
           onClick={() => setIsOpen(!isOpen)}
           data-test={`menu:icon:${testContext}`}
         >

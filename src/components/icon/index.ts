@@ -87,6 +87,7 @@ import { path as infoFilled } from './path/info-filled.path';
 import { path as successFilled } from './path/success-filled.path';
 import { path as warningFilled } from './path/warning-filled.path';
 import { path as closeBold } from './path/close-bold.path';
+import { path as filter } from './path/filter.path';
 
 export const Icons = {
   Arrow: declareIcon(arrowPath),
@@ -193,4 +194,5 @@ export const Icons = {
   SuccessFilled: declareIcon(successFilled, { defaultWidth: 16, defaultHeight: 16 }),
   WarningFilled: declareIcon(warningFilled, { defaultWidth: 16, defaultHeight: 16 }),
   CloseBold: declareIcon(closeBold, { defaultWidth: 12, defaultHeight: 12 }),
+  Filter: declareIcon(filter, { defaultWidth: 16, defaultHeight: 16 }),
 };

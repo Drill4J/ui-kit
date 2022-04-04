@@ -16,7 +16,7 @@ export default {
   },
   decorators: [
     (StoryComponent) => (
-      <div style={{ margin: '100px' }}>
+      <div style={{ margin: '300px' }}>
         <StoryComponent />
       </div>
     ),
@@ -40,3 +40,6 @@ Left.args = { position: 'left' };
 
 export const Right = Template.bind({});
 Right.args = { position: 'right' };
+
+export const BottomCenter = Template.bind({});
+BottomCenter.args = { position: 'bottom-center' };

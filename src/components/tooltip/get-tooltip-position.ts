@@ -7,8 +7,9 @@ export interface Anchors {
   messageWidth: number;
   offset: number;
 }
+export type Position = 'top-center' | 'top-right' | 'top-left' | 'left' | 'right' | 'bottom-center';
 
-export const getTooltipPosition = (tooltipPositionType: string, anchors: Anchors) => {
+export const getTooltipPosition = (tooltipPositionType: Position, anchors: Anchors) => {
   const isInvalidAnchors = Object.values(anchors).some(anchor => Number.isNaN(anchor) || anchor === Infinity || typeof anchor !== 'number');
   const {
     childrenTopPosition, childrenLeftPosition, childrenWidth, childrenHeight, messageHeight, messageWidth, offset,
@@ -40,6 +41,11 @@ export const getTooltipPosition = (tooltipPositionType: string, anchors: Anchors
       return {
         top: `${childrenTopPosition + (childrenHeight - messageHeight) / 2}px`,
         left: `${childrenLeftPosition - messageWidth - offset}px`,
+      };
+    case 'bottom-center':
+      return {
+        top: `${childrenTopPosition + childrenHeight + offset}px`,
+        left: `${childrenLeftPosition - (messageWidth - childrenWidth) / 2}px`,
       };
     default:
       return {

@@ -17,7 +17,7 @@ import React, {
   useEffect, useMemo, useRef,
 } from 'react';
 import {
-  useTable, useExpanded, Column, useSortBy, usePagination, useFilters, Row,
+  useTable, useExpanded, Column, useSortBy, usePagination, useFilters,
 } from 'react-table';
 import { withErrorBoundary } from 'react-error-boundary';
 
@@ -177,7 +177,7 @@ export const Table = withErrorBoundary(({
                 rawRow={rawRow}
                 prepareRow={prepareRow}
                 renderRowSubComponent={renderRowSubComponent}
-                searchWords={filters.map(({ value = '' }) => value)}
+                searchWords={filters.map(({ value = '' }) => value).filter((value: any) => typeof value === 'string')}
                 isDefaultExpanded={isDefaultExpanded && isDefaultExpanded(rawRow.original)}
               />
             )))}

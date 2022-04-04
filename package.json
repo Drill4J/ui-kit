@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "start:standalone": "npm run tailwind:css && webpack serve --port 8000",
+    "start:standalone": "npm run tailwind:css && webpack serve --port 8000 --env NODE_ENV=dev",
     "build:tw": "npx tailwindcss -i ./src/tailwind.css -o ./dist/tailwind.css --minify",
     "build": "tsc && webpack --mode=production",
     "build:dev": "webpack",

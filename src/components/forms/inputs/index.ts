@@ -13,6 +13,7 @@ export {
   Button, LinkButton, CancelButton, NegativeActionButton, CopyButton,
 } from './button';
 export { Checkbox } from './checkbox';
+
 export const Inputs = {
   Text: Input,
   Number: NumberInput,
@@ -27,3 +28,6 @@ export const Inputs = {
 };
 
 export { Dropdown } from './dropdown';
+export {
+  MultipleSelectAutocomplete, LightDropdown, Autocomplete, Select as HeadlessSelect,
+} from './selects';

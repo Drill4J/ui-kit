@@ -16,7 +16,7 @@
 import { useHistory } from 'react-router-dom';
 import { removeQueryParamsFromPath } from '../utils';
 
-export const useCloseModal = (name: string, params?: string[]) => {
+export const useCloseModal = (params?: string[]) => {
   const { push } = useHistory();
   if (params) {
     return () => push(removeQueryParamsFromPath(['activeModal', ...params]));

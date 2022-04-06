@@ -71,7 +71,7 @@ export {
   Label,
 } from './components';
 export {
-  useClickOutside, useElementSize, useHover, usePreserveCaretPosition,
+  useClickOutside, useElementSize, useHover, usePreserveCaretPosition, useIntersectionSide,
   useRunAfterUpdate, useQueryParams, useIntersection, useGeneralAlertMessage, useCloseModal, useCopy,
 } from './hooks';
 

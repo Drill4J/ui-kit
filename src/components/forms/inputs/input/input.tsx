@@ -7,7 +7,7 @@ export const Input = styled.input<{disabled?: boolean; error?: boolean; touched?
   height: 40px;
   padding: 0 16px;
   line-height: 22px;
-  border: 1px solid #e3e6e8;
+  border: 1px solid #a4acb3;
   border-radius: 4px;
   background-color: #ffffff;
   color: #1b191b;

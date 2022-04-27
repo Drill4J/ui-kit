@@ -52,7 +52,7 @@ export const Autocomplete = memo(({
       return (
         <>
           <Select.Input disabled={disabled}>
-            <div tw="flex justify-between items-center flex-grow">
+            <div tw="flex justify-between items-center flex-grow truncate">
               {selectedOption
                 ? <Select.SelectedValue>{selectedOption.label}</Select.SelectedValue>
                 : <Select.Placeholder>{placeholder}</Select.Placeholder>}

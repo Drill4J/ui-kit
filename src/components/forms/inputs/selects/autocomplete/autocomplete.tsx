@@ -28,8 +28,16 @@ export const Autocomplete = memo(({
     {({
       options, selectedOption, isOpen, selectValue, setIsOpen,
     }) => {
+      const sortOpitons = useCallback((a: OptionType, b: OptionType) => {
+        if (a.value === selectedOption?.value) return -1;
+        if (b.value === selectedOption?.value) return 1;
+        return 0;
+      }, [selectedOption]);
+
+      const sortedOptions = selectedOption ? options.sort(sortOpitons) : options;
+
       const renderOptions = useCallback(({ index, style }) => {
-        const option = options[index];
+        const option = sortedOptions[index];
         const { value, label }: OptionType = option;
         return (
           <Select.Option
@@ -47,7 +55,7 @@ export const Autocomplete = memo(({
             {label}
           </Select.Option>
         );
-      }, [options, selectedOption]);
+      }, [sortedOptions, selectedOption]);
 
       return (
         <>

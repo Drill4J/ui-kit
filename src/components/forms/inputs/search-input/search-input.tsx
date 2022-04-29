@@ -22,7 +22,11 @@ export const SearchInput = ({
   return (
     <div tw="w-full relative">
       <div tw="flex h-6 items-center" className={className}>
-        <SearchIcon onClick={() => setIsOpen(!isOpen)} active={isOpen || restProps?.value} data-test="search-input:enable-input" />
+        <SearchIcon
+          onClick={reset}
+          active={isOpen || restProps?.value}
+          data-test="search-input:enable-input"
+        />
         {isOpen && <Input {...restProps} ref={node} />}
         {isOpen && restProps?.value && (
           <ClearIcon width={8} height={8} onClick={reset} data-test="search-input:clear-icon" />

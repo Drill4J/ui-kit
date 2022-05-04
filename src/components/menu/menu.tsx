@@ -55,7 +55,7 @@ export const Menu = ({
                   onClick,
                   Content = ({ children }) => children,
                   disabled: disableItem = false,
-                  ...rest
+                  ...restItem
                 }) => {
                   const ItemIcon = Icons[icon];
                   const event = !disableItem ? onClick : () => {};
@@ -65,7 +65,7 @@ export const Menu = ({
                         onClick={event}
                         data-test={`menu:item:${spacesToDashes(label)}`}
                         disabled={disableItem}
-                        {...rest}
+                        {...restItem}
                       >
                         <ItemIcon width={16} height={16} />
                         <ItemLabel>{label}</ItemLabel>

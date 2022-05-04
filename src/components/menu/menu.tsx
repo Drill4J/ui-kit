@@ -19,6 +19,7 @@ interface Props {
   testContext?: string;
   className?: string;
   disabled?: boolean;
+  title?: string;
 }
 
 export const Menu = ({
@@ -27,7 +28,7 @@ export const Menu = ({
   testContext = '',
   className,
   disabled = false,
-  ...rest
+  title,
 }: Props) => (
   <Popover tw="text-monochrome-black">
     {({ isOpen, setIsOpen }) => {
@@ -40,7 +41,7 @@ export const Menu = ({
           onClick={() => !disabled && setIsOpen(!isOpen)}
           data-test={`menu:icon:${testContext}`}
           disabled={disabled}
-          {...rest}
+          title={title}
         >
           {bordered ? <Icons.MoreOptionsWithBorder /> : <Icons.MoreOptions />}
           {isOpen && (
@@ -55,7 +56,7 @@ export const Menu = ({
                   onClick,
                   Content = ({ children }) => children,
                   disabled: disableItem = false,
-                  ...rest
+                  ...restItem
                 }) => {
                   const ItemIcon = Icons[icon];
                   const event = !disableItem ? onClick : () => {};
@@ -65,7 +66,7 @@ export const Menu = ({
                         onClick={event}
                         data-test={`menu:item:${spacesToDashes(label)}`}
                         disabled={disableItem}
-                        {...rest}
+                        {...restItem}
                       >
                         <ItemIcon width={16} height={16} />
                         <ItemLabel>{label}</ItemLabel>

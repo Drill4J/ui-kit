@@ -10,6 +10,7 @@ export interface MenuItemType {
   icon: keyof typeof Icons;
   onClick: () => void;
   Content?: (props: { children: JSX.Element }) => JSX.Element;
+  disabled?: boolean;
 }
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
   bordered?: boolean;
   testContext?: string;
   className?: string;
+  disabled?: boolean;
 }
 
 export const Menu = ({
@@ -24,6 +26,8 @@ export const Menu = ({
   bordered,
   testContext = '',
   className,
+  disabled = false,
+  ...rest
 }: Props) => (
   <Popover tw="text-monochrome-black">
     {({ isOpen, setIsOpen }) => {
@@ -33,8 +37,10 @@ export const Menu = ({
       return (
         <MenuIcon
           className={className}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => !disabled && setIsOpen(!isOpen)}
           data-test={`menu:icon:${testContext}`}
+          disabled={disabled}
+          {...rest}
         >
           {bordered ? <Icons.MoreOptionsWithBorder /> : <Icons.MoreOptions />}
           {isOpen && (
@@ -48,13 +54,18 @@ export const Menu = ({
                   label,
                   onClick,
                   Content = ({ children }) => children,
+                  disabled: disableItem = false,
+                  ...restItem
                 }) => {
                   const ItemIcon = Icons[icon];
+                  const event = !disableItem ? onClick : () => {};
                   return (
                     <Content key={`menu:item:${spacesToDashes(label)}`}>
                       <Item
-                        onClick={onClick}
+                        onClick={event}
                         data-test={`menu:item:${spacesToDashes(label)}`}
+                        disabled={disableItem}
+                        {...restItem}
                       >
                         <ItemIcon width={16} height={16} />
                         <ItemLabel>{label}</ItemLabel>
@@ -70,12 +81,10 @@ export const Menu = ({
     }}
   </Popover>
 );
-const MenuIcon = styled.div`
-  ${tw`relative flex items-center text-blue-default cursor-pointer max-h-[32px] max-w-[32px]
-    hover:text-blue-medium-tint
-    active:text-blue-shade
-  `}
-`;
+const MenuIcon = styled.div<{ disabled: boolean }>(({ disabled }) => [
+  tw`relative flex items-center text-blue-default max-h-[32px] max-w-[32px] cursor-not-allowed`,
+  !disabled && tw`hover:text-blue-medium-tint active:text-blue-shade cursor-pointer`,
+]);
 
 type Position = 'bottom' | 'top'
 
@@ -97,11 +106,10 @@ const ItemsList = styled.div<{ position: Position }>`
   }
 `;
 
-const Item = styled.div`
-  ${tw`flex flex-row items-center py-0 px-4 cursor-pointer
-    hover:bg-monochrome-light-tint
-  `};
-`;
+const Item = styled.div<{ disabled: boolean }>(({ disabled }) => [
+  tw`flex flex-row items-center py-0 px-4 hover:bg-monochrome-light-tint cursor-pointer`,
+  disabled && tw`text-monochrome-dark-tint cursor-not-allowed hover:bg-transparent`,
+]);
 
 const ItemLabel = styled.span`
   ${tw`text-14 leading-32 ml-2 whitespace-nowrap`};

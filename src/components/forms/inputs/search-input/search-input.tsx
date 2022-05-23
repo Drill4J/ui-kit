@@ -8,8 +8,9 @@ export const SearchInput = ({
   className,
   reset,
   isOpen: isDefaultOpen,
+  isResetOnIcon,
   ...restProps
-}: { isOpen?: boolean } & InputProps) => {
+}: { isOpen?: boolean, isResetOnIcon?: boolean } & InputProps) => {
   const [isOpen, setIsOpen] = useState(Boolean(restProps.value || isDefaultOpen));
   const node = useRef<HTMLFormElement>(null);
 
@@ -19,11 +20,13 @@ export const SearchInput = ({
     }
   }, [isOpen]);
 
+  const iconHandler = isResetOnIcon ? reset : () => setIsOpen(!isOpen);
+
   return (
     <div tw="w-full relative">
       <div tw="flex h-6 items-center" className={className}>
         <SearchIcon
-          onClick={reset}
+          onClick={iconHandler}
           active={isOpen || restProps?.value}
           data-test="search-input:enable-input"
         />

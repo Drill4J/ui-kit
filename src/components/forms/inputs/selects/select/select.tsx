@@ -95,6 +95,7 @@ const Search: React.FC = (props) => {
       onChange={({ target: { value } }) => setFilterValue(value)}
       reset={() => setFilterValue('')}
       value={filterValue}
+      isResetOnIcon
       {...props}
     />
   );

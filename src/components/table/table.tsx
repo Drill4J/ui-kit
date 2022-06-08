@@ -106,7 +106,7 @@ export const Table = withErrorBoundary(({
     state: { pageIndex, pageSize, filters },
   }: any = useTable(
     {
-      columns: useMemo(() => columns.map((col) => ({ ...col, sortType: alphanumeric })), [...columnsDependency]),
+      columns: useMemo(() => columns.map((col) => ({ ...col, sortType: col.sortType || alphanumeric })), [...columnsDependency]),
       data: useMemo(() => (!isLoading && data.length > 0 ? data : Array(initialRowsCount).fill(initialRowsCount)), [isLoading, data]),
       initialState: {
         pageSize: 25, sortBy: defaultSortBy, ...parsedTableState,

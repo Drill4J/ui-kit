@@ -20,7 +20,7 @@ import { TableElements } from '../table-elements';
 export const DefaultTableHeaderColumn = ({ column }: any) => (
   <TableElements.TH
     key={`table-th-${column.id}`}
-    style={{ textAlign: column.textAlign || 'right', width: column.filterable ? '100%' : column.width }}
+    style={{ textAlign: column.textAlign || 'right', width: column.width }}
     data-test={`table-th-${column.id}`}
   >
     <div css={[

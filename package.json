@@ -1,6 +1,6 @@
 {
   "name": "@drill4j/ui-kit",
-  "version": "2.5.7",
+  "version": "2.5.8",
   "homepage": "http://drill4j.github.io/ui-kit",
   "author": "Drill4J",
   "license": "Apache-2.0",
@@ -29,7 +29,7 @@
     "build-storybook": "build-storybook",
     "tailwind:css": "tailwind build src/tailwind.css -c tailwind.config.js -o src/index.css",
     "deploy": "gh-pages -d storybook-static",
-    "serve": "ws -d dist --port=8000",
+    "serve": "ws -d dist --port=3000",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:components": "jest src/components",

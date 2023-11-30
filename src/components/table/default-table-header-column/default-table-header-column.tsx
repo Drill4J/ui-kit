@@ -40,7 +40,9 @@ export const DefaultTableHeaderColumn = ({ column }: any) => (
           {column.render('Header')}
         </TableElements.HeaderText>
       </TableElements.Label>
-      {column.filterable ? column.render('Filter') : null}
+      <>
+        {column.filterable && column.render('Filter')}
+      </>
     </div>
   </TableElements.TH>
 );

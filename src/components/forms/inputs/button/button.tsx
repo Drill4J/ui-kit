@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 import { ButtonType } from './button-type';
 
 export const Button = styled.button<ButtonType>`
-  ${tw`flex items-center rounded-2xl gap-x-2 outline-none cursor-pointer`}
+  ${tw`flex justify-center items-center rounded-2xl gap-x-2 outline-none cursor-pointer`}
   
   ${({
     primary, secondary, size, disabled,

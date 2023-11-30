@@ -9,6 +9,8 @@ const TableHead = styled.thead`
   inset 0 -1px 0 #1b1b1b;
 `;
 
+// TODO: "active" attribute causes "Received `true` for a non-boolean attribute `active`." error
+// possible reason https://stackoverflow.com/a/57194646 (I don't see any "acitve" attributes in the output html though)
 const SortArrow = styled.div`
   ${tw`invisible absolute -left-4 grid place-items-center h-4 w-4 text-blue-medium-tint cursor-pointer`};
 

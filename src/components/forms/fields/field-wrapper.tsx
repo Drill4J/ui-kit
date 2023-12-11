@@ -30,53 +30,56 @@ interface Props {
   normalize?: (value: string) => string;
   focus?: boolean;
   select?: boolean;
+  type?: string;
 }
 
 export const fieldWrapper = (Input: React.ElementType) => ({
-  field: { name }, form, placeholder, disabled, normalize = (value) => value, focus, select,
-}: Props) => {
-  const [field, meta, helper] = useField(name);
-  const { isSubmitting, dirty, handleSubmit } = form || {};
+    field: { name }, form, placeholder, disabled, normalize = (value) => value, focus, select, type, ...restProps
+      }: Props) => {
+    const [field, meta, helper] = useField(name);
+    const { isSubmitting, dirty, handleSubmit } = form || {};
 
-  const handleOnChange = usePreserveCaretPosition((value) => normalize(convertToSingleSpaces(value)));
-  const node = useRef<HTMLFormElement>(null);
+    const handleOnChange = usePreserveCaretPosition((value) => normalize(convertToSingleSpaces(value)));
+    const node = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    const listener = (event: KeyboardEvent) => {
-      const isPressedCtrlEnter = (event.ctrlKey || event.metaKey) && event.keyCode === 13;
-      if (isPressedCtrlEnter && !isSubmitting && dirty) {
-        handleSubmit && handleSubmit();
+    useEffect(() => {
+      const listener = (event: KeyboardEvent) => {
+        const isPressedCtrlEnter = (event.ctrlKey || event.metaKey) && event.keyCode === 13;
+        if (isPressedCtrlEnter && !isSubmitting && dirty) {
+          handleSubmit && handleSubmit();
+        }
+      };
+      node && node.current && node.current.addEventListener('keydown', listener);
+      return () => {
+        node && node.current && node.current.removeEventListener('keydown', listener);
+      };
+    });
+
+    useEffect(() => {
+      if (node && node.current) {
+        focus && node.current.focus();
+        select && node.current.select();
       }
-    };
-    node && node.current && node.current.addEventListener('keydown', listener);
-    return () => {
-      node && node.current && node.current.removeEventListener('keydown', listener);
-    };
-  });
+    }, []);
 
-  useEffect(() => {
-    if (node && node.current) {
-      focus && node.current.focus();
-      select && node.current.select();
-    }
-  }, []);
-
-  return (
-    <div>
-      <Input
-        {...field}
-        placeholder={placeholder}
-        error={meta.error}
-        touched={meta.touched}
-        disabled={disabled}
-        ref={node}
-        onBlur={(event: React.ChangeEvent<HTMLInputElement>) => { field.onBlur(event); helper.setValue(event.target.value.trimEnd()); }}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange(helper.setValue, event)}
-      />
-      <ErrorMessage component={ErrorMessageWrapper} name={name} />
-    </div>
-  );
-};
+    return (
+      <div>
+        <Input
+          {...field}
+          {...restProps}
+          type={type}
+          placeholder={placeholder}
+          error={meta.error}
+          touched={meta.touched}
+          disabled={disabled}
+          ref={node}
+          onBlur={(event: React.ChangeEvent<HTMLInputElement>) => { field.onBlur(event); helper.setValue(event.target.value.trimEnd()); }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnChange(helper.setValue, event)}
+        />
+        <ErrorMessage component={ErrorMessageWrapper} name={name} />
+      </div>
+    );
+  };
 
 const ErrorMessageWrapper = styled.div`
   ${tw`text-12 leading-24 text-red-default`};

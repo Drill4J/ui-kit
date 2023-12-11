@@ -27,6 +27,11 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return merge(defaultConfig, {
+    resolve: {
+      fallback: {
+        "querystring": require.resolve("querystring-es3")
+      },
+    },
     externals: ['single-spa', 'react', 'react-dom', 'react-router-dom'],
     stats: webpackConfigEnv.NODE_ENV === 'dev' ? 'errors-only' : 'normal',
   });
